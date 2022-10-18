@@ -58,20 +58,10 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Smart-contracts documentation
+   :caption: General documentation
 
-   smart-contracts/introduction.rst
-   smart-contracts/getting-started.rst
-   smart-contracts/massa-sc-by-example.rst
-   smart-contracts/types.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Massa's decentralized web
-
-   decentralized-web/decentralized-web.rst
-   decentralized-web/hosting.rst
-   decentralized-web/browser-plugin.rst
+   general-doc/architecture.rst
+   general-doc/decentralized-web.rst
 
 .. toctree::
    :maxdepth: 2
@@ -89,10 +79,18 @@ Contents
 
 .. toctree::
    :maxdepth: 2
+   :caption: Web3 developers
+
+   web3-dev/smart-contracts.rst
+   web3-dev/decentralized-web.rst
+   web3-dev/types.rst
+   web3-dev/external-ressources.rst
+
+.. toctree::
+   :maxdepth: 2
    :caption: Technical documentation
 
    technical-doc/storage-costs.rst
-   technical-doc/architecture.rst
    technical-doc/api.rst
    technical-doc/glossary.rst
    technical-doc/concurrency.rst

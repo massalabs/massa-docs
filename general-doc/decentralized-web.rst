@@ -1,4 +1,8 @@
-.. index:: decentralized web
+.. index:: web; decentralized, decentralized web
+
+#########################
+Massa's decentralized web
+#########################
 
 .. _web-intro:
 
@@ -27,11 +31,12 @@ That's it from the point of view of the node.
 Decentralized websites deployed on the Massa blockchain can then be accessed in your browser
 using a browser extension :ref:`here <web-plugin>`.
 
-That way, Massa allows deploying fully decentralized code-is-law apps, as it was meant to be !
+That way, Massa allows deploying fully decentralized code-is-law apps, as it was meant to be!
 
 To close the loop, we can imagine dumping a copy of the source code of Massa and surrounding tools in the filestore of an on-chain smart contract.
 
 Filestore
 ---------
 
-From the point of the node, this functions just like another extra binary datastore in the SCE ledger, but indexed by a max-255-char string (instead of hash) and we call it the "filestore".
+From the point of the node, this functions just like another extra binary datastore in the SCE ledger,
+but indexed by a max-255-char string (instead of hash) and we call it the "filestore".

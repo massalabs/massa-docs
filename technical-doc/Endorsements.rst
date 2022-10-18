@@ -138,8 +138,6 @@ You can find more details in the [technical paper](https://arxiv.org/abs/1803.09
 
 .. image:: simulation_result.png
 
-
-
 TODOS
 =====
 

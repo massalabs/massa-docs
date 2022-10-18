@@ -2,8 +2,9 @@
 
 .. _sc-types:
 
+#####
 Types
-=====
+#####
 
 The following `AssemblyScript <https://www.assemblyscript.org>`_ types can be helpful in your smart contract journey without having to reinvent the wheel.
 
@@ -14,12 +15,12 @@ The following `AssemblyScript <https://www.assemblyscript.org>`_ types can be he
 .. _Currency:
 
 Currency
---------
+========
 
 A representation of a monetary unit used to express a value.
 
 Usage
-^^^^^
+-----
 
 .. code-block:: typescript
 
@@ -34,7 +35,7 @@ More info at `module repository <https://github.com/massalabs/massa-sc-library/t
 .. _Amount:
 
 Amount
-------
+======
 
 A representation of a value in a :ref:`Currency`.
 
@@ -43,7 +44,7 @@ A representation of a value in a :ref:`Currency`.
     `Amount` implements :ref:`Valider` as some operations, such as subtraction leading to a negative value, can result in an invalid `Amount`.
 
 Usage
-^^^^^
+-----
 
 .. code-block:: typescript
 
@@ -63,7 +64,7 @@ More info at `module repository <https://github.com/massalabs/massa-sc-library/t
 .. _Valider:
 
 Valider
--------
+=======
 
 An interface to unify how invalid types are handled.
 
@@ -74,7 +75,7 @@ An interface to unify how invalid types are handled.
    Then this is the only way to perform an action on a type and check later if the type is still valid.
 
 Usage
-^^^^^
+-----
 
 .. code-block:: typescript
 
