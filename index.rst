@@ -85,7 +85,7 @@ Contents
    web3-dev/decentralized-web.rst
    web3-dev/types.rst
    web3-dev/dummy-network-generation.rst
-   web3-dev/external-ressources.rst
+   web3-dev/external-resources.rst
 
 .. toctree::
    :maxdepth: 2
