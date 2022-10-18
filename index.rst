@@ -84,6 +84,7 @@ Contents
    web3-dev/smart-contracts.rst
    web3-dev/decentralized-web.rst
    web3-dev/types.rst
+   web3-dev/dummy-network-generation.rst
    web3-dev/external-ressources.rst
 
 .. toctree::
@@ -96,7 +97,6 @@ Contents
    technical-doc/concurrency.rst
    technical-doc/Endorsements.rst
    technical-doc/vm-ledger-interaction.rst
-   technical-doc/dummy-network-generation.rst
 
 * :ref:`genindex`
 * :ref:`modindex`
