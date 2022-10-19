@@ -25,8 +25,8 @@ and that funds from lenders cannot be lost, such positions must be liquidated.
 Such liquidations are currently performed by organizations or individuals running bots, usualy on
 some centralized cloud services.
 
-The need for autonomous smart contracts
----------------------------------------
+The need for a reliable automation mechanism
+--------------------------------------------
 
 There are countless of applications that rely on recurrent calls to function properly.
 As a result, a lot of time and energy has been spent trying to develop more reliable networks
@@ -35,6 +35,9 @@ solutions are inherently off-chain, there's no guarantee that the execution will
 be effectively triggered. And when those bots
 `fail to execute such transactions <https://insights.glassnode.com/what-really-happened-to-makerdao/>`_,
 those protocols are at risk (and the applications built on top of them).
+
+Autonomous Smart Contracts
+==========================
 
 Massa's **Autonomous Smart Contracts** solve the issues of lacking reliability,
 sophistication and centralization around dapps that want to offer automated smart contract
