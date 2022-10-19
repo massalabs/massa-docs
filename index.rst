@@ -17,6 +17,18 @@ even in a fully decentralized network with thousands of nodes.
 An easy-to-read blog post introduction with videos is written
 `here <https://massa.net/blog/post/0/>`_.
 
+General documentation
+---------------------
+
+A general overview of the global architecture of a Massa Node is given
+`here <general-introduction>`.
+
+Massa introduce several new features that allows you to add a layer of security
+to your decentralized applications:
+
+- :ref:`Massa's decentralized web <decentralized-web>` allow to truly secure decentralized application by storing your dApps directly on the Massa blockchain.
+- :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security and reliability to your decentralized applications by allowing your smart contracts to wake up by themselves and perform arbitry operations.
+
 Testnet
 -------
 
@@ -24,19 +36,14 @@ As decentralization is our core value, we would like to help you start
 and run a Massa node on our testnet. You'll find a full tutorial on how
 to install and stake with your node on our testnet :ref:`here <testnet-install>`.
 
-Smart-contracts
+Web3 developers
 ---------------
 
-If you are interested in Massa smart-contract engine, you'll find a general
-introduction to the Massa's smart-contract engine :ref:`here <sc-introduction>`.
+If you want to build on the Massa blockchain we recommend the following ressources:
 
-If you want to build smart-contract or interact with smart-contracts on the Massa
-blockchain we recommend the following ressources:
-
-- :ref:`Getting started<sc-getting-started>` tutorial, will get you through the various steps needed to compile and upload smart-contracts.
-- :ref:`Massa's smart-contract by example <sc-example>` a more advanced tutorial, that goes through all the steps needed to build a decentralized application using Massa's smart-contracts and Massa's decentralized web.
-- :ref:`Massa's decentralized web <sc-example>` tutorial explains how the Massa blockchain can be used to host decentralized websites.
-- :ref:`Types <sc-types>` a collection of useful types for smart-contracts.
+- :ref:`Massa's smart-contracts <sc-introduction>`, will get you through the various steps needed to compile and send smart-contracts to the Massa blockchain.
+- :ref:`Massa's decentralized web <decentralized-web>` will show you how the Massa blockchain can be used to host decentralized websites.
+- :ref:`Types <sc-types>` is a collection of useful types for smart-contracts.
 
 Technical ressources
 --------------------
@@ -62,6 +69,7 @@ Contents
 
    general-doc/architecture.rst
    general-doc/decentralized-web.rst
+   general-doc/autonomous-sc.rst
 
 .. toctree::
    :maxdepth: 2

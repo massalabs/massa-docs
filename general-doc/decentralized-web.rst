@@ -1,7 +1,7 @@
 .. index:: web; decentralized, decentralized web
 
 #########################
-Massa's decentralized web
+Massa's Decentralized web
 #########################
 
 .. _web-intro:
@@ -9,8 +9,8 @@ Massa's decentralized web
 Rationale
 =========
 
-The *code is law* rule is a cornerstone of DeFi. It states among other things that once successfully audited
-, a program can remain trusted. This implies that the program of a successfully audited smart contract may
+The *code is law* rule is a cornerstone of DeFi. It states among other things that once successfully audited,
+a program can remain trusted. This implies that the program of a successfully audited smart contract may
 never be unexpectedly changed by an outsider (note that contracts that modify their own code during runtime
 cannot be trusted this way in the first place, but this is visible in the code audit). Popular ETH smart contracts
 essentially follow that rule.
@@ -28,9 +28,6 @@ datastore for this, outside of the risk of key collisions, is for easier auditin
 bytecode nor its filestore after deployment, it is safe to assume that the stored website can't change anymore.
 That's it from the point of view of the node.
 
-Decentralized websites deployed on the Massa blockchain can then be accessed in your browser
-using a browser extension :ref:`here <web-plugin>`.
-
 That way, Massa allows deploying fully decentralized code-is-law apps, as it was meant to be!
 
 To close the loop, we can imagine dumping a copy of the source code of Massa and surrounding tools in the filestore of an on-chain smart contract.
@@ -38,5 +35,5 @@ To close the loop, we can imagine dumping a copy of the source code of Massa and
 Filestore
 ---------
 
-From the point of the node, this functions just like another extra binary datastore in the SCE ledger,
+From the point of the node, this functions just like another extra binary datastore in the ledger,
 but indexed by a max-255-char string (instead of hash) and we call it the "filestore".
