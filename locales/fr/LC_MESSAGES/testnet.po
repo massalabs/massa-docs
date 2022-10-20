@@ -1,0 +1,1703 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Massa Labs
+# This file is distributed under the same license as the Massa package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Massa \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-20 15:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../testnet/community-resources.rst:3
+msgid "Tutorials and resources from the community"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:5
+msgid ""
+"The Massa community is growing and we want to thank everyone who is "
+"participating in the project. Some members created useful tutorials and "
+"resources and deserve to be credited for it. In this document, we are "
+"gathering links of the latest creations."
+msgstr ""
+
+#: ../../testnet/community-resources.rst:9
+msgid ""
+"**Please note, these are unofficial and not frequently checked by the "
+"core members. Some might be outdated or miss important information. For "
+"security reasons, we encourage you to go through the official "
+"installation process and tutorials or trusted parties. As always, use "
+"your best judgment when visiting third party links.**"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:14
+msgid "About Massa"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:16
+msgid ""
+"`English - Presentation of Massa "
+"<https://medium.com/@unlimitedmolotnorilsk/massa-decentralization-is-"
+"unavoidable-6f903f7500da>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:17
+msgid ""
+"`English - AMA video with RØ CRYPTØ "
+"<https://www.youtube.com/watch?v=N6R2her9yTQ&ab_channel=R%C3%98CRYPT%C3%98>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:18
+msgid ""
+"`English - Article about scalability "
+"<https://medium.com/@metamorfosis00000/massa-solved-the-blockchain-"
+"scalability-problem-43f03f5d1431>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:22
+#, python-format
+msgid ""
+"`Russian - Presentation of Massa team "
+"<https://medium.com/@bezniuk66/massa-%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%BC%D1%81%D1%82%D0%B2%D0%BE-%D1%81-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D0%BC%D0%B8-f2c9ef2add2a>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:23
+#, python-format
+msgid ""
+"`Russian - Massa raised €5 million "
+"<https://medium.com/@bezniuk66/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-massa-%D0%BF%D1%80%D0%B8%D0%B2%D0%BB%D0%B5%D0%BA-5-%D0%BC%D0%BB%D0%BD-%D0%B5%D0%B2%D1%80%D0%BE-%D0%B4%D0%BB%D1%8F-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE-%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B5%D0%BC%D1%83-%D0%B4%D0%B5%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B1%D0%BB%D0%BE%D0%BA%D1%87%D0%B5%D0%B9%D0%BD%D0%B0-f307db55c78d>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:27
+msgid ""
+"`Spanish - Presentation of Massa technology <https://kimiko-"
+"cumulo.medium.com/introducci%C3%B3n-a-la-blockchain-massa-7e5fab213462>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:28
+msgid ""
+"`Spanish - Summary of AMA during Ep6 <https://medium.com/@cumulo.pro/ama-"
+"con-los-cofundadores-de-massa-testnet-episodio-6-y-actualizaciones-"
+"18bc928122d7>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:29
+msgid ""
+"`Spanish - Summary of AMA with RØ CRYPTØ "
+"<https://medium.com/@cumulo.pro/r%C3%B8-crypt%C3%B8-ama-session-"
+"c991cabf9e44>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:30
+msgid ""
+"`Spanish - Testnet incentive program <https://medium.com/@cumulo.pro"
+"/programa-de-recompensas-testnet-staking-de-massa-75708b85b6a0>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:31
+msgid ""
+"`Spanish - Summary of AMA during Ep10 <https://medium.com/@cumulo.pro"
+"/ama-con-los-cofundadores-de-massa-testnet-episodio-10-d026d8f9ba16>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:34
+msgid "Setting up a node"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:36
+msgid ""
+"`English - Massa-node docker image with multiple features "
+"<https://hub.docker.com/r/rykcod/massa>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:37
+msgid ""
+"`English - Tutorial to create a Massa node "
+"<https://medium.com/@altaycrypto/massa-creating-a-node-1065cab11d73>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:38
+msgid ""
+"`English - Tutorial and resources to run Massa node & client on Docker "
+"<https://github.com/f-lopes/massa-docker>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:39
+msgid ""
+"`English - Tutorial to launch a node using a VPS (outdated) "
+"<https://mycryptobit99.medium.com/massa-node-setup-guide-e238c45275ac>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:40
+msgid ""
+"`English - How to migrate Massa node to Docker container "
+"<https://github.com/ParanormalBrothers/Massa-Node-Docker>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:41
+msgid "`English - Script which sets up a node <https://github.com/WeVouT/massa>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:44
+msgid ""
+"`Russian - Article and tutorial to launch a node using a VPS "
+"<https://teletype.in/@letskynode/Massa>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:48
+msgid ""
+"`Spanish - Tutorial to launch a node <https://medium.com/@massaesp/gu%C3"
+"%ADa-automatica-de-como-crear-un-nodo-para-linux-c657a976ea36>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:49
+msgid ""
+"`Spanish - Presentation and tutorial to launch a node "
+"<https://medium.com/@cumulo.pro/lanza-tu-nodo-en-la-testnet-de-massa-"
+"943cb5304247>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:53
+msgid ""
+"`French - Article and tutorial to launch a node using a VPS "
+"<https://www.muchco.in/academy/tutoriel-creation-noeud-massa>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:54
+msgid ""
+"`French - Tutorial to launch a node using a VPS "
+"<https://medium.com/@bouqsi/lancer-un-node-chez-massa-labs-8da7e01738c>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:55
+msgid ""
+"`French - Security best practices article <https://medium.com/@bouqsi"
+"/security-best-practices-si-vous-lancez-un-node-validateur-"
+"99f44b520f84>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:59
+#, python-format
+msgid ""
+"`Turkish - Article and tutorial to launch a node using a VPS "
+"<https://medium.com/@altai0/massa-the-decentralized-and-scaled-"
+"blockchain-d%C3%BC%C4%9F%C3%BCm-olu%C5%9Fturma-t%C3%BCrk%C3%A7e-"
+"7713d46c246c>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:60
+msgid ""
+"`Turkish - Tutorial video for starting a node "
+"<https://youtu.be/oIueyQIQ734>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:63
+msgid "Tracking the activity of a node"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:65
+msgid ""
+"`Monitoring scripts and commands <https://github.com/massalabs/massa/wiki"
+"/Monitoring-scripts-and-commands>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:66
+msgid "`Telegram Bot to track node activity <https://t.me/massacheck_bot>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:67
+msgid ""
+"`Telegram Bot to track node activity and network statistics "
+"<https://t.me/hekumatiarubot>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:68
+msgid "`Telegram Bot to track node activity <https://t.me/MassaHelperBot>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:69
+msgid "`Website to monitor your node <https://paranormal-brothers.com/massa/>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:70
+msgid ""
+"`Another website to monitor your node <https://grafana-massa.trend-"
+"deposits.com/d/MLcl7dt7k/massa-overview?orgId=2>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:71
+msgid ""
+"`Script to monitor faulty blocks of your node "
+"<https://github.com/WeVouT/massa/tree/main/monitor>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:74
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:76
+msgid "`Telegram Bot answering FAQs <https://t.me/paramassa_bot>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:77
+msgid ""
+"`A website with news, articles and tutorials about Massa "
+"<https://massadopted.com>`_"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:79
+msgid "---"
+msgstr ""
+
+#: ../../testnet/community-resources.rst:81
+msgid ""
+"`Spanish - Security recommendations when running a node "
+"<https://medium.com/@cumulo.pro/recomendaciones-de-seguridad-si-ejecutas-"
+"un-nodo-en-massa-deb2da5a5d43>`_"
+msgstr ""
+
+#: ../../testnet/faq.rst:5
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: ../../testnet/faq.rst:8
+msgid "General questions"
+msgstr ""
+
+#: ../../testnet/faq.rst:11
+msgid "What are the hardware requirements?"
+msgstr ""
+
+#: ../../testnet/faq.rst:13
+msgid ""
+"The philosophy of Massa is to be as decentralized as possible. To fulfill"
+" this goal, we aim to have low hardware requirements so that many people "
+"can run nodes. Right now 4 cores and 8 GB of RAM should be enough to run "
+"a node. As the transaction rate increases, it might not be sufficient "
+"anymore. Ultimately, we plan that the mainnet fits on a desktop computer "
+"with 8 cores, 16 GB RAM, and 1TB disk."
+msgstr ""
+
+#: ../../testnet/faq.rst:21
+msgid "Can it run on a VPS?"
+msgstr ""
+
+#: ../../testnet/faq.rst:23
+msgid ""
+"You can use a VPS to run a node. The pros of VPS are that they have high "
+"availability and are easy to configure. Cons are that nodes running on a "
+"VPS can lead to centralization if a lot of nodes running on the same "
+"provider (e.g. AWS)."
+msgstr ""
+
+#: ../../testnet/faq.rst:29
+msgid "How to keep the node running when I close the terminal?"
+msgstr ""
+
+#: ../../testnet/faq.rst:31
+msgid "You can run the following command in the terminal:"
+msgstr ""
+
+#: ../../testnet/faq.rst:33
+msgid ":code:`nohup cargo run --release &`"
+msgstr ""
+
+#: ../../testnet/faq.rst:35
+msgid ""
+"the output will go to the `nohup.out` file. You will be able to close the"
+" terminal safely then. To kill the app you'll have to use :code:`pkill -f"
+" massa-node`. You can also use `screen "
+"<https://help.ubuntu.com/community/Screen>`_ or `tmux "
+"<http://manpages.ubuntu.com/manpages/cosmic/man1/tmux.1.html>`_ for "
+"example."
+msgstr ""
+
+#: ../../testnet/faq.rst:41
+msgid "Will Massa support smart contracts?"
+msgstr ""
+
+#: ../../testnet/faq.rst:43
+msgid ""
+"We will try to support both the EVM for retro compatibility, and a "
+"specific smart contract engine that fully leverages the Massa protocol "
+"and allows to develop in more usual languages as well as introduces "
+"several innovations."
+msgstr ""
+
+#: ../../testnet/faq.rst:48
+msgid ""
+"We are currently finishing the implementation of a first version of the "
+"smart contract engine which should be released soon."
+msgstr ""
+
+#: ../../testnet/faq.rst:51
+msgid ""
+"We are planning some exciting features, such as self-wakeup, a bit like "
+"what is introduced `here <https://arxiv.org/pdf/2102.10784.pdf>`__"
+msgstr ""
+
+#: ../../testnet/faq.rst:55
+msgid "What ports does Massa use?"
+msgstr ""
+
+#: ../../testnet/faq.rst:57
+msgid ""
+"By default, Massa uses TCP port 31244 for protocol communication with "
+"other nodes, and 31245 to bootstrap other nodes. Massa also uses TCP port"
+" 33034 for the new private API, and 33035 for the new public API (API "
+"v2)."
+msgstr ""
+
+#: ../../testnet/faq.rst:63
+msgid "How to restart the Node?"
+msgstr ""
+
+#: ../../testnet/faq.rst:65
+msgid "Ubuntu"
+msgstr ""
+
+#: ../../testnet/faq.rst:-1
+msgid "ctrl + c for killing the process and"
+msgstr ""
+
+#: ../../testnet/faq.rst:66
+msgid ":code:`cargo run --release |& tee logs.txt`"
+msgstr ""
+
+#: ../../testnet/faq.rst:67
+msgid "Windows : ctrl + c for killing the process and :code:`cargo run --release`"
+msgstr ""
+
+#: ../../testnet/faq.rst:69
+msgid "Mac Os"
+msgstr ""
+
+#: ../../testnet/faq.rst:69
+msgid ":code:`cargo run --release > logs.txt 2>&1`"
+msgstr ""
+
+#: ../../testnet/faq.rst:72
+msgid "How secure are the keypairs ?"
+msgstr ""
+
+#: ../../testnet/faq.rst:74
+msgid ""
+"Please note that the Testnet coins have NO VALUE. That being said, we are"
+" working on adding encryption on several levels before the Mainnet."
+msgstr ""
+
+#: ../../testnet/faq.rst:76
+msgid ""
+"The staking key file in the node folder and the wallet file in the client"
+" folder are currently not encrypted but it will come soon. Also, private "
+"API communication between the client and the node is not encrypted for "
+"now but it will be implemented before the Mainnet as well."
+msgstr ""
+
+#: ../../testnet/faq.rst:78
+msgid ""
+"Note that nodes don't know or trust each other, and they never exchange "
+"sensitive information, therefore cryptography is not required at that "
+"level. A handshake is performed at the connection with another peer. We "
+"sign random bytes that the peer sent us with our keypair, and same on the"
+" other side. And data that is sent after that is signed by its creator, "
+"not the node that is sending it to us. During the bootstrap, the "
+"handshake is asymmetric. We know the public key of the bootstrap node and"
+" we expect signed messages from it, but we do not communicate our public "
+"key, nor we sign the only message we send (just random bytes)."
+msgstr ""
+
+#: ../../testnet/faq.rst:83
+msgid "Balance and wallet"
+msgstr ""
+
+#: ../../testnet/faq.rst:86
+msgid ""
+"How to migrate from one server to another without losing staked amounts "
+"and tokens?"
+msgstr ""
+
+#: ../../testnet/faq.rst:88
+msgid ""
+"You need to back up the file wallet.dat and migrate it to the massa-"
+"client folder on your new server. You also need to backup and migrate the"
+" node_privkey.key file in massa-node/config to keep your connectivity "
+"stats."
+msgstr ""
+
+#: ../../testnet/faq.rst:93
+msgid ""
+"If you have rolls, you also need to register the key used to buy rolls to"
+" start staking again (see [Staking](staking.md))."
+msgstr ""
+
+#: ../../testnet/faq.rst:97
+msgid "Why are the balances in the client and the explorer different ?"
+msgstr ""
+
+#: ../../testnet/faq.rst:99
+msgid ""
+"It may mean that your node is desynchronized. Check that your node is "
+"running, that the computer meets hardware requirements, and try "
+"restarting your node."
+msgstr ""
+
+#: ../../testnet/faq.rst:103
+msgid ""
+"Does the command `cargo run -- --wallet wallet.dat` override my existing "
+"wallet?"
+msgstr ""
+
+#: ../../testnet/faq.rst:105
+msgid "No, it loads the wallet if it exists, otherwise, it creates it."
+msgstr ""
+
+#: ../../testnet/faq.rst:108
+msgid "Where is the wallet.dat located?"
+msgstr ""
+
+#: ../../testnet/faq.rst:110
+msgid "By default, in the massa-client directory."
+msgstr ""
+
+#: ../../testnet/faq.rst:113
+msgid "Rolls and staking"
+msgstr ""
+
+#: ../../testnet/faq.rst:116
+msgid "My rolls disappeared/were sold automatically."
+msgstr ""
+
+#: ../../testnet/faq.rst:118
+msgid ""
+"The most likely reason is that you did not produce some blocks when "
+"selected to do so. Most frequent reasons:"
+msgstr ""
+
+#: ../../testnet/faq.rst:121
+#, python-format
+msgid "Node not running 100% of the time during which you had active_rolls \\> 0"
+msgstr ""
+
+#: ../../testnet/faq.rst:123
+#, python-format
+msgid ""
+"Node not being properly connected to the network 100% of the time during "
+"which you had active_rolls \\> 0"
+msgstr ""
+
+#: ../../testnet/faq.rst:125
+msgid ""
+"Node being desynchronized (which can be caused by temporary overload if "
+"the specs are insufficient or if other programs are using resources on "
+"the computer or because of internet connection problems) at some point "
+"while you had active_rolls \\> 0"
+msgstr ""
+
+#: ../../testnet/faq.rst:129
+#, python-format
+msgid ""
+"The node does not having the right registered staking keys (type "
+"staking_addresses in the client to verify that they match the addresses "
+"in your wallet_info that have active rolls) 100% of the time during which"
+" you had active_rolls \\> 0"
+msgstr ""
+
+#: ../../testnet/faq.rst:133
+msgid ""
+"Some hosting providers have Half-duplex connection setting. Contact "
+"hosting support and ask to switch you to full-duplex."
+msgstr ""
+
+#: ../../testnet/faq.rst:136
+msgid "Diagnostic process:"
+msgstr ""
+
+#: ../../testnet/faq.rst:138
+msgid ""
+"make sure the node is running on a computer that matches hardware "
+"requirements and that no other software is hogging ressources"
+msgstr ""
+
+#: ../../testnet/faq.rst:139
+msgid ""
+"type :code:`wallet_info` and make sure that at least one address has "
+"active rolls > 0"
+msgstr ""
+
+#: ../../testnet/faq.rst:141
+msgid ""
+"if there are no addresses listed, create a new one by calling "
+"`wallet_generate_private_key` and try the diagnostic process again"
+msgstr ""
+
+#: ../../testnet/faq.rst:142
+msgid ""
+"if none of the listed addresses has non-zero active rolls, perform a new "
+"roll buy (see tutorials) and try the diagnostic process again"
+msgstr ""
+
+#: ../../testnet/faq.rst:144
+msgid "type :code:`node_get_staking_addresses` in the client:"
+msgstr ""
+
+#: ../../testnet/faq.rst:146
+msgid ""
+"if the list is empty or if none of the addresses listed matches addresses"
+" that have active rolls in :code:`wallet_info`:"
+msgstr ""
+
+#: ../../testnet/faq.rst:148
+msgid ""
+"call :code:`node_add_staking_secret_keys` with the secret key matching an"
+" address that has non-zero active rolls in :code:`wallet_info`"
+msgstr ""
+
+#: ../../testnet/faq.rst:150
+msgid ""
+"check your address with the online explorer: if there is a mismatch "
+"between the number of active rolls displayed in the online interface and "
+"what is returned by `wallet_info`, it might be that your node is "
+"desynchronized. Try restarting it."
+msgstr ""
+
+#: ../../testnet/faq.rst:153
+msgid "Why are rolls automatically sold? Is it some kind of penalty/slashing?"
+msgstr ""
+
+#: ../../testnet/faq.rst:155
+msgid ""
+"It is not slashing because the funds are reimbursed fully. It's more like"
+" an implicit roll sell."
+msgstr ""
+
+#: ../../testnet/faq.rst:158
+#, python-format
+msgid ""
+"The point is the following: for the network to be healthy, everyone with "
+"active rolls needs to produce blocks whenever they are selected to do so."
+" If an address misses more than 70% of its block creation opportunities "
+"during cycle C, all its rolls are implicitly sold at the beginning of "
+"cycle C+3."
+msgstr ""
+
+#: ../../testnet/faq.rst:165
+msgid ""
+"Do I need to register the keys after subsequent purchases of ROLLs, or do"
+" they get staked automatically?"
+msgstr ""
+
+#: ../../testnet/faq.rst:167
+msgid ""
+"For now, they don't stake automatically. In the future, we will add a "
+"feature allowing auto compounding. That being said, some people appear to"
+" have done that very early in the project. Feel free to ask on the "
+"`Discord <https://discord.com/invite/massa>`_ server :)."
+msgstr ""
+
+#: ../../testnet/faq.rst:173
+msgid ""
+"I can buy, send, sell ROLLs and coins without fees. When should I "
+"increase the fee \\>0?"
+msgstr ""
+
+#: ../../testnet/faq.rst:175
+msgid ""
+"For the moment, there are only a few transactions at the same time and so"
+" most created blocks are empty. This means that your operation will be "
+"added to a block even if the fee is zero. We will communicate if you need"
+" to increase the fee."
+msgstr ""
+
+#: ../../testnet/faq.rst:181
+msgid ""
+"I am staking ROLLs but my wallet info doesn't change. When do I get my "
+"first staking rewards?"
+msgstr ""
+
+#: ../../testnet/faq.rst:183
+msgid ""
+"You need to wait for your rolls to become active (around 1h45), then "
+"depending on the number of rolls you have, you might want to wait for "
+"more to be selected for block/endorsement production."
+msgstr ""
+
+#: ../../testnet/faq.rst:188
+msgid "Testnet and rewards"
+msgstr ""
+
+#: ../../testnet/faq.rst:191
+msgid ""
+"How can I migrate my node from one computer/provider to another and keep "
+"my score in the Testnet Staking Reward Program?"
+msgstr ""
+
+#: ../../testnet/faq.rst:193
+msgid ""
+"If you migrate your node from one computer/provider to another you should"
+" save the keypair associated with the staking address that is registered."
+" This keypair is located in the `wallet.dat` file located in `massa-"
+"client` folder. You can also save your node keypair `node_privkey.key` "
+"located in the `massa-node/config` folder, if you don't then don't forget"
+" to register your new node keypair to the Discord bot."
+msgstr ""
+
+#: ../../testnet/faq.rst:201
+msgid ""
+"If your new node has a new IP address then you should not forget to "
+"register the new IP address to the Discord bot."
+msgstr ""
+
+#: ../../testnet/faq.rst:204
+msgid ""
+"If you lost `wallet.dat` and/or `node_privkey.key`, don't panic, just "
+"redo the whole node setup and rewards registration process and the newly "
+"generated keys will be associated with your discord account. Past scores "
+"won't be lost."
+msgstr ""
+
+#: ../../testnet/faq.rst:210
+msgid "I want to stake more! Can I abuse the faucet bot to get more coins?"
+msgstr ""
+
+#: ../../testnet/faq.rst:212
+msgid ""
+"You can claim testnet tokens every 24h. The tokens are worthless, you "
+"won't have any advantage over the others by doing that."
+msgstr ""
+
+#: ../../testnet/faq.rst:216
+msgid "Will the amount of staked Rolls affect Testnet rewards?"
+msgstr ""
+
+#: ../../testnet/faq.rst:218
+msgid ""
+"No, as long as you have at least 1 roll, further roll purchases won't "
+"change your score."
+msgstr ""
+
+#: ../../testnet/faq.rst:222
+msgid "I can't register with the Discord bot because the node ID is already used"
+msgstr ""
+
+#: ../../testnet/faq.rst:224
+msgid ""
+"If you changed your staking key, you need to register again with the bot "
+"using the :code:`node_testnet_rewards_program_ownership_proof` command. "
+"If you are using the same install, the bot will return the following "
+"error message: \"This node ID is already used or has already been used, "
+"please use another one!\". To solve this, you need to generate a new node"
+" ID. Stop your node and delete the `node_privkey.key` file in `massa-"
+"node/config`. You can then start your node again and you will have a new "
+"node ID."
+msgstr ""
+
+#: ../../testnet/faq.rst:230
+msgid "Common issues"
+msgstr ""
+
+#: ../../testnet/faq.rst:233
+msgid "Ping too high issue"
+msgstr ""
+
+#: ../../testnet/faq.rst:235
+msgid ""
+"Check the quality of your internet connection. Try increasing the "
+"\"max_ping\" setting in your config file:"
+msgstr ""
+
+#: ../../testnet/faq.rst:238
+msgid ""
+"edit file `massa-node/config/config.toml` (create if it is absent) with "
+"the following content:"
+msgstr ""
+
+#: ../../testnet/faq.rst:247
+msgid "API can't start"
+msgstr ""
+
+#: ../../testnet/faq.rst:249
+msgid ""
+"If your API can't start, e.g. with `could not start API controller: "
+"ServerError(hyper::Error(Listen, Os { code: 98, kind: AddrInUse, message:"
+" \"Address already in use\" }))`, it's probably because the default API "
+"ports 33034/33035 are already in use on your computer. You should change "
+"the port in the config files, both in the API and Client:"
+msgstr ""
+
+#: ../../testnet/faq.rst:255
+msgid ""
+"create/edit file `massa-node/config/config.toml` to change the port used "
+"by the API:"
+msgstr ""
+
+#: ../../testnet/faq.rst:264
+msgid "create/edit file `massa-client/config/config.toml` and put the same port:"
+msgstr ""
+
+#: ../../testnet/faq.rst:275
+msgid "Raspberry Pi problem \"Thread 'main' panicked\""
+msgstr ""
+
+#: ../../testnet/faq.rst:277
+msgid "If you encountered an error message such as:"
+msgstr ""
+
+#: ../../testnet/faq.rst:279
+msgid ""
+"\"Thread 'main' panicked at 'called Option::unwrap() on a None value', "
+"models/src/hasher.rs:35:46\", this is a known problem on older Raspberry "
+"Pi, especially with Raspbian. Try installing Debian."
+msgstr ""
+
+#: ../../testnet/faq.rst:282
+msgid ""
+"Please note, running a Massa node on a Raspberry Pi is ambitious and will"
+" probably not work that well. We don't expect raspberry to be enough "
+"powerful to run on the mainnet."
+msgstr ""
+
+#: ../../testnet/faq.rst:286
+msgid "Disable IPV6 support"
+msgstr ""
+
+#: ../../testnet/faq.rst:288
+msgid ""
+"If your OS, virtual machine or provider does not support IPV6, try "
+"disabling IPV6 support on your Massa node."
+msgstr ""
+
+#: ../../testnet/faq.rst:290
+msgid ""
+"To do this, edit (or create if absent) the file `massa-"
+"node/config/config.toml` with the following contents:"
+msgstr ""
+
+#: ../../testnet/faq.rst:300
+msgid "then restart your node."
+msgstr ""
+
+#: ../../testnet/install.rst:5
+msgid "Installing a node"
+msgstr ""
+
+#: ../../testnet/install.rst:9
+msgid ""
+"Right now 4 cores and 8 GB of RAM should be enough to run a node, but it "
+"might increase in the future. More info in the :ref:`FAQ <testnet-faq>`."
+msgstr ""
+
+#: ../../testnet/install.rst:12 ../../testnet/running.rst:8
+msgid "From binaries"
+msgstr ""
+
+#: ../../testnet/install.rst:14
+msgid ""
+"If you just wish to run a Massa node without compiling it yourself, you "
+"can simply download the latest binary below and go the the next step: "
+":ref:`Running a node <testnet-running>`."
+msgstr ""
+
+#: ../../testnet/install.rst:17
+msgid ""
+"`Windows executable "
+"<https://github.com/massalabs/massa/releases/download/TEST.15.1/massa_TEST.15.1_release_windows.zip>`_"
+msgstr ""
+
+#: ../../testnet/install.rst:18
+msgid ""
+"`Linux binary "
+"<https://github.com/massalabs/massa/releases/download/TEST.15.1/massa_TEST.15.1_release_linux.tar.gz>`_"
+" - only works with libc2.28 at least (for example Ubuntu 20.04 and "
+"higher)"
+msgstr ""
+
+#: ../../testnet/install.rst:19
+msgid ""
+"`MacOS binary "
+"<https://github.com/massalabs/massa/releases/download/TEST.15.1/massa_TEST.15.1_release_macos.tar.gz>`_"
+msgstr ""
+
+#: ../../testnet/install.rst:22 ../../testnet/running.rst:51
+msgid "From source code"
+msgstr ""
+
+#: ../../testnet/install.rst:24
+msgid ""
+"Otherwise, if you wish to run a Massa node from source code, here are the"
+" steps to follow:"
+msgstr ""
+
+#: ../../testnet/install.rst:27 ../../testnet/running.rst:15
+#: ../../testnet/running.rst:54
+msgid "On Ubuntu / MacOS"
+msgstr ""
+
+#: ../../testnet/install.rst:29
+msgid ""
+"on Ubuntu, these libs must be installed: :code:`sudo apt install pkg-"
+"config curl git build-essential libssl-dev libclang-dev`"
+msgstr ""
+
+#: ../../testnet/install.rst:30
+msgid "on MacOS: :code:`brew install llvm`"
+msgstr ""
+
+#: ../../testnet/install.rst:31
+msgid ""
+"install `rustup <https://www.rust-lang.org/tools/install>`_: :code:`curl "
+"--proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`"
+msgstr ""
+
+#: ../../testnet/install.rst:32
+msgid "configure path: :code:`source $HOME/.cargo/env`"
+msgstr ""
+
+#: ../../testnet/install.rst:33 ../../testnet/install.rst:36
+msgid "check rust version: :code:`rustc --version`"
+msgstr ""
+
+#: ../../testnet/install.rst:34
+msgid ""
+"install `nigthly <https://doc.rust-lang.org/edition-guide/rust-2018"
+"/rustup-for-managing-rust-versions.html>`_: :code:`rustup toolchain "
+"install nightly`"
+msgstr ""
+
+#: ../../testnet/install.rst:35
+msgid "set it as default: :code:`rustup default nightly`"
+msgstr ""
+
+#: ../../testnet/install.rst:37
+msgid ""
+"clone this repo: :code:`git clone --branch testnet "
+"https://github.com/massalabs/massa.git`"
+msgstr ""
+
+#: ../../testnet/install.rst:40 ../../testnet/running.rst:99
+msgid "On Windows"
+msgstr ""
+
+#: ../../testnet/install.rst:42
+msgid "**Set up your Rust environment**"
+msgstr ""
+
+#: ../../testnet/install.rst:44
+msgid ""
+"On Windows, you should first follow the indications from Microsoft to be "
+"able to run on a Rust environment `here <https://docs.microsoft.com/en-"
+"gb/windows/dev-environment/rust/setup>`__."
+msgstr ""
+
+#: ../../testnet/install.rst:46
+msgid "Install Visual Studio (recommended) or the Microsoft C++ Build Tools."
+msgstr ""
+
+#: ../../testnet/install.rst:47
+msgid ""
+"Once Visual Studio is installed, click on C++ Build Tool. Select on the "
+"right column called \"installation details\" the following packages:"
+msgstr ""
+
+#: ../../testnet/install.rst:49
+msgid "MSCV v142 -- VS 2019"
+msgstr ""
+
+#: ../../testnet/install.rst:50
+msgid "Windows 10 SDK"
+msgstr ""
+
+#: ../../testnet/install.rst:51
+msgid "C++ CMake tools for Windows"
+msgstr ""
+
+#: ../../testnet/install.rst:52
+msgid "Testing Tools Core Feature"
+msgstr ""
+
+#: ../../testnet/install.rst:54
+msgid "Click install on the bottom right to download and install those packages"
+msgstr ""
+
+#: ../../testnet/install.rst:56
+msgid ""
+"Install `Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`_ and"
+" run: :code:`choco install llvm`"
+msgstr ""
+
+#: ../../testnet/install.rst:57
+msgid ""
+"Install Rust, to be downloaded `here <https://www.rust-"
+"lang.org/tools/install>`__"
+msgstr ""
+
+#: ../../testnet/install.rst:58
+msgid ""
+"Install Git for windows, to be downloaded `here <https://git-"
+"scm.com/download/win>`__"
+msgstr ""
+
+#: ../../testnet/install.rst:60
+msgid "**Clone the Massa Git Repository**"
+msgstr ""
+
+#: ../../testnet/install.rst:62
+msgid "Open Windows Power Shell"
+msgstr ""
+
+#: ../../testnet/install.rst:64
+msgid ""
+"Clone the latest distributed version: :code:`git clone --branch testnet "
+"https://github.com/massalabs/massa.git`"
+msgstr ""
+
+#: ../../testnet/install.rst:65
+msgid "Change default Rust to nightly: :code:`rustup default nightly`"
+msgstr ""
+
+#: ../../testnet/rewards.rst:5
+msgid "Testnet Staking Rewards Program"
+msgstr ""
+
+#: ../../testnet/rewards.rst:7
+msgid ""
+"To help achieve our goal of a fully decentralized and scaled blockchain, "
+"we designed a staking rewards program during the testnet phase."
+msgstr ""
+
+#: ../../testnet/rewards.rst:10
+msgid ""
+"People that consistently run a node and produce blocks will be rewarded "
+"mainnet Massa tokens when mainnet launches."
+msgstr ""
+
+#: ../../testnet/rewards.rst:13
+#, python-format
+msgid ""
+"Staking is what improves the security of the network. By buying rolls "
+"(freezing your coins) and producing your share of the blocks, you help "
+"honest nodes collectively protect against potential attackers, who must "
+"not reach 51% of the block production. On mainnet, staking is "
+"incentivized through block rewards: for each block produced, you get some"
+" Massa. On testnet however, you get testnet Massa which has no value, "
+"this is why we will reward you with mainnet Massa for learning to set up "
+"your node and stake right now, which also helps us improve the staking "
+"user experience."
+msgstr ""
+
+#: ../../testnet/rewards.rst:23
+msgid ""
+"On July 16th we launched the first public version of Massa, the first "
+"testnet. More than 350 nodes were connected at the same time after one "
+"week, which overloaded our bootstrap nodes which were the only nodes "
+"accepting connections. By setting your node up to be routable (with a "
+"public IP), you become a real peer in the peer-to-peer network: you not "
+"only connect to existing routable nodes, but you offer other people the "
+"possibility to access the network through your connection. We will "
+"therefore also reward how often your node is publicly accessible."
+msgstr ""
+
+#: ../../testnet/rewards.rst:33
+msgid "Episodes"
+msgstr ""
+
+#: ../../testnet/rewards.rst:35
+msgid ""
+"We have release cycles of 1 month each, called \"episodes\", the first "
+"one started in August 2021. At the beginning of an episode, participants "
+"have a few days to set up their nodes with the newest version before "
+"scoring starts, but it's also possible to join anytime during the "
+"episode."
+msgstr ""
+
+#: ../../testnet/rewards.rst:41
+msgid ""
+"Throughout the episode, you can ask for coins in the Discord faucet (on "
+"channel `testnet-faucet`). No need to abuse the faucet, we don't reward "
+"you based on the number of rolls."
+msgstr ""
+
+#: ../../testnet/rewards.rst:45
+msgid ""
+"At the end of an episode, all nodes stop by themselves and become "
+"useless/unusable. Participants have to download and launch the new "
+"version for the next episode. Make sure you keep the same node private "
+"key and wallet!"
+msgstr ""
+
+#: ../../testnet/rewards.rst:51
+msgid "Scoring Formula"
+msgstr ""
+
+#: ../../testnet/rewards.rst:53
+msgid "The score of a node for a given episode is the following:"
+msgstr ""
+
+#: ../../testnet/rewards.rst:55
+msgid ""
+"Score = 50 * (active_cycles / nb_cycles) * (produced_blocks / "
+"selected_slots) + 50 * (routable_cycles / nb_cycles) + 20 * "
+"total_maxim_factor / nb_cycles"
+msgstr ""
+
+#: ../../testnet/rewards.rst:57
+msgid "50 points of the score are based on staking:"
+msgstr ""
+
+#: ../../testnet/rewards.rst:59
+msgid ""
+"(`active_cycles` / `nb_cycles` ) \\* (`produced_blocks` / "
+"`selected_slots`)"
+msgstr ""
+
+#: ../../testnet/rewards.rst:62
+msgid ""
+"`active_cycles` is the number of cycles in the episode during which the "
+"address had active rolls."
+msgstr ""
+
+#: ../../testnet/rewards.rst:64
+msgid "`nb_cycles` is the total number of cycles in the episode."
+msgstr ""
+
+#: ../../testnet/rewards.rst:65
+msgid ""
+"`produced_blocks` is the number of final blocks produced by the staker "
+"during the episode."
+msgstr ""
+
+#: ../../testnet/rewards.rst:67
+msgid ""
+"`selected_slots` is the number of final slots for which the staker was "
+"selected to create blocks during the episode. If `selected_slots` = 0, "
+"the staking score is set to 0."
+msgstr ""
+
+#: ../../testnet/rewards.rst:70
+msgid ""
+"The maximum score is supposed to be reached if, during the whole episode,"
+" the node has rolls and produces all blocks when it is selected to."
+msgstr ""
+
+#: ../../testnet/rewards.rst:73
+msgid ""
+"50 points of the score are based on the routability of the node: how "
+"often the node can be reached by other nodes."
+msgstr ""
+
+#: ../../testnet/rewards.rst:76
+msgid "`routable_cycles` / `nb_cycles`"
+msgstr ""
+
+#: ../../testnet/rewards.rst:78
+msgid ""
+"`routable_cycles` is the number of connection trials that resulted in a "
+"successful connection."
+msgstr ""
+
+#: ../../testnet/rewards.rst:80
+msgid ""
+"Maximum score is achieved if the node can always be reached by other "
+"nodes."
+msgstr ""
+
+#: ../../testnet/rewards.rst:82
+msgid ""
+"20 points of the score incentivize node diversity: the network is more "
+"decentralized if nodes are spread across countries and providers than if "
+"they are all hosted at the same location/provider."
+msgstr ""
+
+#: ../../testnet/rewards.rst:86
+msgid "`total_maxim_factor` / `nb_cycles`"
+msgstr ""
+
+#: ../../testnet/rewards.rst:88
+msgid ""
+"`total_maxim_factor` is the total amount of `maxim_factor` accumulated at"
+" each cycle. The `maxim_factor` is a value between 0 and 1 representing "
+"the distance between this node's IP address and the IP addresses of other"
+" nodes in a given cycle."
+msgstr ""
+
+#: ../../testnet/rewards.rst:93
+msgid ""
+"Maximum score is reached when running the node at home or with a provider"
+" that is not used to run other Massa nodes."
+msgstr ""
+
+#: ../../testnet/rewards.rst:96
+msgid ""
+"We encourage every person to run only one node. Running multiple nodes "
+"with the same staking keys will result in roll slashing in the future. "
+"Running multiple nodes with the same node_privkey.key also reduces "
+"network health and will be a point of attention for rewards."
+msgstr ""
+
+#: ../../testnet/rewards.rst:101
+msgid "From episode 10 the formula is now :"
+msgstr ""
+
+#: ../../testnet/rewards.rst:103
+msgid ""
+"Score = 50 * (produced_blocks/selected_slots) * "
+"(active_cycles/nb_cycles_episode) * (1 + "
+"routable_samples/routability_trials + "
+"total_maxim_factor/routability_trials)"
+msgstr ""
+
+#: ../../testnet/rewards.rst:106
+msgid "Registration"
+msgstr ""
+
+#: ../../testnet/rewards.rst:108
+msgid ""
+"To validate your participation in the testnet staking reward program, you"
+" have to register with your Discord account. Write something in the "
+"`testnet-rewards-registration` channel of our `Discord "
+"<https://discord.com/invite/massa>`_ and our bot will DM you "
+"instructions."
+msgstr ""
+
+#: ../../testnet/rewards.rst:115
+msgid "From scores to rewards"
+msgstr ""
+
+#: ../../testnet/rewards.rst:117
+msgid "The launch of mainnet is planned for 2022."
+msgstr ""
+
+#: ../../testnet/rewards.rst:119
+msgid ""
+"By this time, people will be able to claim their rewards through a KYC "
+"process (most likely including video/liveness) to ensure that the same "
+"people don't do multiple claims, and comply with KYC/AML laws."
+msgstr ""
+
+#: ../../testnet/rewards.rst:123
+msgid "The testnet score of a person will be the sum of all their episode scores."
+msgstr ""
+
+#: ../../testnet/rewards.rst:126
+msgid ""
+"The mainnet reward will depend on the testnet score. More info on mainnet"
+" rewards will come later."
+msgstr ""
+
+#: ../../testnet/routability.rst:3
+msgid "Routability"
+msgstr ""
+
+#: ../../testnet/routability.rst:6
+msgid "Principle"
+msgstr ""
+
+#: ../../testnet/routability.rst:8
+msgid ""
+"Nodes in the Massa network need to establish connections between them to "
+"communicate, propagate blocks and operations, and maintain consensus and "
+"synchrony all together."
+msgstr ""
+
+#: ../../testnet/routability.rst:12
+msgid ""
+"For node A to establish a connection towards node B, node B must be "
+"routable. This means that node B has a public IP address that can be "
+"reached from node A and that ports TCP 31244 and TCP 31245 are open on "
+"node B and that inbound connection on those ports are allowed by "
+"firewalls on node B. Once such a connection is established, communication"
+" through this connection is bidirectional, and it does not matter anymore"
+" which one of the two nodes initiated the connection establishment."
+msgstr ""
+
+#: ../../testnet/routability.rst:21
+msgid ""
+"If only a small number of nodes are routable, all other nodes will be "
+"able to connect only to those routable nodes, which can overload them and"
+" generally hurt the decentralization and security of the network, as "
+"those few routable nodes become de-facto central communication hubs, "
+"choke points, and single points of failure. It is therefore important to "
+"have as many routable nodes as possible."
+msgstr ""
+
+#: ../../testnet/routability.rst:28
+msgid ""
+"In Massa, nodes are non-routable by default and require a manual "
+"operation to be made routable."
+msgstr ""
+
+#: ../../testnet/routability.rst:32
+msgid "How to make your node routable"
+msgstr ""
+
+#: ../../testnet/routability.rst:34
+msgid ""
+"make sure the computer on which the node is running has a static public "
+"IP address (IPv4 or IPv6). You can retrieve the public IP address of your"
+" computer by opening `ipify <https://api.ipify.org>`_"
+msgstr ""
+
+#: ../../testnet/routability.rst:37
+msgid ""
+"if the computer running the node is behind a router/NAT, you will need to"
+" configure your router:"
+msgstr ""
+
+#: ../../testnet/routability.rst:40
+msgid ""
+"if the router uses DHCP, the MAC address of the computer running the node"
+" must be set to have a permanent DHCP lease (a local IP address that "
+"never changes, usually of form 192.168.X.XX)"
+msgstr ""
+
+#: ../../testnet/routability.rst:43
+msgid ""
+"incoming connections on TCP ports 31244 and 31245 must be directed "
+"towards the local IP address of the computer running the node"
+msgstr ""
+
+#: ../../testnet/routability.rst:45
+msgid ""
+"setup the firewall on your computer to allow incoming TCP connections on "
+"ports 31244 and 31245 (example: :code:`ufw allow 31244 && ufw allow "
+"31245` on Ubuntu, or set up the Windows Firewall on Windows)"
+msgstr ""
+
+#: ../../testnet/routability.rst:49
+msgid ""
+"edit file :code:`massa-node/config/config.toml` (create it if absent) "
+"with the following contents:"
+msgstr ""
+
+#: ../../testnet/routability.rst:57
+msgid ""
+"where AAA.BBB.CCC.DDD should be replaced with your public IP address (not"
+" the local one !). IPV6 is also supported."
+msgstr ""
+
+#: ../../testnet/routability.rst:59
+msgid "run the massa node"
+msgstr ""
+
+#: ../../testnet/routability.rst:60
+msgid ""
+"you can then test if your ports are open by typing your public IP address"
+" and port 31244 in `yougetsignal <https://www.yougetsignal.com/tools"
+"/open-ports/>`_ (then again with port 31245)"
+msgstr ""
+
+#: ../../testnet/routability.rst:63
+msgid ""
+"Once your node is routable, you need to send the public IP address of "
+"your node to the Discord bot. You first need to register to the staking "
+"reward program (see the last step below)."
+msgstr ""
+
+#: ../../testnet/routability.rst:67
+msgid "Last step"
+msgstr ""
+
+#: ../../testnet/routability.rst:69
+msgid ""
+"To validate your participation in the testnet staking reward program, you"
+" have to register with your Discord account. Write something in the "
+"`testnet-rewards-registration` channel of our `Discord "
+"<https://discord.com/invite/massa>`_ and our bot will DM you "
+"instructions. More info here: `Testnet rewards program "
+"<https://massa.readthedocs.io/en/latest/testnet/rewards.html>`_"
+msgstr ""
+
+#: ../../testnet/running.rst:5
+msgid "Running a node"
+msgstr ""
+
+#: ../../testnet/running.rst:10
+msgid ""
+"Simply run the binaries you downloaded in the previous step: Open the "
+"`massa-node` folder and run the `massa-node` executable Open the `massa-"
+"client` folder and run the `massa-client` executable"
+msgstr ""
+
+#: ../../testnet/running.rst:17 ../../testnet/running.rst:56
+msgid "**Start the node**"
+msgstr ""
+
+#: ../../testnet/running.rst:19 ../../testnet/running.rst:58
+msgid "On a first window:"
+msgstr ""
+
+#: ../../testnet/running.rst:25 ../../testnet/running.rst:64
+msgid "Launch the node, on Ubuntu:"
+msgstr ""
+
+#: ../../testnet/running.rst:31 ../../testnet/running.rst:78
+#: ../../testnet/running.rst:108
+msgid ""
+"Replace <PASSWORD> with a password that you will need to keep to restart "
+"your node You should leave the window opened."
+msgstr ""
+
+#: ../../testnet/running.rst:34 ../../testnet/running.rst:81
+msgid "**Start the client**"
+msgstr ""
+
+#: ../../testnet/running.rst:36 ../../testnet/running.rst:83
+msgid "On a second window:"
+msgstr ""
+
+#: ../../testnet/running.rst:42 ../../testnet/running.rst:89
+msgid "Then:"
+msgstr ""
+
+#: ../../testnet/running.rst:48
+msgid ""
+"Replace <PASSWORD> with a password that you will need to keep to restart "
+"your client"
+msgstr ""
+
+#: ../../testnet/running.rst:70
+msgid ""
+"Replace <PASSWORD> with a password that you will need to keep to restart "
+"your node"
+msgstr ""
+
+#: ../../testnet/running.rst:72
+msgid "**Or,** on macOS:"
+msgstr ""
+
+#: ../../testnet/running.rst:95 ../../testnet/running.rst:118
+msgid ""
+"Replace <PASSWORD> with a password that you will need to keep to restart "
+"your client Please wait until the directories are built before moving to "
+"the next step."
+msgstr ""
+
+#: ../../testnet/running.rst:101
+msgid "**Start the Node**"
+msgstr ""
+
+#: ../../testnet/running.rst:106
+msgid "Open Windows Power Shell or Command Prompt on a first window"
+msgstr ""
+
+#: ../../testnet/running.rst:104 ../../testnet/running.rst:114
+msgid "Type: :code:`cd massa`"
+msgstr ""
+
+#: ../../testnet/running.rst:105
+msgid "Type: :code:`cd massa-node`"
+msgstr ""
+
+#: ../../testnet/running.rst:106 ../../testnet/running.rst:116
+msgid "Type: :code:`cargo run --release -- -p <PASSWORD>`"
+msgstr ""
+
+#: ../../testnet/running.rst:111
+msgid "**Start the Client**"
+msgstr ""
+
+#: ../../testnet/running.rst:116
+msgid "Open Windows Power Shell or Command Prompt on a second window"
+msgstr ""
+
+#: ../../testnet/running.rst:115
+msgid "Type: :code:`cd massa-client`"
+msgstr ""
+
+#: ../../testnet/staking.rst:3
+msgid "Staking"
+msgstr ""
+
+#: ../../testnet/staking.rst:5
+msgid ""
+"In Massa, the minimal number of coins required to be able to stake is 100"
+" MAS (which is called one \"roll\"). The total initial supply is 500m "
+"MAS, so in theory, there could be 5 million people staking."
+msgstr ""
+
+#: ../../testnet/staking.rst:9
+msgid ""
+"Addresses are randomly selected to stake (create blocks) in all threads, "
+"based on the number of rolls they possess. The list of stakers and their "
+"rolls can be seen `there <https://massa.net/testnet/staking/>`_."
+msgstr ""
+
+#: ../../testnet/staking.rst:13
+msgid ""
+"Rolls can be bought with Massa coins or sold to get the coins back. If "
+"you already have more than 100 Massa, you can continue this tutorial, "
+"otherwise, send your address to the faucet bot in the \"testnet-faucet\" "
+"channel of our `Discord <https://discord.com/invite/massa>`_."
+msgstr ""
+
+#: ../../testnet/staking.rst:19
+msgid "Buying rolls"
+msgstr ""
+
+#: ../../testnet/staking.rst:21
+msgid "Get the address that has coins in your wallet. In the Massa client:"
+msgstr ""
+
+#: ../../testnet/staking.rst:27
+msgid ""
+"Buy rolls with it: put your address, the number of rolls you want to buy,"
+" and the operation fee (you can put 0):"
+msgstr ""
+
+#: ../../testnet/staking.rst:34
+msgid ""
+"As an example, the command for buying 1 roll with 0 fee for the address "
+"`VkUQ5MA4niNBhAEP7uVf89tvPfUHcbgy6BrdLM9SAuFSyy9DE` is: :code:`buy_rolls "
+"VkUQ5MA4niNBhAEP7uVf89tvPfUHcbgy6BrdLM9SAuFSyy9DE 1 0`"
+msgstr ""
+
+#: ../../testnet/staking.rst:38
+msgid ""
+"It should take less than one minute for your roll to become final, check "
+"with:"
+msgstr ""
+
+#: ../../testnet/staking.rst:46
+msgid "Telling your node to start staking with your rolls"
+msgstr ""
+
+#: ../../testnet/staking.rst:48
+msgid "Get the secret key that has rolls in your wallet:"
+msgstr ""
+
+#: ../../testnet/staking.rst:54
+msgid "Register your secret key so that your node start to stake with it:"
+msgstr ""
+
+#: ../../testnet/staking.rst:60
+msgid ""
+"Now you should wait some time so that your rolls become active: 3 cycles "
+"of 128 periods (one period is 32 blocks - 16 sec), so about 1h40 minutes."
+msgstr ""
+
+#: ../../testnet/staking.rst:64
+msgid "You can check if your rolls are active with the same command:"
+msgstr ""
+
+#: ../../testnet/staking.rst:70
+msgid ""
+"When your rolls become active, that's it! You're staking! Please note, "
+"having one roll is enough. On the testnet, we don't value how many rolls "
+"you have, but how reliable is your node."
+msgstr ""
+
+#: ../../testnet/staking.rst:73
+msgid "You should be selected to create blocks in the different threads."
+msgstr ""
+
+#: ../../testnet/staking.rst:75
+msgid "To check when your address is selected to stake, run this command:"
+msgstr ""
+
+#: ../../testnet/staking.rst:81
+msgid "and look at the \"next draws\" section."
+msgstr ""
+
+#: ../../testnet/staking.rst:83
+msgid ""
+"Also check that your balance increases, for each block or endorsement "
+"that you create you should get a small reward."
+msgstr ""
+
+#: ../../testnet/staking.rst:87
+msgid "Selling rolls"
+msgstr ""
+
+#: ../../testnet/staking.rst:89
+msgid ""
+"If you want to get back some or all of your coins, sell rolls the same "
+"way you bought them:"
+msgstr ""
+
+#: ../../testnet/staking.rst:96
+msgid ""
+"It should take some time again for your coins to be credited, and they "
+"will be frozen for 1 cycle before you can spend them, again check with:"
+msgstr ""
+
+#: ../../testnet/update.rst:3
+msgid "Update a node"
+msgstr ""
+
+#: ../../testnet/update.rst:5
+msgid ""
+"IF YOU ARE HERE TO UPDATE FROM TESTNET 11 TO TESTNET 12, THERE IS "
+"BREAKING CHANGES SO YOU CAN'T UPDATE. PLEASE RE-INSTALL A NODE FROM "
+"SCRATCH FOLLOW THE INSTALL SECTION."
+msgstr ""
+
+#: ../../testnet/update.rst:7
+msgid ""
+"If you use the binaries, simply download the latest binaries, and make "
+"sure you use the latest nightly version of rust."
+msgstr ""
+
+#: ../../testnet/update.rst:9
+msgid "Set the latest nightly as default:"
+msgstr ""
+
+#: ../../testnet/update.rst:15
+msgid "Update Rust:"
+msgstr ""
+
+#: ../../testnet/update.rst:21
+msgid "Otherwise:"
+msgstr ""
+
+#: ../../testnet/update.rst:23
+msgid ""
+"Make sure you you have the right git repository (especially since the "
+"change from GitLab to GitHub):"
+msgstr ""
+
+#: ../../testnet/update.rst:31
+msgid "Update Massa:"
+msgstr ""
+
+#: ../../testnet/update.rst:38
+msgid ""
+"After updating, enter the command :code:`node_get_staking_addresses` in "
+"your client and make sure that it returns an address that has rolls "
+"according to :code:`wallet_info`."
+msgstr ""
+
+#: ../../testnet/update.rst:40
+msgid ""
+"If :code:`wallet_info` does not return any address, it means that you "
+"haven't backed up your wallet.dat correctly. Close the client, overwrite "
+"wallet.dat with your backup, launch the client again and try again. You "
+"can also create a new address by calling "
+":code:`wallet_generate_secret_key`."
+msgstr ""
+
+#: ../../testnet/update.rst:42
+msgid ""
+"If you can't find an address in :code:`wallet_info` that has non-zero "
+"candidate, non-zero final and non-zero active rolls, please refer to the "
+"`staking tutorial <https://git-scm.com/download/win>`_ on getting rolls."
+msgstr ""
+
+#: ../../testnet/update.rst:44
+msgid ""
+"If :code:`node_get_staking_addresses` does not return any address or does"
+" not return an address that has active_rolls according to `wallet_info`, "
+"it means you haven't backed up staking_keys.json properly. Try stopping "
+"the node, overwriting staking_keys.json with your backup, and starting "
+"the node again to try again. You can also manually add a staking key by "
+"calling :code:`add_staking_keys` with the KEY matching the address that "
+"has active rolls in :code:`wallet_info` (warning: do not type the address"
+" or public key, only the SECRET KEY)."
+msgstr ""
+
+#: ../../testnet/wallet.rst:3
+msgid "Creating a Massa wallet"
+msgstr ""
+
+#: ../../testnet/wallet.rst:5
+msgid "A Massa wallet is a file that contains a list of your keypairs."
+msgstr ""
+
+#: ../../testnet/wallet.rst:7
+msgid ""
+"Like other blockchains, Massa uses elliptic curve cryptography for the "
+"security of your coins (with `secp256k1`)."
+msgstr ""
+
+#: ../../testnet/wallet.rst:10
+msgid ""
+"It means your secret key is your password allowing you to spend coins "
+"that were sent to your address (your address is the hash of your public "
+"key)."
+msgstr ""
+
+#: ../../testnet/wallet.rst:14
+msgid "Here is how to create a Massa wallet."
+msgstr ""
+
+#: ../../testnet/wallet.rst:17
+msgid "From the command line interface"
+msgstr ""
+
+#: ../../testnet/wallet.rst:20
+msgid "If your client is not running"
+msgstr ""
+
+#: ../../testnet/wallet.rst:22
+msgid "Go to the client folder:"
+msgstr ""
+
+#: ../../testnet/wallet.rst:28
+msgid "Start the interactive client and load a wallet file:"
+msgstr ""
+
+#: ../../testnet/wallet.rst:34
+msgid ""
+"It will ask your wallet password in order to load `wallet.dat`. If the "
+"file does not exist, you will be asked to set a password and it will be "
+"created."
+msgstr ""
+
+#: ../../testnet/wallet.rst:37
+msgid "If your client is running"
+msgstr ""
+
+#: ../../testnet/wallet.rst:39
+msgid "Now you can either generate a new keypair (and associated address):"
+msgstr ""
+
+#: ../../testnet/wallet.rst:45
+msgid ""
+"**Or, if you already have one from a previous wallet**, you can add "
+"manually an existing keypair:"
+msgstr ""
+
+#: ../../testnet/wallet.rst:51
+msgid "The list of addresses and keys of your wallet can be accessed with:"
+msgstr ""
+
+#: ../../testnet/wallet.rst:58
+msgid "From the graphical interface"
+msgstr ""
+
+#: ../../testnet/wallet.rst:60
+msgid ""
+"If you don't plan to stake or use the command-line client, you can also "
+"create a wallet on the web interface: head to the `explorer "
+"<https://test.massa.net>`_, in the wallet tab."
+msgstr ""
+
+#: ../../testnet/wallet.rst:64
+msgid "Click `Generate secret key` then `Add`."
+msgstr ""
+
+#: ../../testnet/wallet.rst:66
+msgid ""
+"This generates a new random keypair from your computer randomness which "
+"stays on your side, it is never transferred on the network."
+msgstr ""
+
+#: ../../testnet/wallet.rst:69
+msgid ""
+"Now you can add more addresses or see the list of your addresses with "
+"their associated thread and balance."
+msgstr ""
+
+#: ../../testnet/wallet.rst:72
+msgid ""
+"Also, if you want to save this wallet and be able to restore it later, "
+"click `Save wallet`, and next time directly do `Load wallet`."
+msgstr ""
+

@@ -1,0 +1,1342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Massa Labs
+# This file is distributed under the same license as the Massa package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Massa \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-20 15:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../technical-doc/Endorsements.rst:3
+msgid "Endorsements"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:6
+msgid "Intro"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:9
+msgid ""
+"Massa uses the Proof-of-Stake selection mechanism with Nakamoto "
+"consensus. In that context, when there are multiple cliques in close "
+"competition, we want all nodes to converge towards a single clique as "
+"fast as possible to minimize finality time and maximize the quality of "
+"the consensus. To achieve this, we draw inspiration from Tezos and "
+"introduce the concept of Endorsement."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:15
+msgid "Basic principle"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:17
+msgid ""
+"Each block header has `E` ordered endorsement slots: each one can include"
+" an endorsement or not. Each endorsement contains: * The slot `S` in "
+"which it is meant to be included. The endorsement can only be included in"
+" blocks of slot `S`. * The hash of the endorsed block. This is the hash "
+"of the latest blockclique block of thread `S.thread` according to the "
+"endorsement creator at the moment the endorsement was created. * The "
+"index of the endorsement slot within the header from `0` (included) to "
+"`E-1` (included). The endorsement can only be included at that "
+"endorsement slot index within the block eader. * The public key of the "
+"creator of the endorsement * The signature of all the previous fields "
+"with the private key of the creator of the endorsement"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:25
+msgid ""
+"At every slot `S`, we use the existing Proof-of-Stake selection mechanism"
+" to not only draw the block creator for that slot, but also `E` other "
+"stakers indexed from `0` (included) to `E-1` (included) that can create "
+"Endorsements meant to be included in block headers of slot `S` at their "
+"respective endorsement slot index."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:28
+msgid ""
+"Conceptually, each endorsement meant to be included at a slot `S` can be "
+"seen as a single vote endorsing the parent in thread `S.thread` that the "
+"endorsement creator would have chosen if they had to create a block at "
+"slot `S`."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:31
+msgid ""
+"The likelihood of the attacker getting lucky and being selected for `N` "
+"consecutive PoS draws to attack/censor the system decays exponentially "
+"with `N`. With endorsements, we don't have to wait for `N` blocks to "
+"account for `N` proof-of-stake draws to happen as `E+1` draws happen at "
+"every slot (1 for the block creator and `E` for endorsement creators). In"
+" the consensus algorithm, we choose the clique of highest fitness as the "
+"blockclique. A block including `e` endorsements out of the maximum `E` "
+"contributes a fitness `e + 1` to the cliques it belongs to. The fitness "
+"of a block is therefore reflected by the number of PoS draws that were "
+"involved in creating it."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:37
+msgid ""
+"The net effect of this mechanism is to increase safety and convergence "
+"speed by allowing block producers to quickly choose the best clique to "
+"extend according to the \"votes\" provided by the endorsements."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:42
+msgid "Structure of an endorsement"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:57
+msgid ""
+"Note that the `WrappedEndorsement` structure includes the underlying "
+"`Endorsement` as well as the signature, and the public key of the "
+"endorsement producer."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:59
+msgid "Within a block, endorsements are fully included inside the header."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:61
+msgid "A header is invalidated if:"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:63
+msgid "it contains strictly more than `E` endorsements"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:64
+msgid ""
+"at least one of the endorsements fails deserialization or signature "
+"verification"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:65
+msgid ""
+"at least one of the endorsements endorses a block different than the "
+"parent of the including block within its own thread"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:66
+msgid ""
+"any of the endorsements should not have been produced at that "
+"`(endorsement.slot, endorsement.index)` according to the selector"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:67
+msgid ""
+"there is strictly more than one endorsement with a given "
+"`endorsement.index`"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:70
+msgid "Lifecycle of an endorsement"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:72
+msgid ""
+"To produce endorsements for slot `S`, the Endorsement Factory wakes up at"
+" `timestamp(S) - t0/2` so that the previous block of thread `S.thread` "
+"(the endorsed block) had the time to propagate, and so that the "
+"endorsement itself has the time to propagate to be included in blocks of "
+"slot `S`. It then checks the endorsement producer draws for slot `S`. At "
+"every slot, there are `E` endorsement producer draws, one for each "
+"endorsement index from `0` (included) to `E-1` (included). The factory "
+"will attempt to create all the endorsements that need to be produced by "
+"keypairs its wallet manages. To choose the block to endorse, the factory "
+"asks Consensus for the ID of latest blockclique (or final) block `B` in "
+"thread `S.thread` that has a strictly lower period than `S.period`. Every"
+" created endorsement is then sent to the Endorsement Pool for future "
+"inclusion in blocks, and to Protocol for propagation to other nodes."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:79
+msgid ""
+"In Protocol, endorsements can be received from other modules, in which "
+"case they are propagated. They can also be received from other nodes, in "
+"which case they added to the Endorsement Pool and propagated. "
+"Endorsements are propagated only to nodes that don't already know about "
+"them (including inside block headers)."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:83
+msgid ""
+"The Endorsement Pool stores a finite number of endorsements that can "
+"potentially be included in future blocks created by the node. Consensus "
+"notifies the Endorsement pool of newly finalized blocks, which allows the"
+" pool to eliminate endorsements that can only be included in already-"
+"finalized slots and are therefore not useful anymore."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:87
+msgid ""
+"When the Block Factory produces a block and needs to fill its header with"
+" endorsements, it asks the Endorsement Pool for the endorsements that can"
+" be included in the block's slot and that endorse the block's parent in "
+"its own thread."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:91
+msgid "Incentives and penalties"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:93
+msgid "There needs to be an incentive in:"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:95
+msgid ""
+"creating blocks that can be endorsed, and also avoid publishing them too "
+"late so that endorsers have the time to endorse them"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:96
+msgid ""
+"creating and propagating endorsements, also doing so not too early in "
+"order to endorse the most recent block, and not too late for subsequent "
+"blocks to be able to include the endorsement"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:97
+msgid ""
+"including endorsements in blocks being created, and also not publishing "
+"them too early to include as many endorsements as possible"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:99
+msgid ""
+"To achieve this, we note `R` the total amount of coin revenue generated "
+"by the block: the sum of the per-block monetary creation, and all "
+"operation fees. We then split `R` into `1+E` equal parts called `r = "
+"R/(1+E)`."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:102
+msgid ""
+"`r` is given to the block creator to motivate block creation even if "
+"there are no endorsements available"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:103
+msgid "for each successfully included endorsement:"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:105
+msgid "`r/3` is given to the block creator to motivate endorsement inclusion"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:106
+msgid "`r/3` is given to the endorsement creator to motivate endorsement creation"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:107
+msgid ""
+"`r/3` is given to the creator of the endorsed block to motivate the "
+"timely emission of endorsable blocks"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:109
+msgid ""
+"Note that this split also massively increases the frequency at which "
+"stakers receive coins, which reduces the incentive to create staking "
+"pools."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:113
+msgid "Choosing the value of `E`"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:114
+msgid ""
+"The value of `E` has implication both in the safety and in the "
+"performance of the protocol. In terms of performance, the greater the "
+"value of `E` is, the more ressources (bandwith, memory, computing power) "
+"is needed to generate, broadcast and include endorsements, which could "
+"induce latency. One the other hand, the value of `E` has implications in "
+"the safety of the protocol. The threat we are looking at here is the "
+"finality fork attack."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:119
+msgid "Finality fork attacks"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:120
+msgid ""
+"A finality fork attack is when an attacker that controls a portion `beta`"
+" of the total stake, decides not to broadcast the blocks he has been "
+"selected to produce, in order to construct an alternative and undisclosed"
+" clique. The attacker's goal is to produce an attack clique that has a "
+"fitness greater than the honnest clique. If he manages to do so, the "
+"attacker can wait until the finalization time of a block `b` belonging to"
+" the honest clique, to broadcast its attack clique. Because the fitness "
+"of the attack clique is greater than the honest one, a portion of the "
+"network will consider the attacker's clique to be the good version of the"
+" chain, while some other portion will have finalized block `b`. This "
+"results in a network partion, where two or more portion of the network do"
+" not agree on the state of the ledger."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:126
+msgid "Security level"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:127
+msgid ""
+"The factors that influence the success probability of a finality fork "
+"attack are the number of endorsments per block `E`, the portion of the "
+"total stake controlled by the attacker `beta` and a finality parameter "
+"`F`. The finality parameter `F` respresents a number of descendant a "
+"block must have, before being finalized. The portion of the stake `beta` "
+"is positively correlated with the success probability of an attack, while"
+" `F` and `E` are inversly correlated. We do not have control over `beta`,"
+" thus we define our security level as a portion `beta` and a maximum "
+"success probability of an attack. We chose `beta = 1/3` because it is the"
+" maximum proportion of Byzantine participants BFT based consensus "
+"protocols assume. We chose `p_success <= 1e-11` because it corresponds to"
+" a period of time of around 10 000 years (given one block every 0.5s). We"
+" must chose the minimal parameters `F` and `E` that match this security "
+"level."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:135
+msgid "Simulation results"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:136
+msgid ""
+"Our simulations results show that with `F = 64`, `E = 16` and given 32 "
+"thread and a portion `beta = 1/3` of the stake controlled by the "
+"attacker, the probability of success of an attack is in the order of "
+"`1e-11`. You can find more details in the [technical "
+"paper](https://arxiv.org/abs/1803.09029)."
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:142
+msgid "TODOS"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:144
+msgid ""
+"check the PoS draw in Protocol to avoid propagating/storing endorsements "
+"with the wrong draw: https://github.com/massalabs/massa/issues/3020"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:145
+msgid ""
+"only store the public key and the signature (not the full endorsement) in"
+" block headers, everything else is already in the header: "
+"https://github.com/massalabs/massa/issues/3021"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:146
+msgid ""
+"use pool endorsements to choose the best parents in consensus: second "
+"part of https://github.com/massalabs/massa/issues/2976"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:147
+msgid ""
+"split off pools and factories into a separate binary: "
+"https://github.com/massalabs/massa/discussions/2895"
+msgstr ""
+
+#: ../../technical-doc/Endorsements.rst:148
+msgid ""
+"add denunciations and slashing when a staker produces two different "
+"endorsements for the same `(slot, index)`: "
+"https://github.com/massalabs/massa/issues/3022"
+msgstr ""
+
+#: ../../technical-doc/api.rst:7
+msgid "Massa JSON-RPC API"
+msgstr ""
+
+#: ../../technical-doc/api.rst:9
+msgid ""
+"This crate exposes Rust methods (through the `Endpoints` trait) as JSON-"
+"RPC API methods (thanks to the `ParityJSON-RPC "
+"<https://github.com/paritytech/jsonrpc>`_ crate)."
+msgstr ""
+
+#: ../../technical-doc/api.rst:12
+msgid "Massa JSON-RPC API is splitted in two parts :"
+msgstr ""
+
+#: ../../technical-doc/api.rst:14
+msgid ""
+"**Private API**: used for node management. Default port: 33034 e.g. "
+"http://localhost:33034"
+msgstr ""
+
+#: ../../technical-doc/api.rst:16
+msgid ""
+"**Public API**: used for blockchain interactions. Default port: 33035 "
+"e.g. http://localhost:33035"
+msgstr ""
+
+#: ../../technical-doc/api.rst:18
+msgid ""
+"Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  "
+"specification `here "
+"<https://raw.githubusercontent.com/massalabs/massa/main/docs/technical-"
+"doc/openrpc.json>`_."
+msgstr ""
+
+#: ../../technical-doc/api.rst:22 ../../technical-doc/storage-costs.rst:26
+msgid "Example"
+msgstr ""
+
+#: ../../technical-doc/api.rst:24
+msgid ""
+"The curl command below will create a JSON-RPC `request "
+"<https://www.jsonrpc.org/specification#request_object>`_ which calls "
+"`node_stop` method and stops the locally running `massa-node`:"
+msgstr ""
+
+#: ../../technical-doc/api.rst:31
+msgid "Result:"
+msgstr ""
+
+#: ../../technical-doc/api.rst:42
+msgid "Integrations"
+msgstr ""
+
+#: ../../technical-doc/api.rst:44
+msgid ""
+"**JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-"
+"web3>`_."
+msgstr ""
+
+#: ../../technical-doc/api.rst:46
+msgid ""
+"**Smart contracts**: use `massa-as-sdk <https://github.com/massalabs"
+"/massa-as-sdk>`_."
+msgstr ""
+
+#: ../../technical-doc/api.rst:48
+msgid ""
+"**Playground**: use `Massa Playground <https://playground.open-"
+"rpc.org/?schemaUrl=https://raw.githubusercontent.com/massalabs/massa/main/docs"
+"/technical-"
+"doc/openrpc.json&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter"
+" Massa JSON-RPC server "
+"URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:3
+msgid "Concurrency"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:5
+msgid ""
+"The Massa system is built mostly around message-passing. This involves "
+"bi-directional communication between components on bounded channels, "
+"which comes with a risk of deadlock. To manage this risk, a distinction "
+"is made between two types of messages:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:10
+msgid "Events -   Examples are: `NetworkEvent`, and `ProtocolEvent`. These are"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:12
+msgid ""
+"messages that can be dropped if they haven't been received, or added to "
+"the channel buffer, before a timeout. Care should be taken to ensure that"
+" dropping one of these does not result in livelock."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:16
+msgid "Commands -   Examples are: `ProtocolCommand` and `NetworkCommand`. Those"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:18
+msgid "cannot be dropped."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:21
+msgid "How is deadlock prevented?"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:23
+msgid ""
+"When two components communicate with each other, one of these channels "
+"should be using `_Command` type of messages, and the other `_Event`. This"
+" ensures that if both channels are full, `_Event` messages will start "
+"being dropped, ensuring that the `_Command` messages are handled and the "
+"system does not deadlock."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:30
+msgid "What risks are left?"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:32
+msgid ""
+"First, dropping `_Event` messages could inadvertently result in the "
+"system not being able to make progress, a so-called livelock. Secondly, "
+"care should be taken not to introduce dependencies on `_Command` type of "
+"messages between components, even indirectly. For example, two components"
+" should not send each other `_Command`, not even indirectly via another, "
+"or multiple other, component(s)."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:-1
+#: ../../technical-doc/concurrency.rst:40
+msgid "Current state of communication links"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:42
+msgid "Massa-node: -   Receives events from:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:44
+msgid "Api"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:45
+#: ../../technical-doc/concurrency.rst:67
+#: ../../technical-doc/concurrency.rst:88
+msgid "Consensus"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:46
+msgid "Consensus: -   Sends events to:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:48
+msgid "Massa-node"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:49
+msgid "Receives events from: -   Protocol"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:51
+msgid "Sends commands to: -   Protocol -   Pool"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:54
+msgid "Receives commands from: -   Bootstrap -   Api"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:57
+msgid "Pool: -   Receives events from:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:59
+#: ../../technical-doc/concurrency.rst:78
+msgid "Protocol"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:60
+msgid "Sends commands to: -   Protocol"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:62
+msgid "Receives commands from: -   Consensus -   Api"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:65
+msgid "Protocol: -   Sends events to:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:68
+#: ../../technical-doc/concurrency.rst:89
+msgid "Pool"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:69
+msgid "Receives events from: -   Network"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:71
+msgid "Sends commands to: -   Network"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:73
+msgid "Receives commands from: -   Consensus -   Pool"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:76
+msgid "Network: -   Sends events to:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:79
+msgid "Node"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:80
+msgid "Receives events from: -   Node"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:82
+msgid "Receives commands from: -   Protocol -   Bootstrap -   Api"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:86
+msgid "API: -   Sends commands to:"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:90
+msgid "Network"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:118
+msgid "Blocking relationships"
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:120
+msgid ""
+"If a component has a relationship with another by sending `_Command` type"
+" of messages than the receiving component cannot block on the sender, "
+"which means that it cannot send `_Command` type of messages to it, even "
+"indirectly via another, or several other, component(s)."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:125
+msgid ""
+"Network cannot block on Protocol, Bootstrap, and Massa-node, blocks on "
+"Node(s)."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:127
+msgid "Protocol cannot block on Consensus and Pool, blocks on Network."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:128
+msgid "Pool cannot block on Consensus and Massa-node, blocks on Protocol."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:129
+msgid ""
+"Consensus cannot block on Bootstrap and Massa-node, blocks on Protocol, "
+"Pool."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:131
+msgid "API blocks on Massa-node."
+msgstr ""
+
+#: ../../technical-doc/concurrency.rst:132
+msgid "Massa-node cannot block on API, blocks on Consensus, Pool, and Network."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:3
+msgid "Glossary"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:6
+msgid "Where is the money ?"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:8
+msgid "**Wallet**: a set of keypairs (with their associated address)."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:9
+msgid ""
+"**address**: hash (often of a public key). Tokens, rolls and/or bytecode "
+"are associated with an address. An address is associated with a thread "
+"for sharding purposes."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:10
+msgid ""
+"**smart contract address**: a specific kind of address that was generated"
+" by bytecode execution, that is not associated with a keypair. Hence it "
+"is immutable. Note : a deletion mechanism can be implemented in the "
+"associated byte code."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:11
+msgid "**final balance**: balance at the latest final blocks"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:12
+msgid ""
+"**locked balance**: balance that comes from a roll sell. It is locked for"
+" a cycle before being usable again"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:13
+msgid "**candidate balance**: balance at latest blocks"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:14
+msgid ""
+"**ledger vs balance** :the ledger is the long term memory of the "
+"blockchain. For every address it may contain a balance, some bytecode, a "
+"map of hashes to bytes)"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:15
+msgid "**staking address**: address that has at least one roll."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:18
+msgid "Graph stuff"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:20
+msgid ""
+"**compatibility graph**: graph of all compatible blocks (see "
+"https://arxiv.org/pdf/1803.09029.pdf and "
+"https://github.com/massalabs/massa/discussions/2161 for more information "
+"on compatibility rules). Theorethical construction. Never computed for "
+"real."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:21
+msgid ""
+"**head incompatibility graph**: graph of incompatible active blocks (see "
+"https://arxiv.org/pdf/1803.09029.pdf). The really computed part. -> As is"
+" we don't understand the difference with the definition just above"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:22
+msgid ""
+"**final**: a block becomes final if its fitness is higher than a protocol"
+" defined threshold."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:23
+msgid "**stale**: a block is stale when it is incompatible with a final block."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:24
+msgid ""
+"**fitness**: for a block: 1 + number of endorsement included in the "
+"block. for a clique: sum of its blocks fitness. Used to determined if a "
+"block is final or not"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:25
+msgid ""
+"**blockclique**: the `clique "
+"<https://en.wikipedia.org/wiki/Clique_(graph_theory)>`_ of higher "
+"fitness."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:28
+msgid "Consensus and block production"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:30
+msgid ""
+"**proof of stake**: https://en.wikipedia.org/wiki/Proof_of_stake a "
+"consensus mechanism based on the amount of coin."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:31
+msgid "**baking/block generation**: baking is not used in massa."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:32
+msgid "**epoch**: this term is not used in massa."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:33
+msgid "**thread**: addresses are sharded across threads."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:34
+msgid "**period**: on a thread, a block is produced every period."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:35
+msgid ""
+"**cycle**: config defined number of huge periods. Unit of time for roll "
+"changes. Last for about 30 minutes."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:36
+msgid ""
+"**slot**: point in time defined by it's period and thread, at which a "
+"block should be created."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:37
+msgid "**slashing**: not yet implemented."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:38
+msgid ""
+"**staker**: owner of at least one roll. They are expected to create "
+"blocks and endorsements when selected."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:39
+msgid ""
+"**roll**: akin to a lottery ticket to be selected for block and "
+"endorsement creation. A roll costs 100 MAS. The more rolls you have, the "
+"more chances you have to be selected to produce a block."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:40
+msgid ""
+"**endorsement**: part of a block header, used to improve security. Any "
+"staker can be selected to create an endorsement. They are produced "
+"automatically by any node with at least a staking address. For example: "
+"when a staker 1 creates a block A that reference a block B as parent in "
+"the same thread created by staker 2, if they were selected staker 3 can "
+"produce an endorsement citing block B and staker 1 can include that "
+"endorsement in block A.  (see https://arxiv.org/pdf/1803.09029.pdf)."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:41
+msgid ""
+"**block**: a block is produced by a staker. They are produced "
+"automatically by any node with at least a staking address.It includes "
+"operation and is checked by other stakers. It becomes final when enough "
+"blocks were produced on top of it."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:44
+msgid "How to interact with the blockchain"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:46
+msgid ""
+"**operation**: the only way to inject information in the blockchain. It "
+"is produced by an emitter that will provide a fee. The operation will be "
+"valid (ie includable in a block) only for a limited amount of time. Can "
+"be a simple transaction, a roll buy, a roll sell or a smart contract "
+"operation. The latter will execute bytecode on the block chain, but will "
+"not store anything in the ledger by default. It can call function that "
+"will interact with the ledger (ex: create smart contract address, "
+"transfer coins, call smart contract etc). -> \"The latter will execute "
+"bytecode on the block chain, but will not store anything in the ledger by"
+" default\" I'd say that most smart-contract operation write on the "
+"blockchain. Otherwise you would do a read only operation as it's free. no"
+" because if you want you can execute bytecode that contains just a coin "
+"transfer. it will interact with the block chain but it won't store any "
+"byte code."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:47
+msgid ""
+"**transaction**: coin transfer between a sender (that created and signed "
+"this operation) and a receiver."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:51
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:53
+msgid ""
+"**peer VS node**: 1 peer <=> 1 ip address, whereas 1 node <=> 1 public "
+"key. A peer can run multiple nodes."
+msgstr ""
+
+#: ../../technical-doc/glossary.rst:54
+msgid ""
+"**node address**: address used to identify a node. Not related to a "
+"staking address."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:3
+msgid "Storage Costs"
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:6
+msgid "Explanations"
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:8
+msgid ""
+"In Massaa the ledger is shared across all nodes of the network. We need "
+"to set a size limit to be able to run a node without having 100TB of "
+"storage which will cause a barrier for adoption and running nodes at "
+"home. We chose to limit the size to 1TB. Everyone can store data until "
+"the ledger reach 1TB. But how can we ensure this limit ?"
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:12
+msgid ""
+"We chose to force users to lock coins when they claim storage space and "
+"so we created a correlation with storage and circulating coins."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:14
+msgid ""
+"For each byte of storage you claim (for your address and balance, a key "
+"in your datastore, bytecode, ...) you need to lock coins. The coins are "
+"released when you release your space in the storage."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:16
+msgid ""
+"The amount of coins you need to lock for one byte is 0.00025 Massa. This "
+"value has been chosen so that if half of the coins (250 000 000 Massa) "
+"are locked, we will reach the 1TB."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:18
+msgid ""
+"As balances are stored as `varint <https://developers.google.com"
+"/protocol-buffers/docs/encoding#varints>`__ in the ledger their size can "
+"vary. To avoid difficulties and incomprehension we decided to use a fixed"
+" size for each balance. This size is 8 bytes and so initial ledger entry "
+"(address + balance) cost (8 + 32) * 0.00025 = 0.01 Massa . Datastore keys"
+" also have a variable size and so we decided to use a fixed size of 10 "
+"bytes for calculating storage cost."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:21
+msgid ""
+"If you want to calculate the storage cost of your address in the ledger "
+"the formula is : address_size + balance_constant + bytecode_length + sum "
+"of (constants datastore key + value size) = 32 + 8 + bytecode.len() + "
+"sum_i(10 + datastore[i].len())) * 0.00025"
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:23
+msgid ""
+"The storage costs are always paid by the caller address. If you are using"
+" ABI like set_bycode_for you will be charged for the storage costs."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:28
+msgid ""
+"To create your address on the blockchain someone need to send at least "
+"0.00025 * (32 + 8) = 0.01 Massa when sending the operation that will "
+"create your address (a transfer for example). This is the cost of "
+"creating your address and balance."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:30
+msgid ""
+"You want to store your birth date that is 30 bytes long in your datastore"
+" so you need to send an operation that will create a key in your "
+"datastore using a SC. This operation will cost you in storage costs at "
+"least 0.00025 * (10 + 30) = 0.01 Massa."
+msgstr ""
+
+#: ../../technical-doc/storage-costs.rst:32
+msgid ""
+"Now you want to delete this entry on your datastore then you will do it "
+"with a SC and you will be refunded of the storage costs (0.02 Massa)."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:3
+msgid "VM ledger interaction"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:6
+msgid "Rationale"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:8
+msgid "This page describes how the VM interacts with the SCE ledger."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:11
+msgid "Summary"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:13
+msgid ""
+"VM execution happens in steps: there is one execution step at every slot."
+" During the execution of a slot S, background async tasks at S are "
+"executed first, then the block at slot S (if any) is executed."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:16
+msgid ""
+"The SCE ledger is a hashmap mapping an Address to a balance, optional "
+"bytecode, and a datastore hashmap mapping hashes to arbitrary bytes."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:18
+msgid ""
+"The VM maintains a single full copy of the SCE ledger at the output of "
+"the latest SCE-final slot, as well as an active execution step history "
+"containing the changes caused to the ledger by every active slot. The "
+"step history can be sequentially applied on top of the SCE-final ledger "
+"to get an SCE ledger entry at the output of any active slot."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:22
+msgid ""
+"During execution, the executed code can access the SCE ledger with read "
+"and limited write rights."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:25
+msgid "Design"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:28
+msgid "SCE Ledger"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:30
+msgid "**Structure**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:32
+msgid ""
+"The SCE Ledger can become large (up to 1TB). For now, it is in RAM but "
+"this needs to be fixed."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:34
+msgid ""
+"The SCE Ledger is represented by the `SCELedger` structure which acts as "
+"a hashmap associating an `Address` to a `SCELedgerEntry`."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:36
+msgid ""
+"The `SCELedgerEntry` structure represents an entry in the ledger and has "
+"the following properties:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:38
+msgid "**balance**: the SCE balance of the address."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:39
+msgid "**opt_module**: an optional executable module."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:40
+msgid ""
+"**data: HHashMap<Hash, Vec<u8>>**: a generic datastore associating a hash"
+" to bytes."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:42
+msgid "**Ledger changes**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:44
+msgid ""
+"The `SCELedgerChanges` struct is a hashmap associating an `Address` to a "
+"`SCELedgerChange` and represents the entries of the SCE ledger that have "
+"changed. The exact change to each entry is described by the "
+"`SCELedgerChange` enum that can be:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:46
+msgid "**Delete**: the entry was deleted."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:47
+msgid ""
+"**Set(SCELedgerEntry)**: a new entry was inserted or an existing entry "
+"was reset to a completely new value."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:48
+msgid ""
+"**Update(SCELedgerEntryUpdate)**: an existing entry was modified. The "
+"modifications are described by `SCELedgerEntryUpdate`."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:50
+msgid ""
+"The `SCELedgerEntryUpdate` struct describes modifications to an SCE "
+"ledger entry and has the following fields:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:52
+msgid ""
+"**update_balance: Option<Amount>**: optionally updates the balance of the"
+" entry to a new value."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:53
+msgid ""
+"**update_opt_module: Option<Option<Bytecode>>**: optionally updates the "
+"module of the entry to a new one (or to None)."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:54
+msgid ""
+"**update_data: HHashMap<Hash, Option<Vec<u8>>>**: a list of datastore "
+"entries that have been updated to a new value (or deleted if the hashmap "
+"value is None)."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:58
+msgid "VM structure"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:60
+msgid "**Overview**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:62
+msgid "The VM is represented by the `VM` structure with the following properties:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:64
+msgid "**step_history**: a history of active execution steps."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:65
+msgid "**execution_interface**: an interface for the interpreter."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:66
+msgid "**execution_context**: an execution context."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:68
+msgid "Those fields are described in the next subsections."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:70
+msgid "**Step history**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:72
+msgid ""
+"The VM contains a `step_history` property which is a list of "
+"`StepHistoryItem` active steps that have been executed on top of the "
+"current final SCE ledger. Each `StepHistoryItem` represents the "
+"summarized consequences of a given active step and has the following "
+"properties:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:74
+msgid "**slot**: the slot to which the step is associated."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:75
+msgid ""
+"**opt_block_id**: an optional block ID if a block is present at that "
+"slot, or None if there is a miss."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:76
+msgid ""
+"**ledger_changes**: a `SCELedgerChanges` object listing the SCE ledger "
+"changes caused by that step."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:78
+msgid ""
+"The state of an entry of the SCE ledger at the output of a given active "
+"execution step can be retrieved by taking the corresponding entry in the "
+"final SCE ledger (available in the execution context, see below) and "
+"applying ledger changes from the `step_history` one after the other until"
+" the desired active step (included)."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:80
+msgid "**Execution interface**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:82
+msgid "TODO"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:84
+msgid "**Execution context**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:86
+msgid ""
+"The `execution_context` field of the `VM` sturct represents the context "
+"in which the current execution runs. `ExecutionContext` has the following"
+" fields:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:89
+msgid ""
+"**ledger_step**: is a `SCELedgerStep` that represents the state of the "
+"SCE ledger up to the latest point of the execution of the latest active "
+"step."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:90
+msgid "**max_gas**: is the max amount of gas for the execution."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:91
+msgid ""
+"**coins**: is the amount of coins that have been transferred to the "
+"called SC in the context of the call."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:92
+msgid "**gas_price**: is the price (in coins) per unit of gas for the execution."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:93
+msgid "**slot**: is the slot of the execution step."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:94
+msgid "**opt_block_id**: block id being executed (None if absent)."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:95
+msgid ""
+"**opt_block_creator_addr**: address of the block producer (None if block "
+"absent)."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:96
+msgid ""
+"**call_stack**: call stack listing calling addresses. The latest one is "
+"rightmost and should be the address of the called SC when applicable."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:98
+msgid ""
+"The `SCELedgerStep` struct allows accumulating changes caused by the step"
+" execution and reading the latest SCE ledger state during execution. "
+"`SCELedgerStep` has the following fields:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:101
+msgid ""
+"**final_ledger_slot**: a `FinalLedger` structure containing the current "
+"final `SCELedger` as well as the slot at the output of which the final "
+"ledger is attached."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:102
+msgid ""
+"**cumulative_history_changes**: is a `SCELedgerChanges` obtained by "
+"accumulating the `ledger_changes` of all the previous elements of the "
+"VM's `step_history`."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:103
+msgid ""
+"**caused_changes**: is a `SCELedgerChanges` representing all the changes "
+"that happened so far in the current execution."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:105
+msgid ""
+"In order to transparently obtain a ledger entry at the current point of "
+"the execution, `SCELedgerStep` provides convenience methods that gather "
+"entries from the final ledger, apply the `cumulative_history_changes` and"
+" then the `caused_changes`. It also provides convenience methods for "
+"applying changes to `caused_changes`."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:108
+msgid "SCE interaction with the VM"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:110
+msgid "**Active execution requests**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:112
+msgid ""
+"Whenever the SCE tells the VM to execute an active block or active miss "
+"at slot S, the corresponding execution step is executed by the VM and the"
+" state changes caused by the execution are compiled into a "
+"`StepHistoryItem` and added to the `step_history`."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:114
+msgid ""
+"The detailed algorithm is the following: * get the execution context "
+"ready by resetting `ledger_step.caused_changes` and computing "
+"`ledger_step.cumulative_history_changes` based on the `step_history` * "
+"TODO run async background tasks * if there is a block B at slot S:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:118
+msgid ""
+"Note that the block would have been rejected before if the sum of the "
+"`max_gas` of its operations exceeded `config.max_block_gas`"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:119
+msgid ""
+"for every `ExecuteSC` operation Op of the block B : * Note that Consensus"
+" has already debited `Op.max_gas*Op.gas_price` from Op's sender's CSS "
+"balance or rejected the block B if there wasn't enough balance to do so *"
+" prepare the context for execution:"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:122
+msgid ""
+"make `context.ledger_step` credit the producer of the block B with "
+"`Op.max_gas * Op.gas_price` in the SCE ledger"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:123
+msgid ""
+"save a snapshot (named `ledger_changes_backup`) of the "
+"`context.ledger_step.caused_changes` that will be used to rollback the "
+"step's effects on the SCE ledger backt to this point in case bytecode "
+"execution fails. This is done because on bytecode execution failure "
+"(whether it fails completely or midway) we want to credit the block "
+"producer with fees (it's not their fault !) but revert all the effects of"
+" a bytecode execution that failed midway"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:124
+msgid ""
+"parse and run (call `main()`) the bytecode of operation Op * in case of "
+"failure (e.g. invalid bytecode), revert "
+"`context.ledger_step.caused_changes = ledger_changes_backup`"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:126
+msgid ""
+"push back the SCE ledger changes caused by the slot `StepHistoryItem { "
+"step, block_id (optional), ledger_changes: "
+"context.ledger_step.caused_changes  }` into `step_history`"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:129
+msgid "**Final execution requests**"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:131
+msgid ""
+"Whenever the SCE tells the VM to execute a final block or final miss at "
+"slot S, the VM first checks if that step was already executed (it should "
+"match the first/oldest step in `step_history`). If it matches (it should "
+"almost always), the step result is popped out of `step_history` and its "
+"`ledger_changes` are applied to the SCE final ledger."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:134
+msgid ""
+"In the case where the step is not found at the front of `step_history`, "
+"it might mean that there was a deep blockclique change, or that there was"
+" nothing in `step_history` due to a recent bootstrap for example. In that"
+" case, `step_history` is cleared, the `Active execution requests` process"
+" described above is executed again, and its resulting history item is "
+"then applied to the final SCE ledger."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:136
+msgid ""
+"After this process, the SCE final ledger now represents the SCE ledger "
+"state at the output of slot S."
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:141
+msgid "ABIs for interacting with the SCE ledger from inside running bytecode"
+msgstr ""
+
+#: ../../technical-doc/vm-ledger-interaction.rst:143
+msgid "TODO detail how each one works"
+msgstr ""
+

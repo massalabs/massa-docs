@@ -1,0 +1,1188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Massa Labs
+# This file is distributed under the same license as the Massa package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Massa \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-20 15:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../web3-dev/decentralized-web.rst:5
+msgid "Massa's decentralized web"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:10
+msgid "Hosting your website on Massa's decentralized web"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:12
+msgid ""
+"Massa's decentralized web allows you to store websites directly on the "
+"blockchain. This feature provides another layer of security for your "
+"dApps."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:14
+msgid ""
+"This documentation go through all the steps to host your website on the "
+"blockchain and register it on Massa's DNS service in order to access it "
+"using Massa's plugin."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:17
+msgid ""
+"To upload a website to Massa's decentralized web you can use the "
+"following smart-contract. If you want latter want to be able to access to"
+" your website through the Massa plugin it's important to use the entry "
+"`massa_web` for your website."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:35
+msgid ""
+"This smart-contract and the dependencies are available `here "
+"<https://github.com/massalabs/massa-sc-examples/tree/main/website>`_."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:38
+#: ../../web3-dev/smart-contracts.rst:605
+msgid "Setting the DNS"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:40
+msgid ""
+"To claim a DNS address for you smart-contract you can use the following "
+"smart-contract:"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:59
+msgid ""
+"For now DNS addresses can only be claimed using the following address: "
+"`9mvJfA4761u1qT8QwSWcJ4gTDaFP5iSgjQzKMaqTbrWCFo1QM` (and its associated "
+"secret key)."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:61
+msgid ""
+"Once you've done this step, you should be able to access to your website "
+"using `Massa's browser plugin <https://github.com/massalabs/massa-"
+"wallet>`_ at `https://flappy.massa`."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:69
+msgid "Massa's browser plugin"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:71
+msgid ""
+"In order to access decentralized websites we've developed a `browser "
+"plugin <https://github.com/massalabs/massa-wallet>`_."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:73
+msgid ""
+"The Massa browser plugin function like Metamask (wallet, interaction with"
+" the blockchain) but also provide extra functions:"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:75
+msgid ""
+"when an URL of the form `xxxxxxxxxxxx.massa` is typed in the address bar,"
+" the plugin will check if `xxxxxxxxxxxx` is an address"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:76
+msgid ""
+"if it's an address, the plugin will try to load the `website.zip` file "
+"from the filestore of that address, unzip it, and display its index.html "
+"(or whatever other page is requested)."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:78
+msgid ""
+"if it's not and address but something like a domain name, the plugin will"
+" interrogate a \"Massa Name Service\" smart contract through a readonly "
+"call to try to match the domain name to an address. This is inspired by "
+"how the Ethereum Name Service works. Then it will load the address's "
+"website as defined above."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:81
+msgid ""
+"the website will typically contain html, css and javascript to remain "
+"lightweight. The javascript can dynamically talk to the Massa plugin to "
+"interact with the blockchain and wallet (just like Metamask)"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:83
+msgid ""
+"if the website needs heavy assets (videos, large images...) that cannot "
+"be stored on the blockchain, the plugin allows looking up optional "
+"external data on IPFS or on the normal web, but plugin settings allow "
+"users to disable the fetching of off-chain assets for maximum security."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:88
+msgid "Installation"
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:90
+msgid ""
+"For now the Massa browser plugin is only compatible with Chrome and "
+"Firefox."
+msgstr ""
+
+#: ../../web3-dev/decentralized-web.rst:92
+msgid ""
+"To install it, you can follow this installation procedure detailed on the"
+" `Github repository <https://github.com/massalabs/massa-wallet>`_."
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:3
+msgid "Local network generation"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:6
+msgid ""
+"How to launch a local network with custom settings and initial coins & "
+"rolls repartition"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:10
+msgid "**On Docker**"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:12
+msgid ""
+"Full documentation about launching a local network on Docker is available"
+" here : https://github.com/massalabs/massa-network-simulator"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:14
+msgid "**On your OS**"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:16
+msgid "Clone massa:"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:22
+msgid "Compile it with the sandbox feature enabled:"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:28
+msgid "Create a keypair in massa-client:"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:35
+msgid "For the rest of the tutorial we will use theses abreviations:"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:37
+msgid "`SECRETK` : The secret you just generated"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:38
+msgid "`PUBK` : The public key corresponding to SECRETK"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:39
+msgid "`ADDR` : The address corresponding to PUBK"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:66
+msgid ""
+"Setup your node to use the secret you just generated as its public key "
+"and staking key:"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:42
+msgid "modify or create the file `massa-node/config/node_privkey.key` :"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:48
+msgid "modify the file `massa-node/base_config/initial_ledger.json` :"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:60
+msgid "CLEAR and modify the file `massa-node/base_config/initial_rolls.json` :"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:68
+msgid "You can now launch your node :"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:74
+msgid ""
+"On your client run the following command to add your secret key as "
+"staking key:"
+msgstr ""
+
+#: ../../web3-dev/dummy-network-generation.rst:80
+msgid ""
+"The network with your node all start in 10 seconds and you can now "
+"interact it with the CLI client like a testnet node. If you want to run "
+"multiple nodes on your local network you need to use :ref:`docker`."
+msgstr ""
+
+#: ../../web3-dev/external-resources.rst:5
+msgid "External resources"
+msgstr ""
+
+#: ../../web3-dev/external-resources.rst:8
+msgid ""
+"Links to external websites and material are provided for informational "
+"purposes and do not constitute endorsement or approval by Massalabs. We "
+"are not responsible for the accuracy, legality or content of any external"
+" sources referenced on this website."
+msgstr ""
+
+#: ../../web3-dev/external-resources.rst:11
+msgid "As always, use your best judgment when visiting third party links."
+msgstr ""
+
+#: ../../web3-dev/external-resources.rst:13
+msgid ""
+"`Bearby extension <https://github.com/bearby-wallet/bearby-extension>`_: "
+"a Massa wallet plugin for Chrome and FireFox."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:5
+msgid "Massa's Smart Contracts"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:10
+msgid "Introduction"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:12
+msgid ""
+"A smart contract is a transaction protocol used to be sure that an "
+"operation, involving different stakeholders, is executed as expected."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:14
+msgid ""
+"Having trust between stakeholders is not necessary, as long as each "
+"participant is trusting the transaction protocol."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:16
+msgid ""
+"By adding a programmable mechanism to the blockchain, we get such a "
+"protocol as long as the program has the following characteristics:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:18
+msgid "Immutability"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:19
+msgid "Determinism"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:20
+msgid "Audit"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:23
+msgid ""
+"Smart contract is not about replacing paper contract with electronic one,"
+" but replacing the Law with the transaction protocol. By doing so you're "
+"also replacing trust in justice by trust in the blockchain."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:27
+msgid ""
+"In the following, and in the crypto ecosystem, we talk about smart "
+"contracts only to refer to a *program* that can be executed on a "
+"blockchain."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:29
+msgid ""
+"Nevertheless, it's important to keep in mind that the transaction "
+"protocol exists and is valued only thanks to the entanglement of the "
+"program in the blockchain and its guarantees."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:32
+msgid "Technical choices"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:34
+msgid ""
+"For all the reasons listed above and for performance, Massa chose a "
+"program in WebAssembly."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:36
+msgid ""
+"For the sake of accessibility, Massa decided to use AssemblyScript as "
+"programming language to compile the expected logic into bytecode."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:38
+msgid "Finally, at node level, the byte of a program is executed by Wasmer."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:40
+msgid "The following schema recap graphically all this:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:49
+msgid "Introduction to Smart Contracts"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:51
+msgid ""
+"In this section you will learn how to compile your first Massa smart "
+"contract."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:54
+msgid "Setting up a new project"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:56
+msgid ""
+"Make sure you have a recent version of Node.js and npm. Update or "
+"`install <https://docs.npmjs.com/downloading-and-installing-node-js-and-"
+"npm>`_ them if needed. Create or go to the directory where you want to "
+"set up your project and run:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:64
+msgid ""
+"Now that the npm project is created, go inside your smart-contract "
+"directory and install the dependencies using the following commands:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:71
+msgid ""
+"You have now installed AssemblyScript among other dependencies. It will "
+"be used to generate bytecode from AssemblyScript code."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:74
+msgid ""
+"Massa smart contract module (@massalabs/massa-sc-std) contains the API "
+"you need to use to interact with the external world of the smart contract"
+" (the node, the ledger...)."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:75
+msgid ""
+"Installing directly as-pect will automatically install the compatible "
+"version of AssemblyScript."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:77
+msgid ""
+"Congratulations! Now you have a fully set up project and you are ready to"
+" add some code."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:80
+msgid "A few words on project folders:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:82
+msgid "`src` is where the code goes;"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:83
+msgid ""
+"`build` will be created during compilation and will contain the compiled "
+"smart contracts."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:86
+msgid "Create your first smart contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:88
+msgid ""
+"Since the beginning of mankind, humans explain how to use a program, a "
+"new language, a service by implementing a *Hello world!*."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:90
+msgid "Your first smart contract will be no exception!"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:94
+msgid ""
+"I'm told that it has nothing to do with the beginning of mankind but "
+"Brian Kernighan used it for the first time in *a tutorial introduction to"
+" the language B* published in 1972."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:96
+msgid ""
+"Open the `main.ts` file in the `src` directory at the root of your "
+"project. Replace the code in the file by the following code:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:106
+msgid ""
+"Don’t forget to save the file. Before starting compilation, just a few "
+"words to describe what is used here:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:108
+msgid ""
+"line 1: `generateEvent` function is imported from Massa API (@massalabs"
+"/massa-sc-std). This function will generate an event with the string "
+"given as argument. Events can be later recovered using a Massa client."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:109
+msgid ""
+"line 3: `main` function is exported. This means that the main function "
+"will be callable from the outside of the WebAssembly module (more about "
+"that later)."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:110
+msgid ""
+"line 4: `generateEvent` function is called with \"Hello world!\". Brian, "
+"we are thinking of you!"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:112
+msgid ""
+"Now that everything is in place, we can start the compilation step by "
+"running the following command:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:118
+msgid ""
+"Congratulations! You have generated your first smart contract: the "
+"`main.wasm` file in `build` directory."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:122
+msgid "If due to bad luck you have an error at compilation time:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:124
+msgid "check that you properly followed all the steps,"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:125
+msgid "do a couple a internet research,"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:126
+msgid ""
+"look for any similare issue (open or closed) in `this "
+"<https://github.com/massalabs/massa-sc-std/>`_ project."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:128
+msgid ""
+"If you find nothing, feel free to contact us on `Discord "
+"<https://discord.gg/massa>`_ or directly open an issue `here "
+"<https://github.com/massalabs/massa-sc-std/>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:131
+msgid "Execute your smart contract on a node"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:133
+msgid "To execute the smart contract you will need:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:135
+msgid "A client configured with an address having coins."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:136
+msgid "A smart contract compiled in WebAssembly (see previous step)."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:138
+msgid "Let's go!"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:141
+msgid "Configure the client"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:143
+msgid ""
+"Make sure that you have the last version of the Massa node. If not, "
+"`install it <https://github.com/massalabs/massa/wiki/install>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:145
+msgid ""
+"If you don't have any wallet configured yet, `create a new one "
+"<https://github.com/massalabs/massa/wiki/wallet>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:147
+msgid ""
+"If you're using a brand new wallet, add some coins by sending your "
+"address to `testnet-faucet discord channel "
+"<https://discord.com/channels/828270821042159636/866190913030193172>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:149
+msgid ""
+"If you are using an existing wallet, make sure that you have some coins "
+"on it."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:151
+msgid "In any case, keep the `address` of your wallet, you will use it later."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:154
+msgid "Execute the smart contract on the node"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:156
+msgid ""
+"Everything is in place, we can now execute the `hello world` smart "
+"contract on your local node with the following command inside the "
+"**client cli**:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:164
+msgid "We are executing the send_smart_contract command with 6 parameters:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:166
+msgid "<address>: the address of your wallet kept during previous step;"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:167
+msgid ""
+"<path to wasm file>: the full path (from the root directory to the file "
+"extension .wasm) of the hello smart contract generated in the previous "
+"chapter."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:168
+msgid ""
+"100000: the maximum amount of gas that the execution of your smart-"
+"contract is allowed to use."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:169
+msgid ""
+"Three 0 parameters that can be safely ignored by now. If you want more "
+"info on them, use the command `help send_smart_contract`."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:171
+msgid ""
+"If everything went fine, the following prompted message should be "
+"prompted:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:178
+msgid ""
+"In that case, you should be able to retrieve the event with the `Hello "
+"world` emited. Use the following command inside the **client cli**:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:184
+msgid "If everything went well you should see a message similar to this one:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:196
+msgid "Congratulations! You have just executed your first smart contract !"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:198
+msgid ""
+"In the next tutorial you'll see a more involved example showing you how "
+"to create a Tictactoe smart-contract."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:205
+msgid "Massa's smart-contracts by example"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:209
+msgid "This tutorial doesn't assume any existing knowledge of the Massa protocol."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:211
+msgid ""
+"In this tutorial, we will go through all the steps required to create a "
+"smart-contract on Massa. We will cover all the steps by building a small "
+"game on Massa: a decentralized Tic-tac-toe!"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:213
+msgid "This tutorial is divided into several parts:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:215
+msgid ":ref:`writing-sc` will show you how to write Massa smart-contracts"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:216
+msgid ""
+":ref:`sending-sc` will show you how to send your smart-contract to the "
+"Massa blockchain"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:217
+msgid ":ref:`interacting` will show you how to interact with your smart-contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:218
+msgid ":ref:`dapp` will get you through the process of creating your first dApp"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:219
+msgid ""
+":ref:`hosting` will show you how to host your dApp on Massa's "
+"decentralized web"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:221
+msgid ""
+"You can find the complete project on this `Github repository "
+"<https://github.com/massalabs/massa-sc-"
+"examples/tree/main/games/tictactoe>`__."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:224
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:226
+msgid ""
+"Smart-contracts are written in `Assembly Script "
+"<https://www.assemblyscript.org/>`_, and so we’ll assume that you have "
+"some familiarity with it, but you should be able to follow along even if "
+"you’re coming from a different programming language. We’ll also assume "
+"that you’re familiar with programming concepts like functions, objects, "
+"arrays, and to a lesser extent, classes."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:228
+msgid ""
+"For the decentralized website part, we'll assume that you have some "
+"familiarity with HTML and JavaScript. If you want to have more details, "
+"you can follow `this great tutorial from React "
+"<https://reactjs.org/tutorial/tutorial.html>`_ from which the dApp is "
+"heavily inspired from."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:233
+msgid "Writing your smart-contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:235
+msgid ""
+"Smart-contract in Massa are written in `Assembly Script "
+"<https://www.assemblyscript.org/>`_ and then compiled to `WebAssembly "
+"<https://webassembly.org/>`_ (WASM). We chose WebAssembly as it is "
+"efficient and can be compiled from several languages, including Assembly "
+"Script."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:238
+#: ../../web3-dev/smart-contracts.rst:537
+#: ../../web3-dev/smart-contracts.rst:561
+msgid "Setup"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:240
+msgid "You need `node`, `yarn` and `git` to initialize the project!"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:246
+msgid ""
+"Once this repository is cloned, run the following command in the freshly "
+"created directory:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:252
+msgid ""
+"This command will initialize a new folder with a hello-world smart-"
+"contract example."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:255
+msgid "Writing the smart-contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:257
+msgid ""
+"Smart-contracts are in the `src` directory. We will write the tic-tac-toe"
+" smart-contract `smart-contract.ts` file. The `main.ts` file is used to "
+"create a smart-contract that is used to create the tic-tac-toe smart-"
+"contract on the Massa blockchain. It may be confusing right now, but "
+"we'll go through all these steps in the following."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:260
+msgid "smart-contract.ts"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:262
+msgid ""
+"Let's start with tic-tac-toe smart-contract. As the main goal of this "
+"tutorial is to understand how to use Massa's smart-contracts, we will not"
+" go through the details of each function."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:278
+msgid ""
+"The `initialize` function is used to start a new tic-tac-toe game. This "
+"function is used to instantiate the different variables that will be used"
+" to track the state of the game: `currentPlayer`, `gameState` and "
+"`gameWinner`. Note that smart-contract data is stored in a hash map where"
+" keys and values must be string."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:280
+msgid ""
+"Notice that in this example, the `initialize` function is public (see the"
+" `export`). It means that anyone can call it. In a real-world example, "
+"you will probably want to design a more complex mechanism!"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:282
+msgid "We now turn to the game logic:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:354
+msgid ""
+"The `play` function is used to update the state of the game when each "
+"player plays. As the `initialize` function, it is a public function: "
+"anyone can call it and play the next move. Public functions of Massa "
+"smart-contracts can only take strings as arguments. To pass several "
+"arguments, we thus have to rely on `json-as` and to define the possible "
+"arguments using `PlayArgs`."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:356
+msgid ""
+"The `_checkWin` function is used to check whether the game ended or not. "
+"This function is private, as it does not use the `export` prefix. As "
+"such, it cannot be executed by external calls and can only be called "
+"internally by the smart-contract."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:358
+msgid "main.ts"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:377
+msgid "Compiling your smart-contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:379
+msgid ""
+"Smart-contract can be compiled using the `massa-sc-scripts` command: "
+"`yarn run build`."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:384
+msgid "Putting your smart-contract on the blockchain"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:386
+msgid ""
+"We'll now turn to the process of putting the smart-contract on the Massa "
+"blockchain."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:389
+msgid "Sending the smart-contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:391
+msgid ""
+"Sending the smart-contract to the Massa blockchain is done using the "
+"`send_smart_contract` from the Massa client:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:397
+msgid ""
+"Where `<your_address>` should obviously be replaced by an address from "
+"your wallet. If the operation was successfully sent, you should receive a"
+" message similar to this:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:404
+msgid ""
+"You can now track the state of your operation using the `get_operations` "
+"command from the client:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:417
+msgid ""
+"This command allows you to see if the operation is in the pool, in which "
+"blocks it is included and various properties."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:419
+msgid ""
+"You can also check that your smart-contract has been well deployed by "
+"fetching the events it produced with this command on the client :"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:425
+msgid ""
+"You should see one event with a data field which contains the address of "
+"your tic-tac-toe that has been deployed with his address:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:437
+#: ../../web3-dev/smart-contracts.rst:512
+msgid "The data will be different but the format should be the same."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:439
+msgid ""
+"NOTE: The tic-tac-toe is deployed to a new address each time you deploy "
+"it because in the `deploy.ts`` we use `create_sc`` to deploy the bytecode"
+" of the smart-contract to an address. You can also use "
+"`Storage.set_bytecode` to directly set the bytecode of an address in your"
+" SC. WARNING: this can't be called on a non-SC address (address that have"
+" a public key associated) .. _interacting:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:444
+msgid "Interacting with your smart-contract"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:446
+msgid ""
+"We can try further our smart-contract by calling the different functions "
+"and looking at the state of the game. For this, you can create a "
+"`play.ts` under `smart-contract` repository."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:449
+msgid "play.ts"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:474
+msgid ""
+"NOTE: Don't forget to change `YOUR_SMART_CONTRACT` by the address in the "
+"data of the event fetched just before."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:476
+msgid ""
+"This smart-contract initialize a new game and then play a whole game by "
+"performing a series of actions. Of course, in a real-world example this "
+"would probably be done by different players, each using a smart-contract "
+"with their specific action."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:478
+msgid "As before, you should add a line in your package.json:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:484
+msgid ""
+"Then you can run `yarn run build:play`, send it to the blockchain using "
+"the `send_smart_contract` command. Once this is done and the operation is"
+" included in a block (few seconds), you should see the operations being "
+"performed by your node in the events:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:517
+msgid "Creating your first dApp"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:519
+msgid ""
+"Interacting with smart-contracts through the command line client is "
+"usually cumbersome, and you are probably more used to interact with "
+"smart-contracts through regular websites such as `sushi.com "
+"<https://www.sushi.com/>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:522
+msgid ""
+"We'll see in this part how you can host your dApp on a website and how to"
+" enable people to interact with your smart-contract directly from the "
+"browser using the `web3 Massa library <https://github.com/massalabs"
+"/massa-web3>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:525
+msgid ""
+"If you want to directly dive into the code, the front-end code is "
+"available in the html folder of `this repository "
+"<https://github.com/massalabs/massa-sc-"
+"examples/tree/main/games/tictactoe>`_."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:529
+msgid "The front"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:531
+msgid ""
+"We have designed a website for the tic-tac-toe that you can find in this "
+"repository: https://github.com/massalabs/massa-sc-examples under the "
+"folder `games/tictactoe/html`."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:534
+msgid "You will have to modify some data in order to make it work."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:539
+msgid ""
+"Modify the file the `baseAccount` variable in the `src/App.tsx` file with"
+" our credentials that you get from the client using the command:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:546
+msgid ""
+"Also, in the same file, you have to modify the `sc_addr` variable with "
+"the address of your tic-tac-toe that you fetched on the first event."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:549
+msgid ""
+"Then you can run :code:`npm install --leagacy-peer-deps` and :code:`yarn "
+"run start` to launch the front and you will be able to play with tic-tac-"
+"toe."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:552
+msgid ""
+"This website use our `massa-web3 <https://github.com/massalabs/massa-"
+"web3>`_ TS library to interact with the API and fetch the relevant "
+"informations. It can be used with a local or remote node."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:558
+msgid "Hosting your dApp on Massa decentralized web"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:563
+msgid ""
+"Massa offers you the possibility to host your dApp directly on a "
+"decentralized web. This means that your website will be hosted directly "
+"on the blockchain. Decentralized websites can then be accessed using a "
+"browser extension:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:567
+msgid ""
+"The browser extension can be downloaded `here "
+"<https://github.com/massalabs/massa-wallet>`_. To install it on your "
+"browser, just follow the instructions of the README.md."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:570
+msgid ""
+"Once installed, to access to decentralized websites you must first "
+"connect the wallet by clicking on `Connect wallet`."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:573
+msgid ""
+"To access to an address with the DNS, you have to use the prefix "
+"`massa://` in the URL bar. For example you should have access to the "
+"following websites:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:576
+msgid ""
+"`massa://gol` which is a Game-of-Life on the blockchain. You can click to"
+" interact with it."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:577
+msgid "`massa://ttt` a tic-tac-toe."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:579
+msgid ""
+"If you have access to those websites it's that your extension is well "
+"configured."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:581
+msgid ""
+"In this tutorial we will show you how to deploy a decentralized website "
+"and how to setup the Massa DNS to be able to access your website using "
+"the wallet extension."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:585
+msgid "Uploading your website"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:587
+msgid ""
+"Now that you have the extension well configured you can deploy your "
+"superb website of tic-tac-toe on the blockchain."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:590
+msgid ""
+"First of all you have to turn your website into bytecode that can be "
+"inserted in the blockchain. Here is the list of the command you need to "
+"make under the `tictactoe/html` folder:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:598
+msgid ""
+"Now you can upload it on the blockchain running the following command on "
+"the client:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:607
+msgid ""
+"Now your website should be uploaded on the blockchain. We'll now want to "
+"add a DNS address to our smart-contract. This will allow us to access to "
+"our decentralized website using a regular address and not the address of "
+"the smart-contract which is a hash and thus not really convenient."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:611
+msgid ""
+"To access it on the browser you have to link it to a DNS entry. To add a "
+"DNS entry you can use the following helper command in the folder of your "
+"client:"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:618
+msgid ""
+"Where you should replace `<name_of_your_website>` by the address that you"
+" want for your website, and `<your address>` by the wallet address that "
+"you used in the previous steps."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:622
+msgid "Accessing your website"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:624
+msgid ""
+"Note that before accessing to a website you have to make sure you are "
+"connected in the extension. To be connected go on the icon of the "
+"extension and click on it if you have the `Connect wallet` button then "
+"click it otherwise you are already connected."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:628
+msgid ""
+"You can now type `massa://<your_website_name>` in the address bar of your"
+" navigator to be able to access to your website."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:630
+msgid ""
+"When you will code your proper website you can follow the steps just "
+"above, re-deploy over the current example and keep your DNS entry."
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:634
+msgid "Going further"
+msgstr ""
+
+#: ../../web3-dev/smart-contracts.rst:636
+msgid ""
+"You can test smart-contracts locally using the `Massa smart-contract "
+"tester <https://github.com/massalabs/massa-sc-tester>`_."
+msgstr ""
+
+#: ../../web3-dev/types.rst:7
+msgid "Types"
+msgstr ""
+
+#: ../../web3-dev/types.rst:9
+msgid ""
+"The following `AssemblyScript <https://www.assemblyscript.org>`_ types "
+"can be helpful in your smart contract journey without having to reinvent "
+"the wheel."
+msgstr ""
+
+#: ../../web3-dev/types.rst:12
+msgid ""
+"You know a nugget that could be added to this list or you have a specific"
+" need for a new type? `Open an issue <https://github.com/massalabs/massa-"
+"sc-library/issues>`_ to discuss about it!"
+msgstr ""
+
+#: ../../web3-dev/types.rst:18
+msgid "Currency"
+msgstr ""
+
+#: ../../web3-dev/types.rst:20
+msgid "A representation of a monetary unit used to express a value."
+msgstr ""
+
+#: ../../web3-dev/types.rst:23 ../../web3-dev/types.rst:47
+#: ../../web3-dev/types.rst:78
+msgid "Usage"
+msgstr ""
+
+#: ../../web3-dev/types.rst:33 ../../web3-dev/types.rst:62
+#: ../../web3-dev/types.rst:92
+msgid ""
+"More info at `module repository <https://github.com/massalabs/massa-sc-"
+"library/tree/main/type>`_."
+msgstr ""
+
+#: ../../web3-dev/types.rst:38
+msgid "Amount"
+msgstr ""
+
+#: ../../web3-dev/types.rst:40
+msgid "A representation of a value in a :ref:`Currency`."
+msgstr ""
+
+#: ../../web3-dev/types.rst:44
+msgid ""
+"`Amount` implements :ref:`Valider` as some operations, such as "
+"subtraction leading to a negative value, can result in an invalid "
+"`Amount`."
+msgstr ""
+
+#: ../../web3-dev/types.rst:67
+msgid "Valider"
+msgstr ""
+
+#: ../../web3-dev/types.rst:69
+msgid "An interface to unify how invalid types are handled."
+msgstr ""
+
+#: ../../web3-dev/types.rst:73
+msgid ""
+"`Exception handling proposal <https://github.com/WebAssembly/exception-"
+"handling/blob/main/proposals/exception-handling/Exceptions.md>`_ is not "
+"yet implemented in `Wasmer <https://webassembly.org/roadmap>`_ or in "
+"`AssemblyScript <https://www.assemblyscript.org/status.html>`_;"
+msgstr ""
+
+#: ../../web3-dev/types.rst:74
+msgid "`Result` type is not implemented;"
+msgstr ""
+
+#: ../../web3-dev/types.rst:75
+msgid ""
+"Then this is the only way to perform an action on a type and check later "
+"if the type is still valid."
+msgstr ""
+

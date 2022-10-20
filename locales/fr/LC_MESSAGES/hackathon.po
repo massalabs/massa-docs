@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Massa Labs
+# This file is distributed under the same license as the Massa package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Massa \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-20 15:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../hackathon.rst:2
+msgid "Documentation for the GOTTA GO HACK Hackathon"
+msgstr ""
+
+#: ../../hackathon.rst:4
+msgid ""
+"Welcome to the main technical documentation for the Hackathon. You will "
+"find everything you need to develop this weekend."
+msgstr ""
+
+#: ../../hackathon.rst:7
+msgid ""
+"First of all you need to have a client to interact with the node of the "
+"network for this weekend we have prepared some pre-build:"
+msgstr ""
+
+#: ../../hackathon.rst:9
+msgid "https://github.com/massalabs/massa/releases/tag/LABN.0.0"
+msgstr ""
+
+#: ../../hackathon.rst:11
+msgid ""
+"The zip will contains two folders one called `massa-node` and the other "
+"`massa-client`. We will only with the client in this tutorial. In the "
+"folder `massa-client` you will find an executable `massa-client` that "
+"will be your client for the whole Hackathon."
+msgstr ""
+
+#: ../../hackathon.rst:14
+msgid ""
+"When you have this client you can insert the secret key we gave you using"
+" this command in the client:"
+msgstr ""
+
+#: ../../hackathon.rst:16
+msgid "wallet_add_secret_keys <secret_key>"
+msgstr ""
+
+#: ../../hackathon.rst:18
+msgid ""
+"Now you have created a wallet you can check the address, balance, etc... "
+"with this command:"
+msgstr ""
+
+#: ../../hackathon.rst:20
+msgid "wallet_info"
+msgstr ""
+
+#: ../../hackathon.rst:22
+msgid ""
+"You should see coins on your address. Now that you have an address you "
+"can create and deploy your first smart contract."
+msgstr ""
+
+#: ../../hackathon.rst:26
+msgid "Smart contracts"
+msgstr ""
+
+#: ../../hackathon.rst:29
+msgid "Setting up your working environment"
+msgstr ""
+
+#: ../../hackathon.rst:31
+msgid ""
+"Install node and npm by following `this tutorial "
+"<https://heynode.com/tutorial/install-nodejs-locally-nvm/>`__ and make "
+"sure you have `yarn` and `npx` installed:"
+msgstr ""
+
+#: ../../hackathon.rst:39
+msgid "Discover your first smart contract"
+msgstr ""
+
+#: ../../hackathon.rst:41
+msgid ""
+"You can follow `this guide <smart-contracts/massa-sc-by-example.html>`__ "
+"to deploy and interact with a tic-tac-toe."
+msgstr ""
+
+#: ../../hackathon.rst:44
+msgid "Create your smart contract"
+msgstr ""
+
+#: ../../hackathon.rst:46
+msgid ""
+"Now that you have your first smart-contract and you know how to deploy "
+"and interact you can create your by using the template of an `hello-"
+"world` using this command:"
+msgstr ""
+
+#: ../../hackathon.rst:53
+msgid "Test your smart-contract"
+msgstr ""
+
+#: ../../hackathon.rst:55
+msgid ""
+"You can test your smart-contract without publishing it on the blockchain "
+"by using `this tester <https://github.com/massalabs/massa-sc-tester>`__. "
+"You have a complete documentation on the README.md of the tester but to "
+"test specifically the tic-tac-toe you can run:"
+msgstr ""
+
+#: ../../hackathon.rst:64
+msgid "Create your frontend"
+msgstr ""
+
+#: ../../hackathon.rst:66
+msgid ""
+"As you saw in the tec-tac-toe example, you can create a website to "
+"interact with the smart-contract using our `massa-web3 "
+"<https://github.com/massalabs/massa-web3>`__ library."
+msgstr ""
+
+#: ../../hackathon.rst:68
+msgid "We have two example for websites:"
+msgstr ""
+
+#: ../../hackathon.rst:70
+msgid ""
+"In JS you have the example of the `game of life "
+"<https://github.com/massalabs/massa-sc-examples/tree/main/games/game-of-"
+"life>`_"
+msgstr ""
+
+#: ../../hackathon.rst:71
+msgid ""
+"In React you have the template `create-react-app-massa "
+"<https://github.com/massalabs/create-react-app-massa>`_"
+msgstr ""
+
