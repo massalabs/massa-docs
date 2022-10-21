@@ -21,13 +21,16 @@ General documentation
 ---------------------
 
 A general overview of the global architecture of a Massa Node is given
-`here <general-introduction>`.
+:ref:`here <general-introduction>`.
 
-Massa introduce several new features that allows you to add a layer of security
+Massa introduce several new features that enables new applications and add a layer of security
 to your decentralized applications:
 
-- :ref:`Massa's decentralized web <decentralized-web>` allow to truly secure decentralized application by storing your dApps directly on the Massa blockchain.
-- :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security and reliability to your decentralized applications by allowing your smart contracts to wake up by themselves and perform arbitry operations.
+- :ref:`Massa's decentralized web <decentralized-web>` allow to truly secure decentralized
+  application by storing your dApps directly on the Massa blockchain.
+- :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security and reliability
+  to your decentralized applications by allowing your smart contracts to wake up by themselves
+  and perform arbitry operations.
 
 Testnet
 -------
@@ -41,7 +44,7 @@ Web3 developers
 
 If you want to build on the Massa blockchain we recommend the following ressources:
 
-- :ref:`Massa's smart-contracts <sc-introduction>`, will get you through the various steps needed to compile and send smart-contracts to the Massa blockchain.
+- :ref:`Massa's smart-contracts <web3-dev-sc>`, will get you through the various steps needed to compile and send smart-contracts to the Massa blockchain.
 - :ref:`Massa's decentralized web <decentralized-web>` will show you how the Massa blockchain can be used to host decentralized websites.
 - :ref:`Types <sc-types>` is a collection of useful types for smart-contracts.
 
@@ -102,9 +105,6 @@ Contents
    technical-doc/storage-costs.rst
    technical-doc/api.rst
    technical-doc/glossary.rst
-   technical-doc/concurrency.rst
-   technical-doc/Endorsements.rst
-   technical-doc/vm-ledger-interaction.rst
 
 * :ref:`genindex`
 * :ref:`modindex`

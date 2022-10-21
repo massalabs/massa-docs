@@ -1,4 +1,4 @@
-.. index:: library; community; external resources; browser extension
+.. index:: library, community, external resources, browser extension
 
 ###################
 External resources

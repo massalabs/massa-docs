@@ -1,4 +1,4 @@
-.. index:: web; decentralized, decentralized web
+.. index:: general documentation; decentralized web
 
 #########################
 Massa's decentralized web
@@ -9,13 +9,15 @@ Massa's decentralized web
 Hosting your website on Massa's decentralized web
 =================================================
 
-Massa's decentralized web allows you to store websites directly on the blockchain. This feature provides another layer of security for your dApps.
+Massa's decentralized web allows you to store websites directly on the blockchain.
+This feature enables a lot of applications and provides another layer of security to your dApps.
 
 This documentation go through all the steps to host your website on the blockchain and register
 it on Massa's DNS service in order to access it using Massa's plugin.
 
 To upload a website to Massa's decentralized web you can use the following smart-contract.
-If you want latter want to be able to access to your website through the Massa plugin it's important to use the entry `massa_web` for your website.
+If you want latter want to be able to access to your website through the Massa plugin it's
+important to use the entry `massa_web` for your website.
 
 .. code-block:: typescript
 
