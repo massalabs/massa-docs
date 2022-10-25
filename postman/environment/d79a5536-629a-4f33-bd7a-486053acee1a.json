@@ -1,0 +1,1 @@
+{"id":"d79a5536-629a-4f33-bd7a-486053acee1a","name":"Localnet","values":[{"key":"MASSA_PUBLIC_API","value":"http://localhost:33035","enabled":true,"type":"default"},{"key":"MASSA_PRIVATE_API","value":"http://localhost:33034","enabled":true,"type":"default"},{"key":"METHOD","value":"","enabled":true,"type":"any"},{"key":"PARAMS","value":"","enabled":true,"type":"any"}]}
