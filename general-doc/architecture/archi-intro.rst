@@ -187,5 +187,5 @@ The content of a block is as follows:
 Endorsements are optional inclusion in the block, but their inclusion is incentivized for block creators.
 They are validations of the fact that the parent block on the thread of the block is the best parent that could have been chosen,
 done by other nodes that have also been deterministically selected via the proof of stake probability distribution (see below).
-A comprehensive description of endorsements can be found `here <https://github.com/massalabs/massa/blob/main/docs/technical-doc/Endorsements.rst>`_,
+A comprehensive description of endorsements can be found `here <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_,
 so we will not go further into details in the context of this introduction.

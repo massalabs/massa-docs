@@ -90,7 +90,7 @@ migrate the node_privkey.key file in massa-node/config to keep your
 connectivity stats.
 
 If you have rolls, you also need to register the key used to buy rolls
-to start staking again (see [Staking](staking.md)).
+to start staking again :ref:`here <testnet-rewards>`.
 
 Why are the balances in the client and the explorer different ?
 ---------------------------------------------------------------
