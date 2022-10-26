@@ -12,6 +12,21 @@ Overall, each of the modules described here runs inside one or more threads atta
 We will explain below the different modules present in this diagram, and simulate the production of an operation
 to show how it navigates through the different modules to better understand how blocks are produced and propagated.
 
+Bootstrap Module
+****************
+
+The bootstrap module is responsible for the initial synchronization of the node with the rest of the network.
+It is responsible for downloading the list of peers, the current graph of blocks, the ledger, the asyncronous pool, state of the Proof-of-Stake and latests executed operations.
+
+The bootstrap will be done from a server that is listed on the configuration of the node. Bootstrap is the entry point of the network so you have to becareful on which node you connect to avoid downloading malicious data.
+
+Massa provides 8 official nodes that are listed in the configuration file of the node. You can also modify to add new servers that you trust.
+
+The bootstrap process can take time because you are downloading data while the network is running and so you have to be synchronized of the state of the network.
+
+In the configuration files you will also find a whitelist for bootstrap where you can add ips that can connect to you and bootstrap even if all of your bootstrap slots are occupied.
+The default IP on this whitelist is the one of the official bot of Massa.
+
 API Module
 **********
 
