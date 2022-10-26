@@ -52,12 +52,12 @@ Scoring Formula
 
 The score of a node for a given episode is the following:
 
-    Score = 50 * (active_cycles / nb_cycles) * (produced_blocks / selected_slots) + 50 * (routable_cycles / nb_cycles) + 20 * total_maxim_factor / nb_cycles
+   Score = (produced_blocks/selected_slots) * (active_cycles/nb_cycles_episode) * (50 + 40 * routable_samples/routability_trials + 30 * total_maxim_factor/routability_trials)
 
 -   50 points of the score are based on staking:
 
-    -   (`active_cycles` / `nb_cycles` ) \* (`produced_blocks` /
-        `selected_slots`)
+    -   (`produced_blocks` / `selected_slots` ) \* (`active_cycles` /
+        `nb_cycles_episode`)
 
         -   `active_cycles` is the number of cycles in the episode
             during which the address had active rolls.
@@ -70,20 +70,20 @@ The score of a node for a given episode is the following:
         -   The maximum score is supposed to be reached if, during the
             whole episode, the node has rolls and produces all blocks
             when it is selected to.
--   50 points of the score are based on the routability of the node: how
+-   40 points of the score are based on the routability of the node: how
     often the node can be reached by other nodes.
 
-    -   `routable_cycles` / `nb_cycles`
+    -   `routable_samples` / `routability_trials`
 
-        -   `routable_cycles` is the number of connection trials that
+        -   `routability_trials` is the number of connection trials that
             resulted in a successful connection.
         -   Maximum score is achieved if the node can always be reached
             by other nodes.
--   20 points of the score incentivize node diversity: the network is
+-   30 points of the score incentivize node diversity: the network is
     more decentralized if nodes are spread across countries and
     providers than if they are all hosted at the same location/provider.
 
-    -   `total_maxim_factor` / `nb_cycles`
+    -   `total_maxim_factor` / `routability_trials`
 
         -   `total_maxim_factor` is the total amount of `maxim_factor`
             accumulated at each cycle. The `maxim_factor` is a value
@@ -97,10 +97,6 @@ We encourage every person to run only one node. Running multiple nodes
 with the same staking keys will result in roll slashing in the future.
 Running multiple nodes with the same node_privkey.key also reduces
 network health and will be a point of attention for rewards.
-
-From episode 10 the formula is now :
-
-    Score = 50 * (produced_blocks/selected_slots) * (active_cycles/nb_cycles_episode) * (1 + routable_samples/routability_trials + total_maxim_factor/routability_trials)
 
 Registration
 ------------

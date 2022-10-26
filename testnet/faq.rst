@@ -45,8 +45,7 @@ specific smart contract engine that fully leverages the Massa protocol and
 allows to develop in more usual languages as well as introduces several
 innovations.
 
-We are currently finishing the implementation of a first version of the smart contract
-engine which should be released soon.
+Our smart contract system is released and run on the testnet. You can find the full documentation :ref:`here <web3-dev-sc>`.
 
 We are planning some exciting features, such as self-wakeup, a bit like
 what is introduced `here <https://arxiv.org/pdf/2102.10784.pdf>`__
