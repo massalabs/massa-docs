@@ -15,7 +15,7 @@ Massa JSON-RPC API is splitted in two parts :
 
 **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
 
-Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/docs/technical-doc/openrpc.json>`_.
+Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
 
 Integrations
 ============
@@ -24,9 +24,120 @@ Integrations
 
 **Smart contracts**: use `massa-as-sdk <https://github.com/massalabs/massa-as-sdk>`_.
 
-**Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&schema=https://raw.githubusercontent.com/massalabs/massa/main/openrpc.json&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
+**Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
 
 **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/postman>`_.
+
+Error codes 
+===========
+
+When a call to Massa API fails, it **MUST** return a valid JSON-RPC `error object <https://www.jsonrpc.org/specification#error_object>`_ .
+
++----------+------------------------+------------------------+
+| **Code** | **Message**            | **Meaning**            |
++==========+========================+========================+
+|| -32600  || Invalid request       || The JSON sent is not  |
+||         ||                       || a valid Request       |
+||         ||                       || object                |
++----------+------------------------+------------------------+
+|| -32601  || Method not found      || The method does not   |
+||         ||                       || exist / is not        |
+||         ||                       || available             |
++----------+------------------------+------------------------+
+|| -32602  || Invalid params        || Invalid method        |
+||         ||                       || parameter(s)          |
++----------+------------------------+------------------------+
+|| -32603  || Internal error        || Internal JSON-RPC     |
+||         ||                       || error                 |
++----------+------------------------+------------------------+
+|| -32700  || Parse error           || Invalid JSON, parsing |
+||         ||                       || issue                 |
++----------+------------------------+------------------------+
+|| -32000  || Bad request           || Indicates that the    |
+||         ||                       || server cannot or will |
+||         ||                       || not process the       |
+||         ||                       || request due to        |
+||         ||                       || something that is     |
+||         ||                       || perceived to be a     |
+||         ||                       || client error (for     |
+||         ||                       || example, malformed    |
+||         ||                       || request syntax,       |
+||         ||                       || invalid request       |
+||         ||                       || message framing, or   |
+||         ||                       || deceptive request     |
+||         ||                       || routing)              |
++----------+------------------------+------------------------+
+|| -32001  || Internal server error || The server            |
+||         ||                       || encountered an        |
+||         ||                       || unexpected issue      |
++----------+------------------------+------------------------+
+|| -32003  || Service Unavailable   || Indicates that the    |
+||         ||                       || server is not ready   |
+||         ||                       || to handle the request |
++----------+------------------------+------------------------+
+|| -32004  || Not found             || Indicates that the    |
+||         ||                       || server cannot find    |
+||         ||                       || the requested         |
+||         ||                       || resource              |
++----------+------------------------+------------------------+
+|| -32005  || Method not allowed    || Indicates that the    |
+||         ||                       || server knows the      |
+||         ||                       || request method, but   |
+||         ||                       || the target resource   |
+||         ||                       || doesn’t support this  |
+||         ||                       || method                |
++----------+------------------------+------------------------+
+| -32006   | Send channel error     | Send channel error     |
++----------+------------------------+------------------------+
+| -32007   | Receive channel error  | Receive channel error  |
++----------+------------------------+------------------------+
+| -32008   | Massa hash error       | ``massa_hash`` error   |
++----------+------------------------+------------------------+
+|| -32009  || Consensus error       || Error from Consensus  |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32010  || Execution error       || Error from Execution  |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32011  || Network error         || Error from Network    |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32012  || Protocol error        || Error from Protocol   |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+| -32013   | Models error           | Error in Models        |
++----------+------------------------+------------------------+
+|| -32014  || Time error            || Error from Time       |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32015  || Wallet error          || Error from Wallet     |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32016  || Inconsistency error   || Inconsistency in the  |
+||         ||                       || result of request     |
++----------+------------------------+------------------------+
+|| -32017  || Missing command       || Missing command       |
+||         || sender                || sender                |
++----------+------------------------+------------------------+
+| -32018   | Missing config         | Missing configuration  |
++----------+------------------------+------------------------+
+|| -32019  || Wrong API             || The wrong API (either |
+||         ||                       || Public or Private)    |
+||         ||                       || was called            |
++----------+------------------------+------------------------+
+
+Error example:
+
+.. code-block:: javascript
+
+    {
+    "jsonrpc": "2.0",
+    "error": {
+        "code": -32400,
+        "message": "Bad request: too many arguments, maximum authorized 2 but found 3"
+    },
+    "id": 1
+    }
 
 Explore Massa Blockchain
 ========================
@@ -35,10 +146,9 @@ In this section we'll learn how to interact with Massa blockchain via `curl` com
 
 .. warning::
     - We'll use only public API methods.
-    - The following queries and respones matches `TEST.15.1`.
+    - The following queries and respones matches `TEST.15.1`
 
 **Public** API
-==============
 
 _a.k.a. **"user mode"** endpoints (running on `<https://test.massa.net/api/v2>`_)
 
@@ -49,6 +159,7 @@ Summary of the current state: time, last final blocks (hash, thread,
 slot, timestamp), clique count, connected nodes count.
 
 -   Query:
+
 .. code-block:: shell
 
     curl --location --request POST 'https://test.massa.net/api/v2' \
@@ -343,6 +454,7 @@ Returns the active stakers and their roll counts for the current cycle.
 -  Query: 
 
 .. code-block:: shell
+
     curl --location --request POST 'https://test.massa.net/api/v2' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -360,6 +472,15 @@ Returns the active stakers and their roll counts for the current cycle.
         "jsonrpc": "2.0",
         "result": [
             [
+                "A12RHPuU7JFS2rxvxL6MnzVoBJAZr7ivFFJuiRPv4mi5wv8z8VYm",
+                112
+            ],
+            [
+                "A12axF2vj3GMV87LV5cEtJwntrzTJXQsYCsp1jtXXqCkiF1X6VwX",
+                80
+            ],
+            ...
+            [
                 "A112oKyfHsRyaLHdgRDY7EkD1X2Rt8UnMr226BjPxirEsJbFjez",
                 1
             ],
@@ -367,15 +488,6 @@ Returns the active stakers and their roll counts for the current cycle.
                 "A114oowRjFLH5nWuL2nhc6RmN2RYZpXu6TXbs1dTxF41Qvwd3Ku",
                 1
             ],
-            ...
-            [
-                "A12axF2vj3GMV87LV5cEtJwntrzTJXQsYCsp1jtXXqCkiF1X6VwX",
-                80
-            ],
-            [
-                "A12RHPuU7JFS2rxvxL6MnzVoBJAZr7ivFFJuiRPv4mi5wv8z8VYm",
-                112
-            ]
         ],
         "id": 1
     }
