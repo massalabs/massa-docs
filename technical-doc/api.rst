@@ -11,22 +11,18 @@ JSON-RPC API methods (thanks to the `ParityJSON-RPC <https://github.com/parityte
 
 Massa JSON-RPC API is splitted in two parts : 
 
-**Private API**: used for node management. Default port: 33034 e.g. http://localhost:33034
-
-**Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
+- **Private API**: used for node management. Default port: 33034 e.g. http://localhost:33034
+- **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
 
 Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
 
 Integrations
 ============
 
-**JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
-
-**Smart contracts**: use `massa-as-sdk <https://github.com/massalabs/massa-as-sdk>`_.
-
-**Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
-
-**Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/postman>`_.
+- **JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
+- **Smart contracts**: use `massa-as-sdk <https://github.com/massalabs/massa-as-sdk>`_.
+- **Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
+- **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/postman>`_.
 
 Error codes 
 ===========
@@ -142,7 +138,8 @@ Error example:
 Explore Massa Blockchain
 ========================
 
-In this section we'll learn how to interact with Massa blockchain via `curl` commands which will creates JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls. 
+In this section we'll learn how to interact with Massa blockchain via `curl` commands which
+will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls. 
 
 .. warning::
     - We'll use only public API methods.
@@ -150,7 +147,7 @@ In this section we'll learn how to interact with Massa blockchain via `curl` com
 
 **Public** API
 
-_a.k.a. **"user mode"** endpoints (running on `<https://test.massa.net/api/v2>`_)
+*a.k.a. **"user mode"** endpoints (running on `<https://test.massa.net/api/v2>`_)*
 
 `get_status`
 ------------
