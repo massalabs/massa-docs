@@ -12,12 +12,13 @@ Introduction
 Issues with current smart contracts
 -----------------------------------
 
-The ability to perform autonomous tasks is widespread in any modern IT infrastructure.
+The ability to perform autonomous tasks is widespread in any modern IT infrastructure, from
+bookeeping in traditional finance to automated content moderation on social media.
 However it is totally absent from decentralized applications that run on public blockchains
 such as Ethereum: without external calls, smart contracts as they exist in all public blockchains
 cannot perform operations.
 
-Many decentralized protocol rely on recurrent trigger of certain fonctions to function properly.
+Many decentralized protocol rely on recurrent trigger of certain fonctions to work properly.
 This is the case for instance for the MakerDAO protocol. In this protocol, users can lock ETH as
 a collateral to take out loans. If the price of the ETH decreases below a threshold, then
 the position can become under-collateralized. To ensure that the protocol behaves correctly
