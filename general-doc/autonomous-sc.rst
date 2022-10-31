@@ -12,7 +12,7 @@ Introduction
 Issues with current smart contracts
 -----------------------------------
 
-Automating IT processes are at the heart of pretty much every industry we can think of, and if we narrow it down to modern finance, nowadays most actions are initiated by automated mechanisms. However, when we take a closer look at decentralized finance, only certain actions of lending and arbitration are done automatically. This is because without external calls, smart contracts as they exist in all public blockchains cannot perform automated operations.
+Automating IT processes are at the heart of pretty much every industry we can think of, and if we narrow it down to modern finance, nowadays most actions are initiated by automated mechanisms. When we take a closer look at decentralized finance, only certain actions of lending and arbitration are done automatically, however they are executed by bots operating off-chain. This is because without external calls, smart contracts as they exist in all public blockchains cannot perform automated operations.
 
 
 Many decentralized protocols rely on recurrent triggers of certain functions in order to work as planned. In case of decentralized lending protocols, borrowers lock crypto assets (cryptocurrencies or fungible tokens) in order to take out loans. When the price of the collateralized asset decreases below a threshold, the borrower’s position becomes under-collateralized if he doesn’t promptly react to the decrease in value of that collateral. To ensure that the protocol behaves correctly, such positions must be liquidated. Liquidations are currently performed by organizations or individuals running bots, usually on some centralized cloud services.
