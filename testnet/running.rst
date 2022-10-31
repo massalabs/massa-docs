@@ -14,6 +14,12 @@ Open the `massa-client` folder and run the `massa-client` executable
 On Ubuntu / MacOS
 -----------------
 
+**Configure the node**
+
+Defaut configuration is available `here <https://github.com/massalabs/massa/blob/main/massa-node/base_config/config.toml>`_.
+
+You can override the defaut configuration via `massa-node/config/config.toml` file.
+
 **Start the node**
 
 On a first window:
