@@ -141,7 +141,7 @@ In this section we'll learn how to interact with Massa blockchain via `curl` com
 will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls. 
 
 .. warning::
-    - We'll use only public API methods.
+    - We'll use only public API methods in testnet node.
     - The following queries and respones comes from `TEST.15.1` but matches `TEST.16.0`
 
 **Public** API
