@@ -25,7 +25,7 @@ There are countless applications that rely on such recurrent triggers. As a resu
 Autonomous Smart Contracts
 ==========================
 
-Massa’s Autonomous Smart Contracts solve the issues of lacking reliability, sophistication and centralization around dapps that want to offer automated smart- contract executions on behalf of their users. Autonomous Smart Contracts introduce self wake-up capabilities to smart contracts. In the future, smart contracts could be programmed to perform arbitrary operations, for example triggering a call when a specific exchange rate target of an LP pool is met.
+Massa’s Autonomous Smart Contracts solve the issues of lacking reliability, sophistication and centralization around dApps that want to offer automated smart contract executions on behalf of their users. Autonomous Smart Contracts introduce self wake-up capabilities to smart contracts. In the future, smart contracts could be programmed to perform arbitrary operations, for example triggering a call when a specific exchange rate target of an LP pool is met.
 
 Such automated capabilities open the door to various applications, from automated liquidation of under-collateralized positions on lending protocols, to on-chain trading bots, or ever evolving NFTs.
 
