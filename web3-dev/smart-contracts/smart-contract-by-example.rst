@@ -2,8 +2,12 @@
 
 .. _sc-example:
 
-Massa's smart-contracts by example
-==================================
+Massa's smart-contracts Tic-tac-toe example
+===========================================
+
+.. note::
+
+    This tutorial use deprecated libraries and might not work without modifications.
 
 .. note::
 
@@ -239,6 +243,7 @@ The data will be different but the format should be the same.
 
 NOTE: The tic-tac-toe is deployed to a new address each time you deploy it because in the `deploy.ts`` we use `create_sc`` to deploy the bytecode of the smart-contract to an address.
 You can also use `Storage.set_bytecode` to directly set the bytecode of an address in your SC. WARNING: this can't be called on a non-SC address (address that have a public key associated)
+
 .. _interacting:
 
 Interacting with your smart-contract
