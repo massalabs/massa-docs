@@ -143,7 +143,7 @@ will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_obj
 
 .. warning::
     - We'll use only public API methods.
-    - The following queries and respones matches `TEST.15.1`
+    - The following queries and respones comes from `TEST.15.1` but matches `TEST.16.0`
 
 **Public** API
 
