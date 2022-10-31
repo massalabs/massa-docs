@@ -8,7 +8,13 @@ Smart-contract Playground
 Smart-contract Playground runs in your browser's local storage.
 
 At the moment, Playground is limited in terms of imported smart-contract methods.
+
 The available methods are:
+
+- getOf
 - setOf
-- Address
 - generateEvent
+
+The available classes are:
+
+- Address
