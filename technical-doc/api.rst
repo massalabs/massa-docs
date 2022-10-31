@@ -20,9 +20,8 @@ Integrations
 ============
 
 - **JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
-- **Smart contracts**: use `massa-as-sdk <https://github.com/massalabs/massa-as-sdk>`_.
 - **Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
-- **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/postman>`_.
+- **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/tree/main/postman>`_.
 
 Error codes 
 ===========
@@ -142,12 +141,12 @@ In this section we'll learn how to interact with Massa blockchain via `curl` com
 will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls. 
 
 .. warning::
-    - We'll use only public API methods.
+    - We'll use only public API methods in testnet node.
     - The following queries and respones comes from `TEST.15.1` but matches `TEST.16.0`
 
 **Public** API
 
-*a.k.a. **"user mode"** endpoints (running on `<https://test.massa.net/api/v2>`_)*
+a.k.a. **user mode** methods (running on `<https://test.massa.net/api/v2>`_)
 
 `get_status`
 ------------
