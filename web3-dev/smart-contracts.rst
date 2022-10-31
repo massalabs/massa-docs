@@ -12,3 +12,4 @@ Massa's Smart Contracts
     smart-contracts/introduction
     smart-contracts/getting-started
     smart-contracts/smart-contract-by-example
+    smart-contracts/playground.rst
