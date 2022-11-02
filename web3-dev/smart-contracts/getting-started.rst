@@ -2,8 +2,8 @@
 
 .. _sc-getting-started:
 
-Introduction to Smart Contracts
-===============================
+Getting started
+===============
 
 In this section you will learn how to compile your first Massa smart contract.
 
@@ -16,7 +16,7 @@ To create a smart-contract project, invoke the toolkit by running:
 
 .. code-block:: shell
 
-	npx github:massalabs/massa-sc-toolkit init my-sc
+  npx @massalabs/sc-toolkit init my-sc
 
 Now that the npm project is created, go inside your smart-contract directory and install the dependencies using the following commands:
 
@@ -149,14 +149,12 @@ If everything went well you should see a message similar to this one:
 
 .. code-block:: shell
 
-   Context: Slot: (period: 627, thread: 22) at index: 0
-   On chain execution
-   Block id: VaY6zeec2am5i1eKKPzuyvhbzxVU8mts7ykSDj5usHyobJee8
-   Origin operation id: wHGoVbp8QSwWxEMzM5nK9CpKL3SpNmxzUF3E4pHgn8fVkJmR5
-   Call stack: A12Lkz8mEZ4uXPrzW9WDo5HKWRoYgeYjiQZMrwbjE6cPeRxuSfAG
+    Context: Slot: (period: 627, thread: 22) at index: 0
+    On chain execution
+    Block id: VaY6zeec2am5i1eKKPzuyvhbzxVU8mts7ykSDj5usHyobJee8
+    Origin operation id: wHGoVbp8QSwWxEMzM5nK9CpKL3SpNmxzUF3E4pHgn8fVkJmR5
+    Call stack: A12Lkz8mEZ4uXPrzW9WDo5HKWRoYgeYjiQZMrwbjE6cPeRxuSfAG
 
-   Data: Hello world!
+    Data: Hello world!
 
 Congratulations! You have just executed your first smart contract !
-
-In the next tutorial you'll see a more involved example showing you how to create a Tictactoe smart-contract.
