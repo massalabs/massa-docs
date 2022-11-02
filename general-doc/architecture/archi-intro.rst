@@ -165,7 +165,7 @@ Here, the code is indirectly called via the call to an existing smart contract f
 ``target_address``               The address of the targeted smart contract (32 bytes)
 ``function_name_length``         The length of the name of the function that is called (u8)
 ``function_name``                The name of the function that is called (utf8)
-``param_len``                    The number of parameters of the function call
+``param_len``                    The number of parameters of the function call (u64 varint)
 ``params``                       The parameters of the function call
 ===============================  =========================================================
 
