@@ -138,11 +138,12 @@ You can find more details in the [technical paper](https://arxiv.org/abs/1803.09
 
 .. image:: simulation_result.png
 
-TODOS
-=====
+Future features
+===============
 
-* check the PoS draw in Protocol to avoid propagating/storing endorsements with the wrong draw: https://github.com/massalabs/massa/issues/3020
-* only store the public key and the signature (not the full endorsement) in block headers, everything else is already in the header: https://github.com/massalabs/massa/issues/3021
-* use pool endorsements to choose the best parents in consensus: second part of https://github.com/massalabs/massa/issues/2976
-* split off pools and factories into a separate binary: https://github.com/massalabs/massa/discussions/2895
-* add denunciations and slashing when a staker produces two different endorsements for the same `(slot, index)`: https://github.com/massalabs/massa/issues/3022
+There is still optimizations that we can perform on the endorsements and their workflow :
+
+* Add more verifications when receiving an endorsement from an other node of the network to avoid storing/propagating invalid endorsements. `Issue <https://github.com/massalabs/massa/issues/3020>`__
+* Use stored endorsements to choose the best parents. `Issue <https://github.com/massalabs/massa/issues/2976>`__
+* Split blocks and endorsements productions to an other binary so that they can be run on different machines and be more customized. `Discussion <https://github.com/massalabs/massa/discussions/2895>`__
+* To punish network and CPU overload attacks, a denunciations system will be implemented to point out the stakers that produces two different endorsements for the same `(slot, index)`. `Issue <https://github.com/massalabs/massa/issues/3022>`__
