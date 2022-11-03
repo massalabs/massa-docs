@@ -18,7 +18,7 @@ Bootstrap Module
 The bootstrap module is responsible for the initial synchronization of the node with the rest of the network.
 It is responsible for downloading the list of peers, the current graph of blocks, the ledger, the asyncronous pool, state of the Proof-of-Stake and latests executed operations.
 
-The bootstrap will be done from a server that is listed on the configuration of the node. Bootstrap is the entry point of the network so you have to becareful on which node you connect to avoid downloading malicious data.
+The bootstrap will be done from a server that is listed on the configuration of the node. Bootstrap is the entry point of the network so you have to be careful on which node you connect to avoid downloading malicious data.
 
 API Module
 **********
