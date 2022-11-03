@@ -107,6 +107,12 @@ Contents
    technical-doc/api.rst
    technical-doc/glossary.rst
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Contributing
+
+   contributing.rst
+
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
