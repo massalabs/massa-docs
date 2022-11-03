@@ -230,6 +230,8 @@ So we will now look for the emitted event using the node RPC API.
 
 It will output all events since the given period, in our case `17740`.
 
+Here is an example of what you can find:
+
 .. code-block:: json
 
     {
@@ -250,3 +252,5 @@ It will output all events since the given period, in our case `17740`.
       },
       "data": "Sum (10, 13) = 23"
     }
+
+You can the repository of the example `here <https://github.com/massalabs/massa-sc-example-sum>`_.
