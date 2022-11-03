@@ -131,7 +131,10 @@ Putting your smart-contract on the blockchain
 
 We'll now turn to the process of putting the smart-contract on the Massa blockchain.
 
-For the deployment, you will need a wallet with some coins. 
+For the deployment, you will need a wallet with some coins. Rename the file `.env.example` into `.env` and fill it with your wallet keys and address.
+
+Deploying a smart-contract on Massa blockchain is done by calling a temporary smart-contract that will store 
+our sum smart-contract onto the ledger.
 
 Sending the smart-contract to the Massa blockchain is done with the command `npm run deploy`.
 
@@ -139,7 +142,9 @@ Sending the smart-contract to the Massa blockchain is done with the command `npm
 
     npm run deploy build/main.wasm
 
-You will the an output like this:
+This command will execute `main.ts` smart-contract, and this smart-contract will store the `sum.ts` smart-contract onto the ledger.
+
+You will see an output like this:
 
 .. code-block::
 
@@ -156,3 +161,92 @@ You will the an output like this:
 
     Contract address is :  A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9
 
+
+Interaction with the smart-contract
+-----------------------------------
+
+We will now interact with our sum smart-contract.
+
+To interact with a smart-contract, we need to write another smart-contract that will be executed.
+
+Create the file `run.ts` in the `assembly` directory:
+
+.. code-block:: typescript
+
+    import { Address, call } from "@massalabs/massa-as-sdk";
+    import { ByteArray } from "@massalabs/as/assembly/byteArray";
+
+    export function main(): i32 {
+        const address = new Address(
+            "A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9"
+        );
+        call(
+            address,
+            "sum",
+            ByteArray.fromI32(10 as i32)
+                .toByteString()
+                .concat(ByteArray.fromI32(13 as i32).toByteString()),
+            0
+        );
+        return 0;
+    }
+
+As always, we need first to compile the smart-contract:
+
+.. code-block::
+
+    npx asc assembly/run.ts --target release --exportRuntime -o build/run.wasm
+
+Then execute it:
+
+.. code-block::
+
+    npm run deploy build/run.wasm
+
+Remember that our sum smart-contract compute the sum and emit an event with the result.
+So we will now look for the emitted event using the node RPC API.
+
+.. code-block::
+
+    curl --location --request POST 'https://inno.massa.net/test15' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+      "jsonrpc": "2.0",
+      "method": "get_filtered_sc_output_event",
+      "params": [
+        {
+          "start": {
+              "period":17740,
+              "thread":0
+          },
+          "end": null,
+          "emitter_address": null,
+          "original_caller_address": null,
+          "original_operation_id": null
+        }
+      ],
+      "id": 0
+    }' | grep Sum
+
+It will output all events since the given period, in our case `17740`.
+
+.. code-block:: json
+
+    {
+      "context": {
+        "block": "N35vPM3JeqWqwFAPTFUKu4SELM2cjmbVW3RwAT2c5kx9nSVyW",
+        "call_stack": [
+          "A12h7cTMMimawZ4o2yoc7hSJP5EuvrfZKePuPUjL94fNE3phvgo2",
+          "A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9"
+        ],
+        "index_in_slot": 0,
+        "is_final": true,
+        "origin_operation_id": "fWvSLx93Q2ySkPDtB35Eeab5s9Bd4RvW7zo87rJcN1cjokWpu",
+        "read_only": false,
+        "slot": {
+          "period": 68798,
+          "thread": 27
+        }
+      },
+      "data": "Sum (10, 13) = 23"
+    }
