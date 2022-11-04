@@ -103,6 +103,7 @@ Contents
    :maxdepth: 2
    :caption: Technical documentation
 
+   technical-doc/bootstrap.rst
    technical-doc/storage-costs.rst
    technical-doc/api.rst
    technical-doc/glossary.rst
