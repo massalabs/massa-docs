@@ -11,6 +11,7 @@ Setting up a new project
 ------------------------
 
 Make sure you have a recent version of Node.js and npm. Update or `install <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>`_ them if needed.
+
 `massa-sc-toolkit <https://github.com/massalabs/massa-sc-toolkit/>`_ is a tool that creates a boilerplate smart-contract project.
 To create a smart-contract project, invoke the toolkit by running:
 
