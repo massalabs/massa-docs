@@ -97,7 +97,7 @@ Let's go!
 Configure the client
 ~~~~~~~~~~~~~~~~~~~~
 
-Make sure that you have the last version of the Massa node. If not, `install it <https://docs.massa.net/en/latest/testnet/install.html>`_ and `run it <https://docs.massa.net/en/latest/testnet/running.html>`_.
+Make sure that you have the latest version of the Massa node. If not, `install it <https://docs.massa.net/en/latest/testnet/install.html>`_ and `run it <https://docs.massa.net/en/latest/testnet/running.html>`_.
 
 If you don't have any wallet configured yet, `create a new one <https://github.com/massalabs/massa/wiki/wallet>`_.
 
