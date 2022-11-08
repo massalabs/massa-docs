@@ -1,3 +1,5 @@
+.. _dummy-network-generation:
+
 ========================
 Local network generation
 ========================
@@ -32,7 +34,7 @@ Create a keypair in massa-client:
     cd massa-client && cargo run
     wallet_generate_secret_key
 
-For the rest of the tutorial we will use theses abreviations:
+For the rest of the tutorial we will use theses abbreviations:
 
 - `SECRETK` : The secret you just generated
 - `PUBK` : The public key corresponding to SECRETK

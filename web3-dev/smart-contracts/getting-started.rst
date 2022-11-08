@@ -96,7 +96,7 @@ Let's go!
 Configure the client
 ~~~~~~~~~~~~~~~~~~~~
 
-Make sure that you have the latest version of the Massa node. If not, `install it <https://docs.massa.net/en/latest/testnet/install.html>`_ and `run it <https://docs.massa.net/en/latest/testnet/running.html>`_.
+Make sure that you have the latest version of the Massa node. If not, :ref:`install it <testnet-install>` and :ref:`run it <testnet-running>`.
 
 If you don't have any wallet configured yet, `create a new one <https://github.com/massalabs/massa/wiki/wallet>`_.
 
@@ -108,7 +108,7 @@ In any case, keep the `address` of your wallet, you will use it later.
 
 .. note::
 
-   You can also execute your smart-contract on a local sandbox node. To learn more about sandbox node, follow this tutorial: `Local network generation <https://docs.massa.net/en/latest/web3-dev/dummy-network-generation.html>`_.
+   You can also execute your smart-contract on a local sandbox node. To learn more about sandbox node, follow this tutorial: :ref:`Local network generation <dummy-network-generation>`.
 
 Execute the smart contract on the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
