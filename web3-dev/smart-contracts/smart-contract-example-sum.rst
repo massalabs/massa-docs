@@ -9,14 +9,12 @@ Massa's smart-contracts example
 
 In this tutorial, we will go through all the steps required to create a smart-contract on Massa.
 
-You can find the complete project on this `Github repository <https://github.com/massalabs/massa-sc-examples/tree/main/games/tictactoe>`__.
+You can find the complete project on this `Github repository <https://github.com/massalabs/massa-sc-example-sum>`_.
 
 Prerequisites
 -------------
 
 Smart-contracts are written in `Assembly Script <https://www.assemblyscript.org/>`_, and so we’ll assume that you have some familiarity with it, but you should be able to follow along even if you’re coming from a different programming language. We’ll also assume that you’re familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
-
-For the decentralized website part, we'll assume that you have some familiarity with HTML and JavaScript. If you want to have more details, you can follow `this great tutorial from React <https://reactjs.org/tutorial/tutorial.html>`_ from which the dApp is heavily inspired from.
 
 Writing your smart-contract
 ---------------------------
@@ -31,12 +29,6 @@ You need `node`, `npm` and `git` to initialize the project!
 .. code-block:: shell
 
     npx @massalabs/sc-toolkit init massa-sc-example-sum
-
-Run the following command in the freshly `massa-sc-example-sum` created directory:
-
-.. code-block:: shell
-
-    npm install
 
 .. _writing-sc-sum:
 
@@ -131,7 +123,13 @@ Putting your smart-contract on the blockchain
 
 We'll now turn to the process of putting the smart-contract on the Massa blockchain.
 
-For the deployment, you will need a wallet with some coins. Rename the file `.env.example` into `.env` and fill it with your wallet keys and address.
+For the deployment, you will need a wallet with some coins. 
+
+.. code-block::
+
+    cp .env.example .env
+
+This command will create a `.env` file. Now fill it with your wallet keys and address.
 
 Deploying a smart-contract on Massa blockchain is done by calling a temporary smart-contract that will store 
 our sum smart-contract onto the ledger.
@@ -155,21 +153,19 @@ You will see an output like this:
 
     Deployment has begun...
 
-    Deployment successfully ended
+    Deployment successfully ended with operation id CyZxiMa53WyLYjKUYrfEYCyaEvXU5EdUamUhNyGmATrd7M9Tx
 
-    Retrieving deployed contract address...
+    Retrieving first event...
 
-    Contract address is :  A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9
-
+    Contract deploy at: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9
 
 Interaction with the smart-contract
 -----------------------------------
 
 We will now interact with our sum smart-contract.
 
-To interact with a smart-contract, we need to write another smart-contract that will be executed.
-
-Create the file `run.ts` in the `assembly` directory:
+To interact with a smart-contract, we can write another smart-contract that will be executed, or use the `CallSC` function.
+In our example, we will create the file `run.ts` in the `assembly` directory.
 
 .. code-block:: typescript
 
@@ -191,6 +187,8 @@ Create the file `run.ts` in the `assembly` directory:
         return 0;
     }
 
+Note that we use the address where the contract has been deployed: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9.
+
 As always, we need first to compile the smart-contract:
 
 .. code-block::
@@ -204,53 +202,72 @@ Then execute it:
     npm run deploy build/run.wasm
 
 Remember that our sum smart-contract compute the sum and emit an event with the result.
-So we will now look for the emitted event using the node RPC API.
+
+You will see this output:
 
 .. code-block::
 
-    curl --location --request POST 'https://inno.massa.net/test15' \
+    > my-massa-sc@1.0.0 deploy
+    > ts-node --esm deployer/deployment_script.ts build/run.wasm
+
+    Smartcontract file path : build/run.wasm
+
+    Deployment has begun...
+
+    Deployment successfully ended with operation id 24zP8RFvj5wPEvu242WKZmCMRtxdK6gVMGkg1a2WM3YannqrMY
+
+    Retrieving first event...
+
+    Sum (10, 13) = 23
+
+You can call the JSON RPC API function `get_filtered_sc_output_event` to get the event with; 
+
+.. code-block::
+
+    curl --location --request POST 'https://test.massa.net/api/v2' \
     --header 'Content-Type: application/json' \
     --data-raw '{
       "jsonrpc": "2.0",
       "method": "get_filtered_sc_output_event",
       "params": [
         {
-          "start": {
-              "period":17740,
-              "thread":0
-          },
+          "start": null,
           "end": null,
           "emitter_address": null,
           "original_caller_address": null,
-          "original_operation_id": null
+          "original_operation_id": "24zP8RFvj5wPEvu242WKZmCMRtxdK6gVMGkg1a2WM3YannqrMY"
         }
       ],
       "id": 0
-    }' | grep Sum
+    }'
 
-It will output all events since the given period, in our case `17740`.
+Do not forget to set the right operation id function params.
 
 Here is an example of what you can find:
 
 .. code-block:: json
 
     {
-      "context": {
-        "block": "N35vPM3JeqWqwFAPTFUKu4SELM2cjmbVW3RwAT2c5kx9nSVyW",
-        "call_stack": [
-          "A12h7cTMMimawZ4o2yoc7hSJP5EuvrfZKePuPUjL94fNE3phvgo2",
-          "A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9"
-        ],
-        "index_in_slot": 0,
-        "is_final": true,
-        "origin_operation_id": "fWvSLx93Q2ySkPDtB35Eeab5s9Bd4RvW7zo87rJcN1cjokWpu",
-        "read_only": false,
-        "slot": {
-          "period": 68798,
-          "thread": 27
+      "jsonrpc": "2.0",
+      "result": [
+        {
+          "context": {
+            "block": "qrMVKELonoVrPGE741NVLfELcbSXP3Lk7XHcimeyTi1GGVP5v",
+            "call_stack": [
+              "A12h7cTMMimawZ4o2yoc7hSJP5EuvrfZKePuPUjL94fNE3phvgo2",
+              "A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9"
+            ],
+            "index_in_slot": 6,
+            "is_final": true,
+            "origin_operation_id": "24zP8RFvj5wPEvu242WKZmCMRtxdK6gVMGkg1a2WM3YannqrMY",
+            "read_only": false,
+            "slot": {
+              "period": 96370,
+              "thread": 27
+            }
+          },
+          "data": "Sum (10, 13) = 23"
         }
-      },
-      "data": "Sum (10, 13) = 23"
+      ],
+      "id": 0
     }
-
-You can the repository of the example `here <https://github.com/massalabs/massa-sc-example-sum>`_.

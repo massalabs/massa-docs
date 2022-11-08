@@ -24,7 +24,6 @@ Now that the npm project is created, go inside your smart-contract directory and
 .. code-block:: shell
 
    cd my-sc
-   npm install
 
 You have now installed AssemblyScript among other dependencies. It will be used to generate bytecode from AssemblyScript code.
 
