@@ -48,6 +48,10 @@ If you want to build on the Massa blockchain, we recommend the following ressour
 - :ref:`Massa's decentralized web <decentralized-web>` will show you how Massa blockchain
   can be used to host decentralized websites.
 - :ref:`Types <sc-types>` is a collection of useful types for smart-contracts.
+- :ref:`Local network generation <local-network-generation>` will get you through
+  all the steps required to launch a local Massa network.
+- :ref:`External resources <web3-external-resources>` is a collection of
+  useful resources developed by external contributors.
 
 Technical resources
 --------------------

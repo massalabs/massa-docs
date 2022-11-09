@@ -1,4 +1,4 @@
-.. _dummy-network-generation:
+.. _local-network-generation:
 
 ========================
 Local network generation

@@ -1,5 +1,7 @@
 .. index:: library, community, external resources, browser extension
 
+.. _web3-external-resources:
+
 ###################
 External resources
 ###################
