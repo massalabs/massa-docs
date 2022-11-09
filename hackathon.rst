@@ -32,7 +32,7 @@ You can now run the client and generate a private key using the following comman
 
     wallet_generate_secret_key
 
-Now you have created a wallet you can check the address, balance, etc... with this command:
+Now that you have created a wallet you can check the address, public key, balance, etc... with this command:
 
 .. code-block::
 
@@ -48,6 +48,8 @@ Now that you have an address with coins you can create and deploy your first sma
 
 Smart contracts
 ===============
+
+You'll find here relevant links to ressources for smart-contract development.
 
 Setting up your working environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

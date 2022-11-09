@@ -109,6 +109,12 @@ Contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Gotta Go Hack
+
+   hackathon.rst
+
+.. toctree::
+   :maxdepth: 1
    :caption: Contributing
 
    contributing.rst
