@@ -54,7 +54,7 @@ Setting up your working environment
 
 The :ref:`Getting started tutorial <sc-getting-started>` will get you through all the
 steps to set up your environment for smart-contract development, and show you how to execute
-a simple hello world smart-contract.
+a simple "Hello world" smart-contract.
 
 Write your first smart contract
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
