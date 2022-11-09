@@ -47,7 +47,7 @@ Now that you have an address with coins you can create and deploy your first sma
 Smart contracts
 ===============
 
-You'll find here relevant links to ressources for smart-contract development.
+Here you'll find all relevant links to resources for the smart-contract development.
 
 Setting up your working environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
