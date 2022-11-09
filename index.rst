@@ -27,9 +27,9 @@ adds a layer of security to your decentralized applications:
 
 - :ref:`Massa's decentralized web <decentralized-web>` allows you to truly secure
   decentralized applications by storing your dApps directly on Massa blockchain.
-- :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security
-  and reliability to your decentralized applications, by allowing your smart
-  contracts to `wake up by themselves and perform arbitrary operations <https://massa.net/autonomous-sc>`_.
+- :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security and
+  reliability to your decentralized applications, by allowing your smart contracts to
+  `wake up by themselves and perform arbitrary operations <https://massa.net/autonomous-sc>`_.
 
 Testnet
 -------
@@ -47,6 +47,8 @@ If you want to build on the Massa blockchain, we recommend the following ressour
   needed to compile and send smart-contracts to the Massa blockchain.
 - :ref:`Massa's decentralized web <decentralized-web>` will show you how Massa blockchain
   can be used to host decentralized websites.
+- :ref:`massa-web3 <web3-massa-web3>` is a collection of useful resources for the
+  frontend development of your decentralized application.
 - :ref:`Types <sc-types>` is a collection of useful types for smart-contracts.
 - :ref:`Local network generation <local-network-generation>` will get you through
   all the steps required to launch a local Massa network.
@@ -58,7 +60,8 @@ If you want to build on the Massa blockchain, we recommend the following ressour
 Technical resources
 --------------------
 
-:ref:`Here <technical-api>` you’ll find the documentation on the various JSON-RPC API endpoints exposed by a Massa node.
+:ref:`Here <technical-api>` you’ll find the documentation on the various JSON-RPC
+API endpoints exposed by a Massa node.
 
 Community
 ---------
@@ -101,6 +104,7 @@ Contents
 
    web3-dev/smart-contracts.rst
    web3-dev/decentralized-web.rst
+   web3-dev/massa-web3.rst
    web3-dev/types.rst
    web3-dev/dummy-network-generation.rst
    web3-dev/useful-resources.rst
