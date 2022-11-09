@@ -22,7 +22,7 @@ In the `massa-client/config` folder, create a `config.toml` file with the follow
     ip = "141.94.218.103"
 
 This will allow your client to connect to the remote node run by Massa team
-so that you don't have to run a node yourself.
+so that you don't have to run a node by yourself.
 
 You can now run the client and generate a private key using the following commang in the client:
 
