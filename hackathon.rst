@@ -11,7 +11,7 @@ Massa client
 First of all you need to have a client to interact with the network.
 We recommend to use the pre-built binairies available `here <https://github.com/massalabs/massa/releases>`_.
 
-The zip will contains two folders one called `massa-node` and the other `massa-client`.
+The zip contains two folders, one called `massa-node` and the other `massa-client`.
 For this hackathon you will only need the client. In the folder `massa-client` you will
 find an executable `massa-client` that will be your client for the whole Hackathon.
 
