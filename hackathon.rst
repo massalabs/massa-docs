@@ -15,7 +15,7 @@ The zip contains two folders, one called `massa-node` and the other `massa-clien
 For this hackathon you will only need the client. In the folder `massa-client` you will
 find an executable `massa-client` that will be your client for the whole Hackathon.
 
-In the `massa-client/config` folder create a `config.toml` file with the following content:
+In the `massa-client/config` folder, create a `config.toml` file with the following content:
 
 .. code-block::
     [default_node]
