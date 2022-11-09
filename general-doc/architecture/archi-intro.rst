@@ -64,7 +64,7 @@ The information stored in the ledger with each address is the following:
 ===============================  =========================================================
 **Ledger information associated with each address**       
 ------------------------------------------------------------------------------------------ 
-``balance``                      The amount of Massa coins owned by the address              
+``balance``                      The amount of Massa coins owned by the address
 ``bytecode``                     When the address references a smart contract, this is the compiled code
                                  :raw-html:`<br/>` corresponding to the smart contract (typically contains several functions that act as :raw-html:`<br/>` API entry points for the smart contract)        
 ``datastore``                    A key/value map that can store any persistent data related to a smart 
@@ -95,13 +95,14 @@ The general structure of an operation is the following, and the different types 
 ===============================  =========================================================
 **Operation header**       
 ------------------------------------------------------------------------------------------ 
-``creator_public_key``           The public key of the operation creator (64 bytes)               
-``expiration_period``            Period after which the operation is expired
-``max_gas``                      The maximum gas spendable for this operation         
-``fee``                          The amount of fees the creator is willing to pay     
-``payload``                      The content of the operation (see below)            
-``signature``                    signature of all the above with the private key of    
-                                 :raw-html:`<br/>` the operation creator
+``creator_public_key``           The public key of the operation creator (32 bytes)
+``expiration_period``            Period after which the operation is expired (u64 varint)
+``fee``                          The amount of fees the creator is willing to pay (u64 varint)
+``type``                         The type of operation (from 0 to 4: transaction, rollbuy,
+                                 :raw-html:`<br/>` rollsell, executesc, callsc) (u64 varint)
+``payload``                      The content of the operation (see below)
+``signature``                    signature of all the above with the private key of
+                                 :raw-html:`<br/>` the operation creator (64 bytes)
 ===============================  =========================================================
 
 Transactions operations
@@ -112,8 +113,8 @@ Transactions are operations that move native Massa coins between addresses. Here
 ===============================  =========================================================
 **Transaction payload**       
 ------------------------------------------------------------------------------------------ 
-``amount``                       The amount of coins to transfer              
-``destination_address``          The address of the recipient                        
+``amount``                       The amount of coins to transfer (u64 varint)
+``destination_address``          The address of the recipient (32 bytes)
 ===============================  =========================================================
 
 Buy/Sell Rolls operations
@@ -125,7 +126,7 @@ This is done via special operations, with a simple payload:
 ===============================  =========================================================
 **Roll buy/sell payload**       
 ------------------------------------------------------------------------------------------ 
-``nb_of_rolls``                  The number of rolls to buy or to sell              
+``nb_of_rolls``                  The number of rolls to buy or to sell (u64 varint)
 ===============================  =========================================================
 
 
@@ -141,7 +142,14 @@ In this case, the code is provided in the operation payload and executed directl
 ===============================  =========================================================
 **Execute SC payload**       
 ------------------------------------------------------------------------------------------ 
-``bytecode``                     The bytecode to run (in the context of the caller address)              
+``max_gas``                      The maximum gas spendable for this operation (u64 varint)
+``gas_price`` (soon deprecated)  The gas price (u64 varint)
+``bytecode_len``                 The length of the bytecode field (u64 varint)
+``bytecode``                     The bytecode to run (in the context of the caller address)
+``datastore_len``                The number of the datastore keys (u64 varint), each record
+                                 :raw-html:`<br/>` is stored then one after the other after
+list of datastore records        Concatenation of ``key_len`` (u8), ``key``,
+                                 :raw-html:`<br/>` ``value_len`` (u64 varint), ``value``
 ===============================  =========================================================
 
 1. Smart Contract function call
@@ -151,9 +159,14 @@ Here, the code is indirectly called via the call to an existing smart contract f
 ===============================  =========================================================
 **Call SC**       
 ------------------------------------------------------------------------------------------ 
-``target_address``               The address of the targeted smart contract
-``target_fun``                   The function that is called              
-``params``                       The parameters of the function call              
+``max_gas``                      The maximum gas spendable for this operation (u64 varint)
+``gas_price`` (soon deprecated)  The gas price (u64 varint)
+``coins``                        The coins transferred in the call (u64 varint)
+``target_address``               The address of the targeted smart contract (32 bytes)
+``function_name_length``         The length of the name of the function that is called (u8)
+``function_name``                The name of the function that is called (utf8)
+``param_len``                    The number of parameters of the function call (u64 varint)
+``params``                       The parameters of the function call
 ===============================  =========================================================
 
 Block
@@ -172,7 +185,7 @@ The content of a block is as follows:
 ------------------------------------------------------------------------------------------ 
 ``slot``                         A description of the block slot, defined by a couple (period, thread) that 
                                  :raw-html:`<br/>` uniquely identify it
-``creator_public_key``           The public key of the block creator (64 bytes)           
+``creator_public_key``           The public key of the block creator (32 bytes)
 ``parents``                      A list of the 32 parents of the block, one parent per thread (parent blocks are
                                  :raw-html:`<br/>` identified by the block hash)
 ``endorsements``                 A list of the 16 endorsements for the block (more about endorsements below)
