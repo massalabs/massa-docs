@@ -39,7 +39,7 @@ Now that you have created a wallet you can check the address, public key, balanc
 To develop and send smart-contracts to the blockchain you will need some tokens.
 You can get some by sending your address to the faucet bot in the "testnet-faucet"
 channel of our `Discord <https://discord.com/invite/massa>`_, or if you don't have
-Discord ask us and we'll happily send you some.
+Discord make sure to tell us and we'll happily send you some.
 
 If you check your wallet again, you should see coins on your address.
 Now that you have an address with coins you can create and deploy your first smart contract. 
