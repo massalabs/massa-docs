@@ -24,7 +24,7 @@ In the `massa-client/config` folder, create a `config.toml` file with the follow
 This will allow your client to connect to the remote node run by Massa team
 so that you don't have to run a node by yourself.
 
-You can now run the client and generate a private key using the following commang in the client:
+You can now run the client and generate a private key using the following command in the client:
 
 .. code-block::
 
@@ -78,7 +78,7 @@ to use our `massa-web3 <https://github.com/massalabs/massa-web3>`_ library.
 You'll find in the `create-react-app-massa <https://github.com/massalabs/create-react-app-massa>`_
 repo a React template that is compatible with our massa-web3 library.
 
-You'll find several examples of frontend developped using the massa-web3 library or in pure JS
+You'll find several examples of frontends developed using the massa-web3 library or in pure JS
 in our `massa-sc-examples <https://github.com/massalabs/massa-sc-examples>`_ repository (blog, games).
 
 Other resources
