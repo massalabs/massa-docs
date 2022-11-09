@@ -1,10 +1,10 @@
 .. index:: general documentation; decentralized web
 
+.. _web3-decentralized-web:
+
 #########################
 Massa's decentralized web
 #########################
-
-.. _decentralized-web:
 
 Hosting your website on Massa's decentralized web
 =================================================

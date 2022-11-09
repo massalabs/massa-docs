@@ -1,6 +1,6 @@
-=============================================
-Documentation for the GOTTA GO HACK Hackathon
-=============================================
+=======================
+GOTTA GO HACK Hackathon
+=======================
 
 Welcome to the main technical documentation for the Hackathon.
 You will find everything you need to develop this weekend.
@@ -9,9 +9,7 @@ Massa client
 ============
 
 First of all you need to have a client to interact with the network.
-We recommend to use the pre-built binairies available here:
-
-https://github.com/massalabs/massa/releases
+We recommend to use the pre-built binairies available `here <https://github.com/massalabs/massa/releases>`_.
 
 The zip will contains two folders one called `massa-node` and the other `massa-client`.
 For this hackathon you will only need the client. In the folder `massa-client` you will
@@ -54,26 +52,39 @@ You'll find here relevant links to ressources for smart-contract development.
 Setting up your working environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You'll find in the :ref:`Getting started tutorial <sc-getting-started>` all the informations
-to setup your environment for smart-contract development.
+The :ref:`Getting started tutorial <sc-getting-started>` will get you through all the
+steps to setup your environment for smart-contract development and show you how to execute
+a simple hello world smart-contract.
 
 Write your first smart contract
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You'll find a more involved example on :ref:`this page <sc-example-sum>`.
+:ref:`This example <sc-example-sum>` showcases a more involved example of a Massa smart-contract.
 
 Testing your smart-contract
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can test your smart-contract locally by using the `massa-sc-tester <https://github.com/massalabs/massa-sc-tester>`__.
+The `massa-sc-tester <https://github.com/massalabs/massa-sc-tester>`_
+allows you to test your smart-contracts locally.
 
 Create your frontend
 ^^^^^^^^^^^^^^^^^^^^
 
-As you saw in the tec-tac-toe example, you can create a website to interact with
-the smart-contract using our `massa-web3 <https://github.com/massalabs/massa-web3>`_ library.
+Massa's allow you to store 
 
-We have two example for websites:
+To interact with smart-contracts from your decentralized application we recommend
+to use our `massa-web3 <https://github.com/massalabs/massa-web3>`_ library.
 
-- In JS you have the example of the `game of life <https://github.com/massalabs/massa-sc-examples/tree/main/games/game-of-life>`_
-- In React you have the template `create-react-app-massa <https://github.com/massalabs/create-react-app-massa>`_
+You'll find in the `create-react-app-massa <https://github.com/massalabs/create-react-app-massa>`_
+repo a React template that is compatible with our massa-web3 library.
+
+You'll find several examples of frontend developped using the massa-web3 library or in pure JS
+in our `massa-sc-examples <https://github.com/massalabs/massa-sc-examples>`_ repository (blog, games).
+
+Other resources
+^^^^^^^^^^^^^^^
+
+- `massa-sc-examples <https://github.com/massalabs/massa-sc-examples>`_ is a
+  collection of examples of Massa smart-contracts
+- :ref:`External resources <web3-external-resources>` is a collection of
+  useful resources developed by external contributors.
