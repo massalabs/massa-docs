@@ -1,4 +1,4 @@
-.. index:: api
+.. index:: api, JSON-RPC
 
 .. _technical-api:
 
