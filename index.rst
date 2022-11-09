@@ -109,7 +109,7 @@ Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Gotta Go Hack
+   :caption: Gotta Go Hack Hackathon
 
    hackathon.rst
 

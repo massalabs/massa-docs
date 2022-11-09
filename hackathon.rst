@@ -1,6 +1,6 @@
-=======================
-GOTTA GO HACK Hackathon
-=======================
+===============
+Getting started
+===============
 
 Welcome to the main technical documentation for the Hackathon.
 You will find everything you need to develop this weekend.
