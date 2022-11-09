@@ -31,7 +31,7 @@ outside of the risk of key collisions, is for easier auditing: if the code never
 into its own bytecode nor its filestore after deployment, it is safe to assume that the stored
 website can’t change anymore. For that Massa has developed a client that acts as a gateway to the blockchain preventing you from using any centralised servers but also maximising your security with immutable and censorship resistant websites.
 
-This client is called θύρα (thyra) in ancient Greek means door, entrance.
+This client is called θύρα (thyra) which in ancient Greek means door, entrance.
 
 Start a decentralised web3 journey now, and install `Thyra <https://docs.massa.net/en/latest/web3-dev/decentralized-web.html>`_. It will enable you to store your own website or to simply navigate Massa web3 content.
 
