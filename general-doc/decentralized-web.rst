@@ -29,7 +29,7 @@ Any address, through bytecode execution, can initialize, read and write the "fil
 just like it would with the datastore. The reason why we don’t reuse the datastore for this,
 outside of the risk of key collisions, is for easier auditing: if the code never writes
 into its own bytecode nor its filestore after deployment, it is safe to assume that the stored
-website can’t change anymore. For that Massa has developed a client that acts as a gateway to the blockchain preventing you from using any centralised servers but also maximising your security with immutable and censorship resistant websites.
+website can’t change anymore. Massa can host the files corresponding to the front-end of the decentralized applications. Since the front-end is hosted on the blockchain, allowing anyone to access it using a Massa node. For that Massa has developed a client that acts as a gateway to the blockchain preventing you from using any centralised servers but also maximising your security with immutable and censorship resistant websites.
 
 This client is called θύρα (thyra) which in ancient Greek means door, entrance.
 
