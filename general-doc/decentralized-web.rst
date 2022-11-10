@@ -21,7 +21,7 @@ However, most DeFi web3 apps such as `app.uniswap.org <https://app.uniswap.org/>
 typically used through an otherwise normal website that talks to a browser plugin
 (typically `Metamask <https://github.com/MetaMask/metamask-extension>`_) allowing the webpage to interact with the user's wallet and the blockchain. The website that serves as an
 entry point to the dApp is neither decentralized nor immutable-once-audited.
-This breaks the very foundations of blockchain security. And that’s how you get into situations of scandalous thefts in the DeFi world, like `this one <https://www.theverge.com/2021/12/2/22814849/badgerdao-defi-120-million-hack-bitcoin-ethereum>`_.
+This breaks the very foundation of blockchain security. And that’s how you get into situations of scandalous thefts in the DeFi world, like `this one <https://www.theverge.com/2021/12/2/22814849/badgerdao-defi-120-million-hack-bitcoin-ethereum>`_.
 
 The goal here is to allow addresses on Massa to store not only a balance, bytecode and a
 datastore, but also files without using any centralised party in between your client and the blockchain.
