@@ -1,10 +1,10 @@
 .. index:: web; decentralized, decentralized web
 
+.. _general-decentralize-web:
+
 #########################
 Massa's Decentralized web
 #########################
-
-.. _web-intro:
 
 Rationale
 =========

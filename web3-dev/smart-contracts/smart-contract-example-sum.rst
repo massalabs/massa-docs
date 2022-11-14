@@ -14,12 +14,18 @@ You can find the complete project on this `Github repository <https://github.com
 Prerequisites
 -------------
 
-Smart-contracts are written in `Assembly Script <https://www.assemblyscript.org/>`_, and so we’ll assume that you have some familiarity with it, but you should be able to follow along even if you’re coming from a different programming language. We’ll also assume that you’re familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+Smart-contracts are written in `Assembly Script <https://www.assemblyscript.org/>`_,
+and so we’ll assume that you have some familiarity with it, but you should be able to
+follow along even if you’re coming from a different programming language.
+We’ll also assume that you’re familiar with programming concepts like functions,
+objects, arrays, and to a lesser extent, classes.
 
 Writing your smart-contract
 ---------------------------
 
-Smart-contract in Massa are written in `Assembly Script <https://www.assemblyscript.org/>`_ and then compiled to `WebAssembly <https://webassembly.org/>`_ (WASM). We chose WebAssembly as it is efficient and can be compiled from several languages, including Assembly Script.
+Smart-contract in Massa are written in `Assembly Script <https://www.assemblyscript.org/>`_
+and then compiled to `WebAssembly <https://webassembly.org/>`_ (WASM). We chose WebAssembly
+as it is efficient and can be compiled from several languages, including Assembly Script.
 
 Setup
 ~~~~~
@@ -37,7 +43,8 @@ Writing the smart-contract
 
 Smart-contracts are in the `assembly` directory.
 The `index.ts` will be our smart contract.
-The `main.ts` contains a function that will deploy our smart contract on the Massa blockchain. It may be confusing right now, but we'll go through all these steps in the following.
+The `main.ts` contains a function that will deploy our smart contract on the Massa blockchain.
+It may be confusing right now, but we'll go through all these steps in the following.
 
 For this tutorial, we will create a very simple smart contract that calculate the sum of two integers.
 
@@ -85,7 +92,8 @@ Let's start with the sum smart-contract.
     }
 
 Calling function of a smart-contract that is stored in the blockchain with some arguments will start an assemblyscript runtime (wasmer).
-This is why each function that you want to be able to call in your smart-contract must be exported with the `export` keyword and must take one string argument and return a value of type string.
+This is why each function that you want to be able to call in your smart-contract
+must be exported with the `export` keyword and must take one string argument and return a value of type string.
 
 Here, we are exporting the sum function. In this function, we deserialize the argument into two integers, with the help of `fromByteString` and `toInt32`.
 
