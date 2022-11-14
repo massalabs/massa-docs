@@ -77,8 +77,6 @@ allows you to test your smart contracts locally.
 Create your frontend
 ^^^^^^^^^^^^^^^^^^^^
 
-Massa's allow you to store 
-
 To interact with smart contracts from your decentralized application we recommend
 to use our `massa-web3 <https://github.com/massalabs/massa-web3>`_ library.
 
