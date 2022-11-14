@@ -14,7 +14,7 @@ Each cat is technically a smart contract deployed on the Massa blockchain. We wi
 
 First of all, we need to create and deploy on the blockchain the smart contracts for each cat using 2 scripts :
 
-* main.ts : will allows us to deploy the smart contract of the cat.
+* main.ts : will allow us to deploy the smart contract of the cat.
 * cat.ts : will manage all behaviour of the smart contract of the cat.
 
 The main.ts script :
@@ -26,7 +26,7 @@ The main.ts script :
   import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
 
   export function main(_args: string): void {    
-      const bytes = fileToBase64('./build/smart-contract.wasm');
+      const bytes = fileToBase64('./build/cat.wasm');
       let addr = createSC(bytes);
       generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
@@ -36,7 +36,7 @@ The main.ts script :
       Storage.setOf(addr,"last_meal",Context.timestamp().toString());
       Storage.setOf(addr,"hangry_since","0");
 
-      generateEvent("--- Informations about the cat ==> " +
+      generateEvent("--- Information about the cat ==> " +
                       "Name :" + call(addr,"get_name","",0) +
                       " || Birthday :" + call(addr,"get_birth","",0) +
                       " || State :" + call(addr,"get_state","",0) +
@@ -49,15 +49,15 @@ The main.ts script :
 Code analysis : 
 ^^^^^^^^^^^^^^^
 
-Lets see line by line what is going on :
+Let's see line by line what is going on :
 
-* Import functions from Massalabs librairy :
+* Import Massalabs library :
 
   .. code-blocks:: typescript
 
     import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
 
-  ==> The goal of this line is to import from the massalabs/massa-as-sdk librairy the functions that we will use : { createSC, fileToBase64, Storage, Context, generateEvent, call}
+  ==> The goal of this line is to import from the "massalabs/massa-as-sdk" library the functions that we will be used : { createSC, fileToBase64, Storage, Context, generateEvent, call}
   
   
 * main() function to execute the script :
@@ -90,24 +90,24 @@ Lets see line by line what is going on :
   
   Storage.setOf() will technically create a key owned by the smart contract only :
   
-  * You can change a value of the key using : Storage.setOf("key","value").
+  * You can change the value of the key using : Storage.setOf("key","value").
   * You can get the value of the key using : Storage.getOf("key").
   
   Using the Context.timestamp() function, we can get the current timestamp.
   
   
-* Get informations from the cat :
+* Get information from the cat :
 
   .. code-blocks:: typescript
   
-    generateEvent("--- Informations about the cat ==> " +  
+    generateEvent("--- Information about the cat ==> " +  
                       " Name :" + call(addr,"get_name","",0) +
                       " || Birthday :" + call(addr,"get_birth","",0) +
                       " || State :" + call(addr,"get_state","",0) +
                       " || Last meal at :" + call(addr,"get_last_meal","",0) + 
                       " || Hangry since :" + call(addr,"get_hangry_since","",0));
       
-  ==> We can print the cat informations into the client using the function generateEvent("Message") and using the call() function. 
+  ==> We can print the cat information into the client using the function generateEvent("Message") and using the call() function. 
   
   The call() function allows us to call the functions defined into our cat smart contract knowing the address of this one and should be used like :
   
