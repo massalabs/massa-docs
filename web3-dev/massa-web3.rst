@@ -19,10 +19,8 @@ on npmjs under `@massalabs/massa-web3 <https://www.npmjs.com/package/@massalabs/
 `create-react-app-massa <https://github.com/massalabs/create-react-app-massa>`_ is a
 minimal React template made for our massa-web3 library.
 
-You'll find several examples of frontends using the `massa-web3` library
-in the `massa-sc-examples <https://github.com/massalabs/massa-web3>`_ repository:
+You'll find examples of frontends using the `massa-web3` library in the
+`massa-sc-examples <https://github.com/massalabs/massa-sc-examples>`_ repository:
 
 - `blog <https://github.com/massalabs/massa-sc-examples/tree/main/blog>`_ is an
   example of a decentralized blog platform.
-- `tic-tac-toe <https://github.com/massalabs/massa-sc-examples/tree/main/games/game-of-life>`_
-  is an example of a fully decentralized tic-tac-toe game.
