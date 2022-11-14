@@ -25,10 +25,10 @@ This breaks the very foundation of blockchain security. And that’s how you get
 
 The goal here is to allow addresses on Massa to store not only a balance, bytecode and a
 datastore, but also files without using any centralised party in between your client and the blockchain.
-Any address, through bytecode execution, can initialize, read and write the "files" part
-just like it would with the datastore. The reason why we don’t reuse the datastore for this,
+Any address, through bytecode execution, can initialize, read and write the "file" part into the datastore.
+The reason why we don’t reuse the datastore for this,
 outside of the risk of key collisions, is for easier auditing: if the code never writes
-into its own bytecode nor its filestore after deployment, it is safe to assume that the stored
+into its own bytecode nor its datastore after deployment, it is safe to assume that the stored
 website can’t change anymore. Massa can host the files corresponding to the front-end of the decentralized applications. Since the front-end is hosted on the blockchain, allowing anyone to access it using a Massa node. For that Massa has developed a client that acts as a gateway to the blockchain preventing you from using any centralised servers but also maximising your security with immutable and censorship resistant websites.
 
 This client is called θύρα (thyra) which in ancient Greek means door, entrance.
