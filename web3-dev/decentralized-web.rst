@@ -6,90 +6,64 @@
 Massa's decentralized web
 #########################
 
-Hosting your website on Massa's decentralized web
-=================================================
 
-Massa's decentralized web allows you to store websites directly on the blockchain.
-This feature enables a lot of applications and provides another layer of security to your dApps.
+Massa’s decentralized web allows you to store websites directly on the blockchain. This feature enables a lot of applications and provides another layer of security to your dApps.
 
-This documentation go through all the steps to host your website on the blockchain and register
-it on Massa's DNS service in order to access it using Massa's plugin.
+This documentation go through all the steps to host your website on the blockchain and register it on Massa’s DNS service in order to access it using any classic browser.
 
-To upload a website to Massa's decentralized web you can use the following smart-contract.
-If you want latter want to be able to access to your website through the Massa plugin it's
-important to use the entry `massa_web` for your website.
+To do so you will need to follow 3 steps: 
 
-.. code-block:: typescript
+1. Install Thyra on your machine
+2. Create a wallet
+3. Define your DNS & upload your website on the blockchain
 
-    import { include_base64, print, Storage } from "massa-sc-std";
+For each of the steps above, you will have the choice to do it manually or automatically via Thyra.
 
-    function createWebsite(): void {
-        const bytes = include_base64('./site.zip');
-        Storage.set_data("massa_web", bytes);
-    }
 
-    export function main(_args: string): i32 {
-        createWebsite();
-        print("Uploaded site");
-        return 0;
-    }
-
-This smart-contract and the dependencies are available `here <https://github.com/massalabs/massa-sc-examples/tree/main/website>`_.
-
-Setting the DNS
+*What is Thyra*
 ===============
 
-To claim a DNS address for you smart-contract you can use the following smart-contract:
+θύρα to pronounce thùra and to write Thyra is way simpler that his name looks like! It means entrance, gateway in ancient greek. Thyra is thus a gateway to Massa blockchain.
 
-.. code-block:: typescript
+Thyra has been developed by Massa Labs to allow any type of users to participate, to create, and to access the blockchain flawlessly using classic web2 while assuring fully decentralised and secure transactions.
 
-    import { call } from "massa-sc-std";
-    import { JSON } from "json-as";
+In the context of the decentralised web, Thyra acts as a Top Level Domain (TLD) that is redirecting users to the correct smart contract and address to access a specific website
 
-    @json
-    export class SetResolverArgs {
-        name: string = "";
-        address: string = "";
-    }
+In a wider context, Thyra acts as a services enabler that will allow you to connect and perform all sorts of actions on the blockchain easily without cutting security or integrity.
 
-    export function main(_args: string): i32 {
-        const sc_address = "2cVNfo79K173ddPwNezMi8WzvapMFojP7H7V4reCU2dk6QTeA"
-        call(sc_address, "setResolver", JSON.stringify<SetResolverArgs>({name: "flappy", address: "Gr2aeZt7ZRb9S5SKgAEV1tZ6ERLHGhBCZsAp2sdB6i3rDK9M7"}), 0);
-        return 0;
-    }
 
-For now DNS addresses can only be claimed using the following address: `9mvJfA4761u1qT8QwSWcJ4gTDaFP5iSgjQzKMaqTbrWCFo1QM` (and its associated secret key).
-
-Once you've done this step, you should be able to access to your website using
-`Massa's browser plugin <https://github.com/massalabs/massa-wallet>`_ at `https://flappy.massa`.
-
-.. index:: decentralized web
-
-.. _web-plugin:
-
-Massa's browser plugin
+Install Thyra
 ======================
 
-In order to access decentralized websites we've developed a `browser plugin <https://github.com/massalabs/massa-wallet>`_.
 
-The Massa browser plugin function like Metamask (wallet, interaction with the blockchain) but also provide extra functions:
+Automatically
+---------------
 
-* when an URL of the form `xxxxxxxxxxxx.massa` is typed in the address bar, the plugin will check if `xxxxxxxxxxxx` is an address
-* if it's an address, the plugin will try to load the `website.zip` file from the filestore of that address, unzip it,
-  and display its index.html (or whatever other page is requested).
-* if it's not and address but something like a domain name, the plugin will interrogate a "Massa Name Service"
-  smart contract through a readonly call to try to match the domain name to an address.
-  This is inspired by how the Ethereum Name Service works. Then it will load the address's website as defined above.
-* the website will typically contain html, css and javascript to remain lightweight.
-  The javascript can dynamically talk to the Massa plugin to interact with the blockchain and wallet (just like Metamask)
-* if the website needs heavy assets (videos, large images...) that cannot be stored on the blockchain,
-  the plugin allows looking up optional external data on IPFS or on the normal web,
-  but plugin settings allow users to disable the fetching of off-chain assets for maximum security.
+- [MacOS installation script](https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh)
+- [Windows installation script](https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat)
 
-Installation
-------------
+*NB: if you install Thyra with this script using an Ethernet connection, there is high level of chances that you will need to re-install it if you move to wifi. Sorry about that, we’re working on it!*
 
-For now the Massa browser plugin is only compatible with Chrome and Firefox.
+- [Linux Ubuntu installation script](https://github.com/massalabs/thyra/blob/main/scripts/linux_install.sh)
 
-To install it, you can follow this installation procedure detailed on the
-`Github repository <https://github.com/massalabs/massa-wallet>`_.
+Manually
+---------------
+You can follow this step-by-step process described [here](https://github.com/massalabs/thyra/blob/main/INSTALLATION.md).
+
+
+Create your DNS contract & upload website
+======================
+
+Automatically
+---------------
+
+Using Thyra web-interface, you will be able to create your DNS smart contract as well as to import your website in one and only actions. 
+
+Go to this page and follow UI instructions: [http://my.massa/thyra/websiteCreator/index.html](http://my.massa/thyra/websiteCreator/index.html).
+
+Navigate web on-chain
+===============
+
+To browse and explore websites and other applications stored on Massa blockchain, you now simply have to run Thyra and access any .massa you know about.
+
+Or you can also search for one you like [here](http://my.massa/thyra/registry/index.html](http://my.massa/thyra/registry/index.html)
