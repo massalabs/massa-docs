@@ -4,7 +4,7 @@
 
 ###################
 External resources
-###################
+##################
 
 .. warning::
     Links to external websites and material are provided for informational purposes and do not constitute endorsement or approval by Massalabs.
