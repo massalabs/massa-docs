@@ -95,3 +95,5 @@ Other resources
   collection of examples of Massa smart contracts
 - :ref:`External resources <web3-external-resources>` is a collection of
   useful resources developed by external contributors.
+
+**You should be all set to start building on-top of Massa now. Good luck!**
