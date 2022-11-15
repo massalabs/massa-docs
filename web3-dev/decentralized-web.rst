@@ -76,6 +76,8 @@ Go to this page and follow instructions: [http://my.massa/thyra/websiteCreator/i
 Navigate web on-chain
 ===============
 
-To browse and explore websites and other applications stored on Massa blockchain, you now simply have to run Thyra and access any .massa you know about.
+To browse and explore websites and other applications stored on Massa blockchain, you now simply have to run Thyra using the cmd below and access any .massa you know about.
+..code-block:: 
+            thyra-server
 
 Or you can also search for one you like [here](http://my.massa/thyra/registry/index.html](http://my.massa/thyra/registry/index.html)
