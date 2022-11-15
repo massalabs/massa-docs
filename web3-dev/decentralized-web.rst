@@ -71,7 +71,7 @@ Automatically
 
 Thyra web-interface allows you to create a DNS smart-contract, import a website file, and deploy it to blockchain in just a few clicks.
 
-Go to this page and follow UI instructions: [http://my.massa/thyra/websiteCreator/index.html](http://my.massa/thyra/websiteCreator/index.html).
+Go to this page and follow instructions: [http://my.massa/thyra/websiteCreator/index.html](http://my.massa/thyra/websiteCreator/index.html).
 
 Navigate web on-chain
 ===============
