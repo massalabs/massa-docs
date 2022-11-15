@@ -9,11 +9,13 @@ How to launch a local network with custom settings and initial coins & rolls rep
 
 .. _docker:
 
-**On Docker**
+On Docker
+---------
 
 Full documentation about launching a local network on Docker is available here : https://github.com/massalabs/massa-network-simulator
 
-**On your OS**
+On your OS
+----------
 
 Clone massa:
 
