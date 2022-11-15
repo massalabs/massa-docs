@@ -48,7 +48,7 @@ Automatically
 
 Manually
 ---------------
-You can follow this step-by-step process described [here](https://github.com/massalabs/thyra/blob/main/INSTALLATION.md).
+To install Thyra manually, follow the step-by-step process found `here <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_.
 
 
 Create your DNS contract & upload website
