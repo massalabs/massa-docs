@@ -29,7 +29,7 @@ Thyra has been developed by Massa Labs to allow any type of users to participate
 
 In the context of the decentralised web, Thyra acts as a Top Level Domain (TLD) that is redirecting users to the correct smart contract and address to access a specific website.
 
-In a wider context, Thyra acts as a services enabler that will allow you to connect and perform all sorts of actions on the blockchain easily without cutting security or integrity.
+In a wider context, Thyra acts as a service enabler that will allow you to connect and perform all sorts of actions on the blockchain easily, without cutting security or integrity.
 
 
 Install Thyra
