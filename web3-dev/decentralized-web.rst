@@ -39,14 +39,14 @@ Install Thyra
 Automatically
 ---------------
 
-- [MacOS installation script]<https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh> or simply use this cmd on your terminal:
+- `MacOS installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh>`_ or simply use this cmd on your terminal:
 
 .. code-block::
             
          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/macos_install.sh)"
 
 
-- [Windows installation script]<https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat>
+- `Windows installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat>`_
 
       *NB: if you install Thyra with this script using an Ethernet connection, there is high level of chances that you will need to re-install it if you move to wifi. Sorry about that, we’re working on it!*
       
@@ -54,7 +54,7 @@ Automatically
 
             curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/thyra-installer.bat >> thyra-installer.bat && thyra-installer.bat
 
-- [Linux Ubuntu installation script](https://github.com/massalabs/thyra/blob/main/scripts/linux_install.sh)
+- `Linux Ubuntu installation script <https://github.com/massalabs/thyra/blob/main/scripts/linux_install.sh>`_
 
 .. code-block::
 
@@ -74,7 +74,7 @@ Automatically
 
 Thyra web-interface allows you to create a DNS smart-contract, import a website file, and deploy it to blockchain in just a few clicks.
 
-Go to this page and follow instructions: [http://my.massa/thyra/websiteCreator/index.html](http://my.massa/thyra/websiteCreator/index.html).
+Go to this page and follow instructions: `http://my.massa/thyra/websiteCreator/index.html <http://my.massa/thyra/websiteCreator/index.html.>'_
 
 Navigate web on-chain
 ===============
@@ -83,4 +83,4 @@ To browse and explore websites and other applications stored on Massa blockchain
 ..code-block:: 
             thyra-server
 
-Or you can also search for one you like [here](http://my.massa/thyra/registry/index.html](http://my.massa/thyra/registry/index.html)
+Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html](http://my.massa/thyra/registry/index.html>
