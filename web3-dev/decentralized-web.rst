@@ -57,7 +57,7 @@ Create your DNS contract & upload website
 Automatically
 ---------------
 
-Using Thyra web-interface, you will be able to create your DNS smart contract as well as to import your website in one and only actions. 
+Thyra web-interface allows you to create a DNS smart-contract, import a website file, and deploy it to blockchain in just a few clicks.
 
 Go to this page and follow UI instructions: [http://my.massa/thyra/websiteCreator/index.html](http://my.massa/thyra/websiteCreator/index.html).
 
