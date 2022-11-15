@@ -230,5 +230,270 @@ You should get as following :
 2) How to feed him with tokens
 -----------------------------
 
+Now we want to feed our cat with tokens. We have to add some code to main.ts and cat.ts files.
+
+The main.ts script :
+....................
+
+We then need to transfert tokens to the smart contract of the cat adding in the main.ts : 
+
+.. code-blocks:: typescript 
+
+  export function main(_args: string): void {
+    const bytes = fileToBase64('./build/cat.wasm');
+    let addr = createSC(bytes);
+    generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
+
+    Storage.setOf(addr,"birth",Context.timestamp().toString());
+    Storage.setOf(addr,"name","Massa_cat");
+    Storage.setOf(addr,"state","ok");
+    Storage.setOf(addr,"last_meal",Context.timestamp().toString());
+    Storage.setOf(addr,"hangry_since","0");
+
+    generateEvent("--- Informations about the cat ==> " +
+                    "Name :" + call(addr,"get_name","",0) +
+                    " || Birthday :" + call(addr,"get_birth","",0) +
+                    " || State :" + call(addr,"get_state","",0) +
+                    " || Last meal at :" + call(addr,"get_last_meal","",0) +
+                    " || Hangry since :" + call(addr,"get_hangry_since","",0)
+    );
+
+    //transfert 10 tokens to the cat smart contract
+    let factor = 100000000;
+    transferCoins(addr, 10 * factor);
+
+    //ask to the cat to eat tokens and print the state of the token after eating, and the balance evolution of the smart contract.
+    call(addr, "eat", "", 0);
+    generateEvent("--- Informations about the cat ==> " +
+    "Name :" + call(addr,"get_name","",0) +
+    " || Birthday :" + call(addr,"get_birth","",0) +
+    " || State :" + call(addr,"get_state","",0) +
+    " || Last meal at :" + call(addr,"get_last_meal","",0) +
+    " || Hangry since :" + call(addr,"get_hangry_since","",0)
+                );
+}
+
+Code analysis : 
+^^^^^^^^^^^^^^^
+
+.. code-blocks:: typescript
+
+  let factor = 100000000;
+  transferCoins(addr, 10 * factor);
+
+==> transfer of 10 tokens to the smart contract address. Note that 1 massa token = 100000000 of the standard unit used.
+
+.. code-blocks:: typescript
+
+  call(addr, "eat", "", 0);
+  
+  generateEvent("--- Information about the cat ==> " +
+      "Name :" + call(addr,"get_name","",0) +
+      " || Birthday :" + call(addr,"get_birth","",0) +
+      " || State :" + call(addr,"get_state","",0) +
+      " || Last meal at :" + call(addr,"get_last_meal","",0) +
+      " || Hangry since :" + call(addr,"get_hangry_since","",0)
+                  );
+==> call the eat() function of the cat smart contract, and print the information about the cat.
+
+The cat.ts script :
+....................
+
+.. code-blocks:: tyepscript
+
+  import { generateEvent, Storage, balance, Context, transferCoins, Address, sendMessage, currentPeriod, currentThread } from "@massalabs/massa-as-sdk";
+
+  export function get_name(_args: string): string {return Storage.get("name");}
+  export function get_birth(_args: string): string {return Storage.get("birth");}
+  export function get_state(_args: string): string {return Storage.get("state");}
+  export function get_last_meal(_args: string): string {return Storage.get("last_meal");}
+  export function get_hangry_since(_args: string): string {return Storage.get("hangry_since");}
+
+  export function eat(_args: string): void {
+      let factor = 100000000;
+      let tokens_to_eat: u64 = 6 * factor;
+      let poo_addr = Address.fromByteString("A13ESKj7WRVdjM96ttk2caqzES9nRzwB8pEcMW8GutrPwjo3WQS");
+      
+      generateEvent(Storage.get("name") + " wants to eat " + (tokens_to_eat / factor).toString() + " Massa tokens. Current balance : " + (balance() /factor).toString());
+
+      if (tokens_to_eat <= balance()) {        
+          transferCoins(poo_addr, tokens_to_eat);
+          generateEvent(Storage.get("name") + " has eaten " + (tokens_to_eat / factor).toString() + " Massa tokens. Current balance : " + (balance() /factor).toString());
+          Storage.set("state", "ok");
+          Storage.set("last_meal", Context.timestamp().toString());
+          Storage.set("hangry_since", "0");
+      }
+
+      else {
+          generateEvent("/!\ Not enought tokens in the balance! Balance = " + (balance() /factor).toString());
+          if (Storage.get("state") == "starved") {
+              Storage.set("state", "dead");
+              generateEvent(Storage.get("name") + " is starved since : " + Storage.get("hangry_since") + ", he dies with pain!"); 
+          }
+          
+          if (Storage.get("state") == "ok") {
+              Storage.set("state", "starved");
+              Storage.set("hangry_since", Context.timestamp().toString());
+          }
+      }
+  }
+
+Code analysis : 
+^^^^^^^^^^^^^^^
+
+.. code-blocks:: typescript
+
+  let factor = 100000000;
+  let tokens_to_eat: u64 = 6 * factor;
+  let poo_addr = Address.fromByteString("A13ESKj7WRVdjM96ttk2caqzES9nRzwB8pEcMW8GutrPwjo3WQS");
+
+==> declares the callable function eat(), and set the number of tokens eaten at each time to 6. The poo_addr is the address where the tokens will be "destoyed" after each meal.
+
+.. code-blocks:: typescript
+
+  if (tokens_to_eat <= balance()) {        
+          transferCoins(poo_addr, tokens_to_eat);
+          generateEvent(Storage.get("name") + " has eaten " + (tokens_to_eat / factor).toString() + " Massa tokens. Current balance : " + (balance() /factor).toString());
+          Storage.set("state", "ok");
+          Storage.set("last_meal", Context.timestamp().toString());
+          Storage.set("hangry_since", "0");
+      }
+      
+==> if there are enought tokens to eat, 6 tokens are transfered to the poo address and the keys of the cat smart contract are updated with new values.
+
+.. code-blocks:: typescript
+
+  else {
+            generateEvent("/!\ Not enought tokens in the balance! Balance = " + (balance() /factor).toString());
+            if (Storage.get("state") == "starved") {
+                Storage.set("state", "dead");
+                generateEvent(Storage.get("name") + " is starved since : " + Storage.get("hangry_since") + ", he dies with pain!"); 
+            }
+
+            if (Storage.get("state") == "ok") {
+                Storage.set("state", "starved");
+                Storage.set("hangry_since", Context.timestamp().toString());
+            }
+        }
+      
+==> if not enought tokens are avaible, the key "state" is set to "starved" and the key "hangry_since" is updated. If the state of the cat was already "starved", the key will be updated to "dead".
+
+if we compile the scripts using : 
+
+and deploy the smart contract from the client using : 
+
+.. code-blocks:: bash
+
+  ✔ command · send_smart_contract A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU main.wasm 10000000 0 0 
+
+  ✔ command · get_filtered_sc_output_event emitter_address=A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU
+
+
+we get : 
+
+.. code-blocks:: bash
+
+  Context: Slot: (period: 133898, thread: 28) at index: 6
+  On chain execution
+  Block id: 28mYCc1CLCEGXwLbCRrPKeBdmL8cWGfUADuGoTgm3xKiVJJpm7
+  Origin operation id: a9hesDXT5DiJqoZ37rarsEmN716nV8cJj6zVCnbs5is6GCF1n
+  Call stack: A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU
+
+  Data: A new cat is born! Address of the cat : A1186aEwXVC5mfdgTqkfdPyVT4cTgW8cfvvw6FdA52YMgdiPvQ9
+
+  Context: Slot: (period: 133898, thread: 28) at index: 7
+  On chain execution
+  Block id: 28mYCc1CLCEGXwLbCRrPKeBdmL8cWGfUADuGoTgm3xKiVJJpm7
+  Origin operation id: a9hesDXT5DiJqoZ37rarsEmN716nV8cJj6zVCnbs5is6GCF1n
+  Call stack: A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU
+
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668514610468 || State :ok || Last meal at :1668514610468 || Hangry since :0
+
+  Context: Slot: (period: 133898, thread: 28) at index: 8
+  On chain execution
+  Block id: 28mYCc1CLCEGXwLbCRrPKeBdmL8cWGfUADuGoTgm3xKiVJJpm7
+  Origin operation id: a9hesDXT5DiJqoZ37rarsEmN716nV8cJj6zVCnbs5is6GCF1n
+  Call stack: A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU,A1186aEwXVC5mfdgTqkfdPyVT4cTgW8cfvvw6FdA52YMgdiPvQ9
+
+  Data: Massa_cat wants to eat 6 Massa tokens. Current balance : 10
+
+  Context: Slot: (period: 133898, thread: 28) at index: 9
+  On chain execution
+  Block id: 28mYCc1CLCEGXwLbCRrPKeBdmL8cWGfUADuGoTgm3xKiVJJpm7
+  Origin operation id: a9hesDXT5DiJqoZ37rarsEmN716nV8cJj6zVCnbs5is6GCF1n
+  Call stack: A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU,A1186aEwXVC5mfdgTqkfdPyVT4cTgW8cfvvw6FdA52YMgdiPvQ9
+
+  Data: Massa_cat has eaten 6 Massa tokens. Current balance : 4
+
+  Context: Slot: (period: 133898, thread: 28) at index: 10
+  On chain execution
+  Block id: 28mYCc1CLCEGXwLbCRrPKeBdmL8cWGfUADuGoTgm3xKiVJJpm7
+  Origin operation id: a9hesDXT5DiJqoZ37rarsEmN716nV8cJj6zVCnbs5is6GCF1n
+  Call stack: A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU
+
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668514610468 || State :ok || Last meal at :1668514610468 || Hangry since :0
+
+now if we try to eat the cat 2 times just encapsulating the eat() function into a "for loop" : 
+
+.. code-blocs:: typescript
+
+  for (let i = 0; i < 2; i++) {
+        call(addr, "eat", "", 0);
+        generateEvent("--- Informations about the cat ==> " +
+                "Name :" + call(addr,"get_name","",0) +
+                " || Birthday :" + call(addr,"get_birth","",0) +
+                " || State :" + call(addr,"get_state","",0) +
+                " || Last meal at :" + call(addr,"get_last_meal","",0) +
+                " || Hangry since :" + call(addr,"get_hangry_since","",0)
+                            );        
+      }  
+
+we observe (only data are printed) :
+
+.. code-blocs:: bash 
+
+  Data: A new cat is born! Address of the cat : A12LCbcpSg4UqadPTtVwwkBvspxLBhujWHVHwZCbUkUXJn6oju19
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515058468 || State :ok || Last meal at :1668515058468 || Hangry since :0
+  Data: Massa_cat wants to eat 6 Massa tokens. Current balance : 10
+  Data: Massa_cat has eaten 6 Massa tokens. Current balance : 4
+  Data: 0--- Informations about the cat ==> Name :Massa_cat || Birthday :1668515058468 || State :ok || Last meal at :1668515058468 || Hangry since :0
+  Data: Massa_cat wants to eat 6 Massa tokens. Current balance : 4
+  Data: /! Not enought tokens in the balance! Balance = 4
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515058468 || State :starved || Last meal at :1668515058468 || Hangry since :1668515058468
+
+
+if we try with 3, the cat should die :
+
+.. code-blocs:: typescript
+
+  for (let i = 0; i < 3; i++) {
+        call(addr, "eat", "", 0);
+        generateEvent("--- Informations about the cat ==> " +
+                "Name :" + call(addr,"get_name","",0) +
+                " || Birthday :" + call(addr,"get_birth","",0) +
+                " || State :" + call(addr,"get_state","",0) +
+                " || Last meal at :" + call(addr,"get_last_meal","",0) +
+                " || Hangry since :" + call(addr,"get_hangry_since","",0)
+                            );        
+      }  
+
+
+and saddly, he died (only data are printed) :
+
+.. code-blocs:: bash 
+
+  Data: A new cat is born! Address of the cat : A1Gm3kxorw2wpgJ7pGWStWxWjfxVa6qVBtGZ1o5Do2xdgNt4BmP
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :ok || Last meal at :1668515298468 || Hangry since :0
+  Data: Massa_cat wants to eat 6 Massa tokens. Current balance : 10
+  Data: Massa_cat has eaten 6 Massa tokens. Current balance : 4
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :ok || Last meal at :1668515298468 || Hangry since :0
+  Data: Massa_cat wants to eat 6 Massa tokens. Current balance : 4
+  Data: /! Not enought tokens in the balance! Balance = 4
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :starved || Last meal at :1668515298468 || Hangry since :1668515298468
+  Data: Massa_cat wants to eat 6 Massa tokens. Current balance : 3
+  Data: /! Not enought tokens in the balance! Balance = 3
+  Data: Massa_cat is starved since : 1668515298468, he dies with pain!
+  Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :dead || Last meal at :1668515298468 || Hangry since :1668515298468
+
 3) How to set him autonomous
 ----------------------------
