@@ -12,6 +12,21 @@ Setting up a new project
 
 Make sure you have a recent version of Node.js and npm. Update or `install <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>`_ them if needed.
 
+.. note::
+   On ubuntu, an easy way to install Node.js is with snap
+
+
+.. code-block:: shell
+
+  sudo snap install node --channel=18/stable
+
+.. note::
+   On MacOS & Windows, use nvm:
+
+    * Follow the instructions here:
+    * [MacOS] `nvm <https://github.com/nvm-sh/nvm>`_
+    * [Windows] `nvm-windows <https://github.com/coreybutler/nvm-windows>`_
+
 `massa-sc-toolkit <https://github.com/massalabs/massa-sc-toolkit/>`_ is a tool that creates a boilerplate smart-contract project.
 To create a smart-contract project, invoke the toolkit by running:
 
@@ -28,7 +43,7 @@ Now that the npm project is created, go inside your smart-contract directory and
 You have now installed AssemblyScript among other dependencies. It will be used to generate bytecode from AssemblyScript code.
 
 .. note::
-    * Massa smart contract module (@massalabs/massa-sc-sdk) contains the API you need to use to interact with the external world of the smart contract (the node, the ledger...).
+    * Massa smart contract module (@massalabs/massa-as-sdk) contains the API you need to use to interact with the external world of the smart contract (the node, the ledger...).
 
 Congratulations! Now you have a fully set up project and you are ready to add some code.
 
