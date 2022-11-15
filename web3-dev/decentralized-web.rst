@@ -9,7 +9,7 @@ Massa's decentralized web
 
 Massa’s decentralized web allows you to store websites directly on the blockchain. This feature enables a lot of applications and provides another layer of security to your dApps.
 
-This documentation go through all the steps to host your website on the blockchain and register it on Massa’s DNS service in order to access it using any classic browser.
+This section introduces all steps to host your website on the blockchain and register it on Massa’s DNS service, in order to access it using any traditional browser.
 
 To do so you will need to follow 3 steps: 
 
