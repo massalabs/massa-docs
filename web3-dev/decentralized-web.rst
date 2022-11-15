@@ -11,7 +11,7 @@ Massa’s decentralized web allows you to store websites directly on the blockch
 
 This section introduces all steps to host your website on the blockchain and register it on Massa’s DNS service, in order to access it using any traditional browser.
 
-To do so you will need to follow 3 steps: 
+To do so you will need to follow 3 simple steps: 
 
 1. Install Thyra on your machine
 2. Create a wallet
