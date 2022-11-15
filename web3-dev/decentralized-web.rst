@@ -39,12 +39,24 @@ Install Thyra
 Automatically
 ---------------
 
-- [MacOS installation script](https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh)
+- [MacOS installation script](https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh) or simply use this cmd on your terminal:
+
+.. code-block::
+            
+         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/macos_install.sh)"
+
+
 - [Windows installation script](https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat)
 
-*NB: if you install Thyra with this script using an Ethernet connection, there is high level of chances that you will need to re-install it if you move to wifi. Sorry about that, we’re working on it!*
+      *NB: if you install Thyra with this script using an Ethernet connection, there is high level of chances that you will need to re-install it if you move to wifi. Sorry about that, we’re working on it!*
+      
 
 - [Linux Ubuntu installation script](https://github.com/massalabs/thyra/blob/main/scripts/linux_install.sh)
+
+.. code-block::
+
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/linux_install.sh)"
+
 
 Manually
 ---------------
