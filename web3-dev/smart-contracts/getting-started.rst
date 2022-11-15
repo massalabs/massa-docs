@@ -72,6 +72,7 @@ Now that everything is in place, we can start the compilation step by running th
    npm run build
 
 Congratulations! You have generated your first smart contract: the `main.wasm` file in `build` directory.
+Note that a `deployer.wasm` file has also been generated. It will be used to deploy your contract on Massa network.
 
 .. note::
 
@@ -82,6 +83,38 @@ Congratulations! You have generated your first smart contract: the `main.wasm` f
    * look for any similar issue (open or closed) in `this <https://github.com/massalabs/massa-as-sdk/>`_ project.
 
    If you find nothing, feel free to contact us on `Discord <https://discord.gg/massa>`_ or directly open an issue `here <https://github.com/massalabs/massa-as-sdk/>`_.
+
+Deploy your smart contract
+--------------------------
+
+Your smart contract is now ready to be pushed and executed on the Massa network.
+In order to deploy it, you need to own a Massa wallet and some MAS coins on it.
+
+If you don't have any wallet configured yet, `create a new one <https://docs.massa.net/en/latest/testnet/wallet.html>`_.
+
+If you're using a brand new wallet, add some coins by sending your address to `testnet-faucet discord channel <https://discord.com/channels/828270821042159636/866190913030193172>`_.
+
+If you are using an existing wallet, make sure that you have some coins on it.
+
+In any case, keep the `address` and `private_key` of your wallet, you will use it later.
+
+Deploy your smart contract from the toolkit
+-------------------------------------------
+
+Create a `.env` file at the root of your project and populate it with your wallet private key.
+
+.. note::
+
+   Or just copy the .env.example file provided.
+ 
+Then run the following command:
+
+.. code-block:: shell
+
+   npm run deploy
+
+Wait for a few seconds... It should return you the deployed smart contract address.
+
 
 Execute your smart contract on a node
 -------------------------------------
@@ -97,14 +130,6 @@ Configure the client
 ~~~~~~~~~~~~~~~~~~~~
 
 Make sure that you have the latest version of the Massa node. If not, :ref:`install it <testnet-install>` and :ref:`run it <testnet-running>`.
-
-If you don't have any wallet configured yet, `create a new one <https://github.com/massalabs/massa/wiki/wallet>`_.
-
-If you're using a brand new wallet, add some coins by sending your address to `testnet-faucet discord channel <https://discord.com/channels/828270821042159636/866190913030193172>`_.
-
-If you are using an existing wallet, make sure that you have some coins on it.
-
-In any case, keep the `address` of your wallet, you will use it later.
 
 .. note::
 
