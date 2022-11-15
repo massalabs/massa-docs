@@ -28,28 +28,36 @@ You'll find examples of frontends using the `massa-web3` library in the
 Building Decentralized Application
 ##################################
 
+For the decentralized website part, we'll assume that you have some familiarity
+with HTML and JavaScript. If you want to have more details, you can follow
+`this great tutorial from React <https://reactjs.org/tutorial/tutorial.html>`_
+from which the dApp is inspired from.
+
+Here you can find an example dApp for the :ref:`sum smart-contract <sc-example-sum>`: 
+`Massa DApp example: Sum <https://github.com/massalabs/massa-dapp-example-sum>`_.
+
 Prerequisites:
   * having `Thyra <https://github.com/massalabs/thyra/>`_ installed and running on your computer
   * having a wallet in Thyra
-  * the wallet needs to own some Massa
-  * having a smart-contract :ref:`deployed <sending-sc-sum>`
+  * the wallet needs to own some Massa coins
+  * having a smart contract :ref:`deployed <sending-sc-sum>`
 
-**Network**: as a blockchain is a network of nodes, there could be several
-networks. The main network is called the mainnet. There is also a testnet,
-run by Massa team, where you can build application without paying real Massa
-tokens. You can also run your own network, with only one node
+**Network**: as any blockchain is a network of nodes, there could be practically several
+networks of different nodes. The main Massa network is called the MainNet. There is also a TestNet which is 
+ran by Massa Labs team, where you can build applications without paying real Massa
+coins. You can also run your own network, with only one node
 (see :ref:`local-network-generation`).
 
 A decentralized application is an application running on a blockchain. Even the
 frontend can be hosted on the blockchain with
 :ref:`web-on-chain <web3-decentralized-web>`.
 
-To build such application you will use some libraries:
+To build such application you will need to use some libraries:
   * `massa toolkit <https://github.com/massalabs/massa-sc-toolkit/>`_
   * `massa assemblyscript sdk <https://github.com/massalabs/massa-as-sdk/>`_
   * `massa javascript web3 <https://github.com/massalabs/massa-web3/>`_
 
-Then you will be able to build a frontend application that communicate with
+Then you will be able to build a frontend application that communicates with
 Thyra's API to sign transactions and submit it to the blockchain. 
 
 Then, use Thyra to deploy your frontend application.
@@ -57,20 +65,17 @@ Then, use Thyra to deploy your frontend application.
 ..
   comment: TODO: add link to the page explaining how to deploy a website
 
-Here you can find an example dapp for the :ref:`sum smart-contract <sc-example-sum>`: 
-`Massa DApp example: Sum <https://github.com/massalabs/massa-dapp-example-sum>`_.
-
 Debugging
 #########
 
-This section will give you some tips to help you debug your dapp while building it.
+This section will give you some tips on how to debug your dapp while building it.
 
-Work in local
--------------
+Work in a local development environment
+---------------------------------------
 
 Run :ref:`a local node <local-network-generation>`.
 
-Run Thyra in local: 
+Start Thyra and bind it to your local node: 
 
 .. code-block::
 
@@ -102,7 +107,7 @@ In your smart-contract projects, use this `.env` file:
 
 Use the private key that the node-client gave you when calling
 `wallet_generate_secret_key`. This wallet also needs to have some Massa
-tokens, so it must appear in `massa-node/base_config/initial_ledger.json`
+coins, so it must appear in `massa-node/base_config/initial_ledger.json`
 before running the node with `cd massa-node && cargo run --features sandbox`
 in `massa <https://github.com/massalabs/massa>`_ directory.
 
@@ -116,7 +121,7 @@ Modify the file `massa/massa-client/base_config/config.toml` to the localhost RP
 
 Start a client with the command `cargo run` in `massa/massa-client` directory.
 
-You might want to sign transaction to call smart-contract in your frontend
+You might want to sign transactions to call smart contracts in your frontend
 application:
 
 .. code-block:: javascript
@@ -148,17 +153,17 @@ application:
       });
 
 This performs an HTTP POST call to Thyra, asking to create a transaction
-that will call the function named `hello` of the smart-contract located at
+that will call the function named `hello` of the smart contract located at
 `A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB` with the wallet name
 `wallet`.
 
 This opens a password prompt and you will be able to see the response of
 the call in the development tools of the browser. The response is the operation
-id, like for example `2mLLkdKB4BY4hJQFNwGZ5oQVhky13EVZAwHJXCGQnd3FRHUoHw`.
+id, for example `2mLLkdKB4BY4hJQFNwGZ5oQVhky13EVZAwHJXCGQnd3FRHUoHw`.
 
-If the operation failed, the response contains the details.
+If the operation failed, the response will contain the details.
 
-Now you can now use the commands of the node client to see the details of your
+Now you can now use commands of the node client to see the details of your
 operation:
 
 .. code-block::
@@ -169,39 +174,42 @@ This will output something like
 
 .. code-block:: text
 
-    Operation 2XwBkDZrou8CxvAs9aTJsuvuXFQLiTwTHbHEZuWCugdVpSWLQX[ (in pool)]
+    Operation 2oCTeeYMUt6hQuGAzCWbGBajXPPhz48VfHaEMWd6MJkVywa7Sa[ (in pool)]
     In blocks:
-      - 2n6JLR7UbQvzUW4joxW3D1TbuJtso7Szp9jvYipVTmtFceVAZv
-    Signature: WJVPHZ7QckXiMvFHFFNYt7zzmfFYawWdTuhnv15sNxCcWy92tXfmHrMgt7FSeWjvSUhqNzD5kzbVzr2ni6NQ8aybkMozo
+      - 2Fvqyzd7jfYjPxS9t9UCEGoHhhuvD8HHAmD45CNzEnFp4bbFT5
+    Signature: ELrvQeuso9pjk5ErcG4WjESDpV8iFdweB45jic2UErSugSLLinbqx6JeKamxfXRZtBQoZi9ZcbvsGK858yx2FPsUoHrJJ
     Creator pubkey: P12fnkn6fMhjZHatWsQ3k1L4B7hb99XdjbWCmVthxCwbisRAMk2P
     Creator address: A12LempfubRfRZoRh7Dr4nWyTUYKAQs7Be1cZ9Gejcx7NXYG4HXD
-    Id: 2XwBkDZrou8CxvAs9aTJsuvuXFQLiTwTHbHEZuWCugdVpSWLQX
+    Id: 2oCTeeYMUt6hQuGAzCWbGBajXPPhz48VfHaEMWd6MJkVywa7Sa
     Fee: 0
-    Expire period: 543
+    Expire period: 2314
     Operation type: CallSC:
       - target address:A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB
-      - target function:hello
+      - target function:sum
       - target parameter:
       - max_gas:700000000
       - gas_price:0.000001
       - coins:0
 
-You can also see the events emitted by your contract:
+.. note::
+    `target parameter` is empty because parameters are encoded into bytes so it is
+    unlikely to have printable characters. 
+
+You can also see events emitted by your contract (assuming that your contract is
+deployed at `A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB`):
 
 .. code-block::
 
     get_filtered_sc_output_event caller_address=A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB
 
-(assuming that your contract is deployed at `A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB`).
-
 .. code-block::
 
-    Context: Slot: (period: 282, thread: 22) at index: 0
+    Context: Slot: (period: 2238, thread: 22) at index: 0
     On chain execution
-    Block id: hGKNZxZpFZSyzRiUndPTJckV6NDX3s3LDFzQHwZUyT48T8Drw
-    Origin operation id: VJDjWebiDWvMizQpDUe1hRnqjFym1QQp3n8L5Z36DBy41W5L3
+    Block id: 7ALxLxsJfLMMTYRLcGA42bXGbDKSiTPYWyoGWupKMJxXYNHmb
+    Origin operation id: 24kaBAdcCHUsgcfCUBxUXNBquJyz91Whon1xwbWmux1j29MEC
     Call stack: A12LempfubRfRZoRh7Dr4nWyTUYKAQs7Be1cZ9Gejcx7NXYG4HXD,A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB
 
-    Data: hello
+    Data: Sum (2, 3) = 5
 
-In this example the event message is `hello`.
+In this example the event message is `Sum (2, 3) = 5`.
