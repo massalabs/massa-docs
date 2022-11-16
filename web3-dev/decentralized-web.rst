@@ -20,7 +20,7 @@ To do so you will need to follow 3 simple steps:
 For each of the steps above, you will have the choice to do it manually or automatically via Thyra.
 
 
-*Why this name Thyra*
+*Why this name: Thyra*
 ==========================
 
 As explained Thyra plays the role of a gateway to the Massa blockain. Massa being a coin minted in the city of massalia, the ancient marseille founded by the greek, quite naturaly the name θύρα (entrance, front door in ancient greek) imposed itself.
