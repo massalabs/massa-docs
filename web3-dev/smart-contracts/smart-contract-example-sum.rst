@@ -205,7 +205,7 @@ You will see this output:
 
     Deploying smartcontract: build/caller.wasm
 
-    Operation submitted successfully to the network. Operation id: 18vNiKh9LpFB6xzXLW2pjgY6tmrXDdBdULuwFLBP1xBW3V17f
+    Operation submitted successfully to the network. Operation id: 24zP8RFvj5wPEvu242WKZmCMRtxdK6gVMGkg1a2WM3YannqrMY
 
     Waiting for the state of operation to be Final... this may take few seconds
 
