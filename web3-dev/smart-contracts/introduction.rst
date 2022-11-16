@@ -25,11 +25,11 @@ Nevertheless, it's important to keep in mind that the transaction protocol exist
 Technical choices
 -----------------
 
-For all the reasons listed above and for performance, Massa chose a program in WebAssembly.
+For all the reasons listed above and for performance, Massa chose a program in `WebAssembly <https://webassembly.org/>`_ .
 
-For the sake of accessibility, Massa decided to use AssemblyScript as programming language to compile the expected logic into bytecode.
+For the sake of accessibility, Massa decided to use `AssemblyScript <https://www.assemblyscript.org/>`_  as programming language to compile the expected logic into bytecode.
 
-Finally, at node level, the byte of a program is executed by Wasmer.
+Finally, at node level, the byte of a program is executed by `Wasmer <https://wasmer.io/>`_ .
 
 The following schema recap graphically all this:
 

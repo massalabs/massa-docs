@@ -10,7 +10,7 @@ In this section you will learn how to compile your first Massa smart contract.
 Setting up a new project
 ------------------------
 
-Make sure you have a recent version of Node.js and npm. Update or `install <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>`_ them if needed.
+Make sure you have a recent version of `Node.js <https://nodejs.org/>`_  and `npm <https://www.npmjs.com/>`_ . Update or `install <https://docs.npmjs.com/downloading-and-installing-node-js-and-npm>`_ them if needed.
 
 .. note::
    On ubuntu, an easy way to install Node.js is with snap
@@ -32,15 +32,9 @@ To create a smart-contract project, invoke the toolkit by running:
 
 .. code-block:: shell
 
-  npx @massalabs/sc-toolkit init my-sc
+  npx @massalabs/sc-toolkit init my-sc && cd my-sc
 
-Now that the npm project is created, go inside your smart-contract directory and install the dependencies using the following commands:
-
-.. code-block:: shell
-
-   cd my-sc
-
-You have now installed AssemblyScript among other dependencies. It will be used to generate bytecode from AssemblyScript code.
+You have now npm project created with AssemblyScript installed among other dependencies. It will be used to generate bytecode from AssemblyScript code.
 
 .. note::
     * Massa smart contract module (@massalabs/massa-as-sdk) contains the API you need to use to interact with the external world of the smart contract (the node, the ledger...).
@@ -94,9 +88,9 @@ Congratulations! You have generated your first smart contract: the `main.wasm` f
 
    * check that you properly followed all the steps,
    * do a couple a internet research,
-   * look for any similar issue (open or closed) in `this <https://github.com/massalabs/massa-as-sdk/>`_ project.
+   * look for any similar issue (open or closed) in `massa-as-sdk <https://github.com/massalabs/massa-as-sdk/>`_.
 
-   If you find nothing, feel free to contact us on `Discord <https://discord.gg/massa>`_ or directly open an issue `here <https://github.com/massalabs/massa-as-sdk/>`_.
+   If you find nothing, feel free to contact us on `Discord <https://discord.gg/massa>`_ or directly open an `issue <https://github.com/massalabs/massa-as-sdk/issues>`_.
 
 Execute your smart contract on a node
 -------------------------------------
