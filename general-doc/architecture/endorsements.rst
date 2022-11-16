@@ -16,11 +16,11 @@ Basic principle
 
 Each block header has `E` ordered endorsement slots: each one can include an endorsement or not. 
 Each endorsement contains:
-	* The slot `S` in which it is meant to be included. The endorsement can only be included in blocks of slot `S`.
-	* The hash of the endorsed block. This is the hash of the latest blockclique block of thread `S.thread` according to the endorsement creator at the moment the endorsement was created.
-	* The index of the endorsement slot within the header from `0` (included) to `E-1` (included). The endorsement can only be included at that endorsement slot index within the block eader.
-	* The public key of the creator of the endorsement
-	* The signature of all the previous fields with the private key of the creator of the endorsement
+  * The slot `S` in which it is meant to be included. The endorsement can only be included in blocks of slot `S`.
+  * The hash of the endorsed block. This is the hash of the latest blockclique block of thread `S.thread` according to the endorsement creator at the moment the endorsement was created.
+  * The index of the endorsement slot within the header from `0` (included) to `E-1` (included). The endorsement can only be included at that endorsement slot index within the block eader.
+  * The public key of the creator of the endorsement
+  * The signature of all the previous fields with the private key of the creator of the endorsement
 
 At every slot `S`, we use the existing Proof-of-Stake selection mechanism to not only draw the block creator for that slot,
 but also `E` other stakers indexed from `0` (included) to `E-1` (included) that can create Endorsements meant to be included in block headers of slot `S` at their respective endorsement slot index.

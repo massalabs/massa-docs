@@ -9,7 +9,7 @@ Massa client
 ============
 
 First of all you need to have a client to interact with the network.
-We recommend to use the pre-built binairies available
+We recommend to use the pre-built binaries available
 `here <https://github.com/massalabs/massa/releases>`_.
 
 The zip contains two folders, one called `massa-node` and the other `massa-client`.
@@ -21,6 +21,7 @@ In the `massa-client/config` folder, create a `config.toml` file
 with the following content:
 
 .. code-block::
+
     [default_node]
     ip = "141.94.218.103"
 

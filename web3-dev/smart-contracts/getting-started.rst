@@ -117,7 +117,7 @@ In any case, keep the `address` of your wallet, you will use it later.
 
 .. note::
 
-   You can also execute your smart-contract on a local sandbox node. To learn more about sandbox node, follow this tutorial: :ref:`Local network generation <dummy-network-generation>`.
+   You can also execute your smart-contract on a local sandbox node. To learn more about sandbox node, follow this tutorial: :ref:`Local network generation <local-network-generation>`.
 
 Execute the smart contract on the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
