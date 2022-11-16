@@ -20,16 +20,11 @@ To do so you will need to follow 3 simple steps:
 For each of the steps above, you will have the choice to do it manually or automatically via Thyra.
 
 
-*What is Thyra*
-===============
+*Why this name Thyra*
+==========================
 
-θύρα to pronounce thùra and to write Thyra is way simpler that his name looks like! It means entrance, gateway in ancient greek. Thyra is thus a gateway to Massa blockchain.
-
-Thyra has been developed by Massa Labs to allow any type of users to participate, to create, and to access the blockchain flawlessly using classic web2 while assuring fully decentralised and secure transactions.
-
-In the context of the decentralised web, Thyra acts as a Top Level Domain (TLD) that is redirecting users to the correct smart contract and address to access a specific website.
-
-In a wider context, Thyra acts as a service enabler that will allow you to connect and perform all sorts of actions on the blockchain easily, without cutting security or integrity.
+As explained Thyra plays the role of a gateway to the Massa blockain. Massa being a coin minted in the city of massalia, the ancient marseille founded by the greek, quite naturaly the name θύρα (entrance, front door in ancient greek) imposed itself.
+In order to simplify and standardize its writing, we transformed it into Thyra, but its pronunciation \tʰý.raː\ remained.
 
 
 Install Thyra
