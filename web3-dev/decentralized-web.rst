@@ -69,7 +69,7 @@ Automatically
 
 Thyra web-interface allows you to add a new domain to our DNS smart-contract, import a website file, and deploy it to blockchain in just a few clicks.
 
-Go to this page and follow instructions: `http://my.massa/thyra/websiteCreator/index.html <http://my.massa/thyra/websiteCreator/index.html.>'_
+Go to this page and follow instructions: `http://my.massa/thyra/websiteCreator/index.html <http://my.massa/thyra/websiteCreator/index.html>`_
 
 Navigate web on-chain
 ===============
@@ -78,4 +78,4 @@ To browse and explore websites and other applications stored on Massa blockchain
 ..code-block:: 
             thyra-server
 
-Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html>'_.
+Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html>`_.
