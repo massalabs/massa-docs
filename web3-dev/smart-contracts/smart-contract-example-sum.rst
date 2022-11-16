@@ -51,42 +51,21 @@ You can find it here `assembly/main.ts`.
 .. code-block:: typescript
 
     import { generateEvent } from "@massalabs/massa-as-sdk";
-
-    // This is my SC
+    import { Args } from "@massalabs/massa-as-sdk";
 
     function add(a: i32, b: i32): i32 {
         return a + b;
     }
 
-    export function sum(args: string): string {
-      const byteArray = fromByteString(args);
-      const a = toInt32(byteArray);
-      const b = toInt32(byteArray, 4);
-      const result = add(a, b);
-      generateEvent(`Sum (${a.toString()}, ${b.toString()}) = ${result.toString()}`);
-      return result.toString();
-    }
-
-    function fromByteString(byteString: string): Uint8Array {
-      const byteArray = new Uint8Array(byteString.length);
-      for (let i = 0; i < byteArray.length; i++) {
-        byteArray[i] = u8(byteString.charCodeAt(i));
-      }
-      return byteArray;
-    }
-
-    function toInt32(byteArray: Uint8Array, offset: u8 = 0): i32 {
-      // i32 is 4 bytes long
-      if ((byteArray.length - offset) < 4) {
-        return <i32>NaN;
-      }
-
-      let x: i32 = 0;
-      x = (x | byteArray[offset + 3]) << 8;
-      x = (x | byteArray[offset + 2]) << 8;
-      x = (x | byteArray[offset + 1]) << 8;
-      x = x | byteArray[offset + 0];
-      return x;
+    export function sum(argsString: string): string {
+        const args = new Args(argsString);
+        const a = args.nextI32();
+        const b = args.nextI32();
+        const result = add(a, b);
+        generateEvent(
+            `Sum (${a.toString()}, ${b.toString()}) = ${result.toString()}`
+        );
+        return result.toString();
     }
 
 Calling function of a smart-contract that is stored in the blockchain with some arguments will start an assemblyscript runtime (wasmer).
@@ -161,8 +140,7 @@ In our example, we will use the file `caller.ts` in the `assembly` directory.
 
 .. code-block:: typescript
 
-    import { Address, call } from "@massalabs/massa-as-sdk";
-    import { ByteArray } from "@massalabs/as/assembly/byteArray";
+    import { Address, Args, call } from "@massalabs/massa-as-sdk";
 
     export function main(): i32 {
         const address = new Address(
@@ -171,13 +149,15 @@ In our example, we will use the file `caller.ts` in the `assembly` directory.
         call(
             address,
             "sum",
-            ByteArray.fromI32(10 as i32)
-                .toByteString()
-                .concat(ByteArray.fromI32(13 as i32).toByteString()),
+            new Args()
+                .add(21 as i32)
+                .add(20 as i32)
+                .serialize(),
             0
         );
         return 0;
     }
+
 
 Note that we use the address where the contract has been deployed: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9.
 
@@ -205,7 +185,7 @@ You will see this output:
 
     Deploying smartcontract: build/caller.wasm
 
-    Operation submitted successfully to the network. Operation id: 24zP8RFvj5wPEvu242WKZmCMRtxdK6gVMGkg1a2WM3YannqrMY
+    Operation submitted successfully to the network. Operation id: 18vNiKh9LpFB6xzXLW2pjgY6tmrXDdBdULuwFLBP1xBW3V17f
 
     Waiting for the state of operation to be Final... this may take few seconds
 
