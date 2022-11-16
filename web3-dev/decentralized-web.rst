@@ -23,8 +23,8 @@ For each of the steps above, you will have the choice to do it manually or autom
 *Why this name: Thyra*
 ==========================
 
-As explained Thyra plays the role of a gateway to the Massa blockain. Massa being a coin minted in the city of Massalia, the ancient Marseille founded by the Greek, quite naturaly the name θύρα (entrance, front door in ancient greek) imposed itself.
-In order to simplify and standardize its writing, we transformed it into Thyra, but its pronunciation \tʰý.raː\ remained.
+As explained Thyra plays the role of a gateway to the Massa blockain. Massa being a coin minted in the city of `Massalia <https://en.wikipedia.org/wiki/Massalia>`_, the ancient Marseille founded by the Greek, quite naturaly the name `θύρα <https://en.wiktionary.org/wiki/%CE%B8%CF%8D%CF%81%CE%B1>`_ (entrance, front door in ancient greek) imposed itself.
+In order to simplify and standardize its writing, we transformed it into Thyra, but its pronunciation `\tʰý.raː\ <https://www.youtube.com/watch?v=_0BQ7sSJMTw>`_ remained.
 
 
 Install Thyra
