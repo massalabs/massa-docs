@@ -211,7 +211,7 @@ You will see this output:
 
     Deployment success with event: Sum (10, 13) = 23
 
-You can call the JSON RPC API function `get_filtered_sc_output_event` to get the event with; 
+You can call the JSON RPC API function `get_filtered_sc_output_event` to get the event with:
 
 .. code-block::
 
