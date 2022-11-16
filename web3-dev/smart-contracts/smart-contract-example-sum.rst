@@ -127,7 +127,7 @@ This command will create a `.env` file. Now fill it with your wallet private key
 
 Contract deployment is done by calling a deployer smart-contract which can be found here: `deployer/deployer.as.ts`. It will store our sum smart-contract onto the ledger. The deployer contract already includes your compiled `main.ts` contract and has been itself compiled at the `npm run build` step.
 
-We will send the deployer smart-contract to the Massa blockchain done with the command `npm run deploy`.
+We will send the deployer smart-contract to the Massa blockchain with:
 
 .. code-block::
 
