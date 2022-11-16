@@ -78,4 +78,4 @@ To browse and explore websites and other applications stored on Massa blockchain
 ..code-block:: 
             thyra-server
 
-Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html](http://my.massa/thyra/registry/index.html>
+Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html>'_.
