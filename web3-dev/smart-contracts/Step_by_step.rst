@@ -23,26 +23,28 @@ The main.ts script :
 .. code-blocks:: typescript
   :linenos:
 
-  import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
+  import { createSC, fileToBase64, Storage, Context, generateEvent, call, transferCoins, Args} from "@massalabs/massa-as-sdk"
 
   export function main(_args: string): void {    
       const bytes = fileToBase64('./build/cat.wasm');
       let addr = createSC(bytes);
+      var no_args = new Args();
+      
       generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
-      Storage.setOf(addr,"birth",Context.timestamp().toString());
-      Storage.setOf(addr,"name","Massa_cat");
-      Storage.setOf(addr,"state","ok");
-      Storage.setOf(addr,"last_meal",Context.timestamp().toString());
-      Storage.setOf(addr,"hangry_since","0");
+      Storage.setOf(addr, "birth", Context.timestamp().toString());
+      Storage.setOf(addr, "name", "Massa_cat");
+      Storage.setOf(addr, "state", "ok");
+      Storage.setOf(addr, "last_meal", Context.timestamp().toString());
+      Storage.setOf(addr, "hangry_since", "0");
 
       generateEvent("--- Information about the cat ==> " +
-                      "Name :" + call(addr,"get_name","",0) +
-                      " || Birthday :" + call(addr,"get_birth","",0) +
-                      " || State :" + call(addr,"get_state","",0) +
-                      " || Last meal at :" + call(addr,"get_last_meal","",0) +
-                      " || Hangry since :" + call(addr,"get_hangry_since","",0)
-      );
+                      "Name :" + call(addr, "get_name", no_args,0) +
+                      " || Birthday :" + call(addr, "get_birth", no_args, 0) +
+                      " || State :" + call(addr, "get_state", no_args, 0) +
+                      " || Last meal at :" + call(addr, "get_last_meal", no_args, 0) +
+                      " || Hangry since :" + call(addr, "get_hangry_since", no_args, 0)
+                    );
 
   }
 
@@ -55,9 +57,18 @@ Let's see line by line what is going on :
 
   .. code-blocks:: typescript
 
-    import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
+    import { createSC, fileToBase64, Storage, Context, generateEvent, call, transferCoins, Args} from "@massalabs/massa-as-sdk"
 
-  ==> The goal of this line is to import from the "massalabs/massa-as-sdk" library the functions that we will be used : { createSC, fileToBase64, Storage, Context, generateEvent, call}
+  ==> The goal of this line is to import from the "massalabs/massa-as-sdk" library the functions that we will be used : 
+  
+  * createSC() : to deploy a binary on the blockchain
+  * fileToBase64() : to create a binary from a .wasm file.
+  * Storage() : to get all function related to key storage (see below).
+  * Context() : to get all function related to the context of the smart contract as : the current timestamp, the remaining gas, who tranfered coins etc.
+  * generateEvent() : to print into the massa-client a message.
+  * call() : to call a function from a specific smart contract.
+  * transferCoins() : to transfert coins from a smart contract to an address.
+  * Args() : to give arguments calling a function from an another smart contract.
   
   
 * main() function to execute the script :
@@ -67,13 +78,16 @@ Let's see line by line what is going on :
     export function main(_args: string): void {    
         const bytes = fileToBase64('./build/cat.wasm');
         let addr = createSC(bytes);
+        var no_args = new Args();
+        
         generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
   ==> This step declares the function main() that will be executed on the blockchain. Inside the function we can find :
   
-  * const bytes = fileToBase64('./build/cat.wasm'); ==> in order to create the binary code from the "cat.wasm" file and store it into the bytes variable.
+  * `const bytes = fileToBase64('./build/cat.wasm');` ==> in order to create the binary code from the "cat.wasm" file and store it into the bytes variable.
   * let addr = createSC(bytes); ==> in order to instanciate the addr variable and deploy the smart contract of the bytes variable.
-  * generateEvent("A new cat is born! Address of the cat : " + addr.toByteString()); ==> will just send a message on the client with the smart contract address, using the function generateEvent("Message").
+  * var no_args = new Args(); ==> instanciate a new Args() object with Null value. We will be used with some specific function like `call()`.
+  * generateEvent("A new cat is born! Address of the cat : " + addr.toByteString()); ==> will just send a message on the client with the smart contract address, using the function `generateEvent("Message")`.
   
   
 * Define the attributes of the new cat :
@@ -86,14 +100,14 @@ Let's see line by line what is going on :
     Storage.setOf(addr,"last_meal",Context.timestamp().toString());
     Storage.setOf(addr,"hangry_since","0");
     
-  ==> Using the Storage.setOf() function, we can set different attributes as : the name of the cat, the current state of the cat, etc.
+  ==> Using the `Storage.setOf()` function, we can set different attributes as : the name of the cat, the current state of the cat, etc.
   
-  Storage.setOf() will technically create a key owned by the smart contract only :
+  `Storage.setOf()` will technically create a key owned by the smart contract only :
   
-  * You can change the value of the key using : Storage.setOf("key","value").
-  * You can get the value of the key using : Storage.getOf("key").
+  * You can change the value of the key using : `Storage.setOf("key","value")`.
+  * You can get the value of the key using : `Storage.getOf("key")`.
   
-  Using the Context.timestamp() function, we can get the current timestamp.
+  Using the `Context.timestamp()` function, we can get the current timestamp.
   
   
 * Get information from the cat :
@@ -107,11 +121,11 @@ Let's see line by line what is going on :
                       " || Last meal at :" + call(addr,"get_last_meal","",0) + 
                       " || Hangry since :" + call(addr,"get_hangry_since","",0));
       
-  ==> We can print the cat information into the client using the function generateEvent("Message") and using the call() function. 
+  ==> We can print the cat information into the client using the function `generateEvent("Message")` and using the `call()` function. 
   
-  The call() function allows us to call the functions defined into our cat smart contract knowing the address of this one and should be used like :
+  The `call()` function allows us to call the functions defined into our cat smart contract knowing the address of this one and should be used like :
   
-  call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)
+  `call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)`
 
    
 The cat.ts script :
@@ -132,7 +146,7 @@ Code analysis :
 ^^^^^^^^^^^^^^^
 
 When the main.ts script is executed for the first time, we declared keys like "name", "birth" etc with specific values.
-In order to create the game, we need those keys avaible at each time by someone, or an another smart contract. Thus, we can do it declaring functions callable using : "export function my_function()"
+In order to create the game, we need those keys avaible at each time by someone, or an another smart contract. Thus, we can do it declaring functions callable using : `export function my_function()`
 
 .. code-blocks:: typescript
 
@@ -144,7 +158,7 @@ In order to create the game, we need those keys avaible at each time by someone,
 
 Thus, any smart contract will be able to get the name of the cat using a call() function : 
 
-call(address_of_the_cat, "get_name", "", 0)
+`call(address_of_the_cat, "get_name", "", 0)`
 
 Lets try our code!
 -------------------
@@ -158,7 +172,7 @@ Lets try our code!
   
 .. note::
   
-  Make sure your file "my-sc/package.json" is written as following :
+  Make sure your file `my-sc/package.json` is written as following :
   
   .. code-blocks:: json
     {
@@ -182,7 +196,7 @@ Lets try our code!
     }
   }
   
-* Copy the file "main.wasm" from my-sc/build/main.wasm to massa/massa-client/main.wasm using : 
+* Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
 
 .. code-blocks:: bash
 
@@ -195,7 +209,7 @@ Lets try our code!
 
   send_smart_contract your_address main.wasm 10000000 0 0 
   
-And get the events sent by "generateEvent()" function used in our script. You can filter them by your emitter address using the following command into the client : 
+And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
 
 .. code-blocks:: bash
 
