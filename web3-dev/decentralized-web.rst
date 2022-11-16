@@ -23,7 +23,7 @@ For each of the steps above, you will have the choice to do it manually or autom
 *Why this name: Thyra*
 ==========================
 
-As explained Thyra plays the role of a gateway to the Massa blockain. Massa being a coin minted in the city of massalia, the ancient marseille founded by the greek, quite naturaly the name θύρα (entrance, front door in ancient greek) imposed itself.
+As explained Thyra plays the role of a gateway to the Massa blockain. Massa being a coin minted in the city of Massalia, the ancient Marseille founded by the Greek, quite naturaly the name θύρα (entrance, front door in ancient greek) imposed itself.
 In order to simplify and standardize its writing, we transformed it into Thyra, but its pronunciation \tʰý.raː\ remained.
 
 
