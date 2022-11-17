@@ -98,23 +98,12 @@ Other resources
 
 **You should be all set to start building on-top of Massa now. Good luck!**
 
-===============
-Decentralised Web
-===============
-
-The goal here is to allow addresses on Massa to store not only a balance, bytecode and a datastore, but also files, zip archive and websites without using any centralised party in between your client and the blockchain.
-Massa has developed a client that acts as a gateway to the blockchain preventing you from using any centralised servers but also maximising your security with immutable and censorship resistant websites.
-Check-out more `here <https://docs.massa.net/en/latest/general-doc/decentralized-web.html>`_
 
 Thyra
-=========
+===============
 
 Thyra is a client developed by Massa that plays the role of a gateway to the Massa blockchain.
 
-Why this name
-^^^^^^^^^^^^^^^^^^^^
-
-Massa being a coin minted in the city of `Massalia <https://en.wikipedia.org/wiki/Massalia>`_, the ancient Marseille founded by the Greek, quite naturaly the name `θύρα <https://en.wiktionary.org/wiki/%CE%B8%CF%8D%CF%81%CE%B1>`_ (entrance, front door in ancient greek) imposed itself. In order to simplify and standardize its writing, we transformed it into Thyra, but its pronunciation `tʰý.ra <https://www.youtube.com/watch?v=_0BQ7sSJMTw>`_ ː remained.
 
 What is does and how to use it
 ^^^^^^^^^^^^^^^^^^^^
