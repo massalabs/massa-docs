@@ -29,12 +29,12 @@ as it is efficient and can be compiled from several languages, including Assembl
 
 Setup
 ~~~~~
-
+Lets start by cloning the sum example repository.
 You need `node`, `npm` and `git` to initialize the project!
 
 .. code-block:: shell
 
-    npx @massalabs/sc-toolkit init massa-sc-example-sum
+    git clone https://github.com/massalabs/massa-sc-example-sum && cd massa-sc-example-sum
 
 .. _writing-sc-sum:
 
@@ -42,53 +42,29 @@ Writing the smart-contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Smart-contracts are in the `assembly` directory.
-The `index.ts` will be our smart contract.
-The `main.ts` contains a function that will deploy our smart contract on the Massa blockchain.
-It may be confusing right now, but we'll go through all these steps in the following.
+The `main.ts` will be our smart contract.
 
 For this tutorial, we will create a very simple smart contract that calculate the sum of two integers.
 
-Let's start with the sum smart-contract.
+You can find it here `assembly/main.ts`.
 
 .. code-block:: typescript
 
-    import { generateEvent } from "@massalabs/massa-as-sdk";
-
-    // This is my SC
+    import { generateEvent, Args } from "@massalabs/massa-as-sdk";
 
     function add(a: i32, b: i32): i32 {
         return a + b;
     }
 
-    export function sum(args: string): string {
-      const byteArray = fromByteString(args);
-      const a = toInt32(byteArray);
-      const b = toInt32(byteArray, 4);
-      const result = add(a, b);
-      generateEvent(`Sum (${a.toString()}, ${b.toString()}) = ${result.toString()}`);
-      return result.toString();
-    }
-
-    function fromByteString(byteString: string): Uint8Array {
-      const byteArray = new Uint8Array(byteString.length);
-      for (let i = 0; i < byteArray.length; i++) {
-        byteArray[i] = u8(byteString.charCodeAt(i));
-      }
-      return byteArray;
-    }
-
-    function toInt32(byteArray: Uint8Array, offset: u8 = 0): i32 {
-      // i32 is 4 bytes long
-      if ((byteArray.length - offset) < 4) {
-        return <i32>NaN;
-      }
-
-      let x: i32 = 0;
-      x = (x | byteArray[offset + 3]) << 8;
-      x = (x | byteArray[offset + 2]) << 8;
-      x = (x | byteArray[offset + 1]) << 8;
-      x = x | byteArray[offset + 0];
-      return x;
+    export function sum(stringifyArgs: string): string {
+        const args = new Args(stringifyArgs);
+        const a = args.nextI32();
+        const b = args.nextI32();
+        const result = add(a, b);
+        generateEvent(
+            `Sum (${a.toString()}, ${b.toString()}) = ${result.toString()}`
+        );
+        return result.toString();
     }
 
 Calling function of a smart-contract that is stored in the blockchain with some arguments will start an assemblyscript runtime (wasmer).
@@ -97,23 +73,6 @@ must be exported with the `export` keyword and must take one string argument and
 
 Here, we are exporting the sum function. In this function, we deserialize the argument into two integers, with the help of `fromByteString` and `toInt32`.
 
-.. note::
-    Massalabs team is working on a better way to serialize and deserialize the function arguments.
-
-Then, here is the `main.ts` file that will deploy our smart contract.
-
-.. code-block:: typescript
-
-    import { createSC, generateEvent, fileToBase64 } from '@massalabs/massa-as-sdk';
-
-    // This is a SC that will deploy my SC (index.ts)
-
-    export function main(_args: string): i32 {
-      const bytes = fileToBase64('./build/index.wasm');
-      const websiteDeployer = createSC(bytes);
-      generateEvent(`Contract deploy at : ${websiteDeployer._value}`);
-      return 0;
-    }
 
 Compiling your smart-contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,48 +83,51 @@ Smart-contract can be compiled using the command:
 
     npm run build
 
+Note that a `build/deployer.wasm` file has also been generated. It will be used to deploy your contract on Massa network.
+
 .. _sending-sc-sum:
 
-Putting your smart-contract on the blockchain
----------------------------------------------
+Deploy your smart-contract on the blockchain
+--------------------------------------------
 
 We'll now turn to the process of putting the smart-contract on the Massa blockchain.
 
 For the deployment, you will need a wallet with some coins. 
 
+To send transaction on the network, you need to provide your wallet private key.
+This is done using environment variable in `.env` file.
+
 .. code-block::
 
     cp .env.example .env
 
-This command will create a `.env` file. Now fill it with your wallet keys and address.
+This command will create a `.env` file. Now fill it with your wallet private key (also called secret key by massa client).
 
-Deploying a smart-contract on Massa blockchain is done by calling a temporary smart-contract that will store 
-our sum smart-contract onto the ledger.
+Contract deployment is done by calling a deployer smart-contract which can be found here: `deployer/deployer.as.ts`. It will store our sum smart-contract onto the ledger. The deployer contract already includes your compiled `main.ts` contract and has been itself compiled at the `npm run build` step.
 
-Sending the smart-contract to the Massa blockchain is done with the command `npm run deploy`.
+We will send the deployer smart-contract to the Massa blockchain with:
 
 .. code-block::
 
-    npm run deploy build/main.wasm
+    npm run deploy
 
-This command will execute `main.ts` smart-contract, and this smart-contract will store the `sum.ts` smart-contract onto the ledger.
+This command will execute the compiled deployer `deployer.wasm`, and this smart-contract will store the `main.ts` smart-contract onto the ledger.
 
 You will see an output like this:
 
 .. code-block::
 
-    > my-massa-sc@1.0.0 deploy
-    > ts-node --esm deployer/deployment_script.ts build/main.wasm
+    > sc-example-sum@0.0.1 deploy
+    > ts-node deployer/deploy-contract.ts
 
-    Smartcontract file path : build/main.wasm
+    Deploying smartcontract: build/deployer.wasm
 
-    Deployment has begun...
+    Operation submitted successfully to the network. Operation id: <operation id string>
 
-    Deployment successfully ended with operation id CyZxiMa53WyLYjKUYrfEYCyaEvXU5EdUamUhNyGmATrd7M9Tx
+    Waiting for the state of operation to be Final... this may take few seconds
 
-    Retrieving first event...
+    Deployment success with event: Contract deployed at address: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9
 
-    Contract deploy at: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9
 
 Interaction with the smart-contract
 -----------------------------------
@@ -173,12 +135,11 @@ Interaction with the smart-contract
 We will now interact with our sum smart-contract.
 
 To interact with a smart-contract, we can write another smart-contract that will be executed, or use the `CallSC` function.
-In our example, we will create the file `run.ts` in the `assembly` directory.
+In our example, we will use the file `caller.ts` in the `assembly` directory.
 
 .. code-block:: typescript
 
-    import { Address, call } from "@massalabs/massa-as-sdk";
-    import { ByteArray } from "@massalabs/as/assembly/byteArray";
+    import { Address, Args, call } from "@massalabs/massa-as-sdk";
 
     export function main(): i32 {
         const address = new Address(
@@ -187,27 +148,30 @@ In our example, we will create the file `run.ts` in the `assembly` directory.
         call(
             address,
             "sum",
-            ByteArray.fromI32(10 as i32)
-                .toByteString()
-                .concat(ByteArray.fromI32(13 as i32).toByteString()),
+            new Args()
+                .add(21 as i32)
+                .add(20 as i32)
+                .serialize(),
             0
         );
         return 0;
     }
 
+
 Note that we use the address where the contract has been deployed: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9.
 
-As always, we need first to compile the smart-contract:
+First we need to compile the `caller.ts` smart-contract.
+For the covenience of this example we have added a npm script `npm run build:caller` which will compile `caller.ts` and write the generated wasm in `build/caller.wasm`
 
 .. code-block::
 
-    npx asc assembly/run.ts --target release --exportRuntime -o build/run.wasm
+    npm run build:caller
 
-Then execute it:
+Then deploy the caller smart contract:
 
 .. code-block::
 
-    npm run deploy build/run.wasm
+    npm run deploy build/caller.wasm
 
 Remember that our sum smart-contract compute the sum and emit an event with the result.
 
@@ -215,20 +179,19 @@ You will see this output:
 
 .. code-block::
 
-    > my-massa-sc@1.0.0 deploy
-    > ts-node --esm deployer/deployment_script.ts build/run.wasm
+    > sc-example-sum@0.0.1 deploy
 
-    Smartcontract file path : build/run.wasm
+    > ts-node deployer/deploy-contract.ts build/caller.wasm
 
-    Deployment has begun...
+    Deploying smartcontract: build/caller.wasm
 
-    Deployment successfully ended with operation id 24zP8RFvj5wPEvu242WKZmCMRtxdK6gVMGkg1a2WM3YannqrMY
+    Operation submitted successfully to the network. Operation id: <operation id string>
 
-    Retrieving first event...
+    Waiting for the state of operation to be Final... this may take few seconds
 
-    Sum (10, 13) = 23
+    Deployment success with event: Sum (10, 13) = 23
 
-You can call the JSON RPC API function `get_filtered_sc_output_event` to get the event with; 
+You can call the JSON RPC API function `get_filtered_sc_output_event` to get the event with:
 
 .. code-block::
 
