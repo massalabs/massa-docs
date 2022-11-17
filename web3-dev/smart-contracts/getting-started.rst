@@ -37,7 +37,7 @@ To create a smart-contract project, invoke the toolkit by running:
 You have now npm project created with AssemblyScript installed among other dependencies. It will be used to generate bytecode from AssemblyScript code.
 
 .. note::
-    * Massa smart contract module (@massalabs/massa-as-sdk) contains the API you need to use to interact with the external world of the smart contract (the node, the ledger...).
+    * Massa smart-contract module (@massalabs/massa-as-sdk) contains the API you need to use to interact with the external world of the smart contract (the node, the ledger...).
 
 Congratulations! Now you have a fully set up project and you are ready to add some code.
 
@@ -45,7 +45,7 @@ Congratulations! Now you have a fully set up project and you are ready to add so
    A few words on project folders:
 
     * `assembly` is where the code goes;
-    * `build` will be created during compilation and will contain the compiled smart contracts.
+    * `build` will be created during compilation and will contain compiled smart contracts.
 
 Create your first smart contract
 --------------------------------
@@ -117,7 +117,7 @@ In any case, keep the `address` of your wallet, you will use it later.
 
 .. note::
 
-   You can also execute your smart-contract on a local sandbox node. To learn more about sandbox node, follow this tutorial: :ref:`Local network generation <dummy-network-generation>`.
+   You can also execute your smart contract on a local sandbox node. To learn more about the sandbox node, follow this tutorial: :ref:`Local network generation <dummy-network-generation>`.
 
 Execute the smart contract on the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -133,15 +133,15 @@ Everything is in place, we can now execute the `hello world` smart contract on y
    We are executing the send_smart_contract command with 6 parameters:
 
    - <address>: the address of your wallet kept during previous step;
-   - <path to wasm file>: the full path (from the root directory to the file extension .wasm) of the hello smart contract generated in the previous chapter.
-   - 100000: the maximum amount of gas that the execution of your smart-contract is allowed to use.
+   - <path to wasm file>: the full path (from the root directory to the file extension .wasm) of the hello smart contract, generated in the previous chapter.
+   - 100000: the maximum amount of gas that the execution of your smart contract is allowed to use.
    - Two 0 parameters that can be safely ignored by now. If you want more info on them, use the command `help send_smart_contract`.
 
 .. note::
 
    To go inside the **client cli**, open a terminal in `massa/massa-client` directory and run `cargo run`.
 
-If everything went fine, the following prompted message should be prompted:
+If everything went fine, the following message should be prompted:
 
 .. code-block:: shell
 
@@ -166,4 +166,4 @@ If everything went well you should see a message similar to this one:
 
     Data: Hello world!
 
-Congratulations! You have just executed your first smart contract !
+Congratulations! You have just executed your first smart contract!
