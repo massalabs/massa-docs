@@ -2,7 +2,7 @@
 
 .. _web3-external-resources:
 
-###################
+##################
 External resources
 ##################
 

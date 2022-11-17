@@ -25,7 +25,7 @@ A general overview of the global architecture of a Massa Node is given
 Massa introduces several new features that enables new applications and
 adds a layer of security to your decentralized applications:
 
-- :ref:`Massa's decentralized web <decentralized-web>` allows you to truly secure
+- :ref:`Massa's decentralized web <web3-decentralized-web>` allows you to truly secure
   decentralized applications by storing your dApps directly on Massa blockchain.
 - :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security and
   reliability to your decentralized applications, by allowing your smart contracts to
@@ -45,7 +45,7 @@ If you want to build on the Massa blockchain, we recommend the following ressour
 
 - :ref:`Massa's smart-contracts <web3-dev-sc>` will get you through the various steps
   needed to compile and send smart-contracts to the Massa blockchain.
-- :ref:`Massa's decentralized web <decentralized-web>` will show you how Massa blockchain
+- :ref:`Massa's decentralized web <web3-decentralized-web>` will show you how Massa blockchain
   can be used to host decentralized websites.
 - :ref:`massa-web3 <web3-massa-web3>` is a collection of useful resources for the
   frontend development of your decentralized application.

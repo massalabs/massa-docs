@@ -20,7 +20,7 @@ First of all, we need to create and deploy on the blockchain the smart contracts
 The main.ts script :
 ....................
 
-.. code-blocks:: typescript
+.. code-block:: typescript
   :linenos:
 
   import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
@@ -53,7 +53,7 @@ Let's see line by line what is going on :
 
 * Import Massalabs library :
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
 
@@ -62,7 +62,7 @@ Let's see line by line what is going on :
   
 * main() function to execute the script :
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     export function main(_args: string): void {    
         const bytes = fileToBase64('./build/cat.wasm');
@@ -78,7 +78,7 @@ Let's see line by line what is going on :
   
 * Define the attributes of the new cat :
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
   
     Storage.setOf(addr,"birth",Context.timestamp().toString());
     Storage.setOf(addr,"name","Massa_cat");
@@ -98,7 +98,7 @@ Let's see line by line what is going on :
   
 * Get information from the cat :
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
   
     generateEvent("--- Information about the cat ==> " +  
                       " Name :" + call(addr,"get_name","",0) +
@@ -117,7 +117,7 @@ Let's see line by line what is going on :
 The cat.ts script :
 ....................
 
-.. code-blocks:: typescript
+.. code-block:: typescript
 
   import { Storage } from "@massalabs/massa-as-sdk";
 
@@ -134,7 +134,7 @@ Code analysis :
 When the main.ts script is executed for the first time, we declared keys like "name", "birth" etc with specific values.
 In order to create the game, we need those keys avaible at each time by someone, or an another smart contract. Thus, we can do it declaring functions callable using : "export function my_function()"
 
-.. code-blocks:: typescript
+.. code-block:: typescript
 
   import { Storage } from "@massalabs/massa-as-sdk";
 
@@ -151,7 +151,7 @@ Lets try our code!
 
 * Just compile your main.ts file in the terminal using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~/my-sc
   yarn run build
@@ -160,50 +160,51 @@ Lets try our code!
   
   Make sure your file "my-sc/package.json" is written as following :
   
-  .. code-blocks:: json
-    {
-    "name": "my-sc",
-   "version": "0.1.0",
-    "scripts": {
-      "build": "asc src/cat.ts --transform json-as/transform --target release --exportRuntime --runtime stub --outFile build/cat.wasm && asc src/main.ts --transform json-as/transform --transform transformer/file2base64.js --target release --exportRuntime --runtime stub --outFile build/main.wasm",    
-      "clean": "massa-sc-scripts clean"
-    },
-    "dependencies": {
-      "@massalabs/as": "^1.0.2",
-      "@massalabs/massa-as-sdk": "^1.1.0",
-      "assemblyscript": "^0.21.2",
-      "json-as": "^0.5.3",
-      "massa-sc-scripts": "4.0.7",
-      "mscl-as-transformer": "0.0.1",
-      "visitor-as": "^0.10.2"
-    },
-    "devDependencies": {
-      "transformer": "https://gitpkg.now.sh/massalabs/as/transformer?main"
-    }
-  }
+  .. code-block:: json
+
+      {
+        "name": "my-sc",
+      "version": "0.1.0",
+        "scripts": {
+          "build": "asc src/cat.ts --transform json-as/transform --target release --exportRuntime --runtime stub --outFile build/cat.wasm && asc src/main.ts --transform json-as/transform --transform transformer/file2base64.js --target release --exportRuntime --runtime stub --outFile build/main.wasm",    
+          "clean": "massa-sc-scripts clean"
+        },
+        "dependencies": {
+          "@massalabs/as": "^1.0.2",
+          "@massalabs/massa-as-sdk": "^1.1.0",
+          "assemblyscript": "^0.21.2",
+          "json-as": "^0.5.3",
+          "massa-sc-scripts": "4.0.7",
+          "mscl-as-transformer": "0.0.1",
+          "visitor-as": "^0.10.2"
+        },
+        "devDependencies": {
+          "transformer": "https://gitpkg.now.sh/massalabs/as/transformer?main"
+        }
+      }
   
 * Copy the file "main.wasm" from my-sc/build/main.wasm to massa/massa-client/main.wasm using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~
   cp my-sc/build/main.wasm massa/massa-client/main.wasm
 
 * Send the smart contract on the blockchain massa using into the massa client the following command : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   send_smart_contract your_address main.wasm 10000000 0 0 
   
 And get the events sent by "generateEvent()" function used in our script. You can filter them by your emitter address using the following command into the client : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   get_filtered_sc_output_event emitter_address=your_address
 
 You should get as following : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   ✔ command · send_smart_contract A1Yp7R7LmoPewpcNxEReF1kwzaXb7qC4DdW5CqaaZyLxCHKH4dG main.wasm 10000000 0 0 
   Sent operation IDs:
@@ -228,7 +229,7 @@ You should get as following :
 
   
 2) How to feed him with tokens
------------------------------
+------------------------------
 
 3) How to set him autonomous
 ----------------------------

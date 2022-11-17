@@ -9,11 +9,13 @@ How to launch a local network with custom settings and initial coins & rolls rep
 
 .. _docker:
 
-**On Docker**
+On Docker
+---------
 
 Full documentation about launching a local network on Docker is available here : https://github.com/massalabs/massa-network-simulator
 
-**On your OS**
+On your OS
+----------
 
 Clone massa:
 
@@ -47,7 +49,7 @@ Setup your node to use the secret you just generated as its public key and staki
 
     {"secret_key":"SECRETK","public_key":"PUBK"}
 
- * modify the file `massa-node/base_config/initial_ledger.json` :
+ * modify the file `massa-node/base_config/initial_ledger.json`:
 
  .. code-block:: javascript
 
