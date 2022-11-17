@@ -110,11 +110,13 @@ In any case, keep the `address` and `private_key` of your wallet, you will use i
 Deploy your smart contract from the toolkit
 -------------------------------------------
 
-Create a `.env` file at the root of your project and populate it with your wallet private key.
+To send transaction on the network, you need to provide your wallet private key.
+This is done using environment variable in `.env` file.
 
-.. note::
+.. code-block::
+    cp .env.example .env
 
-   Or just copy the .env.example file provided.
+This command will create a `.env` file. Now fill it with your wallet private key.
 
 Then run the following command:
 
