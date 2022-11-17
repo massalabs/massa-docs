@@ -90,7 +90,7 @@ Deploy your smart contract
 Your smart contract is now ready to be pushed and executed on the Massa network.
 In order to deploy it, you need to own a Massa wallet and some MAS coins on it.
 
-If you don't have any wallet configured yet, `create a new one <https://docs.massa.net/en/latest/testnet/wallet.html>`_.
+If you don't have any wallet configured yet, :ref:`create a new one <wallet>`.
 
 If you're using a brand new wallet, add some coins by sending your address to `testnet-faucet discord channel <https://discord.com/channels/828270821042159636/866190913030193172>`_.
 
@@ -106,7 +106,7 @@ Create a `.env` file at the root of your project and populate it with your walle
 .. note::
 
    Or just copy the .env.example file provided.
- 
+
 Then run the following command:
 
 .. code-block:: shell
