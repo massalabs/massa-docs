@@ -50,15 +50,14 @@ You can find it here `assembly/main.ts`.
 
 .. code-block:: typescript
 
-    import { generateEvent } from "@massalabs/massa-as-sdk";
-    import { Args } from "@massalabs/massa-as-sdk";
+    import { generateEvent, Args } from "@massalabs/massa-as-sdk";
 
     function add(a: i32, b: i32): i32 {
         return a + b;
     }
 
-    export function sum(argsString: string): string {
-        const args = new Args(argsString);
+    export function sum(stringifyArgs: string): string {
+        const args = new Args(stringifyArgs);
         const a = args.nextI32();
         const b = args.nextI32();
         const result = add(a, b);
@@ -102,7 +101,7 @@ This is done using environment variable in `.env` file.
 
     cp .env.example .env
 
-This command will create a `.env` file. Now fill it with your wallet private key.
+This command will create a `.env` file. Now fill it with your wallet private key (also called secret key by massa client).
 
 Contract deployment is done by calling a deployer smart-contract which can be found here: `deployer/deployer.as.ts`. It will store our sum smart-contract onto the ledger. The deployer contract already includes your compiled `main.ts` contract and has been itself compiled at the `npm run build` step.
 
@@ -118,12 +117,12 @@ You will see an output like this:
 
 .. code-block::
 
-    > my-massa-sc@0.0.1 deploy
+    > sc-example-sum@0.0.1 deploy
     > ts-node deployer/deploy-contract.ts
 
     Deploying smartcontract: build/deployer.wasm
 
-    Operation submitted successfully to the network. Operation id: ntUDiV9tJJv94Qi4tNzZHZpCoBGUGAyjejZTuQi4eERAaJPCD
+    Operation submitted successfully to the network. Operation id: <operation id string>
 
     Waiting for the state of operation to be Final... this may take few seconds
 
@@ -180,12 +179,13 @@ You will see this output:
 
 .. code-block::
 
-    > my-massa-sc@0.0.1 deploy
+    > sc-example-sum@0.0.1 deploy
+
     > ts-node deployer/deploy-contract.ts build/caller.wasm
 
     Deploying smartcontract: build/caller.wasm
 
-    Operation submitted successfully to the network. Operation id: 18vNiKh9LpFB6xzXLW2pjgY6tmrXDdBdULuwFLBP1xBW3V17f
+    Operation submitted successfully to the network. Operation id: <operation id string>
 
     Waiting for the state of operation to be Final... this may take few seconds
 
