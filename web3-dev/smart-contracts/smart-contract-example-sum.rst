@@ -34,7 +34,7 @@ You need `node`, `npm` and `git` to initialize the project.
 
 .. code-block:: shell
 
-    git clone https://github.com/massalabs/massa-sc-example-sum && cd massa-sc-example-sum
+    git clone https://github.com/massalabs/massa-sc-example-sum && cd massa-sc-example-sum && npm install
 
 .. _writing-sc-sum:
 
@@ -150,8 +150,7 @@ In our example, we will use the file `caller.ts` in the `assembly` directory.
             "sum",
             new Args()
                 .add(21 as i32)
-                .add(20 as i32)
-                .serialize(),
+                .add(20 as i32),
             0
         );
         return 0;
