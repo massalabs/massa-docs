@@ -966,7 +966,7 @@ Now we can use the sendMessage() function :
 	
 	And don't forget to create a condition to break the loop in order to avoid an infinite loop!
 	
-How to convert time in period and thread? 
+How to convert time in period and thread:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Play with period is not really the easiest way.
