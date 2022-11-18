@@ -3,9 +3,6 @@
 Web 3 autonomous game tutorial, Step by Step!
 =============================================
 
-Intro
------
-
 In this tutorial, we will see how to develop step by step a web3 autonomous
 video game based on cats living autonomously on the Massa blockchain.
 Idea is simple : a user creates a cat, and have to feed him with massa tokens
