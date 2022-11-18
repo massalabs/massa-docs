@@ -185,7 +185,7 @@ The cat.ts script :
   `call(address_of_the_cat, "get_name", "", 0)`
 
 Lets try our code!
--------------------
+..................
 
 * Just compile your main.ts file in the terminal using : 
 
