@@ -23,10 +23,10 @@ to carry out actions by itself.
 Overview
 --------
 
-#. :ref:`How to create and deploy a cat <part1>`
-#. :ref:`How to feed the cat with tokens <part2>`
-#. :ref:`How to set the cat autonomous <part3>`
-#. :ref:`Autonomous mecanism fully detailled <part4>`
+#. How to create and deploy a cat 
+#. How to feed the cat with tokens 
+#. How to set the cat autonomous
+#. Autonomous mecanism fully detailled
 
 .. _part1:
 1) How to create and deploy a cat
@@ -40,25 +40,25 @@ First of all, we need to create and deploy on the blockchain the smart contracts
 The main.ts script :
 ....................
 
-.. code-blocks:: typescript
-  :linenos:
+.. code-block:: typescript
+ 
 
   import { createSC, fileToBase64, Storage, Context, generateEvent, call, transferCoins, Args} from "@massalabs/massa-as-sdk"
-
+  
   export function main(_args: string): void {    
-      const bytes = fileToBase64('./build/cat.wasm');
-      let addr = createSC(bytes);
-      var no_args = new Args();
+  	const bytes = fileToBase64('./build/cat.wasm');
+  	let addr = createSC(bytes);
+  	var no_args = new Args();
       
-      generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
+  	generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
-      Storage.setOf(addr, "birth", Context.timestamp().toString());
-      Storage.setOf(addr, "name", "Massa_cat");
-      Storage.setOf(addr, "state", "ok");
-      Storage.setOf(addr, "last_meal", Context.timestamp().toString());
-      Storage.setOf(addr, "hangry_since", "0");
+ 	Storage.setOf(addr, "birth", Context.timestamp().toString());
+ 	Storage.setOf(addr, "name", "Massa_cat");
+ 	Storage.setOf(addr, "state", "ok");
+ 	Storage.setOf(addr, "last_meal", Context.timestamp().toString());
+  	Storage.setOf(addr, "hangry_since", "0");
 
-      generateEvent("--- Information about the cat ==> " +
+  	generateEvent("--- Information about the cat ==> " +
                       "Name :" + call(addr, "get_name", no_args,0) +
                       " || Birthday :" + call(addr, "get_birth", no_args, 0) +
                       " || State :" + call(addr, "get_state", no_args, 0) +
@@ -76,7 +76,7 @@ The main.ts script :
 
   * Import Massalabs library :
 
-    .. code-blocks:: typescript
+    .. code-block:: typescript
 
       import { createSC, fileToBase64, Storage, Context, generateEvent, call, transferCoins, Args} from "@massalabs/massa-as-sdk"
 
@@ -94,7 +94,7 @@ The main.ts script :
 
   * main() function to execute the script :
 
-    .. code-blocks:: typescript
+    .. code-block:: typescript
 
       export function main(_args: string): void {    
           const bytes = fileToBase64('./build/cat.wasm');
@@ -115,7 +115,7 @@ The main.ts script :
 
   * Define the attributes of the new cat :
 
-    .. code-blocks:: typescript
+    .. code-block:: typescript
 
       Storage.setOf(addr,"birth",Context.timestamp().toString());
       Storage.setOf(addr,"name","Massa_cat");
@@ -135,7 +135,7 @@ The main.ts script :
 
   * Get information from the cat :
 
-    .. code-blocks:: typescript
+    .. code-block:: typescript
 
       generateEvent("--- Information about the cat ==> " +  
                         " Name :" + call(addr,"get_name","",0) +
@@ -154,7 +154,7 @@ The main.ts script :
 The cat.ts script :
 ....................
 
-.. code-blocks:: typescript
+.. code-block:: typescript
 
   import { Storage } from "@massalabs/massa-as-sdk";
 
@@ -172,7 +172,7 @@ The cat.ts script :
   When the main.ts script is executed for the first time, we declare keys like "name", "birth" etc with specific values.
   In order to create the game, we need those keys aviable at each time by someone, or an another smart contract. Thus, we can do it declaring functions callable using : `export function my_function()`
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     import { Storage } from "@massalabs/massa-as-sdk";
 
@@ -189,7 +189,7 @@ Lets try our code!
 
 * Just compile your main.ts file in the terminal using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~/my-sc
   yarn run build
@@ -198,7 +198,7 @@ Lets try our code!
   
   Make sure your file `my-sc/package.json` is written as following :
   
-  .. code-blocks:: json
+  .. code-block:: json
 	    {
 	    "name": "my-massa-sc",
 	    "version": "1.0.0",
@@ -243,26 +243,26 @@ Lets try our code!
   
 * Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~
   cp my-sc/build/main.wasm massa/massa-client/main.wasm
 
 * Send the smart contract on the blockchain massa using into the massa client the following command : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   send_smart_contract your_address main.wasm 10000000 0 0 
   
 And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   get_filtered_sc_output_event emitter_address=your_address
 
 You should get as following (The "Data:" lines correspond to the message print using `generateEvent()` function into the smart contract): 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   ✔ command · send_smart_contract A1Yp7R7LmoPewpcNxEReF1kwzaXb7qC4DdW5CqaaZyLxCHKH4dG main.wasm 10000000 0 0 
   Sent operation IDs:
@@ -297,7 +297,7 @@ The main.ts script :
 
 We then need to transfert tokens to the smart contract of the cat adding in the main.ts : 
 
-.. code-blocks:: typescript 
+.. code-block:: typescript 
 
   	import { createSC, fileToBase64, Storage, Context, generateEvent, call, transferCoins, Args } from "@massalabs/massa-as-sdk"
 
@@ -343,14 +343,14 @@ We then need to transfert tokens to the smart contract of the cat adding in the 
 
   Code analysis : 
  
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     let factor = 100000000;
     transferCoins(addr, 10 * factor);
 
   transfer 10 tokens to the smart contract address. Note that 1 massa token = 100000000 of the standard unit used.
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     call(addr, "eat", no_args, 0);
 
@@ -367,7 +367,7 @@ We then need to transfert tokens to the smart contract of the cat adding in the 
 The cat.ts script :
 ....................
 
-.. code-blocks:: tyepscript
+.. code-block:: typescript
 
   import { generateEvent, Storage, balance, Context, transferCoins, Address, sendMessage, currentPeriod, currentThread } from "@massalabs/massa-as-sdk";
 
@@ -410,7 +410,7 @@ The cat.ts script :
 
   Code analysis : 
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     let factor = 100000000;
     let tokens_to_eat: u64 = 6 * factor;
@@ -418,7 +418,7 @@ The cat.ts script :
 
   declares the callable function eat(), and set the number of tokens eaten at each time to 6. The poo_addr is the address where the tokens will be "destoyed" after each meal.
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     if (tokens_to_eat <= balance()) {        
             transferCoins(poo_addr, tokens_to_eat);
@@ -430,7 +430,7 @@ The cat.ts script :
 
   if there are enought tokens to eat, 6 tokens are transfered to the poo address and the keys of the cat smart contract are updated with new values.
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     else {
               generateEvent("/!\ Not enought tokens in the balance! Balance = " + (balance() /factor).toString());
@@ -452,33 +452,33 @@ Let's try our code!
 
 Just compile your main.ts file in the terminal using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~/my-sc
   yarn run build
   
 * Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~
   cp my-sc/build/main.wasm massa/massa-client/main.wasm
 
 * Send the smart contract on the blockchain massa using into the massa client the following command : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   send_smart_contract your_address main.wasm 10000000 0 0 
   
 And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   get_filtered_sc_output_event emitter_address=your_address
 
 You should get as following (The "Data:" lines correspond to the message print using `generateEvent()` function into the smart contract): 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   Context: Slot: (period: 133898, thread: 28) at index: 6
   On chain execution
@@ -522,7 +522,7 @@ You should get as following (The "Data:" lines correspond to the message print u
 
 now if we try to feed the cat 2 times just encapsulating the `eat()` function into a `for` loop : 
 
-.. code-blocs:: typescript
+.. code-bloc:: typescript
 
   for (let i = 0; i < 2; i++) {
         call(addr, "eat", no_args, 0);
@@ -537,7 +537,7 @@ now if we try to feed the cat 2 times just encapsulating the `eat()` function in
 
 we observe (only "Data:" line are printed) :
 
-.. code-blocs:: bash 
+.. code-bloc:: bash 
 
   Data: A new cat is born! Address of the cat : A12LCbcpSg4UqadPTtVwwkBvspxLBhujWHVHwZCbUkUXJn6oju19
   Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515058468 || State :ok || Last meal at :1668515058468 || Hangry since :0
@@ -551,7 +551,7 @@ we observe (only "Data:" line are printed) :
 
 if we try with 3, the cat should die :
 
-.. code-blocs:: typescript
+.. code-bloc:: typescript
 
   for (let i = 0; i < 3; i++) {
         call(addr, "eat", no_args, 0);
@@ -567,7 +567,7 @@ if we try with 3, the cat should die :
 
 and saddly ... (only "Data:" line are printed) :
 
-.. code-blocs:: bash 
+.. code-bloc:: bash 
 
   Data: A new cat is born! Address of the cat : A1Gm3kxorw2wpgJ7pGWStWxWjfxVa6qVBtGZ1o5Do2xdgNt4BmP
   Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :ok || Last meal at :1668515298468 || Hangry since :0
@@ -593,9 +593,8 @@ To do it, we will use the `sendMessage()` function to replace the `for` loop in 
 The main.ts script :
 ....................
 
-.. code-blocks:: typescript
-  :linenos:
-  
+.. code-block:: typescript
+    
   import { createSC, fileToBase64, Storage, Context, generateEvent, call, transferCoins, Args} from "@massalabs/massa-as-sdk"
 
   export function main(_args: string): void {
@@ -632,7 +631,7 @@ The main.ts script :
 
   The previous `for` loop written in order to feed the cat x times has been replaced by a `call(addr,"loop",no_args,0)`, targetting the cat smart contract function `loop()`. This function `loop()` starts an infinite loop allowing the cat to eat autonomously until he dies :
 
-  .. code-blocks:: typescript
+  .. code-block:: typescript
 
     generateEvent(call(addr,"loop",no_args,0));
 
@@ -641,7 +640,7 @@ The main.ts script :
 The cat.ts :
 ............
 
-.. code-blocks::
+.. code-block:: typescript
   
   import { generateEvent, Storage, balance, Context, transferCoins, Address, sendMessage, currentPeriod, currentThread } from "@massalabs/massa-as-sdk";
   import { addressStack } from "@massalabs/massa-as-sdk/assembly/std/context";
@@ -728,7 +727,7 @@ The cat.ts :
  
   The callable `loop()` function has been added :
 
-  .. code-blocks::
+  .. code-block::
 
     export function loop(_args: string): string {
         ...
@@ -738,7 +737,7 @@ The cat.ts :
 
   * The first part is just to check if the cat is dead, and if yes, it stops the loop using `return "0"` :
 
-    .. code-blocks::
+    .. code-block::
 
       if(Storage.get("state") == "dead") {
             generateEvent("Cat is dead! End of the loop");
@@ -747,7 +746,7 @@ The cat.ts :
 
   * The second part is the main mecanism of the autonomous system : the `sendMessage()` :
 
-    .. code-blocks::
+    .. code-block::
         const threads: u8 = 32;
 
         let cur_period = currentPeriod();
@@ -786,7 +785,7 @@ Lets try our code!
 
 Just compile your main.ts file in the terminal using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~/my-sc
   yarn run build
@@ -794,26 +793,26 @@ Just compile your main.ts file in the terminal using :
   
 Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   cd ~
   cp my-sc/build/main.wasm massa/massa-client/main.wasm
 
 Send the smart contract on the blockchain massa using into the massa client the following command : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   send_smart_contract your_address main.wasm 10000000 0 0 
   
 And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   get_filtered_sc_output_event emitter_address=your_address
 
 You should get as following (with only `Data:` lines are printed): 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   ✔ command · get_filtered_sc_output_event emitter_address=A12kgk4YamD6Qt4PdG42iqMSE36BRNiL1JyCmrcGTHrQJuaarMKU
 
@@ -825,7 +824,7 @@ You should get as following (with only `Data:` lines are printed):
 
 And when you filter with the cat smart contract address (with only `Data:` lines printed): 
 
-.. code-blocks:: bash
+.. code-block:: bash
 
   ✔ command · get_filtered_sc_output_event emitter_address=A12mf7ChJMu4nmWNh5WNTqJ5sGkXbpKuvzMzn4oNyde18thNrLev
 
@@ -863,7 +862,7 @@ sendMessage() function structure
 
 The structure of the `sendMessage()` function is :
 
-.. code-blocks:: typescript
+.. code-block:: typescript
 
 	sendMessage(
 		at: Address,
@@ -899,7 +898,7 @@ sendMessage() function, how to use it :
 
 As we saw previously, we need to get the current period and thread in order to use the `sendMessage()` function. We can do it using :
 
-.. code-blocks:: typescript
+.. code-block:: typescript
 	
 	const threads: u8 = 32;
 	
@@ -931,7 +930,7 @@ As we saw previously, we need to get the current period and thread in order to u
 
 Now we can use the sendMessage() function :
 
-.. code-blocks::
+.. code-block::
 
 	   sendMessage(
 			cur_addr,
