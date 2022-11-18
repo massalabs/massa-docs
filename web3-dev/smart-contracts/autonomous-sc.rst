@@ -923,8 +923,6 @@ As we saw previously, we need to get the current period and thread in order to u
 
 .. note::
 
-	Code analysis :
-	
 	This part prepares the variables used in the `sendMessage()` function. We just get the current period and current thread in order to define the variables `next_period` and `next_thread`. 
 	
 	Here we defined `next_thread` as the current thread +1, but you can stay on the same thread if you want and just define the `next_period` as current_period + number.
@@ -954,8 +952,6 @@ Now we can use the sendMessage() function :
     		
 .. note::
 
-	Code analysis :
-	
 	* `function_to_call` is the name of the function to call in the targetted smart contract,
 	* `next_period` will define the period to target,
 	* `next_thread` will define the thread to target,
