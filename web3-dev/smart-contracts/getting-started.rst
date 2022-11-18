@@ -107,7 +107,7 @@ If you are using an existing wallet, make sure that you have some coins on it.
 
 In any case, keep the `address` and `private_key` of your wallet, you will use it later.
 
-There is two way of deploying your smart contract, the first one is sending it directly on Massa network using a RPC. This is the easiest and straighforward way, described bellow as Option 1.
+There are two ways you can deploy your smart contract. The easiest and the recommended way is to deploy the smart contract with the smart-contract toolkit (Option 1 below).
 
 The second way is to run your own Massa node and use it to access the network (Option 2).
 
