@@ -142,7 +142,7 @@ will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_obj
 
 .. warning::
     - We'll use only public API methods in testnet node.
-    - The following queries and respones comes from `TEST.15.1` but matches `TEST.16.0`
+    - The following queries and responses comes from `TEST.15.1` but matches `TEST.16.1`
 
 **Public** API
 
@@ -344,7 +344,7 @@ slot, timestamp), clique count, connected nodes count.
 `get_cliques`
 -------------
 
-Get cliques.
+Get information about the block `cliques <https://docs.massa.net/en/latest/general-doc/architecture/archi-global.html#block-cliques>`_  of the graph.
 
 -   Query:
 
@@ -445,7 +445,7 @@ Get cliques.
 `get_stakers`
 -------------
 
-Returns the active stakers and their roll counts for the current cycle.
+Get information about active `stakers <https://docs.massa.net/en/latest/testnet/staking.html>`_  and their roll counts for the current cycle.
 
 -  Query: 
 
@@ -491,7 +491,7 @@ Returns the active stakers and their roll counts for the current cycle.
 `get_addresses`
 ---------------
 
-Get addresses.
+Get information about `address <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#address>`_ (es) (balances, block creation, ...).
 
 - Query:
 
@@ -596,7 +596,7 @@ Get addresses.
 `get_graph_interval`
 --------------------
 
-Get the block graph within the specified time interval.
+Get information about block `graph <https://docs.massa.net/en/latest/technical-doc/glossary.html#graph-stuff>`_  within the specified time interval.
 
 - Query:
 
@@ -760,7 +760,7 @@ Get the block graph within the specified time interval.
 `get_block`
 -----------
 
-Get information on a block given its hash.
+Get information about `block <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>`_  given its hash.
 
 - Query:
 
@@ -1078,7 +1078,7 @@ Get information on a block given its hash.
 `get_operations`
 ----------------
 
-Returns operations information associated to a given list of operations' IDs.
+Get information about `operation <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#operation>`_ (s) information associated to a given operation(s) ID(s).
 
 - Query:
 
@@ -1131,7 +1131,7 @@ Returns operations information associated to a given list of operations' IDs.
 `get_endorsements`
 ------------------
 
-Get endorsements
+Get information about `endorsement <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_ (s) (content, finality ...)
 
 - Query:
 
