@@ -782,7 +782,8 @@ The cat.ts :
             ""
         );
 
-    The function `sendMessage()` will call the `loop` function in the futur, allowing us to create an infinite loop. Each iteration of the loop will execute the `eat()` function, allowing the cat to eat by itself periodically. You can define the iteration time period. To get more information about how works the autonomous system and how modify parameters: Go to :ref:`part4`)
+    The function `sendMessage()` will call the `loop` function in the futur, allowing us to create an infinite loop. Each iteration of the loop will execute the `eat()` function, allowing the cat to eat by itself periodically. You can define the iteration time period. To get more information about how works the autonomous system and how modify parameters: Go to see the next chapter : 4) Autonomous mecanism fully detailled )
+    
 
   * The third part is just `return "(Loop started)";` during the first call of the `loop()` function by main.ts, in order to signify that the loop started. 
 
