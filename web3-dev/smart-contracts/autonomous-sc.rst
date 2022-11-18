@@ -982,10 +982,19 @@ If you want to call a function in let's say 10 minutes, you have to convert 10 m
 	* 32 Threads = 1 Period = 32 * 0.5 seconds = 16 seconds.
 
  
-If we want to execute a function into 10 minutes (600 seconds), we then have to use sendMessage() function with :
+If we want to execute a function 10 minutes in the future (600 seconds), we then have to use sendMessage() function with :
 
-* `next_period = current_period + 37` == 37 * 16 seconds : 592 seconds,
-* `next_thread = current_thread + 16` == 16 * 0.5 seconds : 8 seconds.
+.. code-block:: typescript
+
+	next_period = current_period + 37
+	
+Indeed : 37 * 16 seconds = 592 seconds; And :
+
+.. code-block:: typescript
+
+	next_thread = current_thread + 16
+
+Indeed : 16 * 0.5 seconds = 8 seconds.
 
 .. note::
 	
@@ -995,4 +1004,4 @@ If we want to execute a function into 10 minutes (600 seconds), we then have to 
 	 * We know that 1 period = 16 seconds. Then 600 seconds = 37.5 periods. We can add 37 periods but not 37.5 because period is u64.
 	 * we know that 1 period = 32 Threads. Then 0.5 period = 12 thread. Thus, adding 16 Threads we will add the 0.5 periods missing to the 37.
 	 
-	 ==> 37 periods = 592 seconds, and 16 threads = 8 seconds. 592 + 8 = 600 seconds = 10 minutes.
+	 Thus : 37 periods = 592 seconds, and 16 threads = 8 seconds. 592 + 8 = 600 seconds = 10 minutes.
