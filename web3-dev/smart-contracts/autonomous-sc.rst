@@ -524,9 +524,10 @@ You should get as following (The "Data:" lines correspond to the message print u
 
   Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668514610468 || State :ok || Last meal at :1668514610468 || Hangry since :0
 
-now if we try to feed the cat 2 times just encapsulating the `eat()` function into a `for` loop : 
 
-.. code-bloc:: typescript
+Now if we try to feed the cat 2 times just encapsulating the `eat()` function into a `for` loop : 
+
+.. code-block:: typescript
 
   for (let i = 0; i < 2; i++) {
         call(addr, "eat", no_args, 0);
@@ -539,9 +540,10 @@ now if we try to feed the cat 2 times just encapsulating the `eat()` function in
 	        
       }  
 
-we observe (only "Data:" line are printed) :
 
-.. code-bloc:: bash 
+We observe (only "Data:" line are printed) :
+
+.. code-block:: bash 
 
   Data: A new cat is born! Address of the cat : A12LCbcpSg4UqadPTtVwwkBvspxLBhujWHVHwZCbUkUXJn6oju19
   Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515058468 || State :ok || Last meal at :1668515058468 || Hangry since :0
@@ -555,7 +557,7 @@ we observe (only "Data:" line are printed) :
 
 if we try with 3, the cat should die :
 
-.. code-bloc:: typescript
+.. code-block:: typescript
 
   for (let i = 0; i < 3; i++) {
         call(addr, "eat", no_args, 0);
@@ -571,7 +573,7 @@ if we try with 3, the cat should die :
 
 and saddly ... (only "Data:" line are printed) :
 
-.. code-bloc:: bash 
+.. code-block:: bash 
 
   Data: A new cat is born! Address of the cat : A1Gm3kxorw2wpgJ7pGWStWxWjfxVa6qVBtGZ1o5Do2xdgNt4BmP
   Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :ok || Last meal at :1668515298468 || Hangry since :0
