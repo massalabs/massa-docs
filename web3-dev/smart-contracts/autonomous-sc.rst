@@ -865,7 +865,7 @@ With the `sendMessage()` function, we can send an operation to execute in the fu
 
 
 sendMessage() function structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+................................
 
 The structure of the `sendMessage()` function is :
 
@@ -901,7 +901,7 @@ The structure of the `sendMessage()` function is :
  
 
 sendMessage() function, how to use it :
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.......................................
 
 As we saw previously, we need to get the current period and thread in order to use the `sendMessage()` function. We can do it using :
 
@@ -966,8 +966,9 @@ Now we can use the sendMessage() function :
 	
 	And don't forget to create a condition to break the loop in order to avoid an infinite loop!
 	
+	
 How to convert time in period and thread:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.........................................
 
 Play with period is not really the easiest way.
 
