@@ -72,7 +72,7 @@ The main.ts script :
 
   If you are not familiar with smart contract coding, you better read : `Smart contract tutorial <https://docs.massa.net/en/latest/web3-dev/smart-contracts/smart-contract-example-sum.html#sc-example-sum>`_
 
-  If you want more explainations about the main.ts script, let's see line by line what is going on :
+  If you want more explanations about the main.ts script, let's see line by line what is going on :
 
   * Import Massalabs library :
 
