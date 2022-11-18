@@ -107,13 +107,18 @@ If you are using an existing wallet, make sure that you have some coins on it.
 
 In any case, keep the `address` and `private_key` of your wallet, you will use it later.
 
-Deploy your smart contract from the toolkit
--------------------------------------------
+There are two ways you can deploy your smart contract. The easiest and the recommended way is to deploy the smart contract with the smart-contract toolkit (Option 1 below).
 
-To send transaction on the network, you need to provide your wallet private key.
+The second option is to deploy the smart contract, through Massa client, by running your own node (Option 2).
+
+Option 1: Deploy your smart contract from the toolkit
+-----------------------------------------------------
+
+To send the transaction on the network, you need to provide your wallet's private key.
 This is done using environment variable in `.env` file.
 
 .. code-block::
+
     cp .env.example .env
 
 This command will create a `.env` file. Now fill it with your wallet private key.
@@ -127,8 +132,8 @@ Then run the following command:
 Wait for a few seconds... It should return you the deployed smart contract address.
 
 
-Execute your smart contract on a node
--------------------------------------
+Option 2: Execute your smart contract on your own node
+------------------------------------------------------
 
 To execute the smart contract you will need:
 
