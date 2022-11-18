@@ -781,7 +781,7 @@ The cat.ts :
   * The third part is just `return "(Loop started)";` during the first call of the `loop()` function by main.ts, in order to signify that the loop started. 
 
 Lets try our code!
--------------------
+..................
 
 Just compile your main.ts file in the terminal using : 
 
@@ -838,7 +838,7 @@ And when you filter with the cat smart contract address (with only `Data:` lines
 
 .. _part4:
 4) Autonomous mecanism fully detailled
-......................................
+--------------------------------------
 
 
 In this part we will see in detail how works the autonomous smart contract system.
