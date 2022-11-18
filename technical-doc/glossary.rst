@@ -21,7 +21,7 @@ Graph stuff
 - **head incompatibility graph**: Graph of incompatible active blocks (see https://arxiv.org/pdf/1803.09029.pdf). Computed by the Massa node. Simpler to compute than the compatibility graph, practical application of it.
 - **fitness**: For a block: 1 + number of endorsement included in the block. For a clique: sum of its blocks fitness.
 - **final**: A block becomes final if its fitness summed to the fitnesses of all the following blocks is above a defined threshold.
-- **stale**: A block is stale when it is incompatible with a final block.
+- **stale**: A block is stale when it is only contained in cliques that have been abandoned.
 - **blockclique**: The `clique <https://en.wikipedia.org/wiki/Clique_(graph_theory)>`_ of higher fitness.
 
 Consensus and block production
