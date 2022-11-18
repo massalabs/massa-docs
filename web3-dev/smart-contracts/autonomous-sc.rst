@@ -147,8 +147,10 @@ The main.ts script :
     We can print the cat information (into the massa client) using the function `generateEvent("Message")`. 
 
     The `call()` function allows us to call the functions defined into our cat smart contract knowing the address of this one and get information about the smart contract. This should be used like :
+    
+    .. code-block:: typescript
 
-    `call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)`
+    	call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)
 
    
 The cat.ts script :
@@ -181,8 +183,10 @@ The cat.ts script :
   for instance here we declare into the cat smart contract a callable function named "get_name" that will return a string with the value of the key "name".
 
   Thus, any smart contract will be able to get the name of the cat using a call() function : 
+  
+  .. code-block:: typescript
 
-  `call(address_of_the_cat, "get_name", "", 0)`
+  	call(address_of_the_cat, "get_name", "", 0)
 
 Lets try our code!
 ..................
