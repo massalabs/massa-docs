@@ -6,21 +6,27 @@ Web 3 autonomous game tutorial, Step by Step!
 Intro
 -----
 
-In this tutorial, we will see how to develop step by step a web3 autonomous video game based on cats living autonomously on the Massa blockchain. Idea is simple : a user creates a cat, and have to feed him with massa tokens in order to avoid starving and death ! The cat has to eat periodically.
+In this tutorial, we will see how to develop step by step a web3 autonomous
+video game based on cats living autonomously on the Massa blockchain.
+Idea is simple : a user creates a cat, and have to feed him with massa tokens
+in order to avoid starving and death ! The cat has to eat periodically.
 
-Each cat is technically a smart contract deployed on the Massa blockchain. We will see how to set this smart contract autonomous in order to allows it to carry out actions by itself.
+Each cat is technically a smart contract deployed on the Massa blockchain.
+We will see how to set this smart contract autonomous in order to allows it
+to carry out actions by itself.
 
 .. note::
 
-  If you play for the first time with Massa smart contract, you first of all have to install the environement following this : `Getting started Massa tutorial <https://docs.massa.net/en/latest/hackathon.html>`_
+  If you play for the first time with Massa smart contract, you first of all have
+  to install the environement following this: `Getting started Massa tutorial <https://docs.massa.net/en/latest/hackathon.html>`_
   
 Overview
 --------
 
-#. How to create and deploy a cat (Go to :ref:`part1`)
-#. How to feed the cat with tokens (Go to :ref:`part2`)
-#. How to set the cat autonomous (Go to :ref:`part3`)
-#. Autonomous mecanism fully detailled (Go to :ref:`part4`)
+#. :ref:`How to create and deploy a cat <part1>`
+#. :ref:`How to feed the cat with tokens <part2>`
+#. :ref:`How to set the cat autonomous <part3>`
+#. :ref:`Autonomous mecanism fully detailled <part4>`
 
 .. _part1:
 1) How to create and deploy a cat
