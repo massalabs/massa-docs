@@ -39,6 +39,7 @@ Setting up a node
 - `English - Tutorial to launch a node using a VPS (outdated) <https://mycryptobit99.medium.com/massa-node-setup-guide-e238c45275ac>`_
 - `English - How to migrate Massa node to Docker container <https://github.com/ParanormalBrothers/Massa-Node-Docker>`_
 - `English - Script which sets up a node <https://github.com/WeVouT/massa>`_
+
 ----
 
 - `Russian - Article and tutorial to launch a node using a VPS <https://teletype.in/@letskynode/Massa>`_

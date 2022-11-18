@@ -45,8 +45,7 @@ specific smart contract engine that fully leverages the Massa protocol and
 allows to develop in more usual languages as well as introduces several
 innovations.
 
-We are currently finishing the implementation of a first version of the smart contract
-engine which should be released soon.
+Our smart contract system is released and run on the testnet. You can find the full documentation :ref:`here <web3-dev-sc>`.
 
 We are planning some exciting features, such as self-wakeup, a bit like
 what is introduced `here <https://arxiv.org/pdf/2102.10784.pdf>`__
@@ -91,7 +90,7 @@ migrate the node_privkey.key file in massa-node/config to keep your
 connectivity stats.
 
 If you have rolls, you also need to register the key used to buy rolls
-to start staking again (see [Staking](staking.md)).
+to start staking again :ref:`here <testnet-rewards>`.
 
 Why are the balances in the client and the explorer different ?
 ---------------------------------------------------------------

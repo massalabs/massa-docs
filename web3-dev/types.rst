@@ -72,6 +72,7 @@ An interface to unify how invalid types are handled.
 
    * `Exception handling proposal <https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md>`_ is not yet implemented in `Wasmer <https://webassembly.org/roadmap>`_ or in `AssemblyScript <https://www.assemblyscript.org/status.html>`_;
    * `Result` type is not implemented;
+
    Then this is the only way to perform an action on a type and check later if the type is still valid.
 
 Usage

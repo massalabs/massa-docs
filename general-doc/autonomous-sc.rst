@@ -12,38 +12,20 @@ Introduction
 Issues with current smart contracts
 -----------------------------------
 
-The ability to perform autonomous tasks is widespread in any modern IT infrastructure.
-However it is totally absent from decentralized applications that run on public blockchains
-such as Ethereum: without external calls, smart contracts as they exist in all public blockchains
-cannot perform operations.
+Automating IT processes are at the heart of pretty much every industry we can think of, and if we narrow it down to modern finance, nowadays most actions are initiated by automated mechanisms. When we take a closer look at decentralized finance, only certain actions of lending and arbitration are done automatically, however they are executed by bots operating off-chain. This is because without external calls, smart contracts as they exist in all public blockchains cannot perform automated operations.
 
-Many decentralized protocol rely on recurrent trigger of certain fonctions to function properly.
-This is the case for instance for the MakerDAO protocol. In this protocol, users can lock ETH as
-a collateral to take out loans. If the price of the ETH decreases below a threshold, then
-the position can become under-collateralized. To ensure that the protocol behaves correctly
-and that funds from lenders cannot be lost, such positions must be liquidated.
-Such liquidations are currently performed by organizations or individuals running bots, usualy on
-some centralized cloud services.
+
+Many decentralized protocols rely on recurrent triggers of certain functions in order to work as planned. In case of decentralized lending protocols, borrowers lock crypto assets (cryptocurrencies or fungible tokens) in order to take out loans. When the price of the collateralized asset decreases below a threshold, the borrower’s position becomes under-collateralized if he doesn’t promptly react to the decrease in value of that collateral. To ensure that the protocol behaves correctly, such positions must be liquidated. Liquidations are currently performed by organizations or individuals running bots, usually on some centralized cloud services.
 
 The need for a reliable automation mechanism
 --------------------------------------------
 
-There are countless of applications that rely on recurrent calls to function properly.
-As a result, a lot of time and energy has been spent trying to develop more reliable networks
-of bots to guarantee that transactions are always executed when needed. However, as those
-solutions are inherently off-chain, there's no guarantee that the execution will
-be effectively triggered. And when those bots
-`fail to execute such transactions <https://insights.glassnode.com/what-really-happened-to-makerdao/>`_,
-those protocols are at risk (and the applications built on top of them).
+There are countless applications that rely on such recurrent triggers. As a result, a lot of time and energy has been spent trying to develop more reliable networks of bots to guarantee that transactions are executed when needed. However, as those solutions are inherently off-chain, there’s no guarantee that the execution will be effectively triggered. And when those bots `fail to execute such transactions <https://insights.glassnode.com/what-really-happened-to-makerdao/>`_, those protocols are at risk (and the applications built on top of them).
 
 Autonomous Smart Contracts
 ==========================
 
-Massa's **Autonomous Smart Contracts** solve the issues of lacking reliability,
-sophistication and centralization around dapps that want to offer automated smart contract
-executions on behalf of their users. Autonomous Smart Contracts introduces self wakeup capabilities
-to smart contracts. In practice, smart contracts can be programmed to perform arbitrary operations
-in the future, recurrently.
+Massa’s Autonomous Smart Contracts solve the issues of lacking reliability, sophistication and centralization around dApps that want to offer automated smart contract executions on behalf of their users. Autonomous Smart Contracts introduce self wake-up capabilities to smart contracts. In the future, smart contracts could be programmed to perform arbitrary operations, for example triggering a call when a specific exchange rate target of an LP pool is met.
 
-Such a capability opens the door to multiple applications, from automated liquidation of under-collateralized
-positions on lending protocols to on-chain trading bots or ever evolving NFTs.
+Such automated capabilities open the door to various applications, from automated liquidation of under-collateralized positions on lending protocols, to on-chain trading bots, or ever evolving NFTs.
+

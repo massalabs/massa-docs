@@ -12,6 +12,14 @@ Overall, each of the modules described here runs inside one or more threads atta
 We will explain below the different modules present in this diagram, and simulate the production of an operation
 to show how it navigates through the different modules to better understand how blocks are produced and propagated.
 
+Bootstrap Module
+****************
+
+The bootstrap module is responsible for the initial synchronization of the node with the rest of the network.
+It is responsible for downloading the list of peers, the current graph of blocks, the ledger, the asyncronous pool, state of the Proof-of-Stake and latests executed operations.
+
+The bootstrap will be done from a server that is listed on the configuration of the node. Bootstrap is the entry point of the network so you have to be careful on which node you connect to avoid downloading malicious data.
+
 API Module
 **********
 

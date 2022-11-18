@@ -1,3 +1,5 @@
+.. _local-network-generation:
+
 ========================
 Local network generation
 ========================
@@ -7,11 +9,13 @@ How to launch a local network with custom settings and initial coins & rolls rep
 
 .. _docker:
 
-**On Docker**
+On Docker
+---------
 
 Full documentation about launching a local network on Docker is available here : https://github.com/massalabs/massa-network-simulator
 
-**On your OS**
+On your OS
+----------
 
 Clone massa:
 
@@ -32,7 +36,7 @@ Create a keypair in massa-client:
     cd massa-client && cargo run
     wallet_generate_secret_key
 
-For the rest of the tutorial we will use theses abreviations:
+For the rest of the tutorial we will use theses abbreviations:
 
 - `SECRETK` : The secret you just generated
 - `PUBK` : The public key corresponding to SECRETK
@@ -45,7 +49,7 @@ Setup your node to use the secret you just generated as its public key and staki
 
     {"secret_key":"SECRETK","public_key":"PUBK"}
 
- * modify the file `massa-node/base_config/initial_ledger.json` :
+ * modify the file `massa-node/base_config/initial_ledger.json`:
 
  .. code-block:: javascript
 
