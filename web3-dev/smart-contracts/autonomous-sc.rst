@@ -20,13 +20,6 @@ to carry out actions by itself.
   If you play for the first time with Massa smart contract, you first of all have
   to install the environement following this: `Getting started Massa tutorial <https://docs.massa.net/en/latest/hackathon.html>`_
   
-Overview
---------
-
-#. How to create and deploy a cat 
-#. How to feed the cat with tokens 
-#. How to set the cat autonomous
-#. Autonomous mecanism fully detailled
 
 .. _part1:
 1) How to create and deploy a cat
