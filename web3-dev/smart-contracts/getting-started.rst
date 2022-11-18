@@ -114,7 +114,7 @@ The second option is to deploy the smart contract, through Massa client, by runn
 Option 1: Deploy your smart contract from the toolkit
 -----------------------------------------------------
 
-To send transaction on the network, you need to provide your wallet private key.
+To send the transaction on the network, you need to provide your wallet's private key.
 This is done using environment variable in `.env` file.
 
 .. code-block::
