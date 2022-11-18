@@ -109,7 +109,7 @@ In any case, keep the `address` and `private_key` of your wallet, you will use i
 
 There are two ways you can deploy your smart contract. The easiest and the recommended way is to deploy the smart contract with the smart-contract toolkit (Option 1 below).
 
-The second way is to run your own Massa node and use it to access the network (Option 2).
+The second option is to deploy the smart contract, through Massa client, by running your own node (Option 2).
 
 Option 1: Deploy your smart contract from the toolkit
 -----------------------------------------------------
