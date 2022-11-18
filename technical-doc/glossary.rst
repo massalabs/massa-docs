@@ -41,7 +41,7 @@ Consensus and block production
 How to interact with the blockchain
 ===================================
 
-- **operation**: the only way to inject information in the blockchain. It is produced by an emitter that will provide a fee. The operation will be valid (ie includable in a block) only for a limited amount of time. Can be a simple transaction, a roll buy, a roll sell or a smart contract operation. The latter will execute bytecode on the blockchain.
+- **operation**: The only way to inject information in the blockchain. It is produced by an emitter that will provide a fee. The operation will be valid (ie includable in a block) only for a limited amount of time. Can be a simple transaction, a roll buy, a roll sell or a smart contract operation. The latter will execute bytecode on the blockchain.
 - **transaction**: Coin transfer between a sender (that created and signed this operation) and a receiver.
 
 Miscellaneous
