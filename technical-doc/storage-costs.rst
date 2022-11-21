@@ -20,7 +20,7 @@ Datastore keys also have a variable size and so we decided to use a fixed size o
 
 If you want to calculate the storage cost of your address in the ledger the formula is : address_size + balance_constant + bytecode_length + sum of (constants datastore key + value size) = 32 + 8 + bytecode.len() + sum_i(10 + datastore[i].len())) * 0.00025
 
-The storage costs are always paid by the address that call the ABI. If you are using ABI like set_bytecode you will be charged and also if you are using ABI like set_bycode_for you will be charged for the storage costs.
+The storage costs are always paid by the address that calls the ABI. For instance, if you are using the ABI `set_bytecode` or `set_bycode_for` you will be charged for the storage costs.
 
 Example
 -------
