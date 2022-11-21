@@ -36,6 +36,6 @@ In case you are interacting with a SC that will store the data on his datastore 
 Notes
 -----
 
-In case of reimbursement of storage costs, the coins are not sent to the address that was charged but to the address that call the ABI to refund.
+In case of refund of the storage costs, after realeasing space, the address reimbursed is the one that calls the ABI, possibly different from the one that paid for this storage.
 
-If you are a SC developer and you want your users to pay for the storage costs of your smart contract you can use the coins that are passed by the `coins` parameter.
+If you are a SC developer and you want your users to pay for the storage costs of your smart contract you can use the coins that are passed by the `coins` parameter of CallSC.
