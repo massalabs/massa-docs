@@ -20,7 +20,7 @@ Datastore keys also have a variable size and so we decided to use a fixed size o
 
 If you want to calculate the storage cost of your address in the ledger the formula is : address_size + balance_constant + bytecode_length + sum of (constants datastore key + value size) = 32 + 8 + bytecode.len() + sum_i(10 + datastore[i].len())) * 0.00025
 
-The storage costs are always paid by the caller address. If you are using ABI like set_bycode_for you will be charged for the storage costs.
+The storage costs are always paid by the address that call the ABI. If you are using ABI like set_bytecode you will be charged and also if you are using ABI like set_bycode_for you will be charged for the storage costs.
 
 Example
 -------
@@ -29,5 +29,13 @@ To create your address on the blockchain someone need to send at least 0.00025 *
 
 You want to store your birth date that is 30 bytes long in your datastore so you need to send an operation that will create a key in your datastore using a SC. This operation will cost you in storage costs at least 0.00025 * (10 + 30) = 0.01 Massa.
 
-Now you want to delete this entry on your datastore then you will do it with a SC and you will be refunded of the storage costs (0.02 Massa).
+Now you want to delete this entry on your datastore you will be refunded of the storage costs (0.02 Massa).
 
+In case you are interacting with a SC that will store the data on his datastore then he will be charged for the storage costs not you.
+
+Notes
+-----
+
+In case of reimbursement of storage costs, the coins are not sent to the address that was charged but to the address that call the ABI to refund.
+
+If you are a SC developer and you want your users to pay for the storage costs of your smart contract you can use the coins that are passed by the `coins` parameter.
