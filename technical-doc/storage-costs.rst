@@ -31,7 +31,7 @@ You want to store your birth date that is 30 bytes long in your datastore so you
 
 Now you want to delete this entry on your datastore you will be refunded of the storage costs (0.02 Massa).
 
-In case you are interacting with a SC that will store the data on his datastore then he will be charged for the storage costs not you.
+In case you are interacting with a SC that will store the data on his datastore then the SC will pay for the storage costs not you as a TX sender (but he can use the coins you pass to the call to pay).
 
 Notes
 -----
