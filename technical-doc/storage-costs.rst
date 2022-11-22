@@ -31,11 +31,12 @@ You want to store your birth date that is 30 bytes long in your datastore so you
 
 Now you want to delete this entry on your datastore you will be refunded of the storage costs (0.02 Massa).
 
-In case you are interacting with a SC that will store the data on his datastore then the SC will pay for the storage costs not you as a TX sender (but he can use the coins you pass to the call to pay).
-
 Notes
 -----
 
 In case of refund of the storage costs, after realeasing space, the address reimbursed is the one that calls the ABI, possibly different from the one that paid for this storage.
 
+In the case of a `CallSC` operation, the storage costs are paid by the SC.
+
 If you are a SC developer and you want your users to pay for the storage costs of your smart contract you can use the coins that are passed by the `coins` parameter of CallSC.
+You can also save their address in your datastore in order to refund them later.
