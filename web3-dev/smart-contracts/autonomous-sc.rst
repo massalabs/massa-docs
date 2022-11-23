@@ -1,34 +1,37 @@
 .. _sc-autonomous:
 
-Web 3 autonomous game tutorial, Step by Step!
-=============================================
+Web 3 autonomous game tutorial
+==============================
 
-In this tutorial, we will see how to develop step by step a web3 autonomous
-video game based on cats living autonomously on the Massa blockchain.
-Idea is simple : a user creates a cat, and have to feed him with massa tokens
-in order to avoid starving and death ! The cat has to eat periodically.
+In this tutorial, we will see how to develop a web3 autonomous video game
+using Massa's autonomous smart contracts.
+
+It's a simple game based on cats living autonomously on the Massa blockchain:
+a user creates a cat, and have to feed him with massa tokens periodically to keep
+the cat alive!
 
 Each cat is technically a smart contract deployed on the Massa blockchain.
-We will see how to set this smart contract autonomous in order to allows it
+We will see how to use autonomous smart contracts to allows the smart contract
 to carry out actions by itself.
 
 .. note::
 
-  If you play for the first time with Massa smart contract, you first of all have
-  to install the environement following this: `Getting started Massa tutorial <https://docs.massa.net/en/latest/hackathon.html>`_
-  
+  If you are developing smart contracts on the Massa blockchain for the first time,
+  you probably want to follow the `Getting started Massa tutorial <https://docs.massa.net/en/latest/hackathon.html>`_
+  to setup your environment.
 
 .. _part1:
-1) How to create and deploy a cat
----------------------------------
+How to create and deploy a cat
+------------------------------
 
-First of all, we need to create and deploy on the blockchain the smart contracts for each cat using 2 scripts :
+First of all, we need to create and deploy on the blockchain the smart
+contracts for each cat using 2 scripts:
 
-* main.ts : will allow us to deploy the smart contract of the cat.
-* cat.ts : will manage all behaviour of the smart contract of the cat.
+* `main.ts`: will allow us to deploy the smart contract of the cat.
+* `cat.ts`: will manage all behaviour of the smart contract of the cat.
 
-The main.ts script :
-....................
+The main.ts script:
+...................
 
 .. code-block:: typescript
  
@@ -40,15 +43,15 @@ The main.ts script :
   	let addr = createSC(bytes);
   	var no_args = new Args();
       
-  	generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
+  	generateEvent("A new cat is born! Address of the cat: " + addr.toByteString());
 
- 	Storage.setOf(addr, "birth", Context.timestamp().toString());
- 	Storage.setOf(addr, "name", "Massa_cat");
- 	Storage.setOf(addr, "state", "ok");
- 	Storage.setOf(addr, "last_meal", Context.timestamp().toString());
-  	Storage.setOf(addr, "hangry_since", "0");
+    Storage.setOf(addr, "birth", Context.timestamp().toString());
+    Storage.setOf(addr, "name", "Massa_cat");
+    Storage.setOf(addr, "state", "ok");
+    Storage.setOf(addr, "last_meal", Context.timestamp().toString());
+  	Storage.setOf(addr, "hungry_since", "0");
 
-  	generateEvent("--- Information about the cat ==> " +
+  	generateEvent("Cat details: ==> " +
                       "Name :" + call(addr, "get_name", no_args,0) +
                       " || Birthday :" + call(addr, "get_birth", no_args, 0) +
                       " || State :" + call(addr, "get_state", no_args, 0) +
@@ -60,9 +63,10 @@ The main.ts script :
 
 .. note::
 
-  If you are not familiar with smart contract coding, you better read : `Smart contract tutorial <https://docs.massa.net/en/latest/web3-dev/smart-contracts/smart-contract-example-sum.html#sc-example-sum>`_
+  If you are not familiar with smart contract coding, you better read:
+  `Smart contract tutorial <https://docs.massa.net/en/latest/web3-dev/smart-contracts/smart-contract-example-sum.html#sc-example-sum>`_
 
-  If you want more explanations about the main.ts script, let's see line by line what is going on :
+  If you want more explanations about the main.ts script, let's see line by line what is going on:
 
   * Import Massalabs library :
 
@@ -72,17 +76,17 @@ The main.ts script :
 
     The goal of this line is to import from the "massalabs/massa-as-sdk" library the functions that we will be used : 
 
-    * createSC() : to deploy a binary on the blockchain
-    * fileToBase64() : to create a binary from a .wasm file.
-    * Storage() : to get all function related to key storage (see below).
-    * Context() : to get all function related to the context of the smart contract as : the current timestamp, the remaining gas, who tranfered coins etc.
-    * generateEvent() : to print into the massa-client a message.
-    * call() : to call a function from a specific smart contract.
-    * transferCoins() : to transfert coins from a smart contract to an address.
-    * Args() : to give arguments calling a function from an another smart contract.
+    * `createSC()`: to deploy a binary on the blockchain
+    * `fileToBase64()`: to create a binary from a .wasm file.
+    * `Storage()`: to get all function related to key storage (see below).
+    * `Context()`: to get all function related to the context of the smart contract such as: the current timestamp, the remaining gas, who tranfered coins etc.
+    * `generateEvent()`: to print into the massa-client a message.
+    * `call()`: to call a function from a specific smart contract.
+    * `transferCoins()`: to transfert coins from a smart contract to an address.
+    * `Args()`: to give arguments calling a function from an another smart contract.
 
 
-  * main() function to execute the script :
+  * `main()` function to execute the script :
 
     .. code-block:: typescript
 
@@ -107,13 +111,13 @@ The main.ts script :
 
     .. code-block:: typescript
 
-      Storage.setOf(addr,"birth",Context.timestamp().toString());
-      Storage.setOf(addr,"name","Massa_cat");
-      Storage.setOf(addr,"state","ok");
-      Storage.setOf(addr,"last_meal",Context.timestamp().toString());
-      Storage.setOf(addr,"hangry_since","0");
+      Storage.setOf(addr, "birth",Context.timestamp().toString());
+      Storage.setOf(addr, "name","Massa_cat");
+      Storage.setOf(addr, "state","ok");
+      Storage.setOf(addr, "last_meal",Context.timestamp().toString());
+      Storage.setOf(addr, "hungry_since","0");
 
-    Using the `Storage.setOf()` function, we can set different attributes as : the name of the cat, the current state of the cat, etc.
+    Using the `Storage.setOf()` function, we can set different attributes: the name of the cat, the current state of the cat, etc.
 
     `Storage.setOf()` will technically create a key owned by the smart contract only :
 
@@ -121,7 +125,6 @@ The main.ts script :
     * You can get the value of the key using : `Storage.getOf("key")`.
 
     Using the `Context.timestamp()` function, we can get the current timestamp.
-
 
   * Get information from the cat :
 
@@ -136,12 +139,12 @@ The main.ts script :
 
     We can print the cat information (into the massa client) using the function `generateEvent("Message")`. 
 
-    The `call()` function allows us to call the functions defined into our cat smart contract knowing the address of this one and get information about the smart contract. This should be used like :
+    The `call()` function allows us to call the functions defined into our cat smart
+    contract knowing the address of this one and get information about the smart contract. This should be used like :
     
     .. code-block:: typescript
 
     	call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)
-
    
 The cat.ts script :
 ....................
@@ -159,10 +162,10 @@ The cat.ts script :
 
 .. note::
 
-  Code analysis : 
-
-  When the main.ts script is executed for the first time, we declare keys like "name", "birth" etc with specific values.
-  In order to create the game, we need those keys aviable at each time by someone, or an another smart contract. Thus, we can do it declaring functions callable using : `export function my_function()`
+  When the main.ts script is executed for the first time, we declare keys like "name",
+  "birth" etc with specific values. To help people access those values, we can define
+  some getters functions. To be accessible by other smart contracts those functions must
+  be exported using the `export` keyword.
 
   .. code-block:: typescript
 
@@ -170,9 +173,7 @@ The cat.ts script :
 
     export function get_name(_args: string): string {return Storage.get("name");}
 
-  for instance here we declare into the cat smart contract a callable function named "get_name" that will return a string with the value of the key "name".
-
-  Thus, any smart contract will be able to get the name of the cat using a call() function : 
+  Any smart contract will be able to get the name of the cat using a `call()` function: 
   
   .. code-block:: typescript
 
