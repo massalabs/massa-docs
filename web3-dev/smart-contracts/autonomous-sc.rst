@@ -189,11 +189,10 @@ Lets try our code!
   cd ~/my-sc
   yarn run build
   
-.. note::
+
+* Make sure your file `my-sc/package.json` is written as following :
   
-  Make sure your file `my-sc/package.json` is written as following :
-  
-  .. code-block:: json
+.. code-block:: json
 	    {
 	    "name": "my-massa-sc",
 	    "version": "1.0.0",
