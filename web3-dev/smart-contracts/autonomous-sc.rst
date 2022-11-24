@@ -193,7 +193,8 @@ Lets try our code!
 * Make sure your file `my-sc/package.json` is written as following :
   
 .. code-block:: json
-	    {
+
+  {
 	    "name": "my-massa-sc",
 	    "version": "1.0.0",
 	    "description": "",
@@ -233,7 +234,7 @@ Lets try our code!
 		    "types": "./build/release.d.ts"
 		}
 	    }
-	}
+  }
   
 * Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
 
