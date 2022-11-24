@@ -9,7 +9,7 @@ Massa's smart-contract examples
 
 In this tutorial, we will go through all the steps required to create a smart contract on Massa.
 
-You can find the complete project on this `Github repository <https://github.com/massalabs/massa-sc-example-sum>`_.
+You can find the complete project on this `Github repository <https://github.com/massalabs/massa-sc-examples/tree/main/sum/contracts>`_.
 
 Prerequisites
 -------------
@@ -34,7 +34,7 @@ You need `node`, `npm` and `git` to initialize the project.
 
 .. code-block:: shell
 
-    git clone https://github.com/massalabs/massa-sc-example-sum && cd massa-sc-example-sum && npm install
+    git clone https://github.com/massalabs/massa-sc-examples && cd massa-sc-examples/sum/contracts && npm install
 
 .. _writing-sc-sum:
 

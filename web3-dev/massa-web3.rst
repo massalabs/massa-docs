@@ -34,7 +34,7 @@ with HTML and JavaScript. If you want to have more details, you can follow
 from which the dApp is inspired from.
 
 Here you can find an example dApp for the :ref:`sum smart-contract <sc-example-sum>`: 
-`Massa DApp example: Sum <https://github.com/massalabs/massa-dapp-example-sum>`_.
+`Massa DApp example: Sum <https://github.com/massalabs/massa-sc-examples/tree/main/sum/frontend>`_.
 
 Prerequisites:
   * having `Thyra <https://github.com/massalabs/thyra/>`_ installed and running on your computer
