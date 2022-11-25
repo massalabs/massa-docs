@@ -56,8 +56,8 @@ You can find it here `assembly/main.ts`.
         return a + b;
     }
 
-    export function sum(stringifyArgs: string): string {
-        const args = new Args(stringifyArgs);
+    export function sum(serializedArgs: StaticArray<u8>): StaticArray<u8> {
+        const args = new Args(serializedArgs);
         const a = args.nextI32();
         const b = args.nextI32();
         const result = add(a, b);
@@ -69,7 +69,7 @@ You can find it here `assembly/main.ts`.
 
 Calling function of a smart contract that is stored in the blockchain with some arguments will start an assemblyscript runtime (wasmer).
 This is why each function that you want to be able to call in your smart contract
-must be exported with the `export` keyword and must take one string argument and return a value of type string.
+must be exported with the `export` keyword and must take one `StaticArray<u8>` argument and return a value of type `StaticArray<u8>`.
 
 Here, we are exporting the sum function. In this function, we deserialize the argument into two integers, with the help of `fromByteString` and `toInt32`.
 

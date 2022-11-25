@@ -142,7 +142,6 @@ will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_obj
 
 .. warning::
     - We'll use only public API methods in testnet node.
-    - The following queries and responses comes from `TEST.15.1` but matches `TEST.16.1`
 
 **Public** API
 

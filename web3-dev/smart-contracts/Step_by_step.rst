@@ -23,25 +23,25 @@ The main.ts script :
 .. code-block:: typescript
   :linenos:
 
-  import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
+  import { createSC, fileToBase64, Storage, Context, generateEvent, call, stringToStaticArray} from "@massalabs/massa-as-sdk"
 
-  export function main(_args: string): void {    
+  export function main(_args: StaticArray<u8>): void {    
       const bytes = fileToBase64('./build/cat.wasm');
       let addr = createSC(bytes);
       generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
-      Storage.setOf(addr,"birth",Context.timestamp().toString());
-      Storage.setOf(addr,"name","Massa_cat");
-      Storage.setOf(addr,"state","ok");
-      Storage.setOf(addr,"last_meal",Context.timestamp().toString());
-      Storage.setOf(addr,"hangry_since","0");
+      Storage.setOf(addr, stringToStaticArray("birth"), stringToStaticArray(Context.timestamp().toString()));
+      Storage.setOf(addr, stringToStaticArray("name"), stringToStaticArray("Massa_cat"));
+      Storage.setOf(addr, stringToStaticArray("state"), stringToStaticArray("ok"));
+      Storage.setOf(addr, stringToStaticArray("last_meal"), stringToStaticArray(Context.timestamp().toString()));
+      Storage.setOf(addr, stringToStaticArray("hangry_since"), stringToStaticArray("0"));
 
       generateEvent("--- Information about the cat ==> " +
-                      "Name :" + call(addr,"get_name","",0) +
-                      " || Birthday :" + call(addr,"get_birth","",0) +
-                      " || State :" + call(addr,"get_state","",0) +
-                      " || Last meal at :" + call(addr,"get_last_meal","",0) +
-                      " || Hangry since :" + call(addr,"get_hangry_since","",0)
+                      "Name :" + call(addr,"get_name",new StaticArray<u8>(0),0) +
+                      " || Birthday :" + call(addr,"get_birth",new StaticArray<u8>(0),0) +
+                      " || State :" + call(addr,"get_state",new StaticArray<u8>(0),0) +
+                      " || Last meal at :" + call(addr,"get_last_meal",new StaticArray<u8>(0),0) +
+                      " || Hangry since :" + call(addr,"get_hangry_since",new StaticArray<u8>(0),0)
       );
 
   }
@@ -64,7 +64,7 @@ Let's see line by line what is going on :
 
   .. code-block:: typescript
 
-    export function main(_args: string): void {    
+    export function main(_args: StaticArray<u8>): void {    
         const bytes = fileToBase64('./build/cat.wasm');
         let addr = createSC(bytes);
         generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
@@ -80,18 +80,18 @@ Let's see line by line what is going on :
 
   .. code-block:: typescript
   
-    Storage.setOf(addr,"birth",Context.timestamp().toString());
-    Storage.setOf(addr,"name","Massa_cat");
-    Storage.setOf(addr,"state","ok");
-    Storage.setOf(addr,"last_meal",Context.timestamp().toString());
-    Storage.setOf(addr,"hangry_since","0");
+    Storage.setOf(addr, stringToStaticArray("birth"), stringToStaticArray(Context.timestamp().toString()));
+    Storage.setOf(addr, stringToStaticArray("name"), stringToStaticArray("Massa_cat"));
+    Storage.setOf(addr, stringToStaticArray("state"), stringToStaticArray("ok"));
+    Storage.setOf(addr, stringToStaticArray("last_meal"), stringToStaticArray(Context.timestamp().toString()));
+    Storage.setOf(addr, stringToStaticArray("hangry_since"), stringToStaticArray("0"));
     
   ==> Using the Storage.setOf() function, we can set different attributes as : the name of the cat, the current state of the cat, etc.
   
   Storage.setOf() will technically create a key owned by the smart contract only :
   
-  * You can change the value of the key using : Storage.setOf("key","value").
-  * You can get the value of the key using : Storage.getOf("key").
+  * You can change the value of the key using : Storage.setOf(stringToStaticArray("key"), stringToStaticArray("value")).
+  * You can get the value of the key using : Storage.getOf(stringToStaticArray("key")).
   
   Using the Context.timestamp() function, we can get the current timestamp.
   
@@ -111,7 +111,7 @@ Let's see line by line what is going on :
   
   The call() function allows us to call the functions defined into our cat smart contract knowing the address of this one and should be used like :
   
-  call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)
+  call(address_of_the_smart_contract_to_call, "function_to_call", params, tokens_to_send_during_the_call)
 
    
 The cat.ts script :
@@ -119,13 +119,13 @@ The cat.ts script :
 
 .. code-block:: typescript
 
-  import { Storage } from "@massalabs/massa-as-sdk";
+  import { Storage, stringToStaticArray } from "@massalabs/massa-as-sdk";
 
-  export function get_name(_args: string): string {return Storage.get("name");}
-  export function get_birth(_args: string): string {return Storage.get("birth");}
-  export function get_state(_args: string): string {return Storage.get("state");}
-  export function get_last_meal(_args: string): string {return Storage.get("last_meal");}
-  export function get_hangry_since(_args: string): string {return Storage.get("hangry_since");}
+  export function get_name(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(stringToStaticArray("name"));}
+  export function get_birth(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(stringToStaticArray("birth"));}
+  export function get_state(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(stringToStaticArray("state"));}
+  export function get_last_meal(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(stringToStaticArray("last_meal"));}
+  export function get_hangry_since(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(stringToStaticArray("hangry_since"));}
   
 
 Code analysis : 
@@ -136,11 +136,11 @@ In order to create the game, we need those keys avaible at each time by someone,
 
 .. code-block:: typescript
 
-  import { Storage } from "@massalabs/massa-as-sdk";
+  import { Storage, stringToStaticArray } from "@massalabs/massa-as-sdk";
 
-  export function get_name(_args: string): string {return Storage.get("name");}
+  export function get_name(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(stringToStaticArray("name"));}
 
-==> for instance here we declare into the cat smart contract a callable function named "get_name" that will return a string with the value of the key "name".
+==> for instance here we declare into the cat smart contract a callable function named "get_name" that will return a StaticArray<u8> with the value of the key "name".
 
 Thus, any smart contract will be able to get the name of the cat using a call() function : 
 

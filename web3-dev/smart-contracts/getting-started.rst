@@ -64,11 +64,11 @@ Open the `main.ts` file in the `assembly` directory at the root of your project.
 
    import { generateEvent } from "@massalabs/massa-as-sdk";
 
-   export function main(_args: string): void {
+   export function main(_args: StaticArray<u8>): void {
       generateEvent("Hello world!");
    }
 
-Don’t forget to save the file. Before starting compilation, just a few words to describe what is used here:
+Don't forget to save the file. Before starting compilation, just a few words to describe what is used here:
 
 * line 1: `generateEvent` function is imported from Massa SDK (@massalabs/massa-as-sdk). This function will generate an event with the string given as argument. Events can be later recovered using a Massa client.
 * line 3: `main` function is exported. This means that the main function will be callable from the outside of the WebAssembly module (more about that later).
