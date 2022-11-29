@@ -1,0 +1,4 @@
+[submodule "massa-localized-docs"]
+	path = massa-localized-docs
+	url = https://github.com/massalabs/massa-localized-docs.git
+	branch = 2-automate-localized-file-generation-process
