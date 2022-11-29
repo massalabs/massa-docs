@@ -71,3 +71,10 @@ html_css_files = [
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = "logo.svg"
+
+# -- Internationalization Configurations -------------------------------------
+
+# Directories in which to search for additional message catalogs, relative to
+# the source directory. The directories on this path are searched by the
+# standard gettext module.
+locale_dirs = ['./massa-localized-docs/locales/']
