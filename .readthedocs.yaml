@@ -1,0 +1,5 @@
+version: 2
+
+submodules:
+  include:
+    - massa-localized-docs
