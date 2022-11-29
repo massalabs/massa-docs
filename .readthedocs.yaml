@@ -3,3 +3,7 @@ version: 2
 submodules:
   include:
     - massa-localized-docs
+
+python:
+  install:
+  - requirements: requirements.txt
