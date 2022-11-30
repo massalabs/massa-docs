@@ -20,7 +20,7 @@ to carry out actions by itself.
   you probably want to follow the `Getting started Massa tutorial <https://docs.massa.net/en/latest/hackathon.html>`_
   to setup your environment.
 
-.. _part1:
+
 How to create and deploy a cat
 ------------------------------
 
@@ -236,24 +236,8 @@ Lets try our code!
 	    }
   }
   
-* Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
+* Deploy your smart contract `using the toolkit <https://docs.massa.net/en/latest/web3-dev/smart-contracts/getting-started.html#deploy-your-smart-contract>`_
 
-.. code-block:: bash
-
-  cd ~
-  cp my-sc/build/main.wasm massa/massa-client/main.wasm
-
-* Send the smart contract on the blockchain massa using into the massa client the following command : 
-
-.. code-block:: bash
-
-  send_smart_contract your_address main.wasm 10000000 0 0 
-  
-And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
-
-.. code-block:: bash
-
-  get_filtered_sc_output_event emitter_address=your_address
 
 You should get as following (The "Data:" lines correspond to the message print using `generateEvent()` function into the smart contract): 
 
@@ -281,8 +265,8 @@ You should get as following (The "Data:" lines correspond to the message print u
   Data: --- Information about the cat ==> Name :Massa_cat || Birthday :1668439608968 || State :ok || Last meal at :1668439608968 || Hangry since :0
   
   
-.. _part2:
-2) How to feed the cat with tokens
+
+How to feed the cat with tokens
 ----------------------------------
 
 Now we want to feed our cat with tokens. We have to add some code to main.ts and cat.ts files.
@@ -452,24 +436,7 @@ Just compile your main.ts file in the terminal using :
   cd ~/my-sc
   yarn run build
   
-* Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
-
-.. code-block:: bash
-
-  cd ~
-  cp my-sc/build/main.wasm massa/massa-client/main.wasm
-
-* Send the smart contract on the blockchain massa using into the massa client the following command : 
-
-.. code-block:: bash
-
-  send_smart_contract your_address main.wasm 10000000 0 0 
-  
-And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
-
-.. code-block:: bash
-
-  get_filtered_sc_output_event emitter_address=your_address
+* Deploy your smart contract `using the toolkit <https://docs.massa.net/en/latest/web3-dev/smart-contracts/getting-started.html#deploy-your-smart-contract>`_
 
 You should get as following (The "Data:" lines correspond to the message print using `generateEvent()` function into the smart contract): 
 
@@ -579,8 +546,8 @@ and saddly ... (only "Data:" line are printed) :
   Data: Massa_cat is starved since : 1668515298468, he dies with pain!
   Data: --- Informations about the cat ==> Name :Massa_cat || Birthday :1668515298468 || State :dead || Last meal at :1668515298468 || Hangry since :1668515298468
   
-.. _part3:
-3) How to set the cat autonomous
+
+How to set the cat autonomous
 --------------------------------
 
 We want now the cat able to eat autonomously!
@@ -789,24 +756,7 @@ Just compile your main.ts file in the terminal using :
   yarn run build
   
   
-Copy the file "main.wasm" from `my-sc/build/main.wasm` to `massa/massa-client/main.wasm` using : 
-
-.. code-block:: bash
-
-  cd ~
-  cp my-sc/build/main.wasm massa/massa-client/main.wasm
-
-Send the smart contract on the blockchain massa using into the massa client the following command : 
-
-.. code-block:: bash
-
-  send_smart_contract your_address main.wasm 10000000 0 0 
-  
-And get the events sent by `generateEvent()` function used in our script. You can filter them by your emitter address using the following command into the client : 
-
-.. code-block:: bash
-
-  get_filtered_sc_output_event emitter_address=your_address
+* Deploy your smart contract `using the toolkit <https://docs.massa.net/en/latest/web3-dev/smart-contracts/getting-started.html#deploy-your-smart-contract>`_
 
 You should get as following (with only `Data:` lines are printed): 
 
@@ -834,9 +784,9 @@ And when you filter with the cat smart contract address (with only `Data:` lines
   Data: Cat is dead! End of the loop
 
 
-.. _part4:
-4) Autonomous mecanism fully detailled
---------------------------------------
+
+Autonomous mecanism fully detailled
+-----------------------------------
 
 
 In this part we will see in detail how works the autonomous smart contract system.
