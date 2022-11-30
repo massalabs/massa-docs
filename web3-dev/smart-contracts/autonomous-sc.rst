@@ -11,7 +11,7 @@ a user creates a cat, and have to feed him with massa tokens periodically to kee
 the cat alive!
 
 Each cat is technically a smart contract deployed on the Massa blockchain.
-We will see how to use autonomous smart contracts to allows the smart contract
+We will see how to use autonomous smart contracts to allow the smart contract
 to carry out actions by itself.
 
 .. note::
@@ -395,7 +395,7 @@ The cat.ts script :
     let tokens_to_eat: u64 = 6 * factor;
     let poo_addr = Address.fromByteString("A13ESKj7WRVdjM96ttk2caqzES9nRzwB8pEcMW8GutrPwjo3WQS");
 
-  declares the callable function eat(), and set the number of tokens eaten at each time to 6. The poo_addr is the address where the tokens will be "destoyed" after each meal.
+  declares the callable function eat(), and set the number of tokens eaten at each time to 6. The poo_addr is the address where the tokens will be "destoyed" after each meal. (If you create the poo wallet for the first time, be sure to send 1 token to it in order to activate the wallet).
 
   .. code-block:: typescript
 
