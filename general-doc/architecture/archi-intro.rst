@@ -143,7 +143,6 @@ In this case, the code is provided in the operation payload and executed directl
 **Execute SC payload**       
 ------------------------------------------------------------------------------------------ 
 ``max_gas``                      The maximum gas spendable for this operation (u64 varint)
-``gas_price`` (soon deprecated)  The gas price (u64 varint)
 ``bytecode_len``                 The length of the bytecode field (u64 varint)
 ``bytecode``                     The bytecode to run (in the context of the caller address)
 ``datastore_len``                The number of the datastore keys (u64 varint), each record
@@ -160,7 +159,6 @@ Here, the code is indirectly called via the call to an existing smart contract f
 **Call SC**       
 ------------------------------------------------------------------------------------------ 
 ``max_gas``                      The maximum gas spendable for this operation (u64 varint)
-``gas_price`` (soon deprecated)  The gas price (u64 varint)
 ``coins``                        The coins transferred in the call (u64 varint)
 ``target_address``               The address of the targeted smart contract (32 bytes)
 ``function_name_length``         The length of the name of the function that is called (u8)

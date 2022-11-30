@@ -4,17 +4,17 @@ Update a node
 
 If you use the binaries, simply download the latest binaries, and make sure you use the latest nightly version of rust.
 
-Set the latest nightly as default:
+Download the nightly version we use:
 
 .. code-block:: bash
 
-    rustup default nightly
+    rustup install nightly-2022-11-14
 
-Update Rust:
+Use the right version:
 
 .. code-block:: bash
     
-    rustup update
+    rustup default nightly-2022-11-14
 
 Otherwise:
 

@@ -188,7 +188,6 @@ This will output something like
       - target function:sum
       - target parameter:
       - max_gas:700000000
-      - gas_price:0.000001
       - coins:0
 
 .. note::

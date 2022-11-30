@@ -23,25 +23,25 @@ The main.ts script :
 .. code-block:: typescript
   :linenos:
 
-  import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
+  import { createSC, fileToByteArray, Storage, Context, generateEvent, call, toBytes} from "@massalabs/massa-as-sdk"
 
-  export function main(_args: string): void {    
-      const bytes = fileToBase64('./build/cat.wasm');
+  export function main(_args: StaticArray<u8>): void {    
+      const bytes = fileToByteArray('./build/cat.wasm');
       let addr = createSC(bytes);
       generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
-      Storage.setOf(addr,"birth",Context.timestamp().toString());
-      Storage.setOf(addr,"name","Massa_cat");
-      Storage.setOf(addr,"state","ok");
-      Storage.setOf(addr,"last_meal",Context.timestamp().toString());
-      Storage.setOf(addr,"hangry_since","0");
+      Storage.setOf(addr, toBytes("birth"), toBytes(Context.timestamp().toString()));
+      Storage.setOf(addr, toBytes("name"), toBytes("Massa_cat"));
+      Storage.setOf(addr, toBytes("state"), toBytes("ok"));
+      Storage.setOf(addr, toBytes("last_meal"), toBytes(Context.timestamp().toString()));
+      Storage.setOf(addr, toBytes("hangry_since"), toBytes("0"));
 
       generateEvent("--- Information about the cat ==> " +
-                      "Name :" + call(addr,"get_name","",0) +
-                      " || Birthday :" + call(addr,"get_birth","",0) +
-                      " || State :" + call(addr,"get_state","",0) +
-                      " || Last meal at :" + call(addr,"get_last_meal","",0) +
-                      " || Hangry since :" + call(addr,"get_hangry_since","",0)
+                      "Name :" + call(addr,"get_name",new StaticArray<u8>(0),0) +
+                      " || Birthday :" + call(addr,"get_birth",new StaticArray<u8>(0),0) +
+                      " || State :" + call(addr,"get_state",new StaticArray<u8>(0),0) +
+                      " || Last meal at :" + call(addr,"get_last_meal",new StaticArray<u8>(0),0) +
+                      " || Hangry since :" + call(addr,"get_hangry_since",new StaticArray<u8>(0),0)
       );
 
   }
@@ -55,23 +55,23 @@ Let's see line by line what is going on :
 
   .. code-block:: typescript
 
-    import { createSC, fileToBase64, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
+    import { createSC, fileToByteArray, Storage, Context, generateEvent, call} from "@massalabs/massa-as-sdk"
 
-  ==> The goal of this line is to import from the "massalabs/massa-as-sdk" library the functions that we will be used : { createSC, fileToBase64, Storage, Context, generateEvent, call}
+  ==> The goal of this line is to import from the "massalabs/massa-as-sdk" library the functions that we will be used : { createSC, fileToByteArray, Storage, Context, generateEvent, call}
   
   
 * main() function to execute the script :
 
   .. code-block:: typescript
 
-    export function main(_args: string): void {    
-        const bytes = fileToBase64('./build/cat.wasm');
+    export function main(_args: StaticArray<u8>): void {    
+        const bytes = fileToByteArray('./build/cat.wasm');
         let addr = createSC(bytes);
         generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
   ==> This step declares the function main() that will be executed on the blockchain. Inside the function we can find :
   
-  * const bytes = fileToBase64('./build/cat.wasm'); ==> in order to create the binary code from the "cat.wasm" file and store it into the bytes variable.
+  * const bytes = fileToByteArray('./build/cat.wasm'); ==> in order to create the binary code from the "cat.wasm" file and store it into the bytes variable.
   * let addr = createSC(bytes); ==> in order to instanciate the addr variable and deploy the smart contract of the bytes variable.
   * generateEvent("A new cat is born! Address of the cat : " + addr.toByteString()); ==> will just send a message on the client with the smart contract address, using the function generateEvent("Message").
   
@@ -80,18 +80,18 @@ Let's see line by line what is going on :
 
   .. code-block:: typescript
   
-    Storage.setOf(addr,"birth",Context.timestamp().toString());
-    Storage.setOf(addr,"name","Massa_cat");
-    Storage.setOf(addr,"state","ok");
-    Storage.setOf(addr,"last_meal",Context.timestamp().toString());
-    Storage.setOf(addr,"hangry_since","0");
+    Storage.setOf(addr, toBytes("birth"), toBytes(Context.timestamp().toString()));
+    Storage.setOf(addr, toBytes("name"), toBytes("Massa_cat"));
+    Storage.setOf(addr, toBytes("state"), toBytes("ok"));
+    Storage.setOf(addr, toBytes("last_meal"), toBytes(Context.timestamp().toString()));
+    Storage.setOf(addr, toBytes("hangry_since"), toBytes("0"));
     
   ==> Using the Storage.setOf() function, we can set different attributes as : the name of the cat, the current state of the cat, etc.
   
   Storage.setOf() will technically create a key owned by the smart contract only :
   
-  * You can change the value of the key using : Storage.setOf("key","value").
-  * You can get the value of the key using : Storage.getOf("key").
+  * You can change the value of the key using : Storage.setOf(toBytes("key"), toBytes("value")).
+  * You can get the value of the key using : Storage.getOf(toBytes("key")).
   
   Using the Context.timestamp() function, we can get the current timestamp.
   
@@ -101,17 +101,17 @@ Let's see line by line what is going on :
   .. code-block:: typescript
   
     generateEvent("--- Information about the cat ==> " +  
-                      " Name :" + call(addr,"get_name","",0) +
-                      " || Birthday :" + call(addr,"get_birth","",0) +
-                      " || State :" + call(addr,"get_state","",0) +
-                      " || Last meal at :" + call(addr,"get_last_meal","",0) + 
-                      " || Hangry since :" + call(addr,"get_hangry_since","",0));
+                      " Name :" + call(addr,"get_name",new StaticArray<u8>(0),0) +
+                      " || Birthday :" + call(addr,"get_birth",new StaticArray<u8>(0),0) +
+                      " || State :" + call(addr,"get_state",new StaticArray<u8>(0),0) +
+                      " || Last meal at :" + call(addr,"get_last_meal",new StaticArray<u8>(0),0) + 
+                      " || Hangry since :" + call(addr,"get_hangry_since",new StaticArray<u8>(0),0));
       
   ==> We can print the cat information into the client using the function generateEvent("Message") and using the call() function. 
   
   The call() function allows us to call the functions defined into our cat smart contract knowing the address of this one and should be used like :
   
-  call(address_of_the_smart_contract_to_call, "function_to_call", "parameters_of_the_function", tokens_to_send_during_the_call)
+  call(address_of_the_smart_contract_to_call, "function_to_call", params, tokens_to_send_during_the_call)
 
    
 The cat.ts script :
@@ -119,13 +119,13 @@ The cat.ts script :
 
 .. code-block:: typescript
 
-  import { Storage } from "@massalabs/massa-as-sdk";
+  import { Storage, toBytes } from "@massalabs/massa-as-sdk";
 
-  export function get_name(_args: string): string {return Storage.get("name");}
-  export function get_birth(_args: string): string {return Storage.get("birth");}
-  export function get_state(_args: string): string {return Storage.get("state");}
-  export function get_last_meal(_args: string): string {return Storage.get("last_meal");}
-  export function get_hangry_since(_args: string): string {return Storage.get("hangry_since");}
+  export function get_name(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(toBytes("name"));}
+  export function get_birth(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(toBytes("birth"));}
+  export function get_state(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(toBytes("state"));}
+  export function get_last_meal(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(toBytes("last_meal"));}
+  export function get_hangry_since(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(toBytes("hangry_since"));}
   
 
 Code analysis : 
@@ -136,15 +136,15 @@ In order to create the game, we need those keys avaible at each time by someone,
 
 .. code-block:: typescript
 
-  import { Storage } from "@massalabs/massa-as-sdk";
+  import { Storage, toBytes } from "@massalabs/massa-as-sdk";
 
-  export function get_name(_args: string): string {return Storage.get("name");}
+  export function get_name(_args: StaticArray<u8>): StaticArray<u8> {return Storage.get(toBytes("name"));}
 
-==> for instance here we declare into the cat smart contract a callable function named "get_name" that will return a string with the value of the key "name".
+==> for instance here we declare into the cat smart contract a callable function named "get_name" that will return a StaticArray<u8> with the value of the key "name".
 
 Thus, any smart contract will be able to get the name of the cat using a call() function : 
 
-call(address_of_the_cat, "get_name", "", 0)
+call(address_of_the_cat, "get_name", new StaticArray<u8>(0), 0)
 
 Lets try our code!
 -------------------
