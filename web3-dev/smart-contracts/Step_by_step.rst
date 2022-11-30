@@ -26,7 +26,7 @@ The main.ts script :
   import { createSC, fileToByteArray, Storage, Context, generateEvent, call, toBytes} from "@massalabs/massa-as-sdk"
 
   export function main(_args: StaticArray<u8>): void {    
-      const bytes = fileToByteArray('./build/cat.wasm');
+      const bytes: StaticArray<u8> = fileToByteArray('./build/cat.wasm');
       let addr = createSC(bytes);
       generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
@@ -65,13 +65,13 @@ Let's see line by line what is going on :
   .. code-block:: typescript
 
     export function main(_args: StaticArray<u8>): void {    
-        const bytes = fileToByteArray('./build/cat.wasm');
+        const bytes: StaticArray<u8> = fileToByteArray('./build/cat.wasm');
         let addr = createSC(bytes);
         generateEvent("A new cat is born! Address of the cat : " + addr.toByteString());
 
   ==> This step declares the function main() that will be executed on the blockchain. Inside the function we can find :
   
-  * const bytes = fileToByteArray('./build/cat.wasm'); ==> in order to create the binary code from the "cat.wasm" file and store it into the bytes variable.
+  * const bytes: StaticArray<u8> = fileToByteArray('./build/cat.wasm'); ==> in order to create the binary code from the "cat.wasm" file and store it into the bytes variable.
   * let addr = createSC(bytes); ==> in order to instanciate the addr variable and deploy the smart contract of the bytes variable.
   * generateEvent("A new cat is born! Address of the cat : " + addr.toByteString()); ==> will just send a message on the client with the smart contract address, using the function generateEvent("Message").
   
