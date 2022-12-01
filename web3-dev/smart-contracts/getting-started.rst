@@ -32,8 +32,8 @@ Congratulations! Now you have a fully set up project and you are ready to add so
 .. note::
    A few words on project folders:
 
-    * `assembly` is where the code goes;
-    * `build` will be created during compilation and will contain compiled smart contracts.
+   * `assembly` is where the code goes;
+   * `build` will be created during compilation and will contain compiled smart contracts.
 
 Create your first smart contract
 --------------------------------
