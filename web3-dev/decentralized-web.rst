@@ -38,7 +38,8 @@ Install Thyra
 Automatically
 -------------
 
-- `MacOS installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh>`_ or simply use this cmd on your terminal:
+- `MacOS installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh>`_
+  or simply use this cmd on your terminal:
 
 .. code-block:: bash
             
