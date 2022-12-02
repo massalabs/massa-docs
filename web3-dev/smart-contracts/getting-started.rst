@@ -91,7 +91,7 @@ In order to deploy it, you need to own a Massa wallet and some MAS coins on it.
    * If you're using a brand new wallet, add some coins by sending your address to
      `testnet-faucet discord channel <https://discord.com/channels/828270821042159636/866190913030193172>`_.
 
-In any case, keep the `address` and `private_key` of your wallet, you will use it later.
+In any case, keep the `Address` and `Secret key` of your wallet, you will use it later.
 
 There are two ways you can deploy your smart contract. The easiest and the recommended way is
 to deploy the smart contract with the smart-contract toolkit (:ref:`Option 1 <sc-option-1>` below).
@@ -104,14 +104,14 @@ by running your own node (:ref:`Option 2 <sc-option-2>`).
 Option 1: Deploy your smart contract from the toolkit
 -----------------------------------------------------
 
-To send the transaction on the network, you need to provide your wallet's private key.
+To send the transaction on the network, you need to provide your wallet's secret key.
 This is done using environment variable in `.env` file.
 
 .. code-block::
 
     cp .env.example .env
 
-This command will create a `.env` file. Now fill it with your wallet private key.
+This command will create a `.env` file. Now fill it with your wallet secret key.
 
 Then run the following command:
 
@@ -136,17 +136,20 @@ Let's go!
 Configure the client
 ~~~~~~~~~~~~~~~~~~~~
 
-Make sure that you have the latest version of the Massa node. If not, :ref:`install it <testnet-install>` and :ref:`run it <testnet-running>`.
+Make sure that you have the latest version of the Massa node. If not,
+:ref:`install it <testnet-install>` and :ref:`run it <testnet-running>`.
 
 .. note::
 
    You can also execute your smart-contract on a local sandbox node.
-   To learn more about sandbox node, follow this tutorial: :ref:`Local network generation <local-network-generation>`.
+   To learn more about sandbox node, follow this tutorial:
+   :ref:`Local network generation <local-network-generation>`.
 
 Execute the smart contract on the node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Everything is in place, we can now execute the `hello world` smart contract on your local node with the following command inside the **client cli**:
+Everything is in place, we can now execute the `hello world` smart contract on your
+local node with the following command inside the **client cli**:
 
 .. code-block:: shell
 
@@ -157,7 +160,8 @@ Everything is in place, we can now execute the `hello world` smart contract on y
    We are executing the send_smart_contract command with 6 parameters:
 
    - <address>: the address of your wallet kept during previous step;
-   - <path to wasm file>: the full path (from the root directory to the file extension .wasm) of the hello smart contract, generated in the previous chapter.
+   - <path to wasm file>: the full path (from the root directory to the file extension .wasm)
+     of the hello smart contract, generated in the previous chapter.
    - 100000: the maximum amount of gas that the execution of your smart contract is allowed to use.
    - Two 0 parameters that can be safely ignored by now. If you want more info on them, use the command `help send_smart_contract`.
 
@@ -172,7 +176,8 @@ If everything went fine, the following message should be prompted:
    Sent operation IDs:
    <id with numbers and letters>
 
-In that case, you should be able to retrieve the event with the `Hello world` emitted. Use the following command inside the **client cli**:
+In that case, you should be able to retrieve the event with the `Hello world` emitted.
+Use the following command inside the **client cli**:
 
 .. code-block:: shell
 

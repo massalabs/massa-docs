@@ -28,7 +28,7 @@ with the following content:
 This will allow your client to connect to the remote node run by Massa team
 so that you don't have to run a node by yourself.
 
-You can now run the client and generate a private key using the
+You can now run the client and generate a secret key using the
 following command in the client:
 
 .. code-block::
