@@ -49,7 +49,7 @@ Automatically
 - `Windows installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat>`_
 
 .. note::
-    *NB: if you install Thyra with this script using an Ethernet connection,
+    If you install Thyra with this script using an Ethernet connection,
     there is high level of chances that you will need to re-install it if you move to wifi.
     Sorry about that, we’re working on it!*
       
