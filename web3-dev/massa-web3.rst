@@ -105,7 +105,7 @@ In your smart-contract projects, use this `.env` file:
     JSON_RPC_URL_PUBLIC=http://127.0.0.1:33035
     JSON_RPC_URL_PRIVATE=http://127.0.0.1:33034
 
-Use the private key that the node-client gave you when calling
+Use the secret key that the node-client gave you when calling
 `wallet_generate_secret_key`. This wallet also needs to have some Massa
 coins, so it must appear in `massa-node/base_config/initial_ledger.json`
 before running the node with `cd massa-node && cargo run --features sandbox`

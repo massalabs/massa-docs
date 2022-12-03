@@ -94,16 +94,20 @@ We'll now turn to the process of putting the smart contract on the Massa blockch
 
 For the deployment, you will need a wallet with some coins. 
 
-To send transaction on the network, you need to provide your wallet private key.
+To send transaction on the network, you need to provide your wallet secret key.
 This is done using environment variable in `.env` file.
 
 .. code-block::
 
     cp .env.example .env
 
-This command will create a `.env` file. Now fill it with your wallet's private key (also called a "secret key" by Massa client).
+This command will create a `.env` file. Now fill it with your wallet's secret key
+(also called a "secret key" by Massa client).
 
-Contract deployment is done by calling a deployer smart contract which can be found here: `deployer/deployer.as.ts`. It will store our sum smart contract onto the ledger. The deployer contract already includes your compiled `main.ts` contract and has been itself compiled at the `npm run build` step.
+Contract deployment is done by calling a deployer smart contract which can be found here:
+`deployer/deployer.as.ts`. It will store our sum smart contract onto the ledger.
+The deployer contract already includes your compiled `main.ts` contract and has been itself
+compiled at the `npm run build` step.
 
 We will send the deployer smart contract to the Massa blockchain with:
 
@@ -111,7 +115,8 @@ We will send the deployer smart contract to the Massa blockchain with:
 
     npm run deploy
 
-This command will execute the compiled deployer `deployer.wasm`, and this smart contract will store the `main.ts` smart contract onto the ledger.
+This command will execute the compiled deployer `deployer.wasm`, and this smart contract
+will store the `main.ts` smart contract onto the ledger.
 
 You will see an output like this:
 
