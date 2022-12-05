@@ -49,7 +49,7 @@ Discord make sure to tell us and we'll happily send you some.
 
 If you check your wallet again, you should see coins on your address.
 Now that you have an address with coins you can create and deploy your
-first smart contract. 
+first smart contract.
 
 Smart contracts
 ===============

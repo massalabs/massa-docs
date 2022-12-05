@@ -13,7 +13,7 @@ This feature enables a lot of applications and provides another layer of securit
 This section introduces all steps to host your website on the blockchain and register it on
 Massa’s DNS service, in order to access it using any traditional browser.
 
-To do so you will need to follow 3 simple steps: 
+To do so you will need to follow 3 simple steps:
 
 1. Install Thyra on your machine
 2. Create a wallet
@@ -42,7 +42,7 @@ Automatically
   or simply use this cmd on your terminal:
 
 .. code-block:: bash
-            
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/macos_install.sh)"
 
 
@@ -52,7 +52,7 @@ Automatically
     If you install Thyra with this script using an Ethernet connection,
     there is high level of chances that you will need to re-install it if you move to wifi.
     Sorry about that, we’re working on it!*
-      
+
 .. code-block:: bash
 
     curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/thyra-installer.bat >> thyra-installer.bat && thyra-installer.bat

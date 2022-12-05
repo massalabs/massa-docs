@@ -15,7 +15,7 @@ Nodes will gather all the pending operations and group them to produce blocks.
 Each block contains a finite set of operations, limited by the fact that each block has a limited amount of space available to store operations.
 Traditional blockchains will then typically link blocks one after the other (including a hash of the previous block in the block header),
 to materialize their temporal ordering. However, unlike traditional blockchains, Massa blocks are not simply chained one after the other,
-but organized into a more complex spatio-temporal structure, which allows for parallelization and increased performances. 
+but organized into a more complex spatio-temporal structure, which allows for parallelization and increased performances.
 
 Instead of one chain, there are several threads (T=32) of chains running in parallel, with blocks equally spread on each thread over time,
 and stored inside **slots** that are spaced at fixed time intervals:
@@ -48,7 +48,7 @@ Address
 *******
 
 Each account in Massa has a public and private key associated with it. This is how messages can be signed
-and identity enforced. 
+and identity enforced.
 
 The address of an account is simply the hash of its public key.
 
@@ -62,12 +62,12 @@ will be reached over the whole network. The ledger is the state of the Massa net
 The information stored in the ledger with each address is the following:
 
 ===============================  =========================================================
-**Ledger information associated with each address**       
------------------------------------------------------------------------------------------- 
+**Ledger information associated with each address**
+------------------------------------------------------------------------------------------
 ``balance``                      The amount of Massa coins owned by the address
 ``bytecode``                     When the address references a smart contract, this is the compiled code
-                                 :raw-html:`<br/>` corresponding to the smart contract (typically contains several functions that act as :raw-html:`<br/>` API entry points for the smart contract)        
-``datastore``                    A key/value map that can store any persistent data related to a smart 
+                                 :raw-html:`<br/>` corresponding to the smart contract (typically contains several functions that act as :raw-html:`<br/>` API entry points for the smart contract)
+``datastore``                    A key/value map that can store any persistent data related to a smart
                                  :raw-html:`<br/>` contract, its variables, etc
 ===============================  =========================================================
 
@@ -83,7 +83,7 @@ This allows more autonomy and less dependency on external centralized services.
 
 Smart contracts are currently written in assemblyscript, a stricter derivation from typescript, which is itself a type-safe version of javascript.
 AssemblyScript compiles to web assembly bytecode (wasm). Massa nodes Execution Module runs such bytecode.
-Smart contracts have access to their own datastore, so they can modify the ledger. 
+Smart contracts have access to their own datastore, so they can modify the ledger.
 
 Operation
 *********
@@ -93,8 +93,8 @@ There are three types of operations: transactions, roll operations, and smart co
 The general structure of an operation is the following, and the different types of operations differ by their payload:
 
 ===============================  =========================================================
-**Operation header**       
------------------------------------------------------------------------------------------- 
+**Operation header**
+------------------------------------------------------------------------------------------
 ``creator_public_key``           The public key of the operation creator (32 bytes)
 ``expiration_period``            Period after which the operation is expired (u64 varint)
 ``fee``                          The amount of fees the creator is willing to pay (u64 varint)
@@ -111,8 +111,8 @@ Transactions operations
 Transactions are operations that move native Massa coins between addresses. Here is the corresponding payload:
 
 ===============================  =========================================================
-**Transaction payload**       
------------------------------------------------------------------------------------------- 
+**Transaction payload**
+------------------------------------------------------------------------------------------
 ``amount``                       The amount of coins to transfer (u64 varint)
 ``destination_address``          The address of the recipient (32 bytes)
 ===============================  =========================================================
@@ -124,8 +124,8 @@ Rolls are staking tokens that participants can buy or sell with native coins (mo
 This is done via special operations, with a simple payload:
 
 ===============================  =========================================================
-**Roll buy/sell payload**       
------------------------------------------------------------------------------------------- 
+**Roll buy/sell payload**
+------------------------------------------------------------------------------------------
 ``nb_of_rolls``                  The number of rolls to buy or to sell (u64 varint)
 ===============================  =========================================================
 
@@ -140,8 +140,8 @@ Smart Contracts are pieces of code that can be run inside the Massa virtual mach
 In this case, the code is provided in the operation payload and executed directly:
 
 ===============================  =========================================================
-**Execute SC payload**       
------------------------------------------------------------------------------------------- 
+**Execute SC payload**
+------------------------------------------------------------------------------------------
 ``max_gas``                      The maximum gas spendable for this operation (u64 varint)
 ``bytecode_len``                 The length of the bytecode field (u64 varint)
 ``bytecode``                     The bytecode to run (in the context of the caller address)
@@ -156,8 +156,8 @@ list of datastore records        Concatenation of ``key_len`` (u8), ``key``,
 Here, the code is indirectly called via the call to an existing smart contract function, together with the required parameters:
 
 ===============================  =========================================================
-**Call SC**       
------------------------------------------------------------------------------------------- 
+**Call SC**
+------------------------------------------------------------------------------------------
 ``max_gas``                      The maximum gas spendable for this operation (u64 varint)
 ``coins``                        The coins transferred in the call (u64 varint)
 ``target_address``               The address of the targeted smart contract (32 bytes)
@@ -179,20 +179,20 @@ thus implicitly avoiding collisions in operations integrated into parallel threa
 The content of a block is as follows:
 
 ===============================  =========================================================
-**Block header**       
------------------------------------------------------------------------------------------- 
-``slot``                         A description of the block slot, defined by a couple (period, thread) that 
+**Block header**
+------------------------------------------------------------------------------------------
+``slot``                         A description of the block slot, defined by a couple (period, thread) that
                                  :raw-html:`<br/>` uniquely identify it
 ``creator_public_key``           The public key of the block creator (32 bytes)
 ``parents``                      A list of the 32 parents of the block, one parent per thread (parent blocks are
                                  :raw-html:`<br/>` identified by the block hash)
 ``endorsements``                 A list of the 16 endorsements for the block (more about endorsements below)
 ``operations_hash``              A hash of all the operations included in the block (=hash of the block body below)
-``signature``                    signature of all the above with the private key of    
-                                 the block creator                               
-**Block body**       
------------------------------------------------------------------------------------------- 
-``operations``                   The list of all operations included in the block                         
+``signature``                    signature of all the above with the private key of
+                                 the block creator
+**Block body**
+------------------------------------------------------------------------------------------
+``operations``                   The list of all operations included in the block
 ===============================  =========================================================
 
 Endorsements are optional inclusion in the block, but their inclusion is incentivized for block creators.

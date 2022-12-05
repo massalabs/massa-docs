@@ -9,7 +9,7 @@ Massa JSON-RPC API
 This crate exposes Rust methods (through the `Endpoints` trait) as
 JSON-RPC API methods (thanks to the `ParityJSON-RPC <https://github.com/paritytech/jsonrpc>`_ crate).
 
-Massa JSON-RPC API is splitted in two parts : 
+Massa JSON-RPC API is splitted in two parts :
 
 - **Private API**: used for node management. Default port: 33034 e.g. http://localhost:33034
 - **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
@@ -23,7 +23,7 @@ Integrations
 - **Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
 - **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/tree/main/postman>`_.
 
-Error codes 
+Error codes
 ===========
 
 When a call to Massa API fails, it **MUST** return a valid JSON-RPC `error object <https://www.jsonrpc.org/specification#error_object>`_ .
@@ -138,7 +138,7 @@ Explore Massa Blockchain
 ========================
 
 In this section we'll learn how to interact with Massa blockchain via `curl` commands which
-will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls. 
+will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls.
 
 .. warning::
     - We'll use only public API methods in testnet node.
@@ -169,7 +169,7 @@ slot, timestamp), clique count, connected nodes count.
 -   Result:
 
 .. code-block:: javascript
- 
+
    {
     "jsonrpc": "2.0",
     "result": {
@@ -446,7 +446,7 @@ Get information about the block `cliques <https://docs.massa.net/en/latest/gener
 
 Get information about active `stakers <https://docs.massa.net/en/latest/testnet/staking.html>`_  and their roll counts for the current cycle.
 
--  Query: 
+-  Query:
 
 .. code-block:: shell
 
@@ -507,8 +507,8 @@ Get information about `address <https://docs.massa.net/en/latest/general-doc/arc
 
 -   Result:
 
-.. code-block:: javascript 
-    
+.. code-block:: javascript
+
     {
         "jsonrpc": "2.0",
         "result": [

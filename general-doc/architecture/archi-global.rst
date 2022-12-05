@@ -107,13 +107,13 @@ Excluding some edge cases with genesis blocks, there are two sources of incompat
 1. **thread incompatibility**: this occurs when two blocks in a given thread have the same parent in that thread.
 2. **grandpa incompatibility**: this corresponds to a case with two blocks B1 and B2 in threads t1 and t2, and where the block B1 in t1 has a parent in t2 who is an ancestor of B2's parent in t2, and symmetrically B2's parent in t1 is an ancestor of B1's parent in t1.
 
-You will find a more formal mathematical definition of these incompatibility notions in the `whitepaper <https://arxiv.org/pdf/1803.09029.pdf>`_. 
+You will find a more formal mathematical definition of these incompatibility notions in the `whitepaper <https://arxiv.org/pdf/1803.09029.pdf>`_.
 
 From these definitions, you can build another graph, called the incompatibility graph, which connects any two blocks that have any form of incompatibility together:
 
 .. image:: incompatibility_graph.drawio.svg
 
-As you can see, some blocks are isolated and therefore compatible with any other, while some are linked, because they have a form of incompatibility. 
+As you can see, some blocks are isolated and therefore compatible with any other, while some are linked, because they have a form of incompatibility.
 
 This brings us to the notion of a maximal clique which is a subset of the incompatibility graph such as none of the block members are incompatible with each other
 (so, no internal link withing the clique), and it is impossible to add an extra block to the set without introducing incompatibilities.
@@ -133,7 +133,7 @@ In the case of block cliques, we will introduce a notion of fitness for each blo
 The block fitness :math:`f(b)` is simply defined as :math:`1+e`, :math:`e` being the number of endorsements registered in the block.
 
 Taking the maximal clique with the highest fitness (or some hash-based deterministic selection in case of equality),
-the Graph/Consensus module can define what is called the **blockclique** at the current time. 
+the Graph/Consensus module can define what is called the **blockclique** at the current time.
 
 Finalized blocks, stale blocks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,7 +146,7 @@ If a block is only contained inside cliques that have a fitness lower than the f
 minus a constant :math:`\Delta_f^0`, then this block is considered stale.
 Also, any new block that includes in its parents a stale block is stale.
 
-A block is considered final if it is part of all maximal cliques, and included in at least one clique where the total sum of the fitness of all its descendants is greater than :math:`\Delta_f^0`. 
+A block is considered final if it is part of all maximal cliques, and included in at least one clique where the total sum of the fitness of all its descendants is greater than :math:`\Delta_f^0`.
 
 :math:`\Delta_f^0` is defined as a constant :math:`F` multiplied by :math:`1+E` (:math:`E` being the total max number of endorsements in a block, currently 16),
 and :math:`F` effectively measuring the maximum span in fully endorsed blocks of a successful blockclique,
@@ -177,7 +177,7 @@ As a side note, it is also possible that blocks might include invalid operations
 
 Being the maintainer of the ledger, the Execution Module is also queried about address information in general, via the API, for any Module that needs it.
 
-Finally, the Execution Module will inform the Selector Module when new cycles are initiated as the finalization of blocks progresses. 
+Finally, the Execution Module will inform the Selector Module when new cycles are initiated as the finalization of blocks progresses.
 
 Pool Module
 ***********
@@ -224,7 +224,7 @@ The client will have to know the IP address of a Massa Node (this can be either 
 or via some maintained list of known nodes and/or some browser plugin), and will then send the operation to the API Module.
 
 When an operation is made available in a given node, it will be broadcasted to all other nodes via the Protocol/Network Module and to factories via the API Module,
-so that it will eventually end up in all the Pool Modules of the network. 
+so that it will eventually end up in all the Pool Modules of the network.
 
 Let's assume we just got a code execution operation from an external client. Let's suppose the client knows a particular node,
 which is running its block factory on the same machine, and sends the operation to this node.

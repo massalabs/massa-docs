@@ -92,7 +92,7 @@ Deploy your smart contract on the blockchain
 
 We'll now turn to the process of putting the smart contract on the Massa blockchain.
 
-For the deployment, you will need a wallet with some coins. 
+For the deployment, you will need a wallet with some coins.
 
 To send transaction on the network, you need to provide your wallet secret key.
 This is done using environment variable in `.env` file.

@@ -12,10 +12,10 @@ The best place to ask general questions about Massa is on the
 `Massa discord <https://discord.gg/massa>`_.
 
 It might also be helpful to review existing and previous Github
-issues to see if your question has been answered already. 
+issues to see if your question has been answered already.
 
 For specific technical questions, submitting an issue in the
-relevant repo may be the best place to ask. 
+relevant repo may be the best place to ask.
 
 Giving Feedback
 ===============
