@@ -14,4 +14,4 @@ jobs:
       - name: Install sphinx-lint
         run: pip install sphinx-lint
       - name: Run sphinx-lint
-        run: sphinx-lint
+        run: sphinx-lint --enable line-too-long
