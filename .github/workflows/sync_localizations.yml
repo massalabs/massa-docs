@@ -14,7 +14,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Git Submodule Update
         run: |
-          git submodule update --remote massa-localized-docs
+          git submodule update  --init --remote massa-localized-docs
       - name: Push updated massa-localized-docs submodule
         uses: EndBug/add-and-commit@v9
         with:
