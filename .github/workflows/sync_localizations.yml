@@ -1,0 +1,22 @@
+name: 'Sync massa-localized-docs'
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Git Submodule Update
+        run: |
+          git submodule update --remote massa-localized-docs
+      - name: Push updated massa-localized-docs submodule
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: '[CI] Update massa-localized-docs submodule'
+          add: './massa-localized-docs'
