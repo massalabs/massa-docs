@@ -68,7 +68,7 @@ Manually
 --------
 
 To install Thyra manually, follow the step-by-step process found
-`here <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_.
+`here <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`__.
 
 Create your DNS contract & upload website
 =========================================
@@ -92,4 +92,4 @@ you now simply have to run Thyra using the cmd below and access any .massa you k
 
     thyra-server
 
-Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html>`_.
+Or you can also search for one you like `here <http://my.massa/thyra/registry/index.html>`__.

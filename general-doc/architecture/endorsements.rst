@@ -16,6 +16,7 @@ Basic principle
 
 Each block header has `E` ordered endorsement slots: each one can include an endorsement or not. 
 Each endorsement contains:
+
   * The slot `S` in which it is meant to be included. The endorsement can only be included in blocks of slot `S`.
   * The hash of the endorsed block. This is the hash of the latest blockclique block of thread `S.thread` according to the endorsement creator at the moment the endorsement was created.
   * The index of the endorsement slot within the header from `0` (included) to `E-1` (included). The endorsement can only be included at that endorsement slot index within the block eader.

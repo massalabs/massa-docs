@@ -37,7 +37,7 @@ Here you can find an example dApp for the :ref:`sum smart-contract <sc-example-s
 `Massa DApp example: Sum <https://github.com/massalabs/massa-sc-examples/tree/main/sum/frontend>`_.
 
 Prerequisites:
-  * having `Thyra <https://github.com/massalabs/thyra/>`_ installed and running on your computer
+  * having `Thyra <https://github.com/massalabs/thyra/>`__ installed and running on your computer
   * having a wallet in Thyra
   * the wallet needs to own some Massa coins
   * having a smart contract :ref:`deployed <sending-sc-sum>`
@@ -81,11 +81,11 @@ Start Thyra and bind it to your local node:
 
     go run ./cmd/thyra-server/main.go --node-server LOCALHOST
 
-Create a new wallet in `Thyra <http://my.massa/thyra/wallet/index.html>`_.
+Create a new wallet in `Thyra <http://my.massa/thyra/wallet/index.html>`__.
 
 Modify the file `massa-node/base_config/initial_ledger.json`:
 
- .. code-block:: javascript
+ .. code-block:: json
 
     {
         "ADDR": {

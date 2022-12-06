@@ -10,7 +10,7 @@ Massa client
 
 First of all you need to have a client to interact with the network.
 We recommend to use the pre-built binaries available
-`here <https://github.com/massalabs/massa/releases>`_.
+`here <https://github.com/massalabs/massa/releases>`__.
 
 The zip contains two folders, one called `massa-node` and the other `massa-client`.
 For this hackathon you will only need the client.
@@ -101,20 +101,21 @@ Other resources
 
 
 Thyra
-===============
+=====
 
 Thyra is a client developed by Massa that plays the role of a gateway to the Massa blockchain.
 
 
 What is does and how to use it
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To date, Thyra will enable you to store content, like a website, on the blockchain and assure its immutability as well as facilitate all the process. 
 
-To start using it, follow the steps provided `here <https://docs.massa.net/en/latest/web3-dev/decentralized-web.html>`_.
+To start using it, follow the steps provided `here <https://docs.massa.net/en/latest/web3-dev/decentralized-web.html>`__.
 
 ===============
 Troubleshooting
 ===============
 
-There are some limitations and workarounds that we have listed, have a look `here <https://github.com/massalabs/thyra/wiki/Hackathon-Nov-22---Troubleshooting>`_
+There are some limitations and workarounds that we have listed, have a look `here <https://github.com/massalabs/thyra/wiki/Hackathon-Nov-22---Troubleshooting>`__
 

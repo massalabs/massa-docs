@@ -64,9 +64,9 @@ Tracking the activity of a node
 ===============================
 
 - `Monitoring scripts and commands <https://github.com/massalabs/massa/wiki/Monitoring-scripts-and-commands>`_
-- `Telegram Bot to track node activity <https://t.me/massacheck_bot>`_
+- `Telegram Bot to track node activity <https://t.me/massacheck_bot>`__
 - `Telegram Bot to track node activity and network statistics <https://t.me/hekumatiarubot>`_
-- `Telegram Bot to track node activity <https://t.me/MassaHelperBot>`_
+- `Telegram Bot to track node activity <https://t.me/MassaHelperBot>`__
 - `Website to monitor your node <https://paranormal-brothers.com/massa/>`_
 - `Another website to monitor your node <https://grafana-massa.trend-deposits.com/d/MLcl7dt7k/massa-overview?orgId=2>`_
 - `Script to monitor faulty blocks of your node <https://github.com/WeVouT/massa/tree/main/monitor>`_
