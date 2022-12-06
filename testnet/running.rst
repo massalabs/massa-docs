@@ -123,3 +123,7 @@ You should leave the window opened.
 
 Replace <PASSWORD> with a password that you will need to keep to restart your client
 Please wait until the directories are built before moving to the next step.
+
+.. warning::
+    In case of crash of the rust compiler or at runtime, please do not report bugs to the rustlang/rust repository, but open an issue on massa instead. 
+    We will triage the issues and open them on the rust side if they are valid. This avoids polluting the main rust repository with many reports of the same error.
