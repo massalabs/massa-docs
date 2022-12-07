@@ -50,7 +50,7 @@ If that state is compromised, the node's knowledge of the whole ledger might be 
 
 Assuming the node software is not corrupted, new nodes joining the network need an initial list of peer nodes
 to which they need to connect first in order to discover the network.
-This list is hardcoded in the node software (see https://developer.bitcoin.org/devguide/p2p_network.html#peer-discovery).
+This list is hardcoded in the node software (see `the bitcoin docs <https://developer.bitcoin.org/devguide/p2p_network.html#peer-discovery>`_).
 If all peers pointed by this initial list are compromised, the node can end on a different (non-bitcoin) network,
 even if the node software itself is not compromised.
 Bitcoin therefore also requires trust in at least one of the initial peers.
@@ -69,6 +69,9 @@ Similarly to Bitcoin checkpoints, bootstrapping Massa nodes must obtain the curr
 ideally the same source as the one they downloaded the node software from, in order to avoid having to trust multiple entities.
 
 Downloading the state from an untrusted source can result in major issues such as coin theft.
+As such, bootstrapping from untrusted sources should be discouraged,
+and bootstrapping other nodes should be opt-in for node runners to avoid "bootstrap lists"
+circulating as the default way of bootstrapping from unaware node runners.
 
 
 Implementation details
@@ -135,3 +138,9 @@ The number of nodes simultaneously bootstrapping from the local node is limited 
 Excess attempts are refused but do not trigger the exclusion delay mechanism.
 
 
+Future optimizations
+====================
+
+We plan to add the possibility to download bootstrap data from untrusted sources for load-balancing,
+but then check the hash of the obtained state from trusted sources,
+and only fallback to downloading everything from trusted sources if multiple bootstrap attempts from this hybrid approach fail.
