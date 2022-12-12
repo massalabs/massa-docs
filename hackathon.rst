@@ -108,9 +108,8 @@ Thyra is a client developed by Massa that plays the role of a gateway to the Mas
 
 What it does and how to use it
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To date, Thyra will enable you to store content, like a website, on the blockchain and assure its immutability as well as facilitate all the process.
 
-To date, Thyra will enable you to store content, like a website, on the blockchain and assure its immutability as well as facilitate all the process. 
+To date, Thyra will enable you to store content, like a website, on the blockchain and assure its immutability as well as facilitate all the process.
 
 To start using it, follow the steps provided `here <https://docs.massa.net/en/latest/web3-dev/decentralized-web.html>`__.
 
