@@ -14,7 +14,7 @@ To achieve this, we draw inspiration from Tezos and introduce the concept of End
 Basic principle
 ===============
 
-Each block header has `E` ordered endorsement slots: each one can include an endorsement or not. 
+Each block header has `E` ordered endorsement slots: each one can include an endorsement or not.
 Each endorsement contains:
 
   * The slot `S` in which it is meant to be included. The endorsement can only be included in blocks of slot `S`.
@@ -65,7 +65,7 @@ A header is invalidated if:
 * at least one of the endorsements fails deserialization or signature verification
 * at least one of the endorsements endorses a block different than the parent of the including block within its own thread
 * any of the endorsements should not have been produced at that `(endorsement.slot, endorsement.index)` according to the selector
-* there is strictly more than one endorsement with a given `endorsement.index` 
+* there is strictly more than one endorsement with a given `endorsement.index`
 
 Lifecycle of an endorsement
 ===========================
@@ -112,22 +112,22 @@ Note that this split also massively increases the frequency at which stakers rec
 
 Choosing the value of `E`
 =========================
-The value of `E` has implication both in the safety and in the performance of the protocol. In terms of performance, the greater the value of `E` is, 
-the more ressources (bandwith, memory, computing power) is needed to generate, broadcast and include endorsements, which could induce latency. 
+The value of `E` has implication both in the safety and in the performance of the protocol. In terms of performance, the greater the value of `E` is,
+the more ressources (bandwith, memory, computing power) is needed to generate, broadcast and include endorsements, which could induce latency.
 One the other hand, the value of `E` has implications in the safety of the protocol. The threat we are looking at here is the finality fork attack.
 
 Finality fork attacks
 ---------------------
 A finality fork attack is when an attacker that controls a portion `beta` of the total stake, decides not to broadcast the blocks he has been selected to produce, in order to construct an alternative and undisclosed clique.
-The attacker's goal is to produce an attack clique that has a fitness greater than the honnest clique. If he manages to do so, the attacker can wait until the finalization time of a block `b` belonging to the honest clique, to broadcast its attack clique. 
-Because the fitness of the attack clique is greater than the honest one, a portion of the network will consider the attacker's clique to be the good version of the chain, while some other portion will have finalized block `b`. This results in a network partion, 
-where two or more portion of the network do not agree on the state of the ledger. 
+The attacker's goal is to produce an attack clique that has a fitness greater than the honnest clique. If he manages to do so, the attacker can wait until the finalization time of a block `b` belonging to the honest clique, to broadcast its attack clique.
+Because the fitness of the attack clique is greater than the honest one, a portion of the network will consider the attacker's clique to be the good version of the chain, while some other portion will have finalized block `b`. This results in a network partion,
+where two or more portion of the network do not agree on the state of the ledger.
 
 Security level
 --------------
 The factors that influence the success probability of a finality fork attack are the number of endorsments per block `E`, the portion of the total stake controlled by the attacker `beta` and a finality parameter `F`.
-The finality parameter `F` respresents a number of descendant a block must have, before being finalized. 
-The portion of the stake `beta` is positively correlated with the success probability of an attack, while `F` and `E` are inversly correlated. 
+The finality parameter `F` respresents a number of descendant a block must have, before being finalized.
+The portion of the stake `beta` is positively correlated with the success probability of an attack, while `F` and `E` are inversly correlated.
 We do not have control over `beta`, thus we define our security level as a portion `beta` and a maximum success probability of an attack.
 We chose `beta = 1/3` because it is the maximum proportion of Byzantine participants BFT based consensus protocols assume. We chose `p_success <= 1e-11` because it corresponds to a period of time of around 10 000 years (given one block every 0.5s).
 We must chose the minimal parameters `F` and `E` that match this security level.

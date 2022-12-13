@@ -37,12 +37,11 @@ ABIs
 ----
 
 In the `massa assemblyscript sdk <https://github.com/massalabs/massa-as-sdk/>`_
-there is a Object called `Context`. You can import it in your smart contract 
-code this way:
+there is a Object called `Context`. You can import it in your smart contract code this way:
 
 .. code-block::
 
-		import { Context } from "@massalabs/massa-as-sdk";
+        import { Context } from "@massalabs/massa-as-sdk";
 
 It exposes some useful functions like:
 

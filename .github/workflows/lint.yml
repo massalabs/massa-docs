@@ -1,0 +1,19 @@
+name: Linter
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install sphinx-lint
+        run: pip install sphinx-lint
+      - name: Run sphinx-lint
+        run: sphinx-lint --enable line-too-long --max-line-length 120
+      - name: Run sphinx-build lint
+        run: make html SPHINXOPTS="-W --keep-going -n"

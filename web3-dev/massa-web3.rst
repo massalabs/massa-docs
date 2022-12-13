@@ -33,7 +33,7 @@ with HTML and JavaScript. If you want to have more details, you can follow
 `this great tutorial from React <https://reactjs.org/tutorial/tutorial.html>`_
 from which the dApp is inspired from.
 
-Here you can find an example dApp for the :ref:`sum smart-contract <sc-example-sum>`: 
+Here you can find an example dApp for the :ref:`sum smart-contract <sc-example-sum>`:
 `Massa DApp example: Sum <https://github.com/massalabs/massa-sc-examples/tree/main/sum/frontend>`_.
 
 Prerequisites:
@@ -43,7 +43,7 @@ Prerequisites:
   * having a smart contract :ref:`deployed <sending-sc-sum>`
 
 **Network**: as any blockchain is a network of nodes, there could be practically several
-networks of different nodes. The main Massa network is called the MainNet. There is also a TestNet which is 
+networks of different nodes. The main Massa network is called the MainNet. There is also a TestNet which is
 ran by Massa Labs team, where you can build applications without paying real Massa
 coins. You can also run your own network, with only one node
 (see :ref:`local-network-generation`).
@@ -58,7 +58,7 @@ To build such application you will need to use some libraries:
   * `massa javascript web3 <https://github.com/massalabs/massa-web3/>`_
 
 Then you will be able to build a frontend application that communicates with
-Thyra's API to sign transactions and submit it to the blockchain. 
+Thyra's API to sign transactions and submit it to the blockchain.
 
 Then, use Thyra to deploy your frontend application.
 
@@ -75,7 +75,7 @@ Work in a local development environment
 
 Run :ref:`a local node <local-network-generation>`.
 
-Start Thyra and bind it to your local node: 
+Start Thyra and bind it to your local node:
 
 .. code-block::
 
@@ -170,7 +170,7 @@ operation:
 
     get_operations 2mLLkdKB4BY4hJQFNwGZ5oQVhky13EVZAwHJXCGQnd3FRHUoHw
 
-This will output something like 
+This will output something like
 
 .. code-block:: text
 
@@ -192,7 +192,7 @@ This will output something like
 
 .. note::
     `target parameter` is empty because parameters are encoded into bytes so it is
-    unlikely to have printable characters. 
+    unlikely to have printable characters.
 
 You can also see events emitted by your contract (assuming that your contract is
 deployed at `A1nyzu9rJKnf2zz8F7mkM5d6ZoThnMuAtUdij9WmcwXWMWJFmEB`):

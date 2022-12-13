@@ -13,7 +13,7 @@ Download the nightly version we use:
 Use the right version:
 
 .. code-block:: bash
-    
+
     rustup default nightly-2022-11-14
 
 Otherwise:

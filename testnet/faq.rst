@@ -33,7 +33,7 @@ You can run the following command in the terminal:
 :code:`nohup cargo run --release &`
 
 the output will go to the `nohup.out` file. You will be able to close
-the terminal safely then. To kill the app you'll have to use 
+the terminal safely then. To kill the app you'll have to use
 :code:`pkill -f massa-node`. You can also use `screen <https://help.ubuntu.com/community/Screen>`_ or `tmux <http://manpages.ubuntu.com/manpages/cosmic/man1/tmux.1.html>`_ for
 example.
 
