@@ -27,9 +27,11 @@ For each of the steps above, you will have the choice to do it manually or autom
 
 As explained Thyra plays the role of a gateway to the Massa blockain.
 Massa being a coin minted in the city of `Massalia <https://en.wikipedia.org/wiki/Massalia>`_,
-the ancient Marseille founded by the Greek, quite naturaly the name `θύρα <https://en.wiktionary.org/wiki/%CE%B8%CF%8D%CF%81%CE%B1>`_
+the ancient Marseille founded by the Greek, quite naturaly the name
+`θύρα <https://en.wiktionary.org/wiki/%CE%B8%CF%8D%CF%81%CE%B1>`_
 (entrance, front door in ancient greek) imposed itself. In order to simplify and standardize its writing,
-we transformed it into Thyra, but its pronunciation `\tʰý.raː\ <https://www.youtube.com/watch?v=_0BQ7sSJMTw>`_ remained.
+we transformed it into Thyra, but its pronunciation `\tʰý.raː\ <https://www.youtube.com/watch?v=_0BQ7sSJMTw>`_ 
+remained.
 
 
 Install Thyra
@@ -38,7 +40,8 @@ Install Thyra
 Automatically
 -------------
 
-- `MacOS installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh>`_
+- `MacOS installation script 
+  <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/macos_install.sh>`_
   or simply use this cmd on your terminal:
 
 .. code-block:: bash
@@ -46,7 +49,8 @@ Automatically
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/macos_install.sh)"
 
 
-- `Windows installation script <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat>`_
+- `Windows installation script
+  <https://github.com/massalabs/thyra/blob/255c6136c6910d17cbb94ce06b1e908d8516713a/scripts/thyra-installer.bat>`_
 
 .. note::
     If you install Thyra with this script using an Ethernet connection,
@@ -55,7 +59,8 @@ Automatically
 
 .. code-block:: bash
 
-    curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/thyra-installer.bat >> thyra-installer.bat && thyra-installer.bat
+    curl -fsSL https://raw.githubusercontent.com/massalabs/thyra/main/scripts/thyra-installer.bat >> thyra-installer.bat
+    thyra-installer.bat
 
 - `Linux Ubuntu installation script <https://github.com/massalabs/thyra/blob/main/scripts/linux_install.sh>`_
 
