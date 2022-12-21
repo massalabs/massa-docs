@@ -2,7 +2,7 @@ Stack system in Massa
 =====================
 
   * ExecuteSC
-      When an account A send an ExecuteSC operation, the stack at the beginning
+      When an account A sends an ExecuteSC operation, the stack at the beginning
       of that execution is:
       `bottom [ A ] top`.
 
@@ -11,7 +11,7 @@ Stack system in Massa
       contract B, the stack at the beginning of the execution of that function
       is:
       `bottom [ A, B ] top`.
-      Note: A and B can be the same
+      Note: A and B can be the same.
 
   * Call from one smart contract to another
       When a function F from smart contract C is being executed with the stack
@@ -20,24 +20,24 @@ Stack system in Massa
       `bottom [A, B, C, D] top`.
       When D's function finishes, the stack becomes
       `bottom [A, B, C] top`
-      and the execution of F resumes
+      and the execution of F resumes.
 
-  * Autonomous SC:
+  * Autonomous SC
       A message sent at a moment when the stack was [A, B, C] and calling a
-      target function F of a smart contrtact D will yield the following stack
+      target function F of a smart contract D, will yield the following stack
       at the beginning of the execution of the target function:
       `bottom [C, D] top`.
-      Note: C and D can be the same
+      Note: C and D can be the same.
 
-  * Local execution (not yet implemented, see https://github.com/massalabs/massa-sc-runtime/issues/170)
-      Local executions don't change the stack: they allow executing foreign code
-      in the current context
+  * Local execution
+      Local executions don't change the stack, they allow executing foreign code
+      in the current context.
 
 ABIs
 ----
 
 In the `massa assemblyscript sdk <https://github.com/massalabs/massa-as-sdk/>`_
-there is a Object called `Context`. You can import it in your smart contract code this way:
+there is an Object called `Context`. You can import it in your smart-contract code this way:
 
 .. code-block::
 
