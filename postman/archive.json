@@ -1,9 +1,10 @@
 {
-  "collection": {
-    "0d52c75d-5c0e-4248-ad24-d9055107df31": true
-  },
   "environment": {
-    "18e672c8-a543-4110-92aa-0e8f454a2709": true,
-    "d79a5536-629a-4f33-bd7a-486053acee1a": true
+    "23d8fad7-9a0d-419c-96dc-8e0178e8e5fe": true,
+    "e2b7d7f4-f432-407d-93ef-6b6babcf4a62": true
+  },
+  "collection": {
+    "ed763ca3-f0e9-469e-b100-1716eadd60da": true,
+    "9e5485f6-f6dd-48bc-8a54-6f00f65fb906": true
   }
 }
