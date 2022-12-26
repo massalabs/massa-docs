@@ -82,6 +82,6 @@ On your client run the following command to add your secret key as staking key:
 
     cd massa-client && cargo run node_add_staking_secret_keys SECRETK
 
-The local network and your node will start after 10 seconds. Once it is started, can now interact with it using
+The local network and your node will start after 10 seconds. Once it is started, you can interact with it using
 the CLI client as you would with a testnet node.
 If you want to run multiple nodes on your local network you need to use :ref:`docker`.
