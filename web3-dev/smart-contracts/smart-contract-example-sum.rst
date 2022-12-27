@@ -9,7 +9,8 @@ Massa's smart-contract examples
 
 In this tutorial, we will go through all the steps required to create a smart contract on Massa.
 
-You can find the complete project on this `Github repository <https://github.com/massalabs/massa-sc-examples/tree/main/sum/contracts>`_.
+You can find the complete project on this
+`Github repository <https://github.com/massalabs/massa-sc-examples/tree/main/sum/contracts>`_.
 
 Prerequisites
 -------------
@@ -67,11 +68,14 @@ You can find it here `assembly/main.ts`.
         return result.toString();
     }
 
-Calling function of a smart contract that is stored in the blockchain with some arguments will start an assemblyscript runtime (wasmer).
+Calling function of a smart contract that is stored in the blockchain with some arguments will start an assemblyscript
+runtime (wasmer).
 This is why each function that you want to be able to call in your smart contract
-must be exported with the `export` keyword and must take one `StaticArray<u8>` argument and return a value of type `StaticArray<u8>`.
+must be exported with the `export` keyword and must take one `StaticArray<u8>` argument and return a value of type
+`StaticArray<u8>`.
 
-Here, we are exporting the sum function. In this function, we deserialize the argument into two integers, with the help of `fromByteString` and `toInt32`.
+Here, we are exporting the sum function. In this function, we deserialize the argument into two integers, with the help
+of `fromByteString` and `toInt32`.
 
 
 Compiling your smart contract
@@ -83,7 +87,8 @@ Your smart contract can be compiled using the command:
 
     npm run build
 
-Note that a `build/deployer.wasm` file has also been generated. It will be used to deploy your contract on Massa network.
+Note that a `build/deployer.wasm` file has also been generated. It will be used to deploy your contract on Massa
+network.
 
 .. _sending-sc-sum:
 
@@ -139,7 +144,8 @@ Interaction with the smart contract
 
 We will now interact with our sum smart contract.
 
-To interact with a smart contract, we can write another smart contract that will be executed, or use the `CallSC` function.
+To interact with a smart contract, we can write another smart contract that will be executed, or use the `CallSC`
+function.
 In our example, we will use the file `caller.ts` in the `assembly` directory.
 
 .. code-block:: typescript
@@ -165,7 +171,8 @@ In our example, we will use the file `caller.ts` in the `assembly` directory.
 Note that we use the address where the contract has been deployed: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9.
 
 First we need to compile the `caller.ts` smart contract.
-For the covenience of this example we have added an npm script `npm run build:caller` which will compile `caller.ts` and write the generated wasm in `build/caller.wasm`
+For the covenience of this example we have added an npm script `npm run build:caller` which will compile `caller.ts` and
+write the generated wasm in `build/caller.wasm`
 
 .. code-block::
 

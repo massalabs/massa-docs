@@ -55,7 +55,8 @@ Replace the code in the file by the following code:
 Don't forget to save the file. Before starting compilation, just a few words to describe what is used here:
 
 * line 1: `generateEvent` function is imported from Massa SDK (@massalabs/massa-as-sdk).
-  This function will generate an event with the string given as argument. Events can be later recovered using a Massa client.
+  This function will generate an event with the string given as argument. Events can be later recovered using a Massa
+  client.
 * line 3: `main` function is exported. This means that the main function will be
   callable from the outside of the WebAssembly module (more about that later).
 * line 4: `generateEvent` function is called with "Hello world!". Brian, we are thinking of you!
@@ -163,7 +164,8 @@ local node with the following command inside the **client cli**:
    - <path to wasm file>: the full path (from the root directory to the file extension .wasm)
      of the hello smart contract, generated in the previous chapter.
    - 100000: the maximum amount of gas that the execution of your smart contract is allowed to use.
-   - Two 0 parameters that can be safely ignored by now. If you want more info on them, use the command `help send_smart_contract`.
+   - Two 0 parameters that can be safely ignored by now. If you want more info on them, use the command
+     `help send_smart_contract`.
 
 .. note::
 

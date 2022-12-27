@@ -12,7 +12,8 @@ How to launch a local network with custom settings and initial coins & rolls rep
 On Docker
 ---------
 
-Full documentation about launching a local network on Docker is available here : https://github.com/massalabs/massa-network-simulator
+Full documentation about launching a local network on Docker is available here:
+https://github.com/massalabs/massa-network-simulator
 
 On your OS
 ----------
@@ -81,5 +82,6 @@ On your client run the following command to add your secret key as staking key:
 
     cd massa-client && cargo run node_add_staking_secret_keys SECRETK
 
-The network with your node all start in 10 seconds and you can now interact it with the CLI client like a testnet node.
+The local network and your node will start after 10 seconds. Once it is started, you can interact with it using
+the CLI client as you would with a testnet node.
 If you want to run multiple nodes on your local network you need to use :ref:`docker`.

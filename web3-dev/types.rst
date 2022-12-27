@@ -6,7 +6,8 @@
 Types
 #####
 
-The following `AssemblyScript <https://www.assemblyscript.org>`__ types can be helpful in your smart contract journey without having to reinvent the wheel.
+The following `AssemblyScript <https://www.assemblyscript.org>`__ types can be helpful in your smart contract journey
+without having to reinvent the wheel.
 
 .. note::
    You know a nugget that could be added to this list or you have a specific need for a new type?
@@ -41,7 +42,8 @@ A representation of a value in a :ref:`Currency`.
 
 .. warning::
 
-    `Amount` implements :ref:`Valider` as some operations, such as subtraction leading to a negative value, can result in an invalid `Amount`.
+    `Amount` implements :ref:`Valider` as some operations, such as subtraction leading to a negative value, can result
+    in an invalid `Amount`.
 
 Usage
 -----
@@ -70,7 +72,10 @@ An interface to unify how invalid types are handled.
 
 .. note::
 
-   * `Exception handling proposal <https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md>`_ is not yet implemented in `Wasmer <https://webassembly.org/roadmap>`_ or in `AssemblyScript <https://www.assemblyscript.org/status.html>`__;
+   * `Exception handling proposal
+     <https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md>`_ is not
+     yet implemented in `Wasmer <https://webassembly.org/roadmap>`_ or in
+     `AssemblyScript <https://www.assemblyscript.org/status.html>`__;
    * `Result` type is not implemented;
 
    Then this is the only way to perform an action on a type and check later if the type is still valid.
