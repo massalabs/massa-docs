@@ -14,6 +14,12 @@ Massa JSON-RPC API is splitted in two parts :
 - **Private API**: used for node management. Default port: 33034 e.g. http://localhost:33034
 - **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
 
+.. warning::
+Massa has a new experimental API with both Http and WebSocket support: Default port: 33036
+
+- **Http**: used for node management and blockchain interactions. e.g. http://localhost:33036
+- **WebSocket**: used for streaming blockchain events. e.g. ws://localhost:33036
+
 Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
 
 Integrations
@@ -133,6 +139,103 @@ Error example:
     },
     "id": 1
     }
+
+
+WebSockets support
+==================
+
+In this section we'll learn how to enable and subscribe to WebSockets via Postman client.
+
+.. warning::
+    - Experimental support for WebSocket is a feature that is subject to change in a future releases.
+
+Available subscriptions: 
+
+- `subscribe_new_blocks/unsubscribe_new_blocks`: subscribe/unsubscribe to/from new produced blocks.
+- `subscribe_new_blocks_headers/unsubscribe_new_blocks_headers`: subscribe/unsubscribe to/from new produced blocks headers.
+- `subscribe_new_filled_blocks/unsubscribe_new_filled_blocks`: subscribe/unsubscribe to/from new produced filled blocks with operations content.
+
+To enable WebSocket support in Massa node, edit file :code:`massa-node/config/config.toml` (create it if absent) with the following contents:
+
+.. code-block:: toml
+
+    [api]
+        # whether to enable WS.
+        enable_ws = true
+
+Postman brings support for WebSocket APIs, more information about it `here <https://blog.postman.com/postman-supports-websocket-apis/>`_.
+
+.. image:: postman_websocket.png
+
+-   run the massa node
+-   connect to :code:`ws://localhost:33036`
+-   send the request message:
+
+    .. code-block:: json
+    
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "subscribe_new_filled_blocks",
+            "params": []
+        }
+
+- If the request succeed, the response will contains a subscription id:
+    .. code-block:: json
+    
+        {
+            "jsonrpc": "2.0",
+            "result": 3508678639232691,
+            "id": 1
+        }
+
+- Result:
+    .. code-block:: json
+
+        {
+            "jsonrpc": "2.0",
+            "method": "new_filled_blocks",
+            "params": {
+                "subscription": 3508678639232691,
+                "result": "FILLED_BLOCK_CONTENT_0"
+            }
+        }
+
+- A message is received everytime a filled block is produced:
+    .. code-block:: json
+
+        {
+            "jsonrpc": "2.0",
+            "method": "new_filled_blocks",
+            "params": {
+                "subscription": 3508678639232691,
+                "result": "FILLED_BLOCK_CONTENT_N"
+            }
+        }
+
+- unsubscribe and stop receiving new filled blocks:
+    .. code-block:: json
+    
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "unsubscribe_new_filled_blocks",
+            "params": [3508678639232691]
+        }
+
+- Result:
+    .. code-block:: json
+    
+        {
+            "jsonrpc": "2.0",
+            "result": true,
+            "id": 1
+        }
+
+
+.. note::
+
+    Multiple subscriptions are supported
 
 Explore Massa Blockchain
 ========================
