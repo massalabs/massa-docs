@@ -5,7 +5,7 @@ Storage Costs
 Explanations
 ------------
 
-In Massaa the ledger is shared across all nodes of the network. We need to set a size limit to be able to run a node without
+In Massa the ledger is shared across all nodes of the network. We need to set a size limit to be able to run a node without
 having 100TB of storage which will cause a barrier for adoption and running nodes at home.
 We chose to limit the size to 1TB. Everyone can store data until the ledger reach 1TB. But how can we ensure this limit ?
 
