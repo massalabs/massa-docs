@@ -77,6 +77,6 @@ Miscellaneous
 - `Telegram Bot answering FAQs <https://t.me/paramassa_bot>`_
 - `A website with news, articles and tutorials about Massa <https://massadopted.com>`_
 
----
+----
 
 - `Spanish - Security recommendations when running a node <https://medium.com/@cumulo.pro/recomendaciones-de-seguridad-si-ejecutas-un-nodo-en-massa-deb2da5a5d43>`_
