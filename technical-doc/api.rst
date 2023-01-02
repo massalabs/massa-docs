@@ -154,6 +154,7 @@ Available subscriptions:
 - `subscribe_new_blocks/unsubscribe_new_blocks`: subscribe/unsubscribe to/from new produced blocks.
 - `subscribe_new_blocks_headers/unsubscribe_new_blocks_headers`: subscribe/unsubscribe to/from new produced blocks headers.
 - `subscribe_new_filled_blocks/unsubscribe_new_filled_blocks`: subscribe/unsubscribe to/from new produced filled blocks with operations content.
+- `subscribe_new_operations/unsubscribe_new_operations`: subscribe/unsubscribe to/from new received(from network) operations.
 
 To enable WebSocket support in Massa node, edit file :code:`massa-node/config/config.toml` (create it if absent) with the following contents:
 
