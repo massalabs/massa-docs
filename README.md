@@ -1,3 +1,9 @@
+# Massa docs
+
+Massa documentation repository.
+
+[![Docs](https://img.shields.io/static/v1?label=massa&message=docs&color=blue)](https://docs.massa.net/)
+
 ## Setup
 
 python -m venv venv
@@ -18,4 +24,3 @@ then run:
 ```commandline
 make html
 ```
-
