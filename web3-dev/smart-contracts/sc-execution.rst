@@ -1,6 +1,6 @@
-======================
+========================
 Smart contract execution
-======================
+========================
 
 Introduction
 ============
@@ -8,21 +8,20 @@ Introduction
 In Massa you can execute smart contracts not only deploy and call.
 There is different possibilities to execute smart contracts in different contexts.
 This documentation will explain you the different possibilities and how to use them.
-You can choose the one that match the most your usecase.
+You can choose the one that match the most your use-case.
 
 All of this way to execute smart contracts are available 
 in the smart contract sdk `massa-web3 <https://github.com/massalabs/massa-web3>`_.
 
-Differents ways to execute smart contracts
-==========================================
+Different ways to execute smart contracts
+=========================================
 
 Operation execute smart contract
 --------------------------------
 
 This operation allow you to send a smart contract 
-that will be executed on the blockchain (not stored) and can perform all the states changes as a normal smart contract.
-It's often the best way to deploy an other smart contract 
-using the operation datastore of the execute operation.
+that will be executed on the blockchain (not stored) and can perform all the state changes as a normal smart contract.
+It's often the best way to deploy an other smart contract using the operation datastore of the execute operation.
 Our `deployer <https://github.com/massalabs/massa-sc-toolkit/blob/main/packages/sc-deployer/src/index.ts>`_ 
 use this operation to deploy smart contracts.
 
@@ -35,13 +34,13 @@ on the blockchain with specific parameters and coins.
 An `example <https://github.com/massalabs/massa-web3#smart-contract-read-and-write-calls>`_ using massa-web3 will 
 show you how to make call smart contract in JS/TS/NodeJS.
 
-Read only execute and calls smart contract
-------------------------------------------
+Read only execute and call smart contract
+-----------------------------------------
 
-You can also execute or calls smart contracts in read only mode.
-Read only execute will execute the smart-contract as a normal execution but not in a block and so all the 
+You can also execute or call smart contracts in read only mode.
+Read only execute will execute the smart contract as a normal execution but not in a block and so all the 
 state changes and events will be returned to you instead of being applied in the blockchain.
-This can help you estimate the cost of a future operation or the state changes it will implies.
+This can help you estimate the cost of a future operation or the state changes it will imply.
 
 Read only calls will execute the smart contract function and return the result without any state changes also.
 It can allow to get some information or values from a smart contract and/or his storage.
