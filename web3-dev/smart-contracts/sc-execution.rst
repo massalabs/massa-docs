@@ -10,14 +10,14 @@ There is different possibilities to execute smart contracts in different context
 This documentation will explain you the different possibilities and how to use them.
 You can choose the one that match the most your use-case.
 
-There is examples for the differents ways to execute smart contracts available
-in the smart contract sdk `massa-web3 <https://github.com/massalabs/massa-web3>`_.
+You can find examples for the different ways to execute smart contracts in the smart contract 
+sdk `massa-web3 <https://github.com/massalabs/massa-web3>`_.
 
 Different ways to execute smart contracts
 =========================================
 
-Operation execute smart contract
---------------------------------
+"Execute Smart Contract" operation
+----------------------------------
 
 This operation allow you to send a smart contract 
 that will be executed on the blockchain (not stored) and can perform all the state changes as a normal smart contract.
@@ -25,8 +25,8 @@ It's often the best way to deploy an other smart contract using the operation da
 Our `deployer <https://github.com/massalabs/massa-sc-toolkit/blob/main/packages/sc-deployer/src/index.ts>`_
 uses this operation to deploy smart contracts.
 
-Operation call smart contact
-----------------------------
+"Call Smart Contract" operation
+-------------------------------
 
 This operation allow you to call the function of a smart contract that exists
 on the blockchain with specific parameters and coins.
