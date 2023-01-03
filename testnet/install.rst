@@ -31,8 +31,8 @@ On Ubuntu / MacOS
 - install `rustup <https://www.rust-lang.org/tools/install>`_: :code:`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - configure path: :code:`source $HOME/.cargo/env`
 - check rust version: :code:`rustc --version`
-- install `nigthly <https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html>`_: :code:`rustup toolchain install nightly-2022-11-14`
-- set it as default: :code:`rustup default nightly-2022-11-14`
+- install `nigthly <https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html>`_: :code:`rustup toolchain install nightly-2022-12-24`
+- set it as default: :code:`rustup default nightly-2022-12-24`
 - check rust version: :code:`rustc --version`
 - clone this repo: :code:`git clone --branch testnet https://github.com/massalabs/massa.git`
 
@@ -62,4 +62,4 @@ On Windows
 - Open Windows Power Shell
 
   - Clone the latest distributed version: :code:`git clone --branch testnet https://github.com/massalabs/massa.git`
-  - Change default Rust to nightly: :code:`rustup default nightly-2022-11-14`
+  - Change default Rust to nightly: :code:`rustup default nightly-2022-12-24`
