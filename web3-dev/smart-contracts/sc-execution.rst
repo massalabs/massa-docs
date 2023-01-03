@@ -59,6 +59,4 @@ Local Call in Smart Contract SDK
 As the call function, you can also call a smart contract from the code of an other
 one, but execute it in your current context.
 
-For example if the smart contract called use the function
-from the sdk `Storage.set(key, value)` the value will be set in the storage of the smart contract
-that call the other one and not in the storage of the called smart contract.
+For example if the called smart contract uses the SDK function `Storage.set(key, value)`, the value will be set in the storage of the smart contract that made the call. The storage of the called smart contract won't be affected. 
