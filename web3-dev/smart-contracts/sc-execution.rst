@@ -1,5 +1,5 @@
 ========================
-Smart contract execution
+Smart-contract execution
 ========================
 
 Introduction
@@ -34,32 +34,30 @@ on the blockchain with specific parameters and coins.
 An `example <https://github.com/massalabs/massa-web3#smart-contract-read-and-write-calls>`_ in massa-web3
 show you how to make call smart contract in JS/TS/NodeJS.
 
-Read only execute and call smart contract
+Read-only Execute and Call Smart Contract
 -----------------------------------------
 
-You can also execute or call smart contracts in read only mode.
+You can also execute or call smart contracts in read-only mode.
 Read only execute will execute the smart contract as a normal execution but not in a block and so all the 
 state changes and events will be returned to you instead of being applied in the blockchain.
-This can help you estimate the cost of a future operation or the state changes it will imply.
-For example, it can allow to get some information or values from a smart contract and/or his storage.
+This can help you estimate the cost of a future operation, or the state changes it will imply.
+For example, it can provide information about a smart contract, as well as its storage content.
 
 An `example <https://github.com/massalabs/massa-web3#smart-contract-read-and-write-calls>`_ using massa-web3
 will show you how to make read-only calls and execute of smart contract in JS/TS/NodeJS.
 
-Call in smart contract sdk
+Call in Smart-contract SDK
 --------------------------
 
-You can call a smart contract from the code of an other one. You can pass arbitrary parameters and
-coins to the called smart contract.
+Calling one smart contract from another is a feature provided by the smart-contract Assembly Script SDK. 
 
-This can be done using the `call` function of the smart contract Assembly script sdk. You can find an example
-`here <https://github.com/massalabs/massa-sc-examples/blob/main/games/tictactoe/smart-contract/assembly/main.ts>`_
+`this example <https://github.com/massalabs/massa-sc-examples/blob/main/games/tictactoe/smart-contract/assembly/main.ts>` describes the use of the `call` function to send coins from the call source to the call destination.
 
-Local call in smart contract sdk
+Local Call in Smart Contract SDK
 --------------------------------
 
 As the call function, you can also call a smart contract from the code of an other
-one but execute it in your current context.
+one, but execute it in your current context.
 
 For example if the smart contract called use the function
 from the sdk `Storage.set(key, value)` the value will be set in the storage of the smart contract
