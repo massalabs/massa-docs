@@ -32,7 +32,7 @@ This operation allow you to call the function of a smart contract that exists
 on the blockchain with specific parameters and coins.
 
 An `example <https://github.com/massalabs/massa-web3#smart-contract-read-and-write-calls>`_ in massa-web3
-show you how to make call smart contract in JS/TS/NodeJS.
+shows you how to make the call smart-contract operation in JS/TS/NodeJS.
 
 Read-only Execute and Call Smart Contract
 -----------------------------------------
