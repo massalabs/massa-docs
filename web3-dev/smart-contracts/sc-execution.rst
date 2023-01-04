@@ -37,14 +37,14 @@ shows you how to make the call smart-contract operation in JS/TS/NodeJS.
 Read-only Execute and Call Smart Contract
 -----------------------------------------
 
-You can also execute or call smart contracts in read-only mode.
-Read-only execute will execute a smart contract, as in any normal execution, but not store it in a block. Therefore, all
-state changes and events will be returned to you, instead of being applied (stored) in the blockchain.
-This can help you estimate the cost of a future operation, or the state changes it will imply.
-For example, it can provide information about a smart contract, as well as its storage content.
+Read-only execute will "dry-run" a smart contract, i.e. execute as per normal, emitting its effects which can be read, but without propagating them into a block. 
 
-An `example <https://github.com/massalabs/massa-web3#smart-contract-read-and-write-calls>`_ using massa-web3
-will show you how to make read-only calls and read-only execute of a smart contract in JS/TS/NodeJS.
+Useful use-cases can include: 
+
+- "Dry-running" future operations to estimate what their costs will be, and the state changes they imply
+- Obtaining information on a smart contract, including its current state and stored data
+
+A concrete example using massa-web3 library compatible with JS/TS/NodeJS can be found `here <https://github.com/massalabs/massa-web3#smart-contract-read-and-write-calls>`_ 
 
 Call in Smart-contract SDK
 --------------------------
