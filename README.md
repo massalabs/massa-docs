@@ -4,12 +4,14 @@ Massa documentation repository.
 
 [![Docs](https://img.shields.io/static/v1?label=massa&message=docs&color=blue)](https://docs.massa.net/)
 
-## Setup
+## Build doc locally
+
+### Setup
 
 python -m venv venv
 venv/bin/python -m pip install -r requirements.txt
 
-## Build doc locally
+### Build
 
 [Edit Makefile] change the following line from:
 
