@@ -6,11 +6,11 @@ Introduction
 ============
 
 Massa introduces more options when it comes to meeting different requirements for execution contexts.
+In particular, you are not limited to the standard way of deploying smart contract, and then
+calling that contract using a transaction.
 
-You can execute arbitrary smart contracts. You are not limited to the classic way of deploying and then
-calling that contract. There are different possibilities how to execute smart contracts depending on the context. This
-documentation will explain you different possibilities and how to use them. You can choose the one that most matches
-your use-case.
+This documentation details the different possibilities regarding smart contract execution,
+and how to use them so that you can choose the one that most matches your use-case.
 
 You can find examples for the different ways to execute smart contracts in the smart contract 
 sdk `massa-web3 <https://github.com/massalabs/massa-web3>`_.
