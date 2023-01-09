@@ -33,7 +33,9 @@ Start the interactive client and load a wallet file:
 
     cargo run
 
-It will ask your wallet password in order to load `wallet.dat`, or load it from the :code:`MASSA_CLIENT_PASSWORD` environment variable. If the file does not exist, you will be asked to set a password and it will be created.
+It will ask your wallet password in order to load `wallet.dat`,
+or load it from the :code:`MASSA_CLIENT_PASSWORD` environment variable.
+If the file does not exist, you will be asked to set a password and it will be created.
 
 If your client is running
 -------------------------
