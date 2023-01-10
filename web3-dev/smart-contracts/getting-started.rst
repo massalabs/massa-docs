@@ -5,7 +5,8 @@
 Getting started
 ===============
 
-In this section you will learn how to compile your first Massa smart contract.
+In this section you will learn how to setup your smart contract development environment, how to deploy your
+first Massa smart contract and how to call that smart contract.
 
 Setting up a new project
 ------------------------
@@ -22,10 +23,6 @@ smart-contract project. To create a smart-contract project, invoke the toolkit b
 
 You have now npm project created with AssemblyScript installed among other dependencies.
 It will be used to generate bytecode from AssemblyScript code.
-
-.. note::
-   Massa smart-contract module (`@massalabs/massa-as-sdk`) contains the API you need
-   to use to interact with the external world of the smart contract (the node, the ledger...).
 
 Congratulations! Now you have a fully set up project and you are ready to add some code.
 
@@ -46,20 +43,26 @@ Replace the code in the file by the following code:
 
 .. code-block:: typescript
 
-   import { generateEvent } from "@massalabs/massa-as-sdk";
+   // The entry file of your WebAssembly module.
+   import { generateEvent } from '@massalabs/massa-as-sdk';
 
-   export function main(_args: StaticArray<u8>): void {
-      generateEvent("Hello world!");
+   export function event(_: StaticArray<u8>): void {
+     const message = "Hello world";
+     generateEvent(message);
    }
+
+.. note::
+   Massa smart-contract module (`@massalabs/massa-as-sdk`) contains the API you need
+   to use to interact with the external world of the smart contract (the node, the ledger...).
 
 Don't forget to save the file. Before starting compilation, just a few words to describe what is used here:
 
 * line 1: `generateEvent` function is imported from Massa SDK (@massalabs/massa-as-sdk).
-  This function will generate an event with the string given as argument. Events can be later recovered using a Massa
-  client.
-* line 3: `main` function is exported. This means that the main function will be
-  callable from the outside of the WebAssembly module (more about that later).
-* line 4: `generateEvent` function is called with "Hello world!". Brian, we are thinking of you!
+  This function will generate an event with the string given as argument. Events can be later recovered from the Massa
+  client or through the API.
+* line 3: `event` function is exported. This means that the event function can be called
+  by another smart contract.
+* line 4: `generateEvent` function is called with "Hello world!".
 
 Now that everything is in place, we can start the compilation step by running the following command:
 
@@ -71,7 +74,6 @@ Congratulations! You have generated your first smart contract: the `main.wasm` f
 Note that a `deployer.wasm` file has also been generated. It will be used to deploy your contract on Massa network.
 
 .. note::
-
    If due to bad luck you have an error at compilation time:
 
    * check that you properly followed all the steps,
@@ -84,8 +86,11 @@ Note that a `deployer.wasm` file has also been generated. It will be used to dep
 Deploy your smart contract
 --------------------------
 
-Your smart contract is now ready to be pushed and executed on the Massa network.
-In order to deploy it, you need to own a Massa wallet and some MAS coins on it.
+Your smart contract is now ready to be deployed and later executed on the Massa network.
+
+Uploading a smart contract on the Massa blockchains requires coins. On top of the usual gas
+costs, Massa has also :ref:`storage costs <storage-cost>`. In order to deploy your smart contract,
+you thus need to own a Massa wallet and have some MAS coins on it.
 
 .. note::
    * If you don't have any wallet configured yet, :ref:`create a new one <wallet>`.
@@ -94,31 +99,37 @@ In order to deploy it, you need to own a Massa wallet and some MAS coins on it.
 
 In any case, keep the `Address` and `Secret key` of your wallet, you will use it later.
 
-There are two ways you can deploy your smart contract. The easiest and the recommended way is
-to deploy the smart contract with the smart-contract toolkit (:ref:`Option 1 <sc-option-1>` below).
+Configuring the toolkit for deployment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The second option is to deploy the smart contract, through Massa client,
-by running your own node (:ref:`Option 2 <sc-option-2>`).
-
-.. _sc-option-1:
-
-Option 1: Deploy your smart contract from the toolkit
------------------------------------------------------
-
-To send the transaction on the network, you need to provide your wallet's secret key.
-This is done using environment variable in `.env` file.
+To pay for the operation cost, you need to configure the toolkit with your wallet's secret key.
+This is done using the `.env` file. The toolkit comes with a template `.env` file that you can use:
 
 .. code-block::
 
     cp .env.example .env
 
-This command will create a `.env` file. Now fill it with your wallet secret key.
+Now fill the `WALLET_PRIVATE_KEY` variable with your wallet secret key.
 
-Then run the following command:
+You are now ready to deploy you smart contract with the following command:
 
 .. code-block:: shell
 
    npm run deploy
+
+.. code-block:: shell
+   > my-massa-sc@0.0.1 deploy
+   > ts-node tools/deployer/deploy-contract.ts
+
+   Deploying smart contract: ./build/deployer.wasm
+
+   Operation submitted successfully to the network. Operation id: O12ncNMhDySaYTeeZ8MEphNrDL4zsJBrAcLUUkzkEs5aFVDiSH4S
+
+   Waiting for the state of operation to be Final... this may take few seconds
+
+   Deployment success with event: Contract deployed at address: A1hkG6o14RakRH1R5EHzQhFuSkkXXtrtHh8soX9Ldh6s22MuDDX
+
+
 
 Wait for a few seconds... It should return you the deployed smart contract address.
 
