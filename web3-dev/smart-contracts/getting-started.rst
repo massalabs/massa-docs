@@ -17,8 +17,8 @@ Update or `install <https://docs.npmjs.com/downloading-and-installing-node-js-an
 smart-contract project. To create a smart-contract project, invoke the toolkit by running:
 
 .. code-block:: shell
-
-  npx @massalabs/sc-toolkit init my-sc && cd my-sc
+  
+  npx @massalabs/sc-toolkit@dev init my-sc && cd my-sc
 
 You have now npm project created with AssemblyScript installed among other dependencies.
 It will be used to generate bytecode from AssemblyScript code.
