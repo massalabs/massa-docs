@@ -860,11 +860,10 @@ Get information about block `graph <https://docs.massa.net/en/latest/technical-d
         "id": 1
     }
 
-`get_block`
+`get_blocks`
 -----------
 
-Get information about `block <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>`_  given its hash.
-
+Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>` associated to a given hash(s).
 - Query:
 
 .. code-block:: shell
@@ -874,8 +873,8 @@ Get information about `block <https://docs.massa.net/en/latest/general-doc/archi
     --data-raw '{
         "jsonrpc": "2.0",
         "id": 1,
-        "method": "get_block",
-        "params": ["D6kTS4Wh3B7FRDCw6ncqrCuY7NVPYBbGwdSg814Kd13fS7xQa"]
+        "method": "get_blocks",
+        "params": [["D6kTS4Wh3B7FRDCw6ncqrCuY7NVPYBbGwdSg814Kd13fS7xQa"]]
     }'
 
 -   Result:
