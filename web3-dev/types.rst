@@ -6,12 +6,11 @@
 Types
 #####
 
-The following `AssemblyScript <https://www.assemblyscript.org>`__ types can be helpful in your smart contract journey
-without having to reinvent the wheel.
+Massa AS-types package (`@massalabs/as-types`) contains assemblyscript objects designed to facilitate the writing of smart contracts.
 
 .. note::
    You know a nugget that could be added to this list or you have a specific need for a new type?
-   `Open an issue <https://github.com/massalabs/massa-sc-library/issues>`_ to discuss about it!
+   `Open an issue <https://github.com/massalabs/as/issues>`_ to discuss about it!
 
 .. _Currency:
 
@@ -25,13 +24,13 @@ Usage
 
 .. code-block:: typescript
 
-    import {Currency} from 'mscl-type';
+    import { Currency } from '@massalabs/as-types';
 
     const euro = new Currency("Euro", 2);
     const yen = new Currency("Japanese yen", 0);
     const isSame = euro.sameAs(yen); // False
 
-More info at `module repository <https://github.com/massalabs/massa-sc-library/tree/main/type>`_.
+More info in the `Currency documentation <https://as-types.docs.massa.net/classes/Currency.html>`_.
 
 .. _Amount:
 
@@ -40,18 +39,12 @@ Amount
 
 A representation of a value in a :ref:`Currency`.
 
-.. warning::
-
-    `Amount` implements :ref:`Valider` as some operations, such as subtraction leading to a negative value, can result
-    in an invalid `Amount`.
-
 Usage
 -----
 
 .. code-block:: typescript
 
-    import {Currency} from 'mscl-type';
-    import {Amount} from 'mscl-type';
+    import { Amount, Currency } from '@massalabs/as-types';
 
     const euro = new Currency("Euro", 2);
 
@@ -61,38 +54,39 @@ Usage
     cont isEnough = price.lessThan(accountBalance); // False
     const isValidAmount = accountBalance.substract(price).isValid(); // False
 
-More info at `module repository <https://github.com/massalabs/massa-sc-library/tree/main/type>`_.
+More info in the `Amount documentation <https://as-types.docs.massa.net/classes/Amount.html>`_.
 
-.. _Valider:
+.. _Args:
 
-Valider
-=======
+Args
+====
 
-An interface to unify how invalid types are handled.
-
-.. note::
-
-   * `Exception handling proposal
-     <https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md>`_ is not
-     yet implemented in `Wasmer <https://webassembly.org/roadmap>`_ or in
-     `AssemblyScript <https://www.assemblyscript.org/status.html>`__;
-   * `Result` type is not implemented;
-
-   Then this is the only way to perform an action on a type and check later if the type is still valid.
+A class used to serialize and deserialize arguments (of functions, data to/from storage...).
 
 Usage
 -----
 
+Serialization
+-------------
 .. code-block:: typescript
 
-    import {Valider} from 'mscl-type';
+    import { Address, call } from '@massalabs/massa-as-sdk';
 
-    export MyAwesomeType implements Valider {
-        ...
-        isValid():bool {
-            // check if the type is still valid
-        }
-    }
+    const address = new Address(
+        'A17vYbpxBxiwNgYM4WgnLyMwNzj8vp5t13QMJvZMbhGyJyysxs6',
+    );
+    const stringArgument = "myStringArgument!"
+    call(address, 'mySCFunction', new Args().add(stringArgument), 0);
     ...
 
-More info at `module repository <https://github.com/massalabs/massa-sc-library/tree/main/type>`_.
+Deserialization
+---------------
+.. code-block:: typescript
+
+    import { Args } from '@massalabs/as-types';
+
+    export function sayHello(args: StaticArray<u8>): void {
+    const stringArgument = new Args(args).nextString().unwrap();
+    ...
+
+See all Args methods and supported types for serialization/deserialization in the `Args documentation <https://as-types.docs.massa.net/classes/Args.html>`_.
