@@ -5,8 +5,8 @@
 Getting started
 ===============
 
-In this section you will learn how to setup your smart contract development environment, how to deploy your
-first Massa smart contract and how to call that smart contract.
+In this section you will learn how to set up your smart-contract development environment, how to deploy your
+first Massa smart contract, and how to call that smart contract.
 
 Setting up a new project
 ------------------------
@@ -162,9 +162,9 @@ Then replace `<your contract address>` by the address of the deployed contract t
       return;
    }
 
-* line 4: `constructor` is a special function that is called when the run smart-contract is deployed.
-* line 9: `callHelloContract` function initialises an Address object using the address of the deployed smart-contract and then calls the `sayHello` function of the smart contract.
-* line 13: `call` function calls the given function of the smart contract deployed at the given address.
+* line 4: `constructor` is a special function that is called when the run smart contract is deployed.
+* line 9: `callHelloContract` function initialises an Address object using the address of the deployed smart contract and then calls the `sayHello` function of the smart contract.
+* line 13: `call` function calls the given function of the smart contract, deployed at the given address.
 
 Now that everything is ready, we have to build our new contract:
 
