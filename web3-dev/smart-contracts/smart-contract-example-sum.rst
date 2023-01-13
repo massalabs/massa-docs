@@ -1,7 +1,7 @@
 .. _sc-example-sum:
 
-Massa's smart-contract examples
-===============================
+Massa's smart-contract by example
+=================================
 
 .. note::
 
