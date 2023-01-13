@@ -110,7 +110,7 @@ instructions.
 From scores to rewards
 ----------------------
 
-The launch of mainnet is planned for 2022.
+The launch of mainnet is planned for 2023.
 
 By this time, people will be able to claim their rewards through a KYC
 process (most likely including video/liveness) to ensure that the same
