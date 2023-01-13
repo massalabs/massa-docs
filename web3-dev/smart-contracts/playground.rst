@@ -14,9 +14,9 @@ At the moment, Playground is also limited in terms of imported smart-contract me
 
 The available methods are:
 
-* getOf & setOf to to interact with data (read and write)
-* generateEvent to log blockchain content easily
-* unsafeRandom to generate a random Number between 0 and the max Safe integer
+* `getOf`` and `setOf`` to to interact with data (read and write)
+* `generateEvent`` to log blockchain content easily
+* `unsafeRandom` to generate a random Number between 0 and the max Safe integer
 
 The available classes are:
 
@@ -38,4 +38,3 @@ testERC20.ts>`_ you can explore directly in the Playground’s workspace.
 If you need more functionality and methods, or if you wish to request additional features, please submit an issue in
 `the Smart-contract Playground Github repository <https://github.com/massalabs/massa-sc-playground>`_. We will do our
 best to provide you with everything you need to explore the power and potential of Massa’s smart contracts.
-
