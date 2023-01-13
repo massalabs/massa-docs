@@ -1,3 +1,7 @@
+.. index:: storage, cost
+
+.. _storage-cost:
+
 ========================
 Storage Costs
 ========================
