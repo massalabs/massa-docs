@@ -82,8 +82,8 @@ Go to this page and follow instructions:
 `http://my.massa/thyra/websiteCreator/index.html <http://my.massa/thyra/websiteCreator/index.html>`_
 
 .. warning::
-    Due to storage costs, storing websites on the Massa blockchain requires coins. Make sure that the wallet you use
-    to upload your website has enough coin (about 100 coins per MB).
+    Due to :ref:`storage costs <storage-cost>`, storing websites on the Massa blockchain requires coins. Make sure that
+    the wallet you use to upload your website has enough coin (about 100 coins per MB).
 
 Browse Massa's decentralized web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
