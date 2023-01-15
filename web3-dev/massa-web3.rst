@@ -24,3 +24,5 @@ You'll find examples of frontends using the `massa-web3` library in the
 
 - `blog <https://github.com/massalabs/massa-sc-examples/tree/main/blog>`_ is an
   example of a decentralized blog platform.
+- `age <https://github.com/massalabs/massa-sc-examples/tree/main/age>`_ contains a basic
+  example of a SC with a front in plain JS and ReactJS.
