@@ -1,4 +1,4 @@
-.. index:: smart contracts, assemblyscript
+.. index:: smart contracts, AssemblyScript
 
 .. _web3-dev-sc:
 
