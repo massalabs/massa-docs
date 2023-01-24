@@ -97,6 +97,7 @@ Contents
    testnet/rewards.rst
    testnet/faq.rst
    testnet/community-resources.rst
+   testnet/all-config.rst
 
 .. toctree::
    :maxdepth: 2
