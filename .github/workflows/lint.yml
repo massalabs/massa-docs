@@ -11,12 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install wget package
-        run: |
-         sudo apt-get -y install wget
       - name: Download config files from Massa testnet branch
         run: |  
-         wget -N -P ./external -i ./external/config-files.txt
+         wget -N -P ./external/node/ -i ./external/node/config-files.txt && 
+         wget -N -P ./external/client/ -i ./external/client/config-files.txt
       - name: Install sphinx-lint
         run: pip install sphinx-lint
       - name: Run sphinx-lint
