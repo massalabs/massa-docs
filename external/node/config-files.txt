@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/massalabs/massa/testnet/massa-node/base_config/config.toml
+https://raw.githubusercontent.com/massalabs/massa/testnet/massa-node/base_config/bootstrap_whitelist.json

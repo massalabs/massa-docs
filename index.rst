@@ -95,8 +95,10 @@ Contents
    testnet/staking.rst
    testnet/routability.rst
    testnet/rewards.rst
+   testnet/all-config.rst
    testnet/faq.rst
    testnet/community-resources.rst
+
 
 .. toctree::
    :maxdepth: 2

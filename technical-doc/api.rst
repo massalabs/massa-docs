@@ -1,8 +1,8 @@
-.. index:: api, JSON-RPC
+.. index:: api, JSON-RPC, WebSocket
 
 .. _technical-api:
 
-==================
+
 Massa JSON-RPC API
 ==================
 
@@ -15,11 +15,12 @@ Massa JSON-RPC API is splitted in two parts :
 - **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
 
 .. warning::
-Massa has a new experimental API with both Http and WebSocket support: Default port: 33036
-
-- **Http**: used for node management and blockchain interactions. e.g. http://localhost:33036
-- **WebSocket**: used for streaming blockchain events. e.g. ws://localhost:33036
-
+    
+    Massa has a new experimental API with both Http and WebSocket support: Default port: 33036
+    
+    - **Http**: used for node management and blockchain interactions. e.g. http://localhost:33036
+    - **WebSocket**: used for streaming blockchain events. e.g. ws://localhost:33036
+    
 Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
 
 Integrations
@@ -861,7 +862,7 @@ Get information about block `graph <https://docs.massa.net/en/latest/technical-d
     }
 
 `get_blocks`
------------
+------------
 
 Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>` associated to a given hash(s).
 - Query:
