@@ -13,10 +13,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download config files from Massa testnet branch
         run: |  
-         pwd && ls -al &&
          wget -N -P ./external/node/ -i ./external/node/config-files.txt && 
-         wget -N -P ./external/client/ -i ./external/client/config-files.txt &&
-         ls -al && cd ./external/node/ && ls -al
+         wget -N -P ./external/client/ -i ./external/client/config-files.txt
       - name: Install sphinx-lint
         run: pip install sphinx-lint
       - name: Run sphinx-lint

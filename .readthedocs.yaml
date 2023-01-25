@@ -7,3 +7,12 @@ submodules:
 python:
   install:
   - requirements: requirements.txt
+
+build:
+  os: ubuntu-22.04
+  apt_packages:
+    - wget
+  jobs:
+    post_checkout:
+      - echo "Download config files from Massa testnet branch"
+      - wget -N -P ./external/node/ -i ./external/node/config-files.txt && wget -N -P ./external/client/ -i ./external/client/config-files.txt
