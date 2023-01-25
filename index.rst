@@ -78,20 +78,20 @@ Contents
     general-doc/autonomous-sc.rst
 
 .. toctree::
-    :maxdepth: 2
-    :caption: Testnet documentation
 
-   testnet/install.rst
-   testnet/running.rst
-   testnet/update.rst
-   testnet/wallet.rst
-   testnet/staking.rst
-   testnet/routability.rst
-   testnet/rewards.rst
-   testnet/all-config.rst
-   testnet/faq.rst
-   testnet/community-resources.rst
+     :maxdepth: 2
+     :caption: Testnet documentation
 
+    testnet/install.rst
+    testnet/running.rst
+    testnet/update.rst
+    testnet/wallet.rst
+    testnet/staking.rst
+    testnet/routability.rst
+    testnet/rewards.rst
+    testnet/all-config.rst
+    testnet/faq.rst
+    testnet/community-resources.rst
 
 .. toctree::
     :maxdepth: 2

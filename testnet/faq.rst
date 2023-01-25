@@ -229,7 +229,6 @@ API can't start
 - If your API can't start, e.g. with `could not start API controller: ServerError(hyper::Error(Listen, Os { code: 98,
   kind: AddrInUse, message: "Address already in use" }))`, it's probably because the default API ports 33034/33035 are
   already in use on your computer. You should change the port in the config files, both in the API and Client:
-
 - create/edit file `massa-node/config/config.toml` to change the port used by the API:
 
   .. code-block:: toml
