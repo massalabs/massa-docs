@@ -11,8 +11,9 @@ python:
 build:
   os: ubuntu-22.04
   tools:
-    apt_packages:
-      - wget
+    python: "3.11"
+  apt_packages:
+    - wget
   jobs:
     post_checkout:
       - echo "Download config files from Massa testnet branch"
