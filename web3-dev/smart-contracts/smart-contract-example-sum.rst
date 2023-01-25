@@ -9,29 +9,28 @@ Massa's smart-contract by example
 
 In this tutorial, we will go through all the steps required to create a smart contract on Massa.
 
-You can find the complete project on this
-`Github repository <https://github.com/massalabs/massa-sc-examples/tree/main/sum/contracts>`_.
+You can find the complete project on this `Github repository
+<https://github.com/massalabs/massa-sc-examples/tree/main/sum/contracts>`_.
 
 Prerequisites
 -------------
 
-Smart contracts are written in `Assembly Script <https://www.assemblyscript.org/>`_,
-and so we’ll assume that you have some familiarity with it, but you should be able to
-follow along even if you’re coming from a different programming language.
-We’ll also assume that you’re familiar with programming concepts like functions,
-objects, arrays, and to a lesser extent, classes.
+Smart contracts are written in `Assembly Script <https://www.assemblyscript.org/>`_, and so we’ll assume that you have
+some familiarity with it, but you should be able to follow along even if you’re coming from a different programming
+language. We’ll also assume that you’re familiar with programming concepts like functions, objects, arrays, and to a
+lesser extent, classes.
 
 Writing your smart contract
 ---------------------------
 
-Smart contracts on Massa blockchain are written in `Assembly Script <https://www.assemblyscript.org/>`_
-and then compiled to `WebAssembly <https://webassembly.org/>`_ (WASM). We chose WebAssembly
-as it is efficient and can be compiled from several languages, including Assembly Script.
+Smart contracts on Massa blockchain are written in `Assembly Script <https://www.assemblyscript.org/>`_ and then
+compiled to `WebAssembly <https://webassembly.org/>`_ (WASM). We chose WebAssembly as it is efficient and can be
+compiled from several languages, including Assembly Script.
 
 Setup
 ~~~~~
-Let's start by cloning the sum example repository.
-You need `node`, `npm` and `git` to initialize the project.
+
+Let's start by cloning the sum example repository. You need `node`, `npm` and `git` to initialize the project.
 
 .. code-block:: shell
 
@@ -42,8 +41,7 @@ You need `node`, `npm` and `git` to initialize the project.
 Writing the smart contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Smart contracts are in the `assembly` directory.
-The `main.ts` will be our smart-contract file.
+Smart contracts are in the `assembly` directory. The `main.ts` will be our smart-contract file.
 
 For this tutorial, we will create a very simple smart contract which calculates the sum of two integers.
 
@@ -69,14 +67,11 @@ You can find it here `assembly/main.ts`.
     }
 
 Calling function of a smart contract that is stored in the blockchain with some arguments will start an assemblyscript
-runtime (wasmer).
-This is why each function that you want to be able to call in your smart contract
-must be exported with the `export` keyword and must take one `StaticArray<u8>` argument and return a value of type
-`StaticArray<u8>`.
+runtime (wasmer). This is why each function that you want to be able to call in your smart contract must be exported
+with the `export` keyword and must take one `StaticArray<u8>` argument and return a value of type `StaticArray<u8>`.
 
 Here, we are exporting the sum function. In this function, we deserialize the argument into two integers, with the help
 of `fromByteString` and `toInt32`.
-
 
 Compiling your smart contract
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,20 +94,19 @@ We'll now turn to the process of putting the smart contract on the Massa blockch
 
 For the deployment, you will need a wallet with some coins.
 
-To send transaction on the network, you need to provide your wallet secret key.
-This is done using environment variable in `.env` file.
+To send transaction on the network, you need to provide your wallet secret key. This is done using environment variable
+in `.env` file.
 
 .. code-block::
 
     cp .env.example .env
 
-This command will create a `.env` file. Now fill it with your wallet's secret key
-(also called a "secret key" by Massa client).
+This command will create a `.env` file. Now fill it with your wallet's secret key (also called a "secret key" by Massa
+client).
 
-Contract deployment is done by calling a deployer smart contract which can be found here:
-`deployer/deployer.as.ts`. It will store our sum smart contract onto the ledger.
-The deployer contract already includes your compiled `main.ts` contract and has been itself
-compiled at the `npm run build` step.
+Contract deployment is done by calling a deployer smart contract which can be found here: `deployer/deployer.as.ts`. It
+will store our sum smart contract onto the ledger. The deployer contract already includes your compiled `main.ts`
+contract and has been itself compiled at the `npm run build` step.
 
 We will send the deployer smart contract to the Massa blockchain with:
 
@@ -120,8 +114,8 @@ We will send the deployer smart contract to the Massa blockchain with:
 
     npm run deploy
 
-This command will execute the compiled deployer `deployer.wasm`, and this smart contract
-will store the `main.ts` smart contract onto the ledger.
+This command will execute the compiled deployer `deployer.wasm`, and this smart contract will store the `main.ts` smart
+contract onto the ledger.
 
 You will see an output like this:
 
@@ -138,15 +132,13 @@ You will see an output like this:
 
     Deployment success with event: Contract deployed at address: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9
 
-
 Interaction with the smart contract
 -----------------------------------
 
 We will now interact with our sum smart contract.
 
 To interact with a smart contract, we can write another smart contract that will be executed, or use the `CallSC`
-function.
-In our example, we will use the file `caller.ts` in the `assembly` directory.
+function. In our example, we will use the file `caller.ts` in the `assembly` directory.
 
 .. code-block:: typescript
 
@@ -167,12 +159,10 @@ In our example, we will use the file `caller.ts` in the `assembly` directory.
         return 0;
     }
 
-
 Note that we use the address where the contract has been deployed: A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9.
 
-First we need to compile the `caller.ts` smart contract.
-For the covenience of this example we have added an npm script `npm run build:caller` which will compile `caller.ts` and
-write the generated wasm in `build/caller.wasm`
+First we need to compile the `caller.ts` smart contract. For the covenience of this example we have added an npm script
+`npm run build:caller` which will compile `caller.ts` and write the generated wasm in `build/caller.wasm`
 
 .. code-block::
 

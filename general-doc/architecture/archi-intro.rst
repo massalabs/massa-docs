@@ -4,36 +4,45 @@
 Introduction
 ============
 
-We will describe in this document the global architecture of a Massa Node, from the ground up, and introduce relevant definitions and concepts.
+We will describe in this document the global architecture of a Massa Node, from the ground up, and introduce relevant
+definitions and concepts.
 
-The goal of the Massa network is to build a consensus between **nodes** to gather and order **blocks** that contains ordered lists of **operations**.
-An operation ultimate purpose once executed is to act as transitions for the global network state, called the **ledger**.
+The goal of the Massa network is to build a consensus between **nodes** to gather and order **blocks** that contains
+ordered lists of **operations**.
+An operation ultimate purpose once executed is to act as transitions for the global network state, called the
+**ledger**.
 
 Operations are produced by external clients and sent to the Massa network via a node.
-Some operations are containing code to be run as **smart contracts**, enabling complex programmatic modifications of the ledger.
+Some operations are containing code to be run as **smart contracts**, enabling complex programmatic modifications
+of the ledger.
 Nodes will gather all the pending operations and group them to produce blocks.
-Each block contains a finite set of operations, limited by the fact that each block has a limited amount of space available to store operations.
-Traditional blockchains will then typically link blocks one after the other (including a hash of the previous block in the block header),
-to materialize their temporal ordering. However, unlike traditional blockchains, Massa blocks are not simply chained one after the other,
-but organized into a more complex spatio-temporal structure, which allows for parallelization and increased performances.
+Each block contains a finite set of operations, limited by the fact that each block has a limited amount of space
+available to store operations.
+Traditional blockchains will then typically link blocks one after the other (including a hash of the previous block
+in the block header), to materialize their temporal ordering. However, unlike traditional blockchains, Massa blocks
+are not simply chained one after the other, but organized into a more complex spatio-temporal structure, which allows
+for parallelization and increased performances.
 
-Instead of one chain, there are several threads (T=32) of chains running in parallel, with blocks equally spread on each thread over time,
-and stored inside **slots** that are spaced at fixed time intervals:
+Instead of one chain, there are several threads (T=32) of chains running in parallel, with blocks equally spread on
+each thread over time, and stored inside **slots** that are spaced at fixed time intervals:
 
 .. image:: structure.drawio.svg
 
-The time between two slots located on the same thread is called a **period** and lasts 16s (conventionally called :math:`t_0`).
-Corresponding slots in threads are slightly shifted in time relative to one another, by one period divided by the number of threads,
-which is 16s/32 = 0.5s, so that a period contains exactly 32 slots equally spaced over the 32 threads.
+The time between two slots located on the same thread is called a **period** and lasts 16s (conventionally called
+:math:`t_0`).
+Corresponding slots in threads are slightly shifted in time relative to one another, by one period divided by the
+number of threads, which is 16s/32 = 0.5s, so that a period contains exactly 32 slots equally spaced over the 32
+threads.
 A **cycle** is defined as the succession of 128 periods and so lasts a bit more than 34min.
-Periods are numbered by increments of one, so can be used together with a thread number to uniquely identify a block slot.
+Periods are numbered by increments of one, so can be used together with a thread number to uniquely identify a block
+slot.
 Period 0 is the genesis and contains genesis blocks with no parents.
 
 The job of the Massa nodes network is to essentially collectively fill up slots with valid blocks.
 To do so, at each interval of 0.5s, a specific node in the network is elected to be allowed to create a block
 (more about the selection process below, and the proof of stake sybil resistance mechanism),
-and will be rewarded if it creates a valid block in time. It is also possible that a node misses its opportunity to create the block,
-in which case the slot will remain empty (this is called a **block miss**).
+and will be rewarded if it creates a valid block in time. It is also possible that a node misses its opportunity to
+create the block, in which case the slot will remain empty (this is called a **block miss**).
 
 In traditional blockchains, blocks are simply referencing their unique parent, forming a chain.
 In the case of Massa, each block is referencing one parent block in each thread (so, 32 parents).
@@ -41,7 +50,8 @@ Here is an example illustrated with one particular block:
 
 .. image:: block_parents.drawio.svg
 
-Let's introduce some relevant definitions and concepts generally necessary to understand how the Massa network operates.
+Let's introduce some relevant definitions and concepts generally necessary to understand how the Massa network
+operates.
 We will then explain the node architecture and how the whole system works.
 
 Address
@@ -56,8 +66,9 @@ Ledger
 ******
 
 The ledger is a map that stores a global mapping between addresses and information related to these addresses.
-It is replicated in each node and the consensus building mechanism ensures that agreement on what operations have been finalized (and in what order)
-will be reached over the whole network. The ledger is the state of the Massa network, and fundamentally operations (see below) are requests to modify the ledger.
+It is replicated in each node and the consensus building mechanism ensures that agreement on what operations have been
+finalized (and in what order) will be reached over the whole network. The ledger is the state of the Massa network,
+and fundamentally operations (see below) are requests to modify the ledger.
 
 The information stored in the ledger with each address is the following:
 
@@ -66,7 +77,8 @@ The information stored in the ledger with each address is the following:
 ------------------------------------------------------------------------------------------
 ``balance``                      The amount of Massa coins owned by the address
 ``bytecode``                     When the address references a smart contract, this is the compiled code
-                                 :raw-html:`<br/>` corresponding to the smart contract (typically contains several functions that act as :raw-html:`<br/>` API entry points for the smart contract)
+                                 :raw-html:`<br/>` corresponding to the smart contract (typically contains several
+                                 functions that act as :raw-html:`<br/>` API entry points for the smart contract)
 ``datastore``                    A key/value map that can store any persistent data related to a smart
                                  :raw-html:`<br/>` contract, its variables, etc
 ===============================  =========================================================
@@ -81,14 +93,16 @@ One particularity of Massa smart contracts compared to other blockchain smart co
 is their ability to wake up by themselves independently of an exterior request on their interface.
 This allows more autonomy and less dependency on external centralized services.
 
-Smart contracts are currently written in assemblyscript, a stricter derivation from typescript, which is itself a type-safe version of javascript.
+Smart contracts are currently written in assemblyscript, a stricter derivation from typescript, which is itself a
+type-safe version of javascript.
 AssemblyScript compiles to web assembly bytecode (wasm). Massa nodes Execution Module runs such bytecode.
 Smart contracts have access to their own datastore, so they can modify the ledger.
 
 Operation
 *********
 
-Fundamentally, the point of the Massa network is to gather, order and execute operations, recorded inside blocks that are located in slots.
+Fundamentally, the point of the Massa network is to gather, order and execute operations, recorded inside blocks that
+are located in slots.
 There are three types of operations: transactions, roll operations, and smart contract code execution.
 The general structure of an operation is the following, and the different types of operations differ by their payload:
 
@@ -133,7 +147,8 @@ This is done via special operations, with a simple payload:
 Smart Contract operations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Smart Contracts are pieces of code that can be run inside the Massa virtual machine. There are two ways of calling for the execution of code:
+Smart Contracts are pieces of code that can be run inside the Massa virtual machine. There are two ways of calling for
+the execution of code:
 
 1. Direct execution of bytecode
 
@@ -153,7 +168,8 @@ list of datastore records        Concatenation of ``key_len`` (u8), ``key``,
 
 1. Smart Contract function call
 
-Here, the code is indirectly called via the call to an existing smart contract function, together with the required parameters:
+Here, the code is indirectly called via the call to an existing smart contract function, together with the required
+parameters:
 
 ===============================  =========================================================
 **Call SC**
@@ -172,9 +188,11 @@ Block
 
 A block is a data structure built by nodes and its function it to aggregate several operations.
 As explained above, for each new slot that becomes active, a particular node in the network is elected in a
-deterministic way with the task of creating the block that will be stored in that slot (more about this in the description of the Selector Module below).
-A block from a given thread can only contain operations originating from a `creator_public_key` whose hash's five first bits designate the corresponding thread,
-thus implicitly avoiding collisions in operations integrated into parallel threads.
+deterministic way with the task of creating the block that will be stored in that slot (more about this in the
+description of the Selector Module below).
+A block from a given thread can only contain operations originating from a `creator_public_key` whose hash's five first
+bits designate the corresponding thread, thus implicitly avoiding collisions in operations integrated into parallel
+threads.
 
 The content of a block is as follows:
 
@@ -196,7 +214,9 @@ The content of a block is as follows:
 ===============================  =========================================================
 
 Endorsements are optional inclusion in the block, but their inclusion is incentivized for block creators.
-They are validations of the fact that the parent block on the thread of the block is the best parent that could have been chosen,
-done by other nodes that have also been deterministically selected via the proof of stake probability distribution (see below).
-A comprehensive description of endorsements can be found `here <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_,
+They are validations of the fact that the parent block on the thread of the block is the best parent that could have
+been chosen, done by other nodes that have also been deterministically selected via the proof of stake probability
+distribution (see below).
+A comprehensive description of endorsements can be found
+`here <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_,
 so we will not go further into details in the context of this introduction.

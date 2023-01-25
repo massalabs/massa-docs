@@ -2,9 +2,8 @@
 
 .. _web3-dev-sc:
 
-#######################
 Massa's Smart Contracts
-#######################
+=======================
 
 .. toctree::
     :maxdepth: 2

@@ -2,25 +2,26 @@
 
 .. _sc-types:
 
-#####
 Types
-#####
+=====
 
-Massa AS-types package (`@massalabs/as-types`) contains assemblyscript objects designed to facilitate the writing of smart contracts.
+Massa AS-types package (`@massalabs/as-types`) contains assemblyscript objects designed to facilitate the writing of
+smart contracts.
 
 .. note::
-   You know a nugget that could be added to this list or you have a specific need for a new type?
-   `Open an issue <https://github.com/massalabs/as/issues>`_ to discuss about it!
 
-.. _Currency:
+    You know a nugget that could be added to this list or you have a specific need for a new type? `Open an issue
+    <https://github.com/massalabs/as/issues>`_ to discuss about it!
+
+.. _currency:
 
 Currency
-========
+--------
 
 A representation of a monetary unit used to express a value.
 
 Usage
------
+~~~~~
 
 .. code-block:: typescript
 
@@ -32,15 +33,15 @@ Usage
 
 More info in the `Currency documentation <https://as-types.docs.massa.net/classes/Currency.html>`_.
 
-.. _Amount:
+.. _amount:
 
 Amount
-======
+------
 
 A representation of a value in a :ref:`Currency`.
 
 Usage
------
+~~~~~
 
 .. code-block:: typescript
 
@@ -56,18 +57,19 @@ Usage
 
 More info in the `Amount documentation <https://as-types.docs.massa.net/classes/Amount.html>`_.
 
-.. _Args:
+.. _args:
 
 Args
-====
+----
 
 A class used to serialize and deserialize arguments (of functions, data to/from storage...).
 
 Usage
------
+~~~~~
 
 Serialization
--------------
+~~~~~~~~~~~~~
+
 .. code-block:: typescript
 
     import { Address, call } from '@massalabs/massa-as-sdk';
@@ -80,7 +82,8 @@ Serialization
     ...
 
 Deserialization
----------------
+~~~~~~~~~~~~~~~
+
 .. code-block:: typescript
 
     import { Args } from '@massalabs/as-types';
@@ -89,4 +92,5 @@ Deserialization
     const stringArgument = new Args(args).nextString().unwrap();
     ...
 
-See all Args methods and supported types for serialization/deserialization in the `Args documentation <https://as-types.docs.massa.net/classes/Args.html>`_.
+See all Args methods and supported types for serialization/deserialization in the `Args documentation
+<https://as-types.docs.massa.net/classes/Args.html>`_.

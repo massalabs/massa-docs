@@ -1,22 +1,21 @@
 .. _local-network-generation:
 
-========================
 Local network generation
 ========================
 
 How to launch a local network with custom settings and initial coins & rolls repartition
-========================================================================================
+----------------------------------------------------------------------------------------
 
 .. _docker:
 
 On Docker
----------
+~~~~~~~~~
 
 Full documentation about launching a local network on Docker is available here:
 https://github.com/massalabs/massa-network-simulator
 
 On your OS
-----------
+~~~~~~~~~~
 
 Clone massa:
 
@@ -44,37 +43,37 @@ For the rest of the tutorial we will use theses abbreviations:
 - `ADDR` : The address corresponding to PUBK
 
 Setup your node to use the secret you just generated as its public key and staking key:
- * modify or create the file `massa-node/config/node_privkey.key` :
+    - modify or create the file `massa-node/config/node_privkey.key` :
 
- .. code-block:: bash
+    .. code-block:: bash
 
-    {"secret_key":"SECRETK","public_key":"PUBK"}
+        {"secret_key":"SECRETK","public_key":"PUBK"}
 
- * modify the file `massa-node/base_config/initial_ledger.json`:
+    - modify the file `massa-node/base_config/initial_ledger.json`:
 
- .. code-block:: javascript
+    .. code-block:: javascript
 
-    {
-        "ADDR": {
-            "balance": "80000000",
-            "datastore": {},
-            "bytecode": []
+        {
+            "ADDR": {
+                "balance": "80000000",
+                "datastore": {},
+                "bytecode": []
+            }
         }
-    }
 
- * CLEAR and modify the file `massa-node/base_config/initial_rolls.json` :
+    - CLEAR and modify the file `massa-node/base_config/initial_rolls.json` :
 
- .. code-block:: javascript
+    .. code-block:: javascript
 
-    {
-        "ADDR": 100
-    }
+        {
+            "ADDR": 100
+        }
 
 You can now launch your node :
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-    cd massa-node && cargo run --features sandbox
+        cd massa-node && cargo run --features sandbox
 
 On your client run the following command to add your secret key as staking key:
 
@@ -82,6 +81,6 @@ On your client run the following command to add your secret key as staking key:
 
     cd massa-client && cargo run node_add_staking_secret_keys SECRETK
 
-The local network and your node will start after 10 seconds. Once it is started, you can interact with it using
-the CLI client as you would with a testnet node.
-If you want to run multiple nodes on your local network you need to use :ref:`docker`.
+The local network and your node will start after 10 seconds. Once it is started, you can interact with it using the CLI
+client as you would with a testnet node. If you want to run multiple nodes on your local network you need to use
+:ref:`docker`.
