@@ -6,8 +6,8 @@ Node and client configuration
 =============================
 
 .. warning::
-    
-  Use with caution, overriding some configurations could lead to node instability or/and a complete desynchronisation from Massa blockchain.
+
+  Use with caution, overriding some configurations could lead to node instability and/or a complete desynchronization from Massa blockchain.
 
 Node configuration
 ==================
