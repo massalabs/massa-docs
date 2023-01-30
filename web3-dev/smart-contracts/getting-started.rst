@@ -67,7 +67,7 @@ Open the `assembly/contracts/main.ts` file and replace its content by the follow
 Don't forget to save the file. Before starting compilation, just a few words to describe what is used here:
 
 * line 5: `sayHello` function is exported. This means that the `sayHello` function can be called
-  from outside of the smart contract. For instance by another smart contract or through the API
+  from outside of the smart contract, for instance by another smart contract, or through the API
   (see :ref:`massa-web3 <web3-massa-web3>`).
 * line 6: `Args` class is used to deserialize arguments' bytecode (see :ref:`massa sc types <sc-types>`).
 * line 10: `generateEvent` function will generate an event with the message string given as argument. Events can be
