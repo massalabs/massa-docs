@@ -144,7 +144,7 @@ Diagnostic process:
 
   - if the list is empty or if none of the addresses listed matches addresses that have active rolls in :code:`wallet_info`:
 
-    - call :code:`node_add_staking_secret_keys` with the secret key matching an address that has non-zero active rolls in :code:`wallet_info`
+    - call :code:`node_start_staking` with the secret key matching an address that has non-zero active rolls in :code:`wallet_get_secret_key <Address1> <Address2>`
 
 - check your address with the online explorer: if there is a mismatch between the number of active rolls displayed in the online interface and what is returned by `wallet_info`, it might be that your node is desynchronized. Try restarting it.
 

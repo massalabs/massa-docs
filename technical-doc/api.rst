@@ -440,7 +440,7 @@ slot, timestamp), clique count, connected nodes count.
             168394,
             1344
         ],
-        "version": "TEST.18.0"
+        "version": "TEST.19.1"
     },
     "id": 1
     }
