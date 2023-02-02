@@ -14,9 +14,9 @@ From binaries
 If you just wish to run a Massa node without compiling it yourself, you
 can simply download the latest binary below and go the the next step: :ref:`Running a node <testnet-running>`.
 
-- `Windows executable <https://github.com/massalabs/massa/releases/download/TEST.18.0/massa_TEST.18.0_release_windows.zip>`_
-- `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.18.0/massa_TEST.18.0_release_linux.tar.gz>`_ - only works with libc2.28 at least (for example Ubuntu 20.04 and higher)
-- `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.18.0/massa_TEST.18.0_release_macos.tar.gz>`_
+- `Windows executable <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_windows.zip>`_
+- `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_linux.tar.gz>`_ - only works with libc2.28 at least (for example Ubuntu 20.04 and higher)
+- `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_macos.tar.gz>`_
 
 From source code
 ================
@@ -31,8 +31,8 @@ On Ubuntu / MacOS
 - install `rustup <https://www.rust-lang.org/tools/install>`_: :code:`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - configure path: :code:`source $HOME/.cargo/env`
 - check rust version: :code:`rustc --version`
-- install `nigthly <https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html>`_: :code:`rustup toolchain install nightly-2022-12-24`
-- set it as default: :code:`rustup default nightly-2022-12-24`
+- install `nigthly <https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html>`_: :code:`rustup toolchain install nightly-2023-01-30`
+- set it as default: :code:`rustup default nightly-2023-01-30`
 - check rust version: :code:`rustc --version`
 - clone this repo: :code:`git clone --branch testnet https://github.com/massalabs/massa.git`
 
@@ -62,4 +62,4 @@ On Windows
 - Open Windows Power Shell
 
   - Clone the latest distributed version: :code:`git clone --branch testnet https://github.com/massalabs/massa.git`
-  - Change default Rust to nightly: :code:`rustup default nightly-2022-12-24`
+  - Change default Rust to nightly: :code:`rustup default nightly-2023-01-30`
