@@ -16,9 +16,9 @@ On Ubuntu / MacOS
 
 **Configure the node**
 
-Defaut configuration is available `here <https://github.com/massalabs/massa/blob/main/massa-node/base_config/config.toml>`_.
+Default configuration is available `here <https://github.com/massalabs/massa/blob/main/massa-node/base_config/config.toml>`_.
 
-You can override the defaut configuration via `massa-node/config/config.toml` file.
+You can override the default configuration via `massa-node/config/config.toml` file.
 
 **Start the node**
 
