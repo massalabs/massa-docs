@@ -155,7 +155,7 @@ Available subscriptions:
 - `subscribe_new_blocks/unsubscribe_new_blocks`: subscribe/unsubscribe to/from new produced blocks.
 - `subscribe_new_blocks_headers/unsubscribe_new_blocks_headers`: subscribe/unsubscribe to/from new produced blocks headers.
 - `subscribe_new_filled_blocks/unsubscribe_new_filled_blocks`: subscribe/unsubscribe to/from new produced filled blocks with operations content.
-- `subscribe_new_operations/unsubscribe_new_operations`: subscribe/unsubscribe to/from new received(from network) operations.
+- `subscribe_new_operations/unsubscribe_new_operations`: subscribe/unsubscribe to/from new produced operations.
 
 To enable WebSocket support in Massa node, edit file :code:`massa-node/config/config.toml` (create it if absent) with the following contents:
 
@@ -275,175 +275,142 @@ slot, timestamp), clique count, connected nodes count.
 
 .. code-block:: javascript
 
-   {
-    "jsonrpc": "2.0",
-    "result": {
-        "config": {
-            "block_reward": "0.30",
-            "delta_f0": 1088,
-            "end_timestamp": 1667142000000,
-            "genesis_timestamp": 1665405000000,
-            "max_block_size": 500000,
-            "operation_validity_periods": 10,
-            "periods_per_cycle": 128,
-            "roll_price": "100",
-            "t0": 16000,
-            "thread_count": 32
-        },
-        "connected_nodes": {
-            "P126wpqvDP8GQqeS4WZq9fwRsmzAKrKfQQdXigK3zw53Ai1HW3aN": [
-                "147.182.147.178",
-                false
-            ],
-            "P1278WinKWC2RtrbskXwksrGXcHCAWwX8aBhvvMhtEaj3KjejsND": [
-                "185.138.164.167",
-                true
-            ],
-            "P12M7iQ4AmbkC2UZXRamHKHgGrq3dJmgCun8QjYQYRRaPcG8Zpvw": [
-                "77.222.63.32",
-                false
-            ],
-            "P12QQG516ahWuNaPnRbV4FU8RYuUAH6V7oFqVrotg5xJTXiq73tV": [
-                "165.227.35.214",
-                true
-            ],
-            "P12TK7PJreAzh9NrRWFXkKpm354piPupdZsd9i1B7geLJk2fYBVA": [
-                "94.250.203.240",
-                false
-            ],
-            "P12cJRDAyctwMQcJ6bxxNbjsnWyKxgHfKVzr9xsJ9A741u4kzYWa": [
-                "95.216.156.29",
-                true
-            ],
-            "P12eHJrC3WdZ2qdaLUHP7jNRuaK9WoAV5W4NDjXTgb5mNv38unc8": [
-                "167.86.111.35",
-                false
-            ],
-            "P12p6axwXgMW2RrUdFojKaRGvTnb1ajyLkXTnEUcqUjXwnfQMk9w": [
-                "173.212.236.220",
-                true
-            ],
-            "P12rJQaPcxj4XNKz1GhfQftxFLNEfJRQzzuXKngimq3VPRSBUAeF": [
-                "167.235.145.174",
-                true
-            ],
-            "P12rPDBmpnpnbECeAKDjbmeR19dYjAUwyLzsa8wmYJnkXLCNF28E": [
-                "158.69.120.215",
-                false
-            ],
-            "P12vxrYTQzS5TRzxLfFNYxn6PyEsphKWkdqx2mVfEuvJ9sPF43uq": [
-                "149.202.89.125",
-                true
-            ],
-            "P12wgY28tM7DY9xD7Auwh3oCijX3XgvkCHnrTqfD5VH6kXp6dkzF": [
-                "146.19.24.215",
-                true
-            ],
-            "P16nCxGtVUoEbJE6gGMjPABq3V5RQ1dVB17hqxSSERViB8b1WJN": [
-                "159.203.14.185",
-                false
-            ],
-            "P1P19Xw3Kb7bVeQkxpKaJkE5zY7u64gMiJHcVEHpTPwtzvUMa6Q": [
-                "5.161.84.250",
-                false
-            ],
-            "P1W6qg7AGkukq16ikJD2Aa41pW6cQfNr123u1KK9yBf92wsi3vj": [
-                "84.54.23.207",
-                false
-            ],
-            "P1bxqhJfzre8sGYCF6MA5MW4utVvTJPEKEVnWCLLLifKCUwGsqx": [
-                "194.163.189.5",
-                true
-            ],
-            "P1g7MNCLjL9DdFRUWvnwPJg4fjaCQCVke3mSc5k7rFUA7wRbiZB": [
-                "95.111.248.121",
-                false
-            ],
-            "P1gP6pLsToXZuFawvcdfYaARv787ezdsQW1Hw27SkwZz2ZgKH9J": [
-                "209.126.13.129",
-                false
-            ],
-            "P1hX6SBEU3duEmNuab9QWbh8uLPx7gxDHzSFgNJw4XX5AND5WQs": [
-                "139.162.110.127",
-                false
-            ],
-            "P1m6jR5Si3KKQb7VDjpd4HhVstdHJYFHGAKnK9GGszheN6hVtM3": [
-                "62.171.141.30",
-                false
-            ],
-            "P1rN38cfybsGB3UgLxWB6qr57MyThVc43imJSKkg5YNgjswnMUF": [
-                "144.126.146.140",
-                false
-            ],
-            "P1siwj1nNwHh3HB2bHqU94ESjMgicvxq5kfjDyBpDEUVgwYDFvH": [
-                "162.55.181.167",
-                true
-            ],
-            "P1sr9pwXuGAPsrvdnHtiRvQaTkGap92YPptQrEjRcrq8sfqodye": [
-                "213.21.221.200",
-                false
-            ],
-            "P1ubGD5Mm3wNmh3zawVR6DUDc3CB4pkDjqmntUGDyVQk4ddAXQa": [
-                "194.195.120.50",
-                true
-            ],
-            "P1zGmtwZ7g9tdtwmmhyNvoAE8tdk6qMLw7Pf4uRsBGwyhKEhV6S": [
-                "34.125.115.189",
-                false
-            ],
-            "P1zVQSNYWA6bXEGZeJwCgntFJjmvMu8YtgNw9fkiKJ4WmBYXLzo": [
-                "65.108.53.204",
-                true
-            ],
-            "P1zb2dnsQpDxcQL3R77fSnhzYXYpwnH5gDXZh4HMa7iAxx57s24": [
-                "38.242.158.106",
-                false
-            ]
-        },
-        "consensus_stats": {
-            "clique_count": 1,
-            "end_timespan": 1666542101196,
-            "final_block_count": 118,
-            "stale_block_count": 0,
-            "start_timespan": 1666542041196
-        },
-        "current_cycle": 555,
-        "current_time": 1666542101196,
-        "execution_stats": {
-            "active_cursor": {
-                "period": 71068,
-                "thread": 22
+    {
+        "jsonrpc": "2.0",
+        "result": {
+            "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
+            "node_ip": "141.94.218.103",
+            "version": "TEST.19.1",
+            "current_time": 1675344193136,
+            "current_cycle": 0,
+            "current_cycle_time": 1675346400000,
+            "next_cycle_time": 1675348448000,
+            "connected_nodes": {
+                "N13Agewo5AK5mKnhFyDaWic13gGAdZLf5DWSs8QNg7Vnm3v4ph7": [
+                    "38.242.154.24",
+                    true
+                ],
+                "N13Ykon8Zo73PTKMruLViMMtE2rEG646JQ4sCcee2DnopmVM3P5": [
+                    "51.75.60.228",
+                    false
+                ],
+                "N17iofbaX2HGDnHFdVfk2E8uxSbwE9A1fWc9gqQxdDHwnvLn5aj": [
+                    "144.76.19.103",
+                    false
+                ],
+                "N193ffJfk8UoajyQfRBM9Qr5EdajDaTTgp7gUpzXPsT163cdUbZ": [
+                    "65.21.53.81",
+                    false
+                ],
+                "N1XxexKa3XNzvmakNmPawqFrE9Z2NFhfq1AhvV1Qx4zXq5p1Bp9": [
+                    "158.69.23.120",
+                    false
+                ],
+                "N1bM3rVnPKDHVyfGdon8i4w22CiHviC7brmrkzxJs2sG9h3UkCL": [
+                    "86.211.230.164",
+                    true
+                ],
+                "N1gEdBVEbRFbBxBtrjcTDDK9JPbJFDay27uiJRE3vmbFAFDKNh7": [
+                    "54.36.174.177",
+                    false
+                ],
+                "N1hdgsVsd4zkNp8cF1rdqqG6JPRQasAmx12QgJaJHBHFU1fRHEH": [
+                    "198.27.74.52",
+                    false
+                ],
+                "N1q3t59keVCJ16C4dHagaRosPCom6TBTPxPJU7164g7gXd9VR74": [
+                    "89.188.110.239",
+                    false
+                ],
+                "N1qxuqNnx9kyAMYxUfsYiv2gQd5viiBX126SzzexEdbbWd2vQKu": [
+                    "198.27.74.5",
+                    false
+                ],
+                "N125Ss1iw62AMoZkTRBYxiyGYnFNrnyxXnmwjmEJfHMD69bzzK4n": [
+                    "92.255.26.86",
+                    true
+                ],
+                "N12MDj4ceKxhFBubsLjkP3iHC54E2MMjLBoPPUGXrVrA5V74VbBQ": [
+                    "2a09:7c44::15e4",
+                    true
+                ],
+                "N12P2DbbMTQEGjgSv14bx68HVaFWYUTRTuoXsZnBADNkaovhnhok": [
+                    "209.145.61.217",
+                    false
+                ],
+                "N12Tvo38aD5upS3TfHgDiHJhTSaJnhYZcjxrtejKhRinLKm93DqA": [
+                    "82.223.10.164",
+                    true
+                ],
+                "N12UbyLJDS7zimGWf3LTHe8hYY67RdLke1iDRZqJbQQLHQSKPW8j": [
+                    "149.202.86.103",
+                    true
+                ],
+                "N12Yr9DLJwfp5wF7DvrYHnAmfQmLCgv3E1zHTcWbbCwkP74mrv2w": [
+                    "45.88.106.15",
+                    false
+                ],
+                "N12j8GqkXFToR8xoT799TygCFnGfXgydxmUR1TgXHN1Yvrz1SxQh": [
+                    "217.41.77.98",
+                    true
+                ],
+                "N12rPDBmpnpnbECeAKDjbmeR19dYjAUwyLzsa8wmYJnkXLCNF28E": [
+                    "158.69.120.215",
+                    false
+                ],
+                "N12vxrYTQzS5TRzxLfFNYxn6PyEsphKWkdqx2mVfEuvJ9sPF43uq": [
+                    "149.202.89.125",
+                    false
+                ]
             },
-            "final_block_count": 105,
-            "final_executed_operations_count": 53541,
-            "time_window_end": 1666542101196,
-            "time_window_start": 1666542041196
+            "last_slot": null,
+            "next_slot": {
+                "period": 0,
+                "thread": 1
+            },
+            "consensus_stats": {
+                "start_timespan": 1675344133136,
+                "end_timespan": 1675344193136,
+                "final_block_count": 0,
+                "stale_block_count": 0,
+                "clique_count": 1
+            },
+            "pool_stats": [
+                97,
+                0
+            ],
+            "network_stats": {
+                "in_connection_count": 12,
+                "out_connection_count": 7,
+                "known_peer_count": 10022,
+                "banned_peer_count": 0,
+                "active_node_count": 19
+            },
+            "execution_stats": {
+                "time_window_start": 1675344133136,
+                "time_window_end": 1675344193136,
+                "final_block_count": 0,
+                "final_executed_operations_count": 0,
+                "active_cursor": {
+                    "period": 0,
+                    "thread": 31
+                }
+            },
+            "config": {
+                "genesis_timestamp": 1675346400000,
+                "end_timestamp": 1677596400000,
+                "thread_count": 32,
+                "t0": 16000,
+                "delta_f0": 1088,
+                "operation_validity_periods": 10,
+                "periods_per_cycle": 128,
+                "block_reward": "0.30",
+                "roll_price": "100",
+                "max_block_size": 1000000
+            }
         },
-        "last_slot": {
-            "period": 71068,
-            "thread": 26
-        },
-        "network_stats": {
-            "active_node_count": 27,
-            "banned_peer_count": 0,
-            "in_connection_count": 16,
-            "known_peer_count": 10033,
-            "out_connection_count": 11
-        },
-        "next_slot": {
-            "period": 71068,
-            "thread": 27
-        },
-        "node_id": "P1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
-        "node_ip": "141.94.218.103",
-        "pool_stats": [
-            168394,
-            1344
-        ],
-        "version": "TEST.19.1"
-    },
-    "id": 1
-    }
+        "id": 1
+    }    
 
 `get_cliques`
 -------------
@@ -561,7 +528,7 @@ Get information about active `stakers <https://docs.massa.net/en/latest/testnet/
         "jsonrpc": "2.0",
         "id": 1,
         "method": "get_stakers",
-        "params": []
+        "params": [ {"offset": 0, "limit": 2 }]
     }'
 
 -   Result:
@@ -578,15 +545,6 @@ Get information about active `stakers <https://docs.massa.net/en/latest/testnet/
             [
                 "A12axF2vj3GMV87LV5cEtJwntrzTJXQsYCsp1jtXXqCkiF1X6VwX",
                 80
-            ],
-            ...
-            [
-                "A112oKyfHsRyaLHdgRDY7EkD1X2Rt8UnMr226BjPxirEsJbFjez",
-                1
-            ],
-            [
-                "A114oowRjFLH5nWuL2nhc6RmN2RYZpXu6TXbs1dTxF41Qvwd3Ku",
-                1
             ],
         ],
         "id": 1
