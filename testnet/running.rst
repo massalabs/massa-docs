@@ -4,8 +4,8 @@
 Running a node
 ==============
 
-From binaries
-=============
+From binaries (recommanded way)
+===============================
 
 Simply run the binaries you downloaded in the previous step:
 Open the `massa-node` folder and run the `massa-node` executable
@@ -53,8 +53,8 @@ Then:
 
 Replace <PASSWORD> with a password that you will need to keep to restart your client
 
-From source code
-================
+From source code (for advanced users)
+=====================================
 
 On Ubuntu / MacOS
 -----------------
