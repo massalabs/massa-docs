@@ -125,7 +125,7 @@ selected to do so. Most frequent reasons:
     if the specs are insufficient or if other programs are using
     resources on the computer or because of internet connection
     problems) at some point while you had active_rolls \> 0
--   The node does not having the right registered staking keys (type
+-   The node does not have the right registered staking keys (type
     staking_addresses in the client to verify that they match the
     addresses in your wallet_info that have active rolls) 100% of the
     time during which you had active_rolls \> 0
@@ -134,7 +134,7 @@ selected to do so. Most frequent reasons:
 
 Diagnostic process:
 
-- make sure the node is running on a computer that matches hardware requirements and that no other software is hogging ressources
+- make sure the node is running on a computer that matches hardware requirements and that no other software is hogging resources
 - type :code:`wallet_info` and make sure that at least one address has active rolls > 0
 
   - if there are no addresses listed, create a new one by calling `wallet_generate_private_key` and try the diagnostic process again
