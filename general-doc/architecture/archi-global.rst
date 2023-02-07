@@ -16,7 +16,7 @@ Bootstrap Module
 ****************
 
 The bootstrap module is responsible for the initial synchronization of the node with the rest of the network.
-It is responsible for downloading the list of peers, the current graph of blocks, the ledger, the asyncronous pool,
+It is responsible for downloading the list of peers, the current graph of blocks, the ledger, the asynchronous pool,
 state of the Proof-of-Stake and latests executed operations.
 
 The bootstrap will be done from a server that is listed on the configuration of the node. Bootstrap is the entry point
@@ -142,7 +142,7 @@ As you can see, some blocks are isolated and therefore compatible with any other
 because they have a form of incompatibility.
 
 This brings us to the notion of a maximal clique which is a subset of the incompatibility graph such as none of
-the block members are incompatible with each other (so, no internal link withing the clique),
+the block members are incompatible with each other (so, no internal link within the clique),
 and it is impossible to add an extra block to the set without introducing incompatibilities.
 In the above example, there are three maximal cliques that can be built, as illustrated below:
 
