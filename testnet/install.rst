@@ -8,8 +8,8 @@ Installing a node
 
     Right now 4 cores and 8 GB of RAM should be enough to run a node, but it might increase in the future. More info in the :ref:`FAQ <testnet-faq>`.
 
-From binaries
-=============
+From binaries (simple installation)
+===============================
 
 If you just wish to run a Massa node without compiling it yourself, you
 can simply download the latest binary below and go the the next step: :ref:`Running a node <testnet-running>`.
@@ -18,8 +18,8 @@ can simply download the latest binary below and go the the next step: :ref:`Runn
 - `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_linux.tar.gz>`_ - only works with libc2.28 at least (for example Ubuntu 20.04 and higher)
 - `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_macos.tar.gz>`_
 
-From source code
-================
+From source code (advanced installation)
+=====================================
 
 Otherwise, if you wish to run a Massa node from source code, here are the steps to follow:
 
