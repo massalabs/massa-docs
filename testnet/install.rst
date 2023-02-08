@@ -8,7 +8,7 @@ Installing a node
 
     Right now 4 cores and 8 GB of RAM should be enough to run a node, but it might increase in the future. More info in the :ref:`FAQ <testnet-faq>`.
 
-From binaries (recommanded way)
+From binaries (simple installation)
 ===============================
 
 If you just wish to run a Massa node without compiling it yourself, you
