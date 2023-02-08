@@ -6,7 +6,7 @@ Introduction
 
 We will describe in this document the global architecture of a Massa Node, from the ground up, and introduce relevant definitions and concepts.
 
-The goal of the Massa network is to build a consensus between **nodes** to gather and order **blocks** that contains ordered lists of **operations**.
+The goal of the Massa network is to build a consensus between **nodes** to gather and order **blocks** that contain ordered lists of **operations**.
 An operation ultimate purpose once executed is to act as transitions for the global network state, called the **ledger**.
 
 Operations are produced by external clients and sent to the Massa network via a node.
