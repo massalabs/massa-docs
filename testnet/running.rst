@@ -4,7 +4,7 @@
 Running a node
 ==============
 
-From binaries (recommanded way)
+From binaries (simple installation)
 ===============================
 
 Simply run the binaries you downloaded in the previous step:
