@@ -53,7 +53,7 @@ Then:
 
 Replace <PASSWORD> with a password that you will need to keep to restart your client
 
-From source code (for advanced users)
+From source code (advanced installation)
 =====================================
 
 On Ubuntu / MacOS
