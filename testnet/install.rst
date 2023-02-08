@@ -18,7 +18,7 @@ can simply download the latest binary below and go the the next step: :ref:`Runn
 - `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_linux.tar.gz>`_ - only works with libc2.28 at least (for example Ubuntu 20.04 and higher)
 - `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.19.1/massa_TEST.19.1_release_macos.tar.gz>`_
 
-From source code (for advanced users)
+From source code (advanced installation)
 =====================================
 
 Otherwise, if you wish to run a Massa node from source code, here are the steps to follow:
