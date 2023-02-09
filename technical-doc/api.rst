@@ -15,12 +15,12 @@ Massa JSON-RPC API is splitted in two parts :
 - **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
 
 .. warning::
-    
+
     Massa has a new experimental API with both Http and WebSocket support: Default port: 33036
-    
+
     - **Http**: used for node management and blockchain interactions. e.g. http://localhost:33036
     - **WebSocket**: used for streaming blockchain events. e.g. ws://localhost:33036
-    
+
 Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
 
 Integrations
@@ -150,7 +150,7 @@ In this section we'll learn how to enable and subscribe to WebSockets via Postma
 .. warning::
     - Experimental support for WebSocket is a feature that is subject to change in a future releases.
 
-Available subscriptions: 
+Available subscriptions:
 
 - `subscribe_new_blocks/unsubscribe_new_blocks`: subscribe/unsubscribe to/from new produced blocks.
 - `subscribe_new_blocks_headers/unsubscribe_new_blocks_headers`: subscribe/unsubscribe to/from new produced blocks headers.
@@ -174,7 +174,7 @@ Postman brings support for WebSocket APIs, more information about it `here <http
 -   send the request message:
 
     .. code-block:: json
-    
+
         {
             "jsonrpc": "2.0",
             "id": 1,
@@ -184,7 +184,7 @@ Postman brings support for WebSocket APIs, more information about it `here <http
 
 - If the request succeed, the response will contains a subscription id:
     .. code-block:: json
-    
+
         {
             "jsonrpc": "2.0",
             "result": 3508678639232691,
@@ -217,7 +217,7 @@ Postman brings support for WebSocket APIs, more information about it `here <http
 
 - unsubscribe and stop receiving new filled blocks:
     .. code-block:: json
-    
+
         {
             "jsonrpc": "2.0",
             "id": 1,
@@ -227,7 +227,7 @@ Postman brings support for WebSocket APIs, more information about it `here <http
 
 - Result:
     .. code-block:: json
-    
+
         {
             "jsonrpc": "2.0",
             "result": true,
@@ -280,82 +280,138 @@ slot, timestamp), clique count, connected nodes count.
         "result": {
             "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
             "node_ip": "141.94.218.103",
-            "version": "TEST.19.1",
-            "current_time": 1675344193136,
+            "version": "TEST.19.2",
+            "current_time": 1675950154721,
             "current_cycle": 0,
-            "current_cycle_time": 1675346400000,
-            "next_cycle_time": 1675348448000,
+            "current_cycle_time": 1675951200000,
+            "next_cycle_time": 1675953248000,
             "connected_nodes": {
-                "N13Agewo5AK5mKnhFyDaWic13gGAdZLf5DWSs8QNg7Vnm3v4ph7": [
-                    "38.242.154.24",
+                "N1SgmKG5TGhexEwFJkRxD3h8Fi18QGq8B9PY3Hj64fnTuthCtD": [
+                    "78.47.152.19",
                     true
                 ],
                 "N13Ykon8Zo73PTKMruLViMMtE2rEG646JQ4sCcee2DnopmVM3P5": [
                     "51.75.60.228",
                     false
                 ],
-                "N17iofbaX2HGDnHFdVfk2E8uxSbwE9A1fWc9gqQxdDHwnvLn5aj": [
-                    "144.76.19.103",
+                "N167CofshZAzWdsuPYcMRwdpgMKyhtBH4EE8bKsGv913yuZtyDW": [
+                    "146.120.161.147",
+                    true
+                ],
+                "N1BMVzgXqycv27yUdT4oJiq5p8w65ZV6FPQuk3PGQ6i4xztSZrY": [
+                    "178.250.158.161",
+                    true
+                ],
+                "N1CfRtbg5ghcnid858YLdGZqxNRTE2mpC1yJHS1UBaeNRiLYqsz": [
+                    "142.132.227.166",
                     false
                 ],
-                "N193ffJfk8UoajyQfRBM9Qr5EdajDaTTgp7gUpzXPsT163cdUbZ": [
-                    "65.21.53.81",
+                "N1EmEoNg1XhWNz7RWQd6Rzj6R35RjB45xVuBtNcxZYnxfv7XfZs": [
+                    "95.216.45.34",
+                    true
+                ],
+                "N1FPf6FamCy77fDJpRkuUgYxUfSCDxmTKnvw9wiKNSLSZWgrVx2": [
+                    "135.181.209.55",
+                    true
+                ],
+                "N1KyE1QYyBkVjpu44fpCRFSofYCDNc7qMcT8jsVU8eb8Vzsa5Hi": [
+                    "65.21.154.10",
+                    true
+                ],
+                "N1MVe4Kxgms5kYZG2QZLbNmFHVsqTVAh2jVMYkuwtmmMH5cDVWL": [
+                    "130.61.42.57",
+                    true
+                ],
+                "N1WWb6zMv8AKKLtcQMEcGBT265rWWGGmCTd7KdCF5Breonkd1ab": [
+                    "89.117.57.6",
+                    false
+                ],
+                "N1XdS7uQ6WgBBMoKhwGbMwVmZz79RratJr5DQt2KpSn5MSCL5dw": [
+                    "176.126.113.200",
                     false
                 ],
                 "N1XxexKa3XNzvmakNmPawqFrE9Z2NFhfq1AhvV1Qx4zXq5p1Bp9": [
                     "158.69.23.120",
                     false
                 ],
-                "N1bM3rVnPKDHVyfGdon8i4w22CiHviC7brmrkzxJs2sG9h3UkCL": [
-                    "86.211.230.164",
-                    true
+                "N1f84SrnhchdixCwDQoEVDGzXTrD2xP5fH4boLB8VPwCNMtLCGS": [
+                    "109.88.78.219",
+                    false
                 ],
                 "N1gEdBVEbRFbBxBtrjcTDDK9JPbJFDay27uiJRE3vmbFAFDKNh7": [
                     "54.36.174.177",
                     false
                 ],
+                "N1hLTReKVuNYmGnBXPfWxEn7htxPWmifbgrboK54K1q1vTGi4M1": [
+                    "31.220.15.152",
+                    true
+                ],
                 "N1hdgsVsd4zkNp8cF1rdqqG6JPRQasAmx12QgJaJHBHFU1fRHEH": [
                     "198.27.74.52",
                     false
                 ],
-                "N1q3t59keVCJ16C4dHagaRosPCom6TBTPxPJU7164g7gXd9VR74": [
-                    "89.188.110.239",
+                "N1hkaumJVWECdPcoTAJ3MHV8edN52VM8FyAHBEWKzWLyNoXXcj1": [
+                    "82.66.131.154",
+                    true
+                ],
+                "N1mrMYfshabTPBuZKbJgaAxa6oEUzU8rkMtHJdpgbmwg9ARCMdk": [
+                    "128.0.139.225",
                     false
                 ],
                 "N1qxuqNnx9kyAMYxUfsYiv2gQd5viiBX126SzzexEdbbWd2vQKu": [
                     "198.27.74.5",
                     false
                 ],
-                "N125Ss1iw62AMoZkTRBYxiyGYnFNrnyxXnmwjmEJfHMD69bzzK4n": [
-                    "92.255.26.86",
-                    true
-                ],
-                "N12MDj4ceKxhFBubsLjkP3iHC54E2MMjLBoPPUGXrVrA5V74VbBQ": [
-                    "2a09:7c44::15e4",
-                    true
-                ],
-                "N12P2DbbMTQEGjgSv14bx68HVaFWYUTRTuoXsZnBADNkaovhnhok": [
-                    "209.145.61.217",
+                "N123J3hbXhwHJpYt2ERUFSGXZYgMqLHjHNm4rf54EPDrMWE1x3Fy": [
+                    "149.154.65.148",
                     false
                 ],
-                "N12Tvo38aD5upS3TfHgDiHJhTSaJnhYZcjxrtejKhRinLKm93DqA": [
-                    "82.223.10.164",
-                    true
+                "N1251riyhBZnanKpbQFhT5mR7fkvij4YgNCRy3XtNo5sMH5K6TZ4": [
+                    "94.131.96.222",
+                    false
+                ],
+                "N125Ss1iw62AMoZkTRBYxiyGYnFNrnyxXnmwjmEJfHMD69bzzK4n": [
+                    "92.255.26.86",
+                    false
+                ],
+                "N12CqAtQZ47xKfWW2tMfE65BLBZyyTxRk3htqtiELe6qR5sS7PTj": [
+                    "65.109.121.30",
+                    false
+                ],
+                "N12KPYVAR5cDoBZkYMQ3K8yZ7fxXVWxSGyfSmKX7J1UoDmeUU44H": [
+                    "165.22.16.140",
+                    false
                 ],
                 "N12UbyLJDS7zimGWf3LTHe8hYY67RdLke1iDRZqJbQQLHQSKPW8j": [
                     "149.202.86.103",
                     true
                 ],
-                "N12Yr9DLJwfp5wF7DvrYHnAmfQmLCgv3E1zHTcWbbCwkP74mrv2w": [
-                    "45.88.106.15",
+                "N12c9nHJSgW2bL3RFcWzJL2BavChCPyuZq8yh8dsywhQheMrqNjc": [
+                    "81.220.162.68",
                     false
                 ],
-                "N12j8GqkXFToR8xoT799TygCFnGfXgydxmUR1TgXHN1Yvrz1SxQh": [
-                    "217.41.77.98",
+                "N12kGnE7s73VtUjACYnVFCqY9WqPVjdn3kF9RnWVBVpNpwtbzgKv": [
+                    "154.12.227.121",
+                    false
+                ],
+                "N12pVHJh6cnmfePvvaxRVJSaUs8mpS6grWy4HtHzdX1z7kTymjUh": [
+                    "209.145.50.104",
                     true
+                ],
+                "N12q4B28mcpHPRmmoNaac2ADXwMTXyNoTYzoJgrAaxeegTBMkAd4": [
+                    "91.219.148.50",
+                    false
                 ],
                 "N12rPDBmpnpnbECeAKDjbmeR19dYjAUwyLzsa8wmYJnkXLCNF28E": [
                     "158.69.120.215",
+                    false
+                ],
+                "N12ryhPPUrjfUDgDym4xxvygFDMvpqjAEBxGe3PQV2rNrtUWTJsR": [
+                    "130.61.42.229",
+                    false
+                ],
+                "N12v9HMQn918e7Yq4Pu4vBx7G59rVkvwNPpHxPWtYDFEM9TAmr1M": [
+                    "5.9.79.144",
                     false
                 ],
                 "N12vxrYTQzS5TRzxLfFNYxn6PyEsphKWkdqx2mVfEuvJ9sPF43uq": [
@@ -369,26 +425,26 @@ slot, timestamp), clique count, connected nodes count.
                 "thread": 1
             },
             "consensus_stats": {
-                "start_timespan": 1675344133136,
-                "end_timespan": 1675344193136,
+                "start_timespan": 1675950094721,
+                "end_timespan": 1675950154721,
                 "final_block_count": 0,
                 "stale_block_count": 0,
                 "clique_count": 1
             },
             "pool_stats": [
-                97,
+                610,
                 0
             ],
             "network_stats": {
-                "in_connection_count": 12,
-                "out_connection_count": 7,
-                "known_peer_count": 10022,
+                "in_connection_count": 22,
+                "out_connection_count": 11,
+                "known_peer_count": 10033,
                 "banned_peer_count": 0,
-                "active_node_count": 19
+                "active_node_count": 33
             },
             "execution_stats": {
-                "time_window_start": 1675344133136,
-                "time_window_end": 1675344193136,
+                "time_window_start": 1675950094721,
+                "time_window_end": 1675950154721,
                 "final_block_count": 0,
                 "final_executed_operations_count": 0,
                 "active_cursor": {
@@ -397,7 +453,7 @@ slot, timestamp), clique count, connected nodes count.
                 }
             },
             "config": {
-                "genesis_timestamp": 1675346400000,
+                "genesis_timestamp": 1675951200000,
                 "end_timestamp": 1677596400000,
                 "thread_count": 32,
                 "t0": 16000,
@@ -410,7 +466,7 @@ slot, timestamp), clique count, connected nodes count.
             }
         },
         "id": 1
-    }    
+    }
 
 `get_cliques`
 -------------
