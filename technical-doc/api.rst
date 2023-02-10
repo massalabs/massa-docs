@@ -280,8 +280,8 @@ slot, timestamp), clique count, connected nodes count.
         "result": {
             "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
             "node_ip": "141.94.218.103",
-            "version": "TEST.19.2",
-            "current_time": 1675950154721,
+            "version": "TEST.19.3",
+            "current_time": 1676034000000,
             "current_cycle": 0,
             "current_cycle_time": 1675951200000,
             "next_cycle_time": 1675953248000,
