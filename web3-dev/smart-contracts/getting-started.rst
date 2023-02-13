@@ -20,7 +20,7 @@ To create a smart-contract project, invoke the initializer by running:
 
 .. code-block:: shell
 
-  npx @massalabs/sc-project-initializer init my-sc && cd my-sc
+  npx clear-npx-cache && npx @massalabs/sc-project-initializer@dev init my-sc && cd my-sc
 
 You now have a npm project, created in `my-sc` folder. It contains all tools that will be used to compile AssemblyScript
 to Wasm bytecode, as well as deploying and running your smart contracts.
