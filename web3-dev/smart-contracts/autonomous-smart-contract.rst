@@ -3,30 +3,40 @@
 Autonomous Smart Contract
 =========================
 
-In smart-contract world of Massa, you can create smart-contracts that can be triggered in the future.
+Massa smart contracts have a unique feature of being able to autonomously define when they will be active, without external direction. By the end of this page, you will have a basic understanding of
 
-This system works by sending messages in the future specifying the address and the function you want to trigger.
+- Understand the mechanism behind autonomous smart contracts
+- How to the sendMessage(...) ABI to add autonomy to your smart contracts.
+- Examples of autonomous smart contracts
 
-You need to use the ABI `sendMessage(...)` in your smart contract if you want to send a message to wakeup a function in the future.
+Mechanism in Massa network
+--------------------------
 
-When the message is sent it will debit you the gas directly in this operation and store this message in a separate pool
-than the operation one called async pool.
+This system works by emitting messages specifying the address and the function and the you want to trigger at a certain time.
 
-This pool is totally deterministic because it's filled by information that come from operations included in blocks
+Normally, when you submit an operation, the operation is sent in the operation pool and in the future included in a block to be executed: you pay the gas at execution time.
+With autonomous SCs, the message is emitted inside an operation and so you pay the gas for the message directly in the operation and the message is sent to another pool called async pool.
+
+This pool is deterministic in nature, as it's filled by information that come from operations included in blocks
 and processed by the whole network.
 
-The pool has a finite size and sort the messages with the same behavior as the operation pool: there is a priority with the fees
+The pool has a finite size, and sorts its messages with the same behavior as the operation pool: there is a priority with the fees
 and the messages get removed after a certain number of slots. 
 
-The number of messages to execute each slot are limited by a maximum amount of gas like normal operations 
-and so it's possible that your message isn't executed at the slot that you want (like operations that could be not included in the first block after you sent it)
-but some slots later when there is enough space to include your message. If you want to have your message to be included as soon as possible
+The number of messages that can be executed by each slot are limited by a maximum amount of gas like normal operations 
+and so it's possible that your message isn't executed at the slot that you want (such as operations that could be not included in the first block after you sent it),
+but in a later slot, when there is enough space to include your message. If you want to have your message to be included as soon as possible, 
 you have to put more fees than the others (just like the operations).
 
-The formula to orders the messages is : `(rev(Ratio(msg.fee, max(msg.max_gas,1))), emission_slot, emission_index)` where `emission_index` is an index that differentiate
+The order of the messages is determined by the formula: `(Reverse(Ratio(msg.fee, max(msg.max_gas,1))), emission_slot, emission_index)` where `emission_index` is an index that differentiate
 multiple messages created in the same slot.
 
-All the information are given by the smart-contract calling the ABI
+Use sendMessage to add autonomy in your smart contracts
+-------------------------------------------------------
+
+You need to use the ABI `sendMessage(...)` in your smart contract if you want to emit a message to call a function in the future.
+
+All information is provided by the smart-contract calling the ABI
 in ABI parameters. Let's investigate the parameters in the prototype of the ABI 
 `sendMessage(at, functionName, validityStartPeriod, validityStartThread, validityEndPeriod, validityEndThread, maxGas, rawFee, coins, msg, filterAddress, filterKey)` :
 
@@ -38,8 +48,11 @@ in ABI parameters. Let's investigate the parameters in the prototype of the ABI
 - `rawFee`: A fee to gain prority in the async pool
 - `coins`: Coins that will be passed to the smart contract called in the message
 - `data`: Parameter of the function called in the message
-- `filterAddress`: An optional address that you can define if you want your message to be executed in your validity period
-but only after a modification in the data of the address (balance, bytecode, datastore)
+- `filterAddress`: An optional address that you can define if you want your function to be executed in your validity period
+BUT only after a modification in the data of the address (balance, bytecode, datastore)
 - `filterKey`: An optional datastore key that will execute the message only if there is changes on this datastore key of the `filterAddress`
 
-You can find an example of an oracle using autonomous smart contracts `here <https://github.com/massalabs/massa-sc-examples/tree/oracle_example/oracle>`__
+Examples
+--------
+
+You can find an example of autonomous smart contracts in `this oracle example <https://github.com/massalabs/massa-sc-examples/tree/oracle_example/oracle>`__
