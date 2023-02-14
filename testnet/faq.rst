@@ -41,7 +41,7 @@ Our smart contract system is released and run on the testnet. You can find the f
 <web3-dev-sc>`.
 
 We are planning some exciting features, such as self-wakeup, a bit like what is introduced `here
-<https://arxiv.org/pdf/2102.10784.pdf>`__
+<https://arxiv.org/pdf/2102.10784.pdf>`_
 
 What ports does Massa use?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,7 +54,7 @@ How to restart the Node?
 
 - Ubuntu
       ``cargo run --release |& tee logs.txt``
-- Windows : ctrl + c for killing the process and ``cargo run --release``
+- Windows: ctrl + c for killing the process and ``cargo run --release``
 - Mac Os
       ``cargo run --release > logs.txt 2>&1``
 

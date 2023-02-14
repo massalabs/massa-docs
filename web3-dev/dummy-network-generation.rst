@@ -38,9 +38,9 @@ Create a keypair in massa-client:
 
 For the rest of the tutorial we will use theses abbreviations:
 
-- `SECRETK` : The secret you just generated
-- `PUBK` : The public key corresponding to SECRETK
-- `ADDR` : The address corresponding to PUBK
+- `SECRETK`: The secret you just generated
+- `PUBK`: The public key corresponding to SECRETK
+- `ADDR`: The address corresponding to PUBK
 
 Setup your node to use the secret you just generated as its public key and staking key:
     - modify or create the file `massa-node/config/node_privkey.key` :

@@ -6,8 +6,10 @@ Running a node
 From binaries (simple installation)
 -----------------------------------
 
-Simply run the binaries you downloaded in the previous step: Open the `massa-node` folder and run the `massa-node`
-executable Open the `massa-client` folder and run the `massa-client` executable
+Simply run the binaries you downloaded in the previous step:
+
+- Open the `massa-node` folder and run the `massa-node` executable
+- Open the `massa-client` folder and run the `massa-client` executable
 
 On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~
