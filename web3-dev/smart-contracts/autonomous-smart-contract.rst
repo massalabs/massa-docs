@@ -52,8 +52,7 @@ The ABI method `sendMessage(...)` is the key to emitting such a message, and the
 - `rawFee`: A fee to gain prority in the async pool
 - `coins`: Coins that will be passed to the smart contract called in the message
 - `data`: Parameter of the function called in the message
-- `filterAddress`: An optional address that you can define if you want your function to be executed in your validity period 
-BUT only after a modification in the data of the address (balance, bytecode, datastore)
+- `filterAddress`: An optional address that you can define if you want your function to be executed in your validity period BUT only after a modification in the data of the address (balance, bytecode, datastore)
 - `filterKey`: An optional datastore key that will execute the message only if there is changes on this datastore key of the `filterAddress`
 
 Examples
