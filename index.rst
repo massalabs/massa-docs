@@ -79,8 +79,8 @@ Contents
 
 .. toctree::
 
-     :maxdepth: 2
-     :caption: Testnet documentation
+    :maxdepth: 2
+    :caption: Testnet documentation
 
     testnet/install.rst
     testnet/running.rst
