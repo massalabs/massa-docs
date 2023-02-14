@@ -117,7 +117,7 @@ To pay for the operation cost, you need to configure your project with your wall
 
 Now fill the `WALLET_PRIVATE_KEY` variable with your wallet secret key.
 
-You are now ready to deploy you smart contract with the following command:
+You are now ready to deploy your smart contract with the following command:
 
 .. code-block:: shell
 
