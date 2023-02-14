@@ -48,11 +48,23 @@ Now you can either generate a new keypair (and associated address):
 
     wallet_add_secret_keys <SecretKey>
 
-The list of addresses and keys of your wallet can be accessed with:
+The list of addresses of your wallet can be accessed with:
 
 .. code-block::
 
     wallet_info
+
+Access public key(s) of addresse(s):
+
+.. code-block::
+
+    wallet_get_public_key <Address1> <Address2>
+
+Access secret key(s) of addresse(s):
+
+.. code-block::
+
+    wallet_get_secret_key <Address1> <Address2>
 
 From the graphical interface
 ----------------------------

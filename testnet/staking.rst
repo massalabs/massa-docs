@@ -27,8 +27,8 @@ Buy rolls with it: put your address, the number of rolls you want to buy, and th
     buy_rolls <address> <roll count> <fee>
 
 As an example, the command for buying 1 roll with 0 fee for the address
-`VkUQ5MA4niNBhAEP7uVf89tvPfUHcbgy6BrdLM9SAuFSyy9DE` is: ``buy_rolls VkUQ5MA4niNBhAEP7uVf89tvPfUHcbgy6BrdLM9SAuFSyy9DE 1
-0``
+`A12dr48yZaL2NpQkwsrpsNLGDpndFUCVSdYdSiQh4UfkYRMo17km` is: ``buy_rolls
+A12dr48yZaL2NpQkwsrpsNLGDpndFUCVSdYdSiQh4UfkYRMo17km 1 0``
 
 It should take less than one minute for your roll to become final, check with:
 
@@ -39,17 +39,17 @@ It should take less than one minute for your roll to become final, check with:
 Telling your node to start staking with your rolls
 --------------------------------------------------
 
-Get the secret key that has rolls in your wallet:
+Get the address that has rolls in your wallet:
 
 .. code-block::
 
     wallet_info
 
-Register your secret key so that your node start to stake with it:
+Register your address so that your node start to stake with it:
 
 .. code-block::
 
-    node_add_staking_secret_keys <your_secret_key>
+    node_start_staking <your_address>
 
 Now you should wait some time so that your rolls become active: 3 cycles of 128 periods (one period is 32 blocks - 16
 sec), so about 1h40 minutes.

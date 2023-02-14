@@ -7,10 +7,10 @@ Introduction
 We will describe in this document the global architecture of a Massa Node, from the ground up, and introduce relevant
 definitions and concepts.
 
-The goal of the Massa network is to build a consensus between **nodes** to gather and order **blocks** that contains
+The goal of the Massa network is to build a consensus between **nodes** to gather and order **blocks** that contain
 ordered lists of **operations**.
-An operation ultimate purpose once executed is to act as transitions for the global network state, called the
-**ledger**.
+An operation ultimate purpose once executed is to act as transitions for the global network state,
+called the **ledger**.
 
 Operations are produced by external clients and sent to the Massa network via a node.
 Some operations are containing code to be run as **smart contracts**, enabling complex programmatic modifications
@@ -208,6 +208,9 @@ The content of a block is as follows:
 ``operations_hash``              A hash of all the operations included in the block (=hash of the block body below)
 ``signature``                    signature of all the above with the private key of
                                  the block creator
+===============================  =========================================================
+
+===============================  =========================================================
 **Block body**
 ------------------------------------------------------------------------------------------
 ``operations``                   The list of all operations included in the block

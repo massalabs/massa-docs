@@ -3,8 +3,8 @@
 Running a node
 ==============
 
-From binaries
--------------
+From binaries (simple installation)
+===============================
 
 Simply run the binaries you downloaded in the previous step: Open the `massa-node` folder and run the `massa-node`
 executable Open the `massa-client` folder and run the `massa-client` executable
@@ -14,10 +14,10 @@ On Ubuntu / MacOS
 
 **Configure the node**
 
-Defaut configuration is available `here
+Default configuration is available `here
 <https://github.com/massalabs/massa/blob/main/massa-node/base_config/config.toml>`_.
 
-You can override the defaut configuration via `massa-node/config/config.toml` file.
+You can override the default configuration via `massa-node/config/config.toml` file.
 
 **Start the node**
 
@@ -51,8 +51,8 @@ Then:
 
 Replace <PASSWORD> with a password that you will need to keep to restart your client
 
-From source code
-----------------
+From source code (advanced installation)
+=====================================
 
 On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~

@@ -116,7 +116,7 @@ The most likely reason is that you did not produce some blocks when selected to 
 - Node being desynchronized (which can be caused by temporary overload if the specs are insufficient or if other
   programs are using resources on the computer or because of internet connection problems) at some point while you had
   active_rolls \> 0
-- The node does not having the right registered staking keys (type staking_addresses in the client to verify that they
+- The node does not have the right registered staking keys (type staking_addresses in the client to verify that they
   match the addresses in your wallet_info that have active rolls) 100% of the time during which you had active_rolls \>
   0
 - Some hosting providers have Half-duplex connection setting. Contact hosting support and ask to switch you to
@@ -125,7 +125,7 @@ The most likely reason is that you did not produce some blocks when selected to 
 Diagnostic process:
 
 - make sure the node is running on a computer that matches hardware requirements and that no other software is hogging
-  ressources
+  resources
 - type ``wallet_info`` and make sure that at least one address has active rolls > 0
 
   - if there are no addresses listed, create a new one by calling `wallet_generate_private_key` and try the diagnostic
@@ -137,8 +137,8 @@ Diagnostic process:
 
   - if the list is empty or if none of the addresses listed matches addresses that have active rolls in ``wallet_info``:
 
-    - call ``node_add_staking_secret_keys`` with the secret key matching an address that has non-zero active rolls in
-      ``wallet_info``
+    - call ``node_start_staking`` with the secret key matching an address that has non-zero active rolls in
+      ``wallet_get_secret_key <Address1> <Address2>``
 
 - check your address with the online explorer: if there is a mismatch between the number of active rolls displayed in
   the online interface and what is returned by `wallet_info`, it might be that your node is desynchronized. Try
