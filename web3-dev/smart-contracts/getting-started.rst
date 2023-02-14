@@ -123,7 +123,8 @@ You are now ready to deploy your smart contract with the following command:
 
     npm run deploy
 
-If everything goes as expected, this should produce the following output:
+This command will use the node defined in the `JSON_RPC_URL_PUBLIC` variable of your `.env` file to deploy your smart
+contract. If everything goes as expected, this should produce the following output:
 
 .. code-block:: shell
 
