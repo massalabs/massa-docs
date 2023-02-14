@@ -208,9 +208,6 @@ The content of a block is as follows:
 ``operations_hash``              A hash of all the operations included in the block (=hash of the block body below)
 ``signature``                    signature of all the above with the private key of
                                  the block creator
-===============================  =========================================================
-
-===============================  =========================================================
 **Block body**
 ------------------------------------------------------------------------------------------
 ``operations``                   The list of all operations included in the block
