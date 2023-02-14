@@ -78,7 +78,6 @@ Contents
     general-doc/autonomous-sc.rst
 
 .. toctree::
-
     :maxdepth: 2
     :caption: Testnet documentation
 
