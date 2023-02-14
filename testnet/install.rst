@@ -9,7 +9,7 @@ Installing a node
     the :ref:`FAQ <testnet-faq>`.
 
 From binaries (simple installation)
-===================================
+-----------------------------------
 
 If you just wish to run a Massa node without compiling it yourself, you can simply download the latest binary below and
 go the the next step: :ref:`Running a node <testnet-running>`.
@@ -21,12 +21,12 @@ go the the next step: :ref:`Running a node <testnet-running>`.
 - `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.19.3/massa_TEST.19.3_release_macos.tar.gz>`_
 
 From source code (advanced installation)
-========================================
+----------------------------------------
 
 Otherwise, if you wish to run a Massa node from source code, here are the steps to follow:
 
 On Ubuntu / MacOS
------------------
+~~~~~~~~~~~~~~~~~
 
 - on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev
   libclang-dev``
@@ -42,7 +42,7 @@ On Ubuntu / MacOS
 - clone this repo: ``git clone --branch testnet https://github.com/massalabs/massa.git``
 
 On Windows
-----------
+~~~~~~~~~~
 
 **Set up your Rust environment**
 
