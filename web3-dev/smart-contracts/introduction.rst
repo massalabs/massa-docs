@@ -16,9 +16,9 @@ characteristics:
 - Audit
 
 .. note::
-   Smart contract is not about replacing paper contract with electronic one, but
-   replacing the Law with the transaction protocol.
-   By doing so you're also replacing trust in justice by trust in the blockchain.
+
+    Smart contract is not about replacing paper contract with electronic one, but replacing the Law with the transaction
+    protocol. By doing so you're also replacing trust in justice by trust in the blockchain.
 
 In the following, and in the crypto ecosystem, we talk about smart contracts only to refer to a *program* that can be
 executed on a blockchain.
@@ -29,10 +29,10 @@ entanglement of the program in the blockchain and its guarantees.
 Technical choices
 -----------------
 
-For all the reasons listed above and for performance, Massa chose a program in
-`WebAssembly <https://webassembly.org/>`_.
+For all the reasons listed above and for performance, Massa chose a program in `WebAssembly
+<https://webassembly.org/>`_.
 
-For the sake of accessibility, Massa decided to use `AssemblyScript <https://www.assemblyscript.org/>`_  as programming
+For the sake of accessibility, Massa decided to use `AssemblyScript <https://www.assemblyscript.org/>`_ as programming
 language to compile the expected logic into bytecode.
 
 Finally, at node level, the byte of a program is executed by `Wasmer <https://wasmer.io/>`_ .
@@ -40,5 +40,5 @@ Finally, at node level, the byte of a program is executed by `Wasmer <https://wa
 The following schema recap graphically all this:
 
 .. image:: diagram-smartcontract.png
-  :width: 250
-  :align: center
+    :width: 250
+    :align: center
