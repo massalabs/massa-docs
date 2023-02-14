@@ -58,4 +58,4 @@ The ABI method `sendMessage(...)` is the key to emitting such a message, and the
 Examples
 --------
 
-You can find an example of autonomous smart contracts in `this ticker example <https://github.com/massalabs/massa-sc-examples/tree/main/ticker>`__
+You can find an example of autonomous smart contracts in `this ticker example <https://github.com/massalabs/massa-sc-examples/tree/main/ticker>`__, where `sendMessage(...)` is used `here <https://github.com/massalabs/massa-sc-examples/blob/a69dd88079caf0932e638689a518627b15a4d407/ticker/assembly/contracts/oracle.ts#L25>`__
