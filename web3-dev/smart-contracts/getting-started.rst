@@ -25,6 +25,12 @@ boilerplate smart-contract project. To create a smart-contract project, invoke t
 You now have a npm project, created in `my-sc` folder. It contains all tools that will be used to compile AssemblyScript
 to Wasm bytecode, as well as deploying and running your smart contracts.
 
+Update the dependencies with that command:
+
+.. code-block:: shell
+
+    npm update @massalabs/as-transformer @massalabs/as-types @massalabs/massa-as-sdk @massalabs/massa-sc-compiler @massalabs/massa-sc-deployer @massalabs/massa-web3
+
 Congratulations! Now you have a fully set up project and you are ready to add some code.
 
 .. note::
