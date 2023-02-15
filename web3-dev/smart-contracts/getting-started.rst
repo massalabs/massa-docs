@@ -25,7 +25,7 @@ boilerplate smart-contract project. To create a smart-contract project, invoke t
 You now have a npm project, created in `my-sc` folder. It contains all tools that will be used to compile AssemblyScript
 to Wasm bytecode, as well as deploying and running your smart contracts.
 
-Update the dependencies with that command:
+Update the dependencies with the following command:
 
 .. code-block:: shell
 
