@@ -39,7 +39,7 @@ that has rolls according to ``wallet_info``.
   the client, overwrite wallet.dat with your backup, launch the client again and try again. You can also create a new
   address by calling ``wallet_generate_secret_key``.
 - If you can't find an address in ``wallet_info`` that has non-zero candidate, non-zero final and non-zero active rolls,
-  please refer to the `staking tutorial <https://git-scm.com/download/win>`_ on getting rolls.
+  please refer to the `staking tutorial <https://docs.massa.net/en/latest/testnet/staking.html>`_ on getting rolls.
 - If ``node_get_staking_addresses`` does not return any address or does not return an address that has active_rolls
   according to `wallet_info`, it means you haven't backed up staking_keys.json properly. Try stopping the node,
   overwriting staking_keys.json with your backup, and starting the node again to try again. You can also manually add a
