@@ -2,12 +2,11 @@
 
 .. _technical-api:
 
-
 Massa JSON-RPC API
 ==================
 
-This crate exposes Rust methods (through the `Endpoints` trait) as
-JSON-RPC API methods (thanks to the `ParityJSON-RPC <https://github.com/paritytech/jsonrpc>`_ crate).
+This crate exposes Rust methods (through the `Endpoints` trait) as JSON-RPC API methods (thanks to the `ParityJSON-RPC
+<https://github.com/paritytech/jsonrpc>`_ crate).
 
 Massa JSON-RPC API is splitted in two parts :
 
@@ -15,118 +14,98 @@ Massa JSON-RPC API is splitted in two parts :
 - **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
 
 .. warning::
-    
+
     Massa has a new experimental API with both Http and WebSocket support: Default port: 33036
-    
+
     - **Http**: used for node management and blockchain interactions. e.g. http://localhost:33036
     - **WebSocket**: used for streaming blockchain events. e.g. ws://localhost:33036
-    
-Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_  specification `here <https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
+
+Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_ specification `here
+<https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
 
 Integrations
-============
+------------
 
 - **JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
-- **Playground**: use `Massa Playground <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
+- **Playground**: use `Massa Playground
+  <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
 - **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/tree/main/postman>`_.
 
 Error codes
-===========
+-----------
 
-When a call to Massa API fails, it **MUST** return a valid JSON-RPC `error object <https://www.jsonrpc.org/specification#error_object>`_ .
+When a call to Massa API fails, it **MUST** return a valid JSON-RPC `error object
+<https://www.jsonrpc.org/specification#error_object>`_ .
 
-+----------+------------------------+------------------------+
-| **Code** | **Message**            | **Meaning**            |
-+==========+========================+========================+
-|| -32600  || Invalid request       || The JSON sent is not  |
-||         ||                       || a valid Request       |
-||         ||                       || object                |
-+----------+------------------------+------------------------+
-|| -32601  || Method not found      || The method does not   |
-||         ||                       || exist / is not        |
-||         ||                       || available             |
-+----------+------------------------+------------------------+
-|| -32602  || Invalid params        || Invalid method        |
-||         ||                       || parameter(s)          |
-+----------+------------------------+------------------------+
-|| -32603  || Internal error        || Internal JSON-RPC     |
-||         ||                       || error                 |
-+----------+------------------------+------------------------+
-|| -32700  || Parse error           || Invalid JSON, parsing |
-||         ||                       || issue                 |
-+----------+------------------------+------------------------+
-|| -32000  || Bad request           || Indicates that the    |
-||         ||                       || server cannot or will |
-||         ||                       || not process the       |
-||         ||                       || request due to        |
-||         ||                       || something that is     |
-||         ||                       || perceived to be a     |
-||         ||                       || client error (for     |
-||         ||                       || example, malformed    |
-||         ||                       || request syntax,       |
-||         ||                       || invalid request       |
-||         ||                       || message framing, or   |
-||         ||                       || deceptive request     |
-||         ||                       || routing)              |
-+----------+------------------------+------------------------+
-|| -32001  || Internal server error || The server            |
-||         ||                       || encountered an        |
-||         ||                       || unexpected issue      |
-+----------+------------------------+------------------------+
-|| -32003  || Service Unavailable   || Indicates that the    |
-||         ||                       || server is not ready   |
-||         ||                       || to handle the request |
-+----------+------------------------+------------------------+
-|| -32004  || Not found             || Indicates that the    |
-||         ||                       || server cannot find    |
-||         ||                       || the requested         |
-||         ||                       || resource              |
-+----------+------------------------+------------------------+
-|| -32005  || Method not allowed    || Indicates that the    |
-||         ||                       || server knows the      |
-||         ||                       || request method, but   |
-||         ||                       || the target resource   |
-||         ||                       || doesn’t support this  |
-||         ||                       || method                |
-+----------+------------------------+------------------------+
-| -32006   | Send channel error     | Send channel error     |
-+----------+------------------------+------------------------+
-| -32007   | Receive channel error  | Receive channel error  |
-+----------+------------------------+------------------------+
-| -32008   | Massa hash error       | ``massa_hash`` error   |
-+----------+------------------------+------------------------+
-|| -32009  || Consensus error       || Error from Consensus  |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
-|| -32010  || Execution error       || Error from Execution  |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
-|| -32011  || Network error         || Error from Network    |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
-|| -32012  || Protocol error        || Error from Protocol   |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
-| -32013   | Models error           | Error in Models        |
-+----------+------------------------+------------------------+
-|| -32014  || Time error            || Error from Time       |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
-|| -32015  || Wallet error          || Error from Wallet     |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
-|| -32016  || Inconsistency error   || Inconsistency in the  |
-||         ||                       || result of request     |
-+----------+------------------------+------------------------+
-|| -32017  || Missing command       || Missing command       |
-||         || sender                || sender                |
-+----------+------------------------+------------------------+
-| -32018   | Missing config         | Missing configuration  |
-+----------+------------------------+------------------------+
-|| -32019  || Wrong API             || The wrong API (either |
-||         ||                       || Public or Private)    |
-||         ||                       || was called            |
-+----------+------------------------+------------------------+
+========== ========================= =========================
+**Code**   **Message**               **Meaning**
+========== ========================= =========================
+|   -32600 |   Invalid request       |   The JSON sent is not
+|          |                         |   a valid Request
+|          |                         |   object
+|   -32601 |   Method not found      |   The method does not
+|          |                         |   exist / is not
+|          |                         |   available
+|   -32602 |   Invalid params        |   Invalid method
+|          |                         |   parameter(s)
+|   -32603 |   Internal error        |   Internal JSON-RPC
+|          |                         |   error
+|   -32700 |   Parse error           |   Invalid JSON, parsing
+|          |                         |   issue
+|   -32000 |   Bad request           |   Indicates that the
+|          |                         |   server cannot or will
+|          |                         |   not process the
+|          |                         |   request due to
+|          |                         |   something that is
+|          |                         |   perceived to be a
+|          |                         |   client error (for
+|          |                         |   example, malformed
+|          |                         |   request syntax,
+|          |                         |   invalid request
+|          |                         |   message framing, or
+|          |                         |   deceptive request
+|          |                         |   routing)
+|   -32001 |   Internal server error |   The server
+|          |                         |   encountered an
+|          |                         |   unexpected issue
+|   -32003 |   Service Unavailable   |   Indicates that the
+|          |                         |   server is not ready
+|          |                         |   to handle the request
+|   -32004 |   Not found             |   Indicates that the
+|          |                         |   server cannot find
+|          |                         |   the requested
+|          |                         |   resource
+|   -32005 |   Method not allowed    |   Indicates that the
+|          |                         |   server knows the
+|          |                         |   request method, but
+|          |                         |   the target resource
+|          |                         |   doesn’t support this
+|          |                         |   method
+-32006     Send channel error        Send channel error
+-32007     Receive channel error     Receive channel error
+-32008     Massa hash error          ``massa_hash`` error
+|   -32009 |   Consensus error       |   Error from Consensus
+|          |                         |   module
+|   -32010 |   Execution error       |   Error from Execution
+|          |                         |   module
+|   -32011 |   Network error         |   Error from Network
+|          |                         |   module
+|   -32012 |   Protocol error        |   Error from Protocol
+|          |                         |   module
+-32013     Models error              Error in Models
+|   -32014 |   Time error            |   Error from Time
+|          |                         |   module
+|   -32015 |   Wallet error          |   Error from Wallet
+|          |                         |   module
+|   -32016 |   Inconsistency error   |   Inconsistency in the
+|          |                         |   result of request
+|   -32017 |   Missing command       |   Missing command
+|          |   sender                |   sender
+-32018     Missing config            Missing configuration
+|   -32019 |   Wrong API             |   The wrong API (either
+|          |                         |   Public or Private)
+|          |                         |   was called
+========== ========================= =========================
 
 Error example:
 
@@ -141,124 +120,124 @@ Error example:
     "id": 1
     }
 
-
 WebSockets support
-==================
+------------------
 
 In this section we'll learn how to enable and subscribe to WebSockets via Postman client.
 
 .. warning::
+
     - Experimental support for WebSocket is a feature that is subject to change in a future releases.
 
-Available subscriptions: 
+Available subscriptions:
 
 - `subscribe_new_blocks/unsubscribe_new_blocks`: subscribe/unsubscribe to/from new produced blocks.
-- `subscribe_new_blocks_headers/unsubscribe_new_blocks_headers`: subscribe/unsubscribe to/from new produced blocks headers.
-- `subscribe_new_filled_blocks/unsubscribe_new_filled_blocks`: subscribe/unsubscribe to/from new produced filled blocks with operations content.
+- `subscribe_new_blocks_headers/unsubscribe_new_blocks_headers`: subscribe/unsubscribe to/from new produced blocks
+  headers.
+- `subscribe_new_filled_blocks/unsubscribe_new_filled_blocks`: subscribe/unsubscribe to/from new produced filled blocks
+  with operations content.
 - `subscribe_new_operations/unsubscribe_new_operations`: subscribe/unsubscribe to/from new produced operations.
 
-To enable WebSocket support in Massa node, edit file :code:`massa-node/config/config.toml` (create it if absent) with the following contents:
+To enable WebSocket support in Massa node, edit file ``massa-node/config/config.toml`` (create it if absent) with the
+following contents:
 
 .. code-block:: toml
 
     [api]
         # whether to enable WS.
+          {
         enable_ws = true
 
-Postman brings support for WebSocket APIs, more information about it `here <https://blog.postman.com/postman-supports-websocket-apis/>`_.
+Postman brings support for WebSocket APIs, more information about it `here
+<https://blog.postman.com/postman-supports-websocket-apis/>`__.
 
 .. image:: postman_websocket.png
 
--   run the massa node
--   connect to :code:`ws://localhost:33036`
--   send the request message:
+- run the massa node
+- connect to ``ws://localhost:33036``
+- send the request message:
 
-    .. code-block:: json
-    
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "method": "subscribe_new_filled_blocks",
-            "params": []
-        }
+      .. code-block:: json
+
+              "jsonrpc": "2.0",
+              "id": 1,
+              "method": "subscribe_new_filled_blocks",
+              "params": []
+          }
 
 - If the request succeed, the response will contains a subscription id:
-    .. code-block:: json
-    
-        {
-            "jsonrpc": "2.0",
-            "result": 3508678639232691,
-            "id": 1
-        }
+      .. code-block:: json
 
+          {
+              "jsonrpc": "2.0",
+              "result": 3508678639232691,
+              "id": 1
+          }
 - Result:
-    .. code-block:: json
+      .. code-block:: json
 
-        {
-            "jsonrpc": "2.0",
-            "method": "new_filled_blocks",
-            "params": {
-                "subscription": 3508678639232691,
-                "result": "FILLED_BLOCK_CONTENT_0"
-            }
-        }
-
+          {
+              "jsonrpc": "2.0",
+              "method": "new_filled_blocks",
+              "params": {
+                  "subscription": 3508678639232691,
+                  "result": "FILLED_BLOCK_CONTENT_0"
+              }
+          }
 - A message is received everytime a filled block is produced:
-    .. code-block:: json
+      .. code-block:: json
 
-        {
-            "jsonrpc": "2.0",
-            "method": "new_filled_blocks",
-            "params": {
-                "subscription": 3508678639232691,
-                "result": "FILLED_BLOCK_CONTENT_N"
-            }
-        }
-
+          {
+              "jsonrpc": "2.0",
+              "method": "new_filled_blocks",
+              "params": {
+                  "subscription": 3508678639232691,
+                  "result": "FILLED_BLOCK_CONTENT_N"
+              }
+          }
 - unsubscribe and stop receiving new filled blocks:
-    .. code-block:: json
-    
-        {
-            "jsonrpc": "2.0",
-            "id": 1,
-            "method": "unsubscribe_new_filled_blocks",
-            "params": [3508678639232691]
-        }
+      .. code-block:: json
 
+          {
+              "jsonrpc": "2.0",
+              "id": 1,
+              "method": "unsubscribe_new_filled_blocks",
+              "params": [3508678639232691]
+          }
 - Result:
-    .. code-block:: json
-    
-        {
-            "jsonrpc": "2.0",
-            "result": true,
-            "id": 1
-        }
+      .. code-block:: json
 
+          {
+              "jsonrpc": "2.0",
+              "result": true,
+              "id": 1
+          }
 
 .. note::
 
     Multiple subscriptions are supported
 
 Explore Massa Blockchain
-========================
+------------------------
 
-In this section we'll learn how to interact with Massa blockchain via `curl` commands which
-will create JSON-RPC `request <https://www.jsonrpc.org/specification#request_object>`_ calls.
+In this section we'll learn how to interact with Massa blockchain via `curl` commands which will create JSON-RPC
+`request <https://www.jsonrpc.org/specification#request_object>`_ calls.
 
 .. warning::
+
     - We'll use only public API methods in testnet node.
 
 **Public** API
 
-a.k.a. **user mode** methods (running on `<https://test.massa.net/api/v2>`_)
+a.k.a. **user mode** methods (running on https://test.massa.net/api/v2)
 
 `get_status`
-------------
+~~~~~~~~~~~~
 
-Summary of the current state: time, last final blocks (hash, thread,
-slot, timestamp), clique count, connected nodes count.
+Summary of the current state: time, last final blocks (hash, thread, slot, timestamp), clique count, connected nodes
+count.
 
--   Query:
+- Query:
 
 .. code-block:: shell
 
@@ -271,7 +250,7 @@ slot, timestamp), clique count, connected nodes count.
         "params": []
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -280,82 +259,138 @@ slot, timestamp), clique count, connected nodes count.
         "result": {
             "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
             "node_ip": "141.94.218.103",
-            "version": "TEST.19.1",
-            "current_time": 1675344193136,
+            "version": "TEST.19.3",
+            "current_time": 1676034000000,
             "current_cycle": 0,
-            "current_cycle_time": 1675346400000,
-            "next_cycle_time": 1675348448000,
+            "current_cycle_time": 1675951200000,
+            "next_cycle_time": 1675953248000,
             "connected_nodes": {
-                "N13Agewo5AK5mKnhFyDaWic13gGAdZLf5DWSs8QNg7Vnm3v4ph7": [
-                    "38.242.154.24",
+                "N1SgmKG5TGhexEwFJkRxD3h8Fi18QGq8B9PY3Hj64fnTuthCtD": [
+                    "78.47.152.19",
                     true
                 ],
                 "N13Ykon8Zo73PTKMruLViMMtE2rEG646JQ4sCcee2DnopmVM3P5": [
                     "51.75.60.228",
                     false
                 ],
-                "N17iofbaX2HGDnHFdVfk2E8uxSbwE9A1fWc9gqQxdDHwnvLn5aj": [
-                    "144.76.19.103",
+                "N167CofshZAzWdsuPYcMRwdpgMKyhtBH4EE8bKsGv913yuZtyDW": [
+                    "146.120.161.147",
+                    true
+                ],
+                "N1BMVzgXqycv27yUdT4oJiq5p8w65ZV6FPQuk3PGQ6i4xztSZrY": [
+                    "178.250.158.161",
+                    true
+                ],
+                "N1CfRtbg5ghcnid858YLdGZqxNRTE2mpC1yJHS1UBaeNRiLYqsz": [
+                    "142.132.227.166",
                     false
                 ],
-                "N193ffJfk8UoajyQfRBM9Qr5EdajDaTTgp7gUpzXPsT163cdUbZ": [
-                    "65.21.53.81",
+                "N1EmEoNg1XhWNz7RWQd6Rzj6R35RjB45xVuBtNcxZYnxfv7XfZs": [
+                    "95.216.45.34",
+                    true
+                ],
+                "N1FPf6FamCy77fDJpRkuUgYxUfSCDxmTKnvw9wiKNSLSZWgrVx2": [
+                    "135.181.209.55",
+                    true
+                ],
+                "N1KyE1QYyBkVjpu44fpCRFSofYCDNc7qMcT8jsVU8eb8Vzsa5Hi": [
+                    "65.21.154.10",
+                    true
+                ],
+                "N1MVe4Kxgms5kYZG2QZLbNmFHVsqTVAh2jVMYkuwtmmMH5cDVWL": [
+                    "130.61.42.57",
+                    true
+                ],
+                "N1WWb6zMv8AKKLtcQMEcGBT265rWWGGmCTd7KdCF5Breonkd1ab": [
+                    "89.117.57.6",
+                    false
+                ],
+                "N1XdS7uQ6WgBBMoKhwGbMwVmZz79RratJr5DQt2KpSn5MSCL5dw": [
+                    "176.126.113.200",
                     false
                 ],
                 "N1XxexKa3XNzvmakNmPawqFrE9Z2NFhfq1AhvV1Qx4zXq5p1Bp9": [
                     "158.69.23.120",
                     false
                 ],
-                "N1bM3rVnPKDHVyfGdon8i4w22CiHviC7brmrkzxJs2sG9h3UkCL": [
-                    "86.211.230.164",
-                    true
+                "N1f84SrnhchdixCwDQoEVDGzXTrD2xP5fH4boLB8VPwCNMtLCGS": [
+                    "109.88.78.219",
+                    false
                 ],
                 "N1gEdBVEbRFbBxBtrjcTDDK9JPbJFDay27uiJRE3vmbFAFDKNh7": [
                     "54.36.174.177",
                     false
                 ],
+                "N1hLTReKVuNYmGnBXPfWxEn7htxPWmifbgrboK54K1q1vTGi4M1": [
+                    "31.220.15.152",
+                    true
+                ],
                 "N1hdgsVsd4zkNp8cF1rdqqG6JPRQasAmx12QgJaJHBHFU1fRHEH": [
                     "198.27.74.52",
                     false
                 ],
-                "N1q3t59keVCJ16C4dHagaRosPCom6TBTPxPJU7164g7gXd9VR74": [
-                    "89.188.110.239",
+                "N1hkaumJVWECdPcoTAJ3MHV8edN52VM8FyAHBEWKzWLyNoXXcj1": [
+                    "82.66.131.154",
+                    true
+                ],
+                "N1mrMYfshabTPBuZKbJgaAxa6oEUzU8rkMtHJdpgbmwg9ARCMdk": [
+                    "128.0.139.225",
                     false
                 ],
                 "N1qxuqNnx9kyAMYxUfsYiv2gQd5viiBX126SzzexEdbbWd2vQKu": [
                     "198.27.74.5",
                     false
                 ],
-                "N125Ss1iw62AMoZkTRBYxiyGYnFNrnyxXnmwjmEJfHMD69bzzK4n": [
-                    "92.255.26.86",
-                    true
-                ],
-                "N12MDj4ceKxhFBubsLjkP3iHC54E2MMjLBoPPUGXrVrA5V74VbBQ": [
-                    "2a09:7c44::15e4",
-                    true
-                ],
-                "N12P2DbbMTQEGjgSv14bx68HVaFWYUTRTuoXsZnBADNkaovhnhok": [
-                    "209.145.61.217",
+                "N123J3hbXhwHJpYt2ERUFSGXZYgMqLHjHNm4rf54EPDrMWE1x3Fy": [
+                    "149.154.65.148",
                     false
                 ],
-                "N12Tvo38aD5upS3TfHgDiHJhTSaJnhYZcjxrtejKhRinLKm93DqA": [
-                    "82.223.10.164",
-                    true
+                "N1251riyhBZnanKpbQFhT5mR7fkvij4YgNCRy3XtNo5sMH5K6TZ4": [
+                    "94.131.96.222",
+                    false
+                ],
+                "N125Ss1iw62AMoZkTRBYxiyGYnFNrnyxXnmwjmEJfHMD69bzzK4n": [
+                    "92.255.26.86",
+                    false
+                ],
+                "N12CqAtQZ47xKfWW2tMfE65BLBZyyTxRk3htqtiELe6qR5sS7PTj": [
+                    "65.109.121.30",
+                    false
+                ],
+                "N12KPYVAR5cDoBZkYMQ3K8yZ7fxXVWxSGyfSmKX7J1UoDmeUU44H": [
+                    "165.22.16.140",
+                    false
                 ],
                 "N12UbyLJDS7zimGWf3LTHe8hYY67RdLke1iDRZqJbQQLHQSKPW8j": [
                     "149.202.86.103",
                     true
                 ],
-                "N12Yr9DLJwfp5wF7DvrYHnAmfQmLCgv3E1zHTcWbbCwkP74mrv2w": [
-                    "45.88.106.15",
+                "N12c9nHJSgW2bL3RFcWzJL2BavChCPyuZq8yh8dsywhQheMrqNjc": [
+                    "81.220.162.68",
                     false
                 ],
-                "N12j8GqkXFToR8xoT799TygCFnGfXgydxmUR1TgXHN1Yvrz1SxQh": [
-                    "217.41.77.98",
+                "N12kGnE7s73VtUjACYnVFCqY9WqPVjdn3kF9RnWVBVpNpwtbzgKv": [
+                    "154.12.227.121",
+                    false
+                ],
+                "N12pVHJh6cnmfePvvaxRVJSaUs8mpS6grWy4HtHzdX1z7kTymjUh": [
+                    "209.145.50.104",
                     true
+                ],
+                "N12q4B28mcpHPRmmoNaac2ADXwMTXyNoTYzoJgrAaxeegTBMkAd4": [
+                    "91.219.148.50",
+                    false
                 ],
                 "N12rPDBmpnpnbECeAKDjbmeR19dYjAUwyLzsa8wmYJnkXLCNF28E": [
                     "158.69.120.215",
+                    false
+                ],
+                "N12ryhPPUrjfUDgDym4xxvygFDMvpqjAEBxGe3PQV2rNrtUWTJsR": [
+                    "130.61.42.229",
+                    false
+                ],
+                "N12v9HMQn918e7Yq4Pu4vBx7G59rVkvwNPpHxPWtYDFEM9TAmr1M": [
+                    "5.9.79.144",
                     false
                 ],
                 "N12vxrYTQzS5TRzxLfFNYxn6PyEsphKWkdqx2mVfEuvJ9sPF43uq": [
@@ -369,26 +404,26 @@ slot, timestamp), clique count, connected nodes count.
                 "thread": 1
             },
             "consensus_stats": {
-                "start_timespan": 1675344133136,
-                "end_timespan": 1675344193136,
+                "start_timespan": 1675950094721,
+                "end_timespan": 1675950154721,
                 "final_block_count": 0,
                 "stale_block_count": 0,
                 "clique_count": 1
             },
             "pool_stats": [
-                97,
+                610,
                 0
             ],
             "network_stats": {
-                "in_connection_count": 12,
-                "out_connection_count": 7,
-                "known_peer_count": 10022,
+                "in_connection_count": 22,
+                "out_connection_count": 11,
+                "known_peer_count": 10033,
                 "banned_peer_count": 0,
-                "active_node_count": 19
+                "active_node_count": 33
             },
             "execution_stats": {
-                "time_window_start": 1675344133136,
-                "time_window_end": 1675344193136,
+                "time_window_start": 1675950094721,
+                "time_window_end": 1675950154721,
                 "final_block_count": 0,
                 "final_executed_operations_count": 0,
                 "active_cursor": {
@@ -397,7 +432,7 @@ slot, timestamp), clique count, connected nodes count.
                 }
             },
             "config": {
-                "genesis_timestamp": 1675346400000,
+                "genesis_timestamp": 1675951200000,
                 "end_timestamp": 1677596400000,
                 "thread_count": 32,
                 "t0": 16000,
@@ -410,14 +445,15 @@ slot, timestamp), clique count, connected nodes count.
             }
         },
         "id": 1
-    }    
+    }
 
 `get_cliques`
--------------
+~~~~~~~~~~~~~
 
-Get information about the block `cliques <https://docs.massa.net/en/latest/general-doc/architecture/archi-global.html#block-cliques>`_  of the graph.
+Get information about the block `cliques
+<https://docs.massa.net/en/latest/general-doc/architecture/archi-global.html#block-cliques>`_ of the graph.
 
--   Query:
+- Query:
 
 .. code-block:: shell
 
@@ -430,7 +466,7 @@ Get information about the block `cliques <https://docs.massa.net/en/latest/gener
         "params": []
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -514,11 +550,12 @@ Get information about the block `cliques <https://docs.massa.net/en/latest/gener
     }
 
 `get_stakers`
--------------
+~~~~~~~~~~~~~
 
-Get information about active `stakers <https://docs.massa.net/en/latest/testnet/staking.html>`_  and their roll counts for the current cycle.
+Get information about active `stakers <https://docs.massa.net/en/latest/testnet/staking.html>`_ and their roll counts
+for the current cycle.
 
--  Query:
+- Query:
 
 .. code-block:: shell
 
@@ -531,7 +568,7 @@ Get information about active `stakers <https://docs.massa.net/en/latest/testnet/
         "params": [ {"offset": 0, "limit": 2 }]
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -551,9 +588,10 @@ Get information about active `stakers <https://docs.massa.net/en/latest/testnet/
     }
 
 `get_addresses`
----------------
+~~~~~~~~~~~~~~~
 
-Get information about `address <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#address>`_ (es) (balances, block creation, ...).
+Get information about `address <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#address>`_
+(es) (balances, block creation, ...).
 
 - Query:
 
@@ -568,7 +606,7 @@ Get information about `address <https://docs.massa.net/en/latest/general-doc/arc
         "params": [["A12s675r1Kn1i7BF8QRVCdqPFiNeAZ1fojs1q2jun6wEGbow1brZ"]]
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -656,9 +694,10 @@ Get information about `address <https://docs.massa.net/en/latest/general-doc/arc
     }
 
 `get_graph_interval`
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
-Get information about block `graph <https://docs.massa.net/en/latest/technical-doc/glossary.html#graph-stuff>`_  within the specified time interval.
+Get information about block `graph <https://docs.massa.net/en/latest/technical-doc/glossary.html#graph-stuff>`_ within
+the specified time interval.
 
 - Query:
 
@@ -673,7 +712,7 @@ Get information about block `graph <https://docs.massa.net/en/latest/technical-d
         "params": [{"start": 1666559894589, "end": 1666559896589}]
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -820,10 +859,10 @@ Get information about block `graph <https://docs.massa.net/en/latest/technical-d
     }
 
 `get_blocks`
-------------
+~~~~~~~~~~~~
 
-Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>` associated to a given hash(s).
-- Query:
+Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>__`
+associated to a given hash(s). - Query:
 
 .. code-block:: shell
 
@@ -836,7 +875,7 @@ Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/ar
         "params": [["D6kTS4Wh3B7FRDCw6ncqrCuY7NVPYBbGwdSg814Kd13fS7xQa"]]
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -1137,9 +1176,11 @@ Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/ar
     }
 
 `get_operations`
-----------------
+~~~~~~~~~~~~~~~~
 
-Get information about `operation <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#operation>`_ (s) information associated to a given operation(s) ID(s).
+Get information about `operation
+<https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#operation>`_ (s) information associated to a
+given operation(s) ID(s).
 
 - Query:
 
@@ -1154,7 +1195,7 @@ Get information about `operation <https://docs.massa.net/en/latest/general-doc/a
         "params": [["177bzpUmukLarBiRGcTCDE63xqc5nkAKUja414HDmsNS2T3Gy"]]
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
@@ -1190,9 +1231,10 @@ Get information about `operation <https://docs.massa.net/en/latest/general-doc/a
     }
 
 `get_endorsements`
-------------------
+~~~~~~~~~~~~~~~~~~
 
-Get information about `endorsement <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_ (s) (content, finality ...)
+Get information about `endorsement <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_ (s)
+(content, finality ...)
 
 - Query:
 
@@ -1207,7 +1249,7 @@ Get information about `endorsement <https://docs.massa.net/en/latest/general-doc
         "params": [["2jtHfATDrho9Ttkxz3xp26WwjjREPVQV16fwMUCGyjnEQoyU8p"]]
     }'
 
--   Result:
+- Result:
 
 .. code-block:: javascript
 
