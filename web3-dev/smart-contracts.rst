@@ -12,4 +12,5 @@ Massa's Smart Contracts
     smart-contracts/getting-started
     smart-contracts/playground.rst
     smart-contracts/address-stack.rst
+    smart-contracts/autonomous-smart-contract.rst
     smart-contracts/sc-execution.rst
