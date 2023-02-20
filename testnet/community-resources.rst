@@ -5,9 +5,11 @@ The Massa community is growing and we want to thank everyone who is participatin
 useful tutorials and resources and deserve to be credited for it. In this document, we are gathering links of the latest
 creations.
 
-**Please note, these are unofficial and not frequently checked by the core members. Some might be outdated or miss
-important information. For security reasons, we encourage you to go through the official installation process and
-tutorials or trusted parties. As always, use your best judgment when visiting third party links.**
+.. warning::
+
+    **Please note, these are unofficial and not frequently checked by the core members.** Some might be outdated or miss
+    important information. For security reasons, we encourage you to go through the official installation process and
+    tutorials or trusted parties. As always, use your best judgment when visiting third party links.
 
 About Massa
 -----------
