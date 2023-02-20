@@ -3,11 +3,8 @@
 Local network generation
 ========================
 
-How to launch a local network with custom settings and initial coins & rolls repartition
+How to launch a local network with custom settings, initial coins and rolls distribution
 ----------------------------------------------------------------------------------------
-
-On your OS
-~~~~~~~~~~
 
 Clone massa:
 
