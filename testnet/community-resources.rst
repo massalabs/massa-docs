@@ -1,5 +1,5 @@
-Tutorials and resources from the community
-==========================================
+Tutorials and community resources
+=================================
 
 The Massa community is growing and we want to thank everyone who is participating in the project. Some members created
 useful tutorials and resources and deserve to be credited for it. In this document, we are gathering links of the latest
