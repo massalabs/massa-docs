@@ -7,26 +7,25 @@
 ---
 
 This repository contains the contents for the Massa Developer Documentations
-deployed at [https://docs.massa.net](https://docs.massa.net).
+deployed at [docs.massa.net](https://docs.massa.net).
+
+The site is built using [Sphynx](https://www.sphinx-doc.org/).
 
 ## Contributing
 
 Contributing to the documentation is a great way to get involved with the Massa community! Here's some things you need
 to know to get started.
 
-The site is built using [Sphynx](https://www.sphinx-doc.org/).
-
 ### Contents
 
 - All the documentation text are located in the directory corresponding to the section; creating a sub-dir is strongly
   recommended if there are multiple sub-sections for a doc.
-The left sidebar of the page is controlled by sidebars.js.
 - Extensive documentation for Sphynx can be found [here](https://www.sphinx-doc.org/).
 
 ### Pull Request (PR)
 
 - All PRs should be made against the `main` branch.
-- Following a successful build, you can verify your changes on massa--*.org.readthedocs.build/en/* where \* is you PR
+- Following a successful build, you can verify your changes on massa--\*.org.readthedocs.build/en/* where \* is you PR
   id.
 - Once your PR is merged into `main`, [https://docs.massa.net/](https://docs.massa.net/)
   will be updated with your changes.
