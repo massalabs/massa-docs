@@ -1,8 +1,8 @@
 Glossary
 ========
 
-Where is the money?
--------------------
+Wallet
+------
 
 - **wallet**: A set of keypairs (with their associated address).
 - **address**: The hash of a public key preceded by an indentifier and a version bit. Tokens, rolls, bytecode and
@@ -41,8 +41,6 @@ Consensus and block production
   algorithm to make the upcomming selections for block and endorsement creation. Lasts for about 30 minutes.
 - **slot**: Point in time defined by a period and a thread, at which a block is expected to be created. Can be empty if
   the selected creator missed the block opportunity.
-- **slashing**: Process in which the rolls of an address are remove and set for future reimbursement at the end of a
-  cycle. Happens when an address block production is too low compared to its block opportunities.
 - **staker**: Owner of at least one roll. They are expected to create blocks and endorsements when selected.
 - **roll**: Akin to a lottery ticket to be selected for block and endorsement creation. A roll costs 100 MAS. The more
   rolls you have, the more chances you have to be selected to produce a block.
