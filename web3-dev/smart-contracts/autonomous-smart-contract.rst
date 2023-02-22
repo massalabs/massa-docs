@@ -40,7 +40,7 @@ as soon as possible,  you have to put more fees than the others (just like the o
 
 The order of the messages is determined by the formula:
 
-`(Reverse(Ratio(msg.fee, max(msg.max_gas,1))), emission_slot, emission_index)`
+`(Reverse(Ratio(msg.fee, max(msg.max_gas,1))), emission_slot, emission_index),`
 
 where `emission_index` is an index that differentiate multiple messages created in the same slot.
 
