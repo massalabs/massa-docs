@@ -3,8 +3,8 @@
 Autonomous Smart Contract
 =========================
 
-Massa smart contracts have the unique feature of being able to autonomously define when they will be active, without
-external actors. By the end of this page, you will have a basic understanding of:
+Massa smart contracts have the unique feature of being able to :ref:`autonomously define when they will be active
+<general-asc>`, without external actors. By the end of this page, you will have a basic understanding of:
 
 - How to use the sendMessage(...) ABI in order to make your smart contracts autonomous
 - Provided autonomous smart contracts examples
