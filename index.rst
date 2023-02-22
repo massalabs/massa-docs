@@ -23,7 +23,7 @@ applications:
 
 - :ref:`Massa's decentralized web <web3-decentralized-web>` allows you to truly secure decentralized applications by
   storing your dApps directly on Massa blockchain.
-- :ref:`Massa's autonomous Smart Contracts <asc-intro>` add a layer of security and reliability to your decentralized
+- :ref:`Massa's autonomous Smart Contracts <general-asc>` add a layer of security and reliability to your decentralized
   applications, by allowing your smart contracts to `wake up by themselves and perform arbitrary operations
   <https://massa.net/autonomous-sc>`_.
 

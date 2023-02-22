@@ -2,8 +2,8 @@
 
 .. _general-decentralize-web:
 
-Massa's Decentralized web
-=========================
+Decentralized web
+=================
 
 Rationale
 ---------
