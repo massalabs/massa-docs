@@ -31,7 +31,9 @@ Despite these limitations, you can explore writing, testing and compiling follow
 - Price oracles
 
 Here’s an `example of a Fungible token contract and its unit-test
-<https://massa.net/sc-playground/?ext_code_url=https://raw.githubusercontent.com/massalabs/massa-sc-playground/main/examples/erc20.ts&ext_unit_test_url=https://raw.githubusercontent.com/massalabs/massa-sc-playground/main/examples/testERC20.ts>`_
+<https://massa.net/sc-playground/?ext_code_url=https://raw.githubusercontent.com/
+massalabs/massa-sc-playground/main/examples/erc20.ts&ext_unit_test_url=https://
+raw.githubusercontent.com/massalabs/massa-sc-playground/main/examples/testERC20.ts>`_
 you can explore directly in the Playground’s workspace.
 
 If you need more functionality and methods, or if you wish to request additional features, please submit an issue in

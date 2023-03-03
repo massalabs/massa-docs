@@ -28,7 +28,14 @@ Integrations
 
 - **JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
 - **Playground**: use `Massa Playground
-  <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_.
+  <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/
+  v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]
+  =Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=
+  https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=
+  false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=
+  Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods]
+  [ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema
+  [params][ui:defaultExpanded]=false>`_.
 - **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/tree/main/postman>`_.
 
 Error codes
