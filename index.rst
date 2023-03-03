@@ -16,7 +16,7 @@ An easy-to-read blog post introduction with videos is written `here <https://mas
 General documentation
 ---------------------
 
-A general overview of the architecture of a Massa node is given :ref:`here <general-introduction>`.
+A general overview of the architecture of a Massa node is given :ref:`here <architecture-general-introduction>`.
 
 Massa introduces several new features that enables new applications and adds a layer of security to your decentralized
 applications:

@@ -28,7 +28,7 @@ As explained Thyra plays the role of a gateway to the Massa blockain. Massa bein
 order to simplify and standardize its writing, we transformed it into Thyra, but its pronunciation `\tʰý.raː\
 <https://www.youtube.com/watch?v=_0BQ7sSJMTw>`_ remained.
 
-.. _general-introduction:
+.. _decentralized-web-general-introduction:
 
 Install Thyra
 ~~~~~~~~~~~~~

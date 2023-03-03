@@ -1,6 +1,6 @@
 .. index:: general documentation; architecture
 
-.. _general-introduction:
+.. _architecture-general-introduction:
 
 Massa's Architecture
 ====================
