@@ -58,6 +58,12 @@ Setup your node to use the secret you just generated as its public key and staki
             "ADDR": 100
         }
 
+    - CLEAR content of `massa-node/base_config/initial_vesting.json` :
+
+    .. code-block:: javascript
+
+        {}
+
 You can now launch your node :
 
     .. code-block:: bash
