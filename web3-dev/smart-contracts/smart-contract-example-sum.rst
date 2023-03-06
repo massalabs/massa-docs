@@ -55,15 +55,13 @@ You can find it here `assembly/main.ts`.
         return a + b;
     }
 
-    export function sum(serializedArgs: StaticArray<u8>): StaticArray<u8> {
-        const args = new Args(serializedArgs);
+    export function sum(_args: StaticArray<u8>): StaticArray<u8> {
+        const args = new Args(_args);
         const a = args.nextI32();
         const b = args.nextI32();
         const result = add(a, b);
-        generateEvent(
-            `Sum (${a.toString()}, ${b.toString()}) = ${result.toString()}`
-        );
-        return result.toString();
+        generateEvent(`Sum (${a.toString()}, ${b.toString()}) = ${result.toString()}`);
+        return new Args().add(result).serialize();
     }
 
 Calling function of a smart contract that is stored in the blockchain with some arguments will start an assemblyscript
@@ -145,17 +143,8 @@ function. In our example, we will use the file `caller.ts` in the `assembly` dir
     import { Address, Args, call } from "@massalabs/massa-as-sdk";
 
     export function main(): i32 {
-        const address = new Address(
-            "A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9"
-        );
-        call(
-            address,
-            "sum",
-            new Args()
-                .add(21 as i32)
-                .add(20 as i32),
-            0
-        );
+        const address = new Address("A1PjpgXyXSBeiG1rbXCP4ybhVccYzpysDKYmkymXWd81idutaD9");
+        call(address, "sum", new Args().add(21 as i32).add(20 as i32), 0);
         return 0;
     }
 
@@ -166,7 +155,7 @@ First we need to compile the `caller.ts` smart contract. For the covenience of t
 
 .. code-block::
 
-    npm run build:caller
+    npm run build:smart-contract -- assembly/caller.ts -o build/caller.wasm
 
 Then deploy the caller smart contract:
 
@@ -181,16 +170,15 @@ You will see this output:
 .. code-block::
 
     > sc-example-sum@0.0.1 deploy
-
     > ts-node deployer/deploy-contract.ts build/caller.wasm
 
-    Deploying smartcontract: build/caller.wasm
+    Deploying smart contract: build/caller.wasm
 
-    Operation submitted successfully to the network. Operation id: <operation id string>
+    Operation submitted successfully to the network. Operation id:  <operation id string>
 
     Waiting for the state of operation to be Final... this may take few seconds
 
-    Deployment success with event: Sum (10, 13) = 23
+    Deployment success with event: Sum (21, 20) = 41
 
 You can call the JSON RPC API function `get_filtered_sc_output_event` to get the event with:
 
@@ -238,7 +226,7 @@ Here is an example of what you can find:
               "thread": 27
             }
           },
-          "data": "Sum (10, 13) = 23"
+          "data": "Sum (21, 20) = 41"
         }
       ],
       "id": 0
