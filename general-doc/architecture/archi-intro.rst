@@ -166,7 +166,7 @@ list of datastore records        Concatenation of ``key_len`` (u8), ``key``,
                                  :raw-html:`<br/>` ``value_len`` (u64 varint), ``value``
 ===============================  =========================================================
 
-1. Smart Contract function call
+2. Smart Contract function call
 
 Here, the code is indirectly called via the call to an existing smart contract function, together with the required
 parameters:
