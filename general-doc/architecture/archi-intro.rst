@@ -161,7 +161,7 @@ In this case, the code is provided in the operation payload and executed directl
 ``bytecode_len``                 The length of the bytecode field (u64 varint)
 ``bytecode``                     The bytecode to run (in the context of the caller address)
 ``datastore_len``                The number of the datastore keys (u64 varint), each record
-                                 :raw-html:`<br/>` is stored then one after the other after
+                                 :raw-html:`<br/>` is then stored one after another
 list of datastore records        Concatenation of ``key_len`` (u8), ``key``,
                                  :raw-html:`<br/>` ``value_len`` (u64 varint), ``value``
 ===============================  =========================================================
