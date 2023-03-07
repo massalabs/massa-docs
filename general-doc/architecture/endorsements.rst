@@ -19,7 +19,7 @@ contains:
     - The hash of the endorsed block. This is the hash of the latest blockclique block of thread `S.thread` according to
       the endorsement creator at the moment the endorsement was created.
     - The index of the endorsement slot within the header from `0` (included) to `E-1` (included). The endorsement can
-      only be included at that endorsement slot index within the block eader.
+      only be included at that endorsement slot index within the block header.
     - The public key of the creator of the endorsement
     - The signature of all the previous fields with the private key of the creator of the endorsement
 
