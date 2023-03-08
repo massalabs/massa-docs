@@ -43,28 +43,17 @@ Integrations
 Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
 
 
-Massa testnet RPC URL list
---------------------------
+Massa RPC enpoints
+------------------
 
-+----------+--------------+--------------------------------------+-------------------------+
-| **name** | **Discord**  | **address**                          | **features**            |
-+==========+==============+======================================+=========================+
-|| Massa   || Massa       || https://test.massa.net/api/v2       || JsonRPC                |
-+----------+--------------+--------------------------------------+-------------------------+
+Here are the public RPC endpoints currently available.
 
++----------+--------------------------------------+-------------------------+
+| **name** | **address**                          | **features**            |
++==========+======================================+=========================+
+|| Massa   || https://test.massa.net/api/v2       || JsonRPC                |
++----------+--------------------------------------+-------------------------+
 
-Using Massa offical node vs running your own node on testnet
-------------------------------------------------------------
-
-**Option 1: using Massa official node**
-
-In order to use Massa testnet, you just need to access https://test.massa.net/api/v2.
-
-**Option 2: running your own node**
-
-Running your own node gives you full control, as well as helping the network become more decentralized by reducing
-reliance on the official node. For more details,
-see testnet `documentation <https://docs.massa.net/en/latest/testnet/install.html#>`_.
 
 Error codes
 -----------
