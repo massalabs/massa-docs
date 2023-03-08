@@ -17,7 +17,14 @@ Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_ specification `h
 
 .. note::
 
-   We provide an `Interactive API Specification <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_ which documents every available method and allows you to play with the API.
+   We provide an `Interactive API Specification
+   <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema
+   \[appBar\]\[ui:input\]=false&uiSchema\[appBar\]\[ui:inputPlaceholder\]=Enter+Massa+JSON-RPC+server+URL&uiSchema
+   \[appBar\]\[ui:logoUrl\]=https://massa.net/favicons/favicon.ico&uiSchema\[appBar\]\[ui:splitView\]=false&uiSchema
+   \[appBar\]\[ui:darkMode\]=false&uiSchema\[appBar\]\[ui:title\]=Massa&uiSchema\[appBar\]
+   \[ui:examplesDropdown\]=false&uiSchema\[methods\]\[ui:defaultExpanded\]=false&uiSchema\[methods\]
+   \[ui:methodPlugins\]=true&uiSchema\[params\]\[ui:defaultExpanded\]=false>`_
+   which documents every available method and allows you to play with the API.
 
 .. warning::
 
@@ -31,7 +38,9 @@ Integrations
 
 **JavaScript**: see `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
 
-**Postman**: is a tool for software developers to create, test and debug API requests. More details can be found in `Postman learning center <https://learning.postman.com/docs/getting-started/introduction/>`_. Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
+**Postman**: is a tool for software developers to create, test and debug API requests. More details can be found in
+`Postman learning center <https://learning.postman.com/docs/getting-started/introduction/>`_.
+Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
 
 
 Massa testnet RPC URL list
@@ -46,22 +55,16 @@ Massa testnet RPC URL list
 
 Using Massa offical node vs running your own node on testnet
 ------------------------------------------------------------
-If you want to use the Massa testnet, you have two options: using the Massa official node or running your own node.
 
-**Option 1: Using Massa Official Node**
+**Option 1: using Massa official node**
 
-The Massa official node is readily available and easy to use. In order to use Massa testnet, you just need to access https://test.massa.net/api/v2, which will allow you to interact with the blockchain network.
+In order to use Massa testnet, you just need to access https://test.massa.net/api/v2.
 
-However, keep in mind that when you use the Massa official node, your are on a centralized entity, which can pose issues for decentralization efforts. Additionally, a large number of users may be utilizing the same node, leading to lower quality of service.
+**Option 2: running your own node**
 
-**Option 2: Running Your Own Node**
-
-Running your own node gives you full control, as well as helping the network become more decentralized by reducing reliance on the official node. You'll also have full control over your own private keys.
-
-However, this option requires some technical knowledge to set up and maintain your own node, and it can be more expensive than the previous option.
-
-In summary, while using the Massa official node is easier and more convenient initially, running your own node has long-term benefits for both yourself and the network.
-
+Running your own node gives you full control, as well as helping the network become more decentralized by reducing
+reliance on the official node. For more details,
+see testnet `documentation <https://docs.massa.net/en/latest/testnet/install.html#>`_.
 
 Error codes
 -----------
@@ -287,7 +290,7 @@ In this section we'll learn how to interact with Massa blockchain via `curl` com
 a.k.a. **user mode** methods (running on https://test.massa.net/api/v2)
 
 `get_status`
-~~~~~~~~~~~~
+------------
 
 Summary of the current state: time, last final blocks (hash, thread, slot, timestamp), clique count, connected nodes
 count.
@@ -383,7 +386,7 @@ count.
     }
 
 `get_cliques`
-~~~~~~~~~~~~~
+-------------
 
 Get information about the block `cliques
 <https://docs.massa.net/en/latest/general-doc/architecture/archi-global.html#block-cliques>`_ of the graph.
@@ -422,7 +425,7 @@ Get information about the block `cliques
     }
 
 `get_stakers`
-~~~~~~~~~~~~~
+-------------
 
 Get information about active `stakers <https://docs.massa.net/en/latest/testnet/staking.html>`_ and their roll counts
 for the current cycle.
@@ -458,7 +461,7 @@ for the current cycle.
     ],
 
 `get_addresses`
-~~~~~~~~~~~~~~~
+---------------
 
 Get information about `address <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#address>`_
 (es) (balances, block creation, ...).
@@ -543,7 +546,7 @@ Get information about `address <https://docs.massa.net/en/latest/general-doc/arc
     }
 
 `get_graph_interval`
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Get information about block `graph <https://docs.massa.net/en/latest/technical-doc/glossary.html#graph-stuff>`_ within
 the specified time interval.
@@ -621,7 +624,7 @@ the specified time interval.
     }
 
 `get_blocks`
-~~~~~~~~~~~~
+------------
 
 Get information about `block(s) <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#block>__`
 associated to a given hash(s). - Query:
@@ -640,7 +643,7 @@ associated to a given hash(s). - Query:
 - Result:
 
 .. code-block:: javascript
-    
+
     {
     "jsonrpc": "2.0",
     "result": [
@@ -714,7 +717,7 @@ associated to a given hash(s). - Query:
     }
 
 `get_operations`
-~~~~~~~~~~~~~~~~
+----------------
 
 Get information about `operation
 <https://docs.massa.net/en/latest/general-doc/architecture/archi-intro.html#operation>`_ (s) information associated to a
@@ -771,7 +774,7 @@ given operation(s) ID(s).
     }
 
 `get_endorsements`
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Get information about `endorsement <https://docs.massa.net/en/latest/general-doc/architecture/endorsements.html>`_ (s)
 (content, finality ...)
