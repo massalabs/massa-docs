@@ -5,13 +5,19 @@
 Massa JSON-RPC API
 ==================
 
-This crate exposes Rust methods (through the `Endpoints` trait) as JSON-RPC API methods (thanks to the `ParityJSON-RPC
-<https://github.com/paritytech/jsonrpc>`_ crate).
+Through the API documentation, you can find out how to make calls and handle responses.
 
-Massa JSON-RPC API is splitted in two parts :
+Massa JSON-RPC API is splitted in two parts:
 
 - **Private API**: used for node management. Default port: 33034 e.g. http://localhost:33034
 - **Public API**: used for blockchain interactions. Default port: 33035 e.g. http://localhost:33035
+
+Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_ specification `here
+<https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
+
+.. note::
+
+   We provide an `Interactive API Specification <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]=Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods][ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema[params][ui:defaultExpanded]=false>`_ which documents every available method and allows you to play with the API.
 
 .. warning::
 
@@ -20,23 +26,42 @@ Massa JSON-RPC API is splitted in two parts :
     - **Http**: used for node management and blockchain interactions. e.g. http://localhost:33036
     - **WebSocket**: used for streaming blockchain events. e.g. ws://localhost:33036
 
-Find the complete Massa `OpenRPC <https://spec.open-rpc.org/>`_ specification `here
-<https://raw.githubusercontent.com/massalabs/massa/main/massa-node/base_config/openrpc.json>`_.
-
 Integrations
 ------------
 
-- **JavaScript**: use `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
-- **Playground**: use `Massa Playground
-  <https://playground.open-rpc.org/?schemaUrl=https://test.massa.net/api/
-  v2&uiSchema[appBar][ui:input]=false&uiSchema[appBar][ui:inputPlaceholder]
-  =Enter%20Massa%20JSON-RPC%20server%20URL&uiSchema[appBar][ui:logoUrl]=
-  https://massa.net/favicons/favicon.ico&uiSchema[appBar][ui:splitView]=
-  false&uiSchema[appBar][ui:darkMode]=false&uiSchema[appBar][ui:title]=
-  Massa&uiSchema[appBar][ui:examplesDropdown]=false&uiSchema[methods]
-  [ui:defaultExpanded]=false&uiSchema[methods][ui:methodPlugins]=true&uiSchema
-  [params][ui:defaultExpanded]=false>`_.
-- **Postman**: use `Postman collection <https://github.com/massalabs/massa-docs/tree/main/postman>`_.
+**JavaScript**: see `massa-web3.js <https://github.com/massalabs/massa-web3>`_.
+
+**Postman**: is a tool for software developers to create, test and debug API requests. More details can be found in `Postman learning center <https://learning.postman.com/docs/getting-started/introduction/>`_. Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
+
+
+Massa testnet RPC URL list
+--------------------------
+
++----------+--------------+--------------------------------------+-------------------------+
+| **name** | **Discord**  | **address**                          | **features**            |
++==========+==============+======================================+=========================+
+|| Massa   || Massa       || https://test.massa.net/api/v2       || JsonRPC                |
++----------+--------------+--------------------------------------+-------------------------+
+
+
+Using Massa offical node vs running your own node on testnet
+------------------------------------------------------------
+If you want to use the Massa testnet, you have two options: using the Massa official node or running your own node.
+
+**Option 1: Using Massa Official Node**
+
+The Massa official node is readily available and easy to use. In order to use Massa testnet, you just need to access https://test.massa.net/api/v2, which will allow you to interact with the blockchain network.
+
+However, keep in mind that when you use the Massa official node, your are on a centralized entity, which can pose issues for decentralization efforts. Additionally, a large number of users may be utilizing the same node, leading to lower quality of service.
+
+**Option 2: Running Your Own Node**
+
+Running your own node gives you full control, as well as helping the network become more decentralized by reducing reliance on the official node. You'll also have full control over your own private keys.
+
+However, this option requires some technical knowledge to set up and maintain your own node, and it can be more expensive than the previous option.
+
+In summary, while using the Massa official node is easier and more convenient initially, running your own node has long-term benefits for both yourself and the network.
+
 
 Error codes
 -----------
@@ -44,75 +69,98 @@ Error codes
 When a call to Massa API fails, it **MUST** return a valid JSON-RPC `error object
 <https://www.jsonrpc.org/specification#error_object>`_ .
 
-========== ========================= =========================
-**Code**   **Message**               **Meaning**
-========== ========================= =========================
-|   -32600 |   Invalid request       |   The JSON sent is not
-|          |                         |   a valid Request
-|          |                         |   object
-|   -32601 |   Method not found      |   The method does not
-|          |                         |   exist / is not
-|          |                         |   available
-|   -32602 |   Invalid params        |   Invalid method
-|          |                         |   parameter(s)
-|   -32603 |   Internal error        |   Internal JSON-RPC
-|          |                         |   error
-|   -32700 |   Parse error           |   Invalid JSON, parsing
-|          |                         |   issue
-|   -32000 |   Bad request           |   Indicates that the
-|          |                         |   server cannot or will
-|          |                         |   not process the
-|          |                         |   request due to
-|          |                         |   something that is
-|          |                         |   perceived to be a
-|          |                         |   client error (for
-|          |                         |   example, malformed
-|          |                         |   request syntax,
-|          |                         |   invalid request
-|          |                         |   message framing, or
-|          |                         |   deceptive request
-|          |                         |   routing)
-|   -32001 |   Internal server error |   The server
-|          |                         |   encountered an
-|          |                         |   unexpected issue
-|   -32003 |   Service Unavailable   |   Indicates that the
-|          |                         |   server is not ready
-|          |                         |   to handle the request
-|   -32004 |   Not found             |   Indicates that the
-|          |                         |   server cannot find
-|          |                         |   the requested
-|          |                         |   resource
-|   -32005 |   Method not allowed    |   Indicates that the
-|          |                         |   server knows the
-|          |                         |   request method, but
-|          |                         |   the target resource
-|          |                         |   doesn’t support this
-|          |                         |   method
--32006     Send channel error        Send channel error
--32007     Receive channel error     Receive channel error
--32008     Massa hash error          ``massa_hash`` error
-|   -32009 |   Consensus error       |   Error from Consensus
-|          |                         |   module
-|   -32010 |   Execution error       |   Error from Execution
-|          |                         |   module
-|   -32011 |   Network error         |   Error from Network
-|          |                         |   module
-|   -32012 |   Protocol error        |   Error from Protocol
-|          |                         |   module
--32013     Models error              Error in Models
-|   -32014 |   Time error            |   Error from Time
-|          |                         |   module
-|   -32015 |   Wallet error          |   Error from Wallet
-|          |                         |   module
-|   -32016 |   Inconsistency error   |   Inconsistency in the
-|          |                         |   result of request
-|   -32017 |   Missing command       |   Missing command
-|          |   sender                |   sender
--32018     Missing config            Missing configuration
-|   -32019 |   Wrong API             |   The wrong API (either
-|          |                         |   Public or Private)
-|          |                         |   was called
-========== ========================= =========================
++----------+------------------------+------------------------+
+| **Code** | **Message**            | **Meaning**            |
++==========+========================+========================+
+|| -32600  || Invalid request       || The JSON sent is not  |
+||         ||                       || a valid Request       |
+||         ||                       || object                |
++----------+------------------------+------------------------+
+|| -32601  || Method not found      || The method does not   |
+||         ||                       || exist / is not        |
+||         ||                       || available             |
++----------+------------------------+------------------------+
+|| -32602  || Invalid params        || Invalid method        |
+||         ||                       || parameter(s)          |
++----------+------------------------+------------------------+
+|| -32603  || Internal error        || Internal JSON-RPC     |
+||         ||                       || error                 |
++----------+------------------------+------------------------+
+|| -32700  || Parse error           || Invalid JSON, parsing |
+||         ||                       || issue                 |
++----------+------------------------+------------------------+
+|| -32000  || Bad request           || Indicates that the    |
+||         ||                       || server cannot or will |
+||         ||                       || not process the       |
+||         ||                       || request due to        |
+||         ||                       || something that is     |
+||         ||                       || perceived to be a     |
+||         ||                       || client error (for     |
+||         ||                       || example, malformed    |
+||         ||                       || request syntax,       |
+||         ||                       || invalid request       |
+||         ||                       || message framing, or   |
+||         ||                       || deceptive request     |
+||         ||                       || routing)              |
++----------+------------------------+------------------------+
+|| -32001  || Internal server error || The server            |
+||         ||                       || encountered an        |
+||         ||                       || unexpected issue      |
++----------+------------------------+------------------------+
+|| -32003  || Service Unavailable   || Indicates that the    |
+||         ||                       || server is not ready   |
+||         ||                       || to handle the request |
++----------+------------------------+------------------------+
+|| -32004  || Not found             || Indicates that the    |
+||         ||                       || server cannot find    |
+||         ||                       || the requested         |
+||         ||                       || resource              |
++----------+------------------------+------------------------+
+|| -32005  || Method not allowed    || Indicates that the    |
+||         ||                       || server knows the      |
+||         ||                       || request method, but   |
+||         ||                       || the target resource   |
+||         ||                       || doesn’t support this  |
+||         ||                       || method                |
++----------+------------------------+------------------------+
+| -32006   | Send channel error     | Send channel error     |
++----------+------------------------+------------------------+
+| -32007   | Receive channel error  | Receive channel error  |
++----------+------------------------+------------------------+
+| -32008   | Massa hash error       | ``massa_hash`` error   |
++----------+------------------------+------------------------+
+|| -32009  || Consensus error       || Error from Consensus  |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32010  || Execution error       || Error from Execution  |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32011  || Network error         || Error from Network    |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32012  || Protocol error        || Error from Protocol   |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+| -32013   | Models error           | Error in Models        |
++----------+------------------------+------------------------+
+|| -32014  || Time error            || Error from Time       |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32015  || Wallet error          || Error from Wallet     |
+||         ||                       || module                |
++----------+------------------------+------------------------+
+|| -32016  || Inconsistency error   || Inconsistency in the  |
+||         ||                       || result of request     |
++----------+------------------------+------------------------+
+|| -32017  || Missing command       || Missing command       |
+||         || sender                || sender                |
++----------+------------------------+------------------------+
+| -32018   | Missing config         | Missing configuration  |
++----------+------------------------+------------------------+
+|| -32019  || Wrong API             || The wrong API (either |
+||         ||                       || Public or Private)    |
+||         ||                       || was called            |
++----------+------------------------+------------------------+
 
 Error example:
 
@@ -262,196 +310,76 @@ count.
 .. code-block:: javascript
 
     {
-        "jsonrpc": "2.0",
-        "result": {
-            "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
-            "node_ip": "141.94.218.103",
-            "version": "TEST.20.0",
-            "current_time": 1676034000000,
-            "current_cycle": 0,
-            "current_cycle_time": 1675951200000,
-            "next_cycle_time": 1675953248000,
-            "connected_nodes": {
-                "N1SgmKG5TGhexEwFJkRxD3h8Fi18QGq8B9PY3Hj64fnTuthCtD": [
-                    "78.47.152.19",
-                    true
-                ],
-                "N13Ykon8Zo73PTKMruLViMMtE2rEG646JQ4sCcee2DnopmVM3P5": [
-                    "51.75.60.228",
-                    false
-                ],
-                "N167CofshZAzWdsuPYcMRwdpgMKyhtBH4EE8bKsGv913yuZtyDW": [
-                    "146.120.161.147",
-                    true
-                ],
-                "N1BMVzgXqycv27yUdT4oJiq5p8w65ZV6FPQuk3PGQ6i4xztSZrY": [
-                    "178.250.158.161",
-                    true
-                ],
-                "N1CfRtbg5ghcnid858YLdGZqxNRTE2mpC1yJHS1UBaeNRiLYqsz": [
-                    "142.132.227.166",
-                    false
-                ],
-                "N1EmEoNg1XhWNz7RWQd6Rzj6R35RjB45xVuBtNcxZYnxfv7XfZs": [
-                    "95.216.45.34",
-                    true
-                ],
-                "N1FPf6FamCy77fDJpRkuUgYxUfSCDxmTKnvw9wiKNSLSZWgrVx2": [
-                    "135.181.209.55",
-                    true
-                ],
-                "N1KyE1QYyBkVjpu44fpCRFSofYCDNc7qMcT8jsVU8eb8Vzsa5Hi": [
-                    "65.21.154.10",
-                    true
-                ],
-                "N1MVe4Kxgms5kYZG2QZLbNmFHVsqTVAh2jVMYkuwtmmMH5cDVWL": [
-                    "130.61.42.57",
-                    true
-                ],
-                "N1WWb6zMv8AKKLtcQMEcGBT265rWWGGmCTd7KdCF5Breonkd1ab": [
-                    "89.117.57.6",
-                    false
-                ],
-                "N1XdS7uQ6WgBBMoKhwGbMwVmZz79RratJr5DQt2KpSn5MSCL5dw": [
-                    "176.126.113.200",
-                    false
-                ],
-                "N1XxexKa3XNzvmakNmPawqFrE9Z2NFhfq1AhvV1Qx4zXq5p1Bp9": [
-                    "158.69.23.120",
-                    false
-                ],
-                "N1f84SrnhchdixCwDQoEVDGzXTrD2xP5fH4boLB8VPwCNMtLCGS": [
-                    "109.88.78.219",
-                    false
-                ],
-                "N1gEdBVEbRFbBxBtrjcTDDK9JPbJFDay27uiJRE3vmbFAFDKNh7": [
-                    "54.36.174.177",
-                    false
-                ],
-                "N1hLTReKVuNYmGnBXPfWxEn7htxPWmifbgrboK54K1q1vTGi4M1": [
-                    "31.220.15.152",
-                    true
-                ],
-                "N1hdgsVsd4zkNp8cF1rdqqG6JPRQasAmx12QgJaJHBHFU1fRHEH": [
-                    "198.27.74.52",
-                    false
-                ],
-                "N1hkaumJVWECdPcoTAJ3MHV8edN52VM8FyAHBEWKzWLyNoXXcj1": [
-                    "82.66.131.154",
-                    true
-                ],
-                "N1mrMYfshabTPBuZKbJgaAxa6oEUzU8rkMtHJdpgbmwg9ARCMdk": [
-                    "128.0.139.225",
-                    false
-                ],
-                "N1qxuqNnx9kyAMYxUfsYiv2gQd5viiBX126SzzexEdbbWd2vQKu": [
-                    "198.27.74.5",
-                    false
-                ],
-                "N123J3hbXhwHJpYt2ERUFSGXZYgMqLHjHNm4rf54EPDrMWE1x3Fy": [
-                    "149.154.65.148",
-                    false
-                ],
-                "N1251riyhBZnanKpbQFhT5mR7fkvij4YgNCRy3XtNo5sMH5K6TZ4": [
-                    "94.131.96.222",
-                    false
-                ],
-                "N125Ss1iw62AMoZkTRBYxiyGYnFNrnyxXnmwjmEJfHMD69bzzK4n": [
-                    "92.255.26.86",
-                    false
-                ],
-                "N12CqAtQZ47xKfWW2tMfE65BLBZyyTxRk3htqtiELe6qR5sS7PTj": [
-                    "65.109.121.30",
-                    false
-                ],
-                "N12KPYVAR5cDoBZkYMQ3K8yZ7fxXVWxSGyfSmKX7J1UoDmeUU44H": [
-                    "165.22.16.140",
-                    false
-                ],
-                "N12UbyLJDS7zimGWf3LTHe8hYY67RdLke1iDRZqJbQQLHQSKPW8j": [
-                    "149.202.86.103",
-                    true
-                ],
-                "N12c9nHJSgW2bL3RFcWzJL2BavChCPyuZq8yh8dsywhQheMrqNjc": [
-                    "81.220.162.68",
-                    false
-                ],
-                "N12kGnE7s73VtUjACYnVFCqY9WqPVjdn3kF9RnWVBVpNpwtbzgKv": [
-                    "154.12.227.121",
-                    false
-                ],
-                "N12pVHJh6cnmfePvvaxRVJSaUs8mpS6grWy4HtHzdX1z7kTymjUh": [
-                    "209.145.50.104",
-                    true
-                ],
-                "N12q4B28mcpHPRmmoNaac2ADXwMTXyNoTYzoJgrAaxeegTBMkAd4": [
-                    "91.219.148.50",
-                    false
-                ],
-                "N12rPDBmpnpnbECeAKDjbmeR19dYjAUwyLzsa8wmYJnkXLCNF28E": [
-                    "158.69.120.215",
-                    false
-                ],
-                "N12ryhPPUrjfUDgDym4xxvygFDMvpqjAEBxGe3PQV2rNrtUWTJsR": [
-                    "130.61.42.229",
-                    false
-                ],
-                "N12v9HMQn918e7Yq4Pu4vBx7G59rVkvwNPpHxPWtYDFEM9TAmr1M": [
-                    "5.9.79.144",
-                    false
-                ],
-                "N12vxrYTQzS5TRzxLfFNYxn6PyEsphKWkdqx2mVfEuvJ9sPF43uq": [
-                    "149.202.89.125",
-                    false
-                ]
-            },
-            "last_slot": null,
-            "next_slot": {
-                "period": 0,
-                "thread": 1
-            },
-            "consensus_stats": {
-                "start_timespan": 1675950094721,
-                "end_timespan": 1675950154721,
-                "final_block_count": 0,
-                "stale_block_count": 0,
-                "clique_count": 1
-            },
-            "pool_stats": [
-                610,
-                0
+    "jsonrpc": "2.0",
+    "result": {
+        "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
+        "node_ip": "141.94.218.103",
+        "version": "TEST.20.0",
+        "current_time": 1678095036319,
+        "current_cycle": 201,
+        "current_cycle_time": 1678094448000,
+        "next_cycle_time": 1678096496000,
+        "connected_nodes": {
+            "N13Ykon8Zo73PTKMruLViMMtE2rEG646JQ4sCcee2DnopmVM3P5": [
+                "51.75.60.228",
+                false
             ],
-            "network_stats": {
-                "in_connection_count": 22,
-                "out_connection_count": 11,
-                "known_peer_count": 10033,
-                "banned_peer_count": 0,
-                "active_node_count": 33
-            },
-            "execution_stats": {
-                "time_window_start": 1675950094721,
-                "time_window_end": 1675950154721,
-                "final_block_count": 0,
-                "final_executed_operations_count": 0,
-                "active_cursor": {
-                    "period": 0,
-                    "thread": 31
-                }
-            },
-            "config": {
-                "genesis_timestamp": 1675951200000,
-                "end_timestamp": 1677596400000,
-                "thread_count": 32,
-                "t0": 16000,
-                "delta_f0": 1088,
-                "operation_validity_periods": 10,
-                "periods_per_cycle": 128,
-                "block_reward": "0.30",
-                "roll_price": "100",
-                "max_block_size": 1000000
+            ...
+            "N12v69D3R9DRQefDVMRuJv4nzkLTtvcoa42pWixZq3zJQPeSBGSh": [
+                "46.4.76.149",
+                true
+            ]
+        },
+        "last_slot": {
+            "period": 25764,
+            "thread": 24
+        },
+        "next_slot": {
+            "period": 25764,
+            "thread": 25
+        },
+        "consensus_stats": {
+            "start_timespan": 1678094976319,
+            "end_timespan": 1678095036319,
+            "final_block_count": 120,
+            "stale_block_count": 0,
+            "clique_count": 1
+        },
+        "pool_stats": [
+            482673,
+            1322
+        ],
+        "network_stats": {
+            "in_connection_count": 18,
+            "out_connection_count": 13,
+            "known_peer_count": 10033,
+            "banned_peer_count": 0,
+            "active_node_count": 31
+        },
+        "execution_stats": {
+            "time_window_start": 1678094976319,
+            "time_window_end": 1678095036319,
+            "final_block_count": 120,
+            "final_executed_operations_count": 183229,
+            "active_cursor": {
+                "period": 25764,
+                "thread": 20
             }
         },
-        "id": 1
+        "config": {
+            "genesis_timestamp": 1677682800000,
+            "end_timestamp": 1680292800000,
+            "thread_count": 32,
+            "t0": 16000,
+            "delta_f0": 1088,
+            "operation_validity_periods": 10,
+            "periods_per_cycle": 128,
+            "block_reward": "0.30",
+            "roll_price": "100",
+            "max_block_size": 1000000
+        }
+    },
+    "id": 1
     }
 
 `get_cliques`
@@ -478,82 +406,19 @@ Get information about the block `cliques
 .. code-block:: javascript
 
     {
-        "jsonrpc": "2.0",
-        "result": [
-            {
-                "block_ids": [
-                    "4ba4uaiofBMAdgXC8zxLaBygieGBB3KyeSGcSrSMMbV9m6sK1",
-                    "2sMQGvSuoA1VzqPPFksLDQbE6zsKzVyzaBqDVuEH7W1DRuB2q8",
-                    "LmEh7ttGxVr8nFi4t9VNMzCXt3PkjgwFg7pEbbqfkqcarco7r",
-                    "t6NxNRaiimUGctzfiMhwqA3uYFGcCAs3KawwgzP7huwAbki88",
-                    "Va6njRuA9UyXKDyzj5FqWH7yRsanMBtZByBxfGhqapTyZRvYS",
-                    "Do79PdHf7rrssmHmgay4Ypy4kGw4rNwzPq1LZdhdizHSUpj2C",
-                    "Ke1LUGXeHNwo7EWpNbVMLQvtCAQdKcdvsVqNJuEAwgiHz8RNP",
-                    "2NMDv2JHUKDEFsGm6HAsznAeCKbkLdMmMuTkchUKFMeT1R95rx",
-                    "24iPfMJBE5Z89UW3QN1uY4Eu9p6vvToLpqgA3XYAhUSF7XqcUJ",
-                    "23dAyzzeKuREJPverLXfVLiXkErz69Rj5dPsrCAua8Rq2Bebe3",
-                    "5L1SZveEZBqKHMNwihHLp94hZweiC3m3aAJ68hSDRNpCN8GAx",
-                    "5M1W27bkw8zr4PWTQpW61F8eNS1YBYrN9n9ZWP69cSwKDfx1p",
-                    "TkVkE8aFTU3qW2cH4PgdAuicaRojkwN9HSfg3TVzY32XKab3R",
-                    "2tZckQhui23EEw96awyfYn7B4TUSukoGoZwypkNM1fHymz82dg",
-                    "2qsYEAg243dVmj3jCFbiy3BxokPfa5FscYaGoMybSHMW7Rgt1P",
-                    "2hoTAg6gK25xde5NbvuoWY5kHwqoLW8vQLDnkx2H5oefHYFswv",
-                    "2oacHhWZDpgLTVTZ1m3zaF59dBbKcysvn35jFCptkdVuS9D6go",
-                    "5eexoZkpCUEDsiBKPquix1ivwvoS74DTPkqagVAs9kHTrN2cW",
-                    "23V2yXFGu8PEgmeb3AyGWWtC74PqZ7krnnaTM7Zcf4rVMbFavR",
-                    "aHCAUV5aLLgotKB8V1WJqAaWJGpsYo9RV7T9DRaEtgXTnTKoP",
-                    "SVGhtws4yWB1Q1LKcrFR83CnArCqT6kptnpAuxUc4bYtLByQB",
-                    "e7JUqLsrAQa9mNsbUzb8rtbSjRMi6kt4fuBNYWJ4qLBFxHx5B",
-                    "2fcDY7aiLGL9o8PkssgANsLRcQ1gZBi75L1hP3hyGRNDpnaFdN",
-                    "kqCFcbpM4PB3SL411Kvi9yo5jhCwy7ZZZLfE5NV7qeDWeLhwT",
-                    "qpm9CSQgKmqomNZpG7yQNsoB2qz3GLyduECaybvqDfVNZMU5X",
-                    "SaHyMRiWXLn5GVWQtiUpXFY17qpDN3LENRgDuQmoL7BuKCNEZ",
-                    "2SGMPZWdhYm9yvDt3yKuBRa2hJaCQB411U455jwYzKQqY6cXjG",
-                    "23pyjncfV9xZYkmQEJjLuxtW8uCC714TR2qHoNQ1XthpmowGym",
-                    "2AtdgJJqjV7fN9sm48swQ5cwDpzwznmsPerfJJwj9UfzV4E9zn",
-                    "dz9VRGrgfuxuyDPwPNsKQTTtWzsYcHHCFKbX74hKeiZiHWnpk",
-                    "2t8WKiLTjtVy8bG8kY4NweqSNCZXHYsiPotAz1mQPYb5uBSg7z",
-                    "v1QPVXtuF4qq1bep4QEZXbTHZNEq1XNzx85z87zjfDx99MX2j",
-                    "Ba1qfZUgsamwbzRbC37C7qktGZHm8S7vNvtjFY5ZMQdE5JtFX",
-                    "2sVmHfTCV1wiEL2TvHtsFm6z72T6fQrCL3hHo791x1G2XeeFo8",
-                    "2DQQN8ZVm7Uemp6SSGj57Haa3Z6dmThcMLSFCRfqeN3PGCo2mg",
-                    "2SdGdaqiMn1ygxnxSR9rze6H4xRwgDCzMQ654hGKCAHqKYhi79",
-                    "t6JkC332fABHr3Eyu3AjxXotuAxCLme9noyq2btoQyd98bb9n",
-                    "3nPhmDJFs21QqKLM8QnH1YXBY97ntam2xSEMiGkQnUtLBL1gF",
-                    "ZijiXRYJTvw1rDYRQVysQqKVx4Qr3icEYAXdP8a7EeE7BLh6N",
-                    "2QjvGQXNGAv1UnEbrbfgsivJicF6GMkGFGS9Bbtn5BrG2xZqoN",
-                    "dvTaZff8Myoff5HrQxZGkhtoVjQEM6Pctb54kvYHFGbXLPQM1",
-                    "itp7T8Y8zdkGjMRdtrRGMoV9u76RXvqZ9BCgLhxzKMvaiSGV",
-                    "9QRsXmeTr5AYRv6sLxNFZ6wDFwH5EX4BwBc43uMEJTWUydgws",
-                    "stxd3WPygF2f7oBPbcCJPKSLSftg16VAnZBYieBVt9yUi9hLQ",
-                    "5JFwVNbK3unFqq3L5dEno44eJp4KCxiic7T8NaFhpqHuLocRb",
-                    "5zcfYVtQAiVNe4o8SFNd1xXY2idF5rVG7Qx8cYPQaRWdkapTJ",
-                    "2w2z9ygGDRSMYvA86Mx5SE1fKgd5brcCLQ6xEb3JfWjyu932y6",
-                    "2nnFjXay8V8bVhTsf3PgxZwX3Hbpnjq1XHQUG7yFqbD2NAQo2C",
-                    "QVniT5MFNwCxoE8DmxmVbHjEAHMreoQsyhE4XFgAr9GeLHxdD",
-                    "CarArU3oR94FmbBcerU2agh5tb9g1Y4di9NrzUf3kt5LwrZKQ",
-                    "2BG36zn9QMe2hDrVov3JbHeYYKg4LxEJv3Fo7eAogMTLn9agJ9",
-                    "HQjsVy1LdscK3dNywgcbsZhVRn81VAPKVdhVQ7oipnzrEanR9",
-                    "UC1nMQoCStJ47BXPwrqjKX7Symfv4a9yj7FHCCK1HGAsvBnFH",
-                    "26dJaQ8tSyES5NoPLRGcdpawGH8ZX2irMhUUokZ12taZNcwTsV",
-                    "grz7vaHHRsKPfiAkNHjt2A5GDDVAHNnThrwQ85iBRgWRLgudX",
-                    "RoHBFgxpafkXR9utXJLAanbVAs3Qo8NfCJUtBfR5dnfyWikcs",
-                    "2M5mLpaWBkcWB7EkqdAJjcPBWUxBKzBwYMLDB6EjWXch3qTQt6",
-                    "2WYzs5RTQasBPpYYsqdAnoVBSuQkHcAM45tcn7a6Eh9omizNZw",
-                    "etKfjwLKac5TfnGwJqkyTUHSTp1bmQrqMYpsVXUJs9cpUzPYn",
-                    "jUkFF9VfBwsPqm5hZuUJ6JqKfRUNLcki1dWEZLQQvnvWzs55",
-                    "hrRHmATD2tNT1LvFUuxH92eGsPCkd7ADwYPEfZsANdCTR1NGR",
-                    "2dqq6SN1KTV9QpMUV6cQKkzBYKL7uaDq7vVeDPLkfUJfGWmtdh",
-                    "6XpZdE1jZ2HwFx4Uekk2udCdqF6C1SZjDDwAdf6nyHbK6zN22",
-                    "k7gHH5YPQ2sxKNbq7fFimrSTH5UuHoyHdn8KKKJT2DdYJBWow",
-                    "xSaWHnBY9amMunmZzuk8jHvAi5QMWCBYkhUadisWWDhKLt9zf",
-                    "fHiU5y72SmHqS1aBsauar1vCA3XCtn8jivsoCApfsVH4Mfdd"
-                ],
-                "fitness": 1112,
-                "is_blockclique": true
-            }
-        ],
-        "id": 1
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "block_ids": [
+                "B12RHJKyPx8DdGHMevdP8Uyxidcg3nThb9XEnHXEJR7cbBi6JrR9",
+                ...
+                "B12c7xPkmdy3qbAF1rWn7XeTBdum6VHbYJiW5MUuyBGnshrf5NW8"
+            ],
+            "fitness": 1117,
+            "is_blockclique": true
+        }
+    ],
+    "id": 1
     }
 
 `get_stakers`
@@ -580,19 +445,17 @@ for the current cycle.
 .. code-block:: javascript
 
     {
-        "jsonrpc": "2.0",
-        "result": [
-            [
-                "A12RHPuU7JFS2rxvxL6MnzVoBJAZr7ivFFJuiRPv4mi5wv8z8VYm",
-                112
-            ],
-            [
-                "A12axF2vj3GMV87LV5cEtJwntrzTJXQsYCsp1jtXXqCkiF1X6VwX",
-                80
-            ],
+    "jsonrpc": "2.0",
+    "result": [
+        [
+            "AU12gAkmGeozFceJD4tQmbVvihYdX2KyWZcYLL8xdYZeP4EuWYdex",
+            145
         ],
-        "id": 1
-    }
+        [
+            "AU18A67vpbjHPq7KgFnMbezoJuGcjVLZsF4ybx4rEbnA3wZ1Gy7c",
+            124
+        ]
+    ],
 
 `get_addresses`
 ~~~~~~~~~~~~~~~
@@ -610,94 +473,73 @@ Get information about `address <https://docs.massa.net/en/latest/general-doc/arc
         "jsonrpc": "2.0",
         "id": 1,
         "method": "get_addresses",
-        "params": [["A12s675r1Kn1i7BF8QRVCdqPFiNeAZ1fojs1q2jun6wEGbow1brZ"]]
+        "params": [["AU12gAkmGeozFceJD4tQmbVvihYdX2KyWZcYLL8xdYZeP4EuWYdex"]]
     }'
 
 - Result:
 
 .. code-block:: javascript
 
-    {
-        "jsonrpc": "2.0",
-        "result": [
-            {
-                "address": "A12s675r1Kn1i7BF8QRVCdqPFiNeAZ1fojs1q2jun6wEGbow1brZ",
-                "candidate_balance": "84.243137236",
-                "candidate_datastore_keys": [],
-                "candidate_roll_count": 1,
-                "created_blocks": [],
-                "created_endorsements": [
-                    "Yed7BJj9QqGG3tDCqoDTn7uMfGJrvPVh9agCYhNoCUUPwHfD3",
-                    "TLrtZAgEyHuUooRMCZj6mVXz11QeRvr8WoudTSFLeTku5J5nf"
-                ],
-                "created_operations": [],
-                "cycle_infos": [
-                    {
-                        "active_rolls": null,
-                        "cycle": 590,
-                        "is_final": true,
-                        "nok_count": 0,
-                        "ok_count": 2
+     {
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "address": "AU12gAkmGeozFceJD4tQmbVvihYdX2KyWZcYLL8xdYZeP4EuWYdex",
+            "thread": 27,
+            "final_balance": "153.519945908",
+            "final_roll_count": 145,
+            "final_datastore_keys": [],
+            "candidate_balance": "153.755240036",
+            "candidate_roll_count": 145,
+            "candidate_datastore_keys": [],
+            "deferred_credits": [],
+            "next_block_draws": [
+                {
+                    "period": 25784,
+                    "thread": 5
+                },
+                ...
+                {
+                    "slot": {
+                        "period": 25791,
+                        "thread": 29
                     },
-                    {
-                        "active_rolls": null,
-                        "cycle": 591,
-                        "is_final": true,
-                        "nok_count": 0,
-                        "ok_count": 0
-                    },
-                    {
-                        "active_rolls": null,
-                        "cycle": 592,
-                        "is_final": true,
-                        "nok_count": 0,
-                        "ok_count": 0
-                    },
-                    {
-                        "active_rolls": 1,
-                        "cycle": 593,
-                        "is_final": true,
-                        "nok_count": 0,
-                        "ok_count": 0
-                    },
-                    {
-                        "active_rolls": 1,
-                        "cycle": 594,
-                        "is_final": false,
-                        "nok_count": 0,
-                        "ok_count": 0
-                    }
-                ],
-                "deferred_credits": [],
-                "final_balance": "84.243137236",
-                "final_datastore_keys": [],
-                "final_roll_count": 1,
-                "next_block_draws": [
-                    {
-                        "period": 76077,
-                        "thread": 4
-                    }
-                ],
-                "next_endorsement_draws": [
-                    {
-                        "index": 15,
-                        "slot": {
-                            "period": 76081,
-                            "thread": 1
-                        }
-                    },
-                    {
-                        "index": 0,
-                        "slot": {
-                            "period": 76081,
-                            "thread": 2
-                        }
-                    }
-                ],
-                "thread": 30
-            }
-        ],
-        "id": 1
+                    "index": 1
+                }
+            ],
+            "created_blocks": [
+                "B12Y4eqmeJ5uWakcgZXRqDxRzFstKt8KJd2MgMSysqcMX4eWoaw4",
+                "B12CANhVvuBpXtjyVS5kkZBGmw5wanvEuuF34ct3GABHLLAMroxT",
+                "B122nYsgcJ72Cor9RcZB6ZGduc4pFm97srfGEPiijeZq9k1VatBS",
+                "B12TC646QjDoQWAPuAYhsy9i8f3qdzajFas25eJsRXaj1mbBhGRk",
+                "B12aFhukUBCz8TXJK5SakyT6MW18GTFNiRoeUKqzXT6e2ePbutor"
+            ],
+            "created_operations": [],
+            "created_endorsements": [
+                "E12uK8JkAkMpC5gDXaa26Vxvu8nRL5ZvD61WFjToeyTDVexnzYcH",
+                ...
+                "E12XbfbSzPvVRyW1mGhxBpkrDBzVdGdZvRkaYpDbrUP96fCZteSy"
+            ],
+            "cycle_infos": [
+                {
+                    "cycle": 197,
+                    "is_final": true,
+                    "ok_count": 48,
+                    "nok_count": 0,
+                    "active_rolls": null
+                },
+                ...
+                {
+                    "cycle": 201,
+                    "is_final": false,
+                    "ok_count": 11,
+                    "nok_count": 0,
+                    "active_rolls": 145
+                }
+            ]
+        }
+    ],
+    "id": 1
     }
 
 `get_graph_interval`
@@ -716,7 +558,7 @@ the specified time interval.
         "jsonrpc": "2.0",
         "id": 1,
         "method": "get_graph_interval",
-        "params": [{"start": 1666559894589, "end": 1666559896589}]
+        "params": [{"start": 1678095527706, "end": 1678095529706}]
     }'
 
 - Result:
@@ -724,145 +566,58 @@ the specified time interval.
 .. code-block:: javascript
 
     {
-        "jsonrpc": "2.0",
-        "result": [
-            {
-                "creator": "A1DGpvoAMv2GAWKS2BGF4iFQaq6bHDgpfu2vhGFogZMcaSsy7DY",
-                "id": "D6kTS4Wh3B7FRDCw6ncqrCuY7NVPYBbGwdSg814Kd13fS7xQa",
-                "is_final": false,
-                "is_in_blockclique": true,
-                "is_stale": false,
-                "parents": [
-                    "2GcJHmGY1QEyWmr4Rh2QSWcxE5icu8szTLJMyZx6fSGZDFETBZ",
-                    "2A1PFNRpR1MtJYwnp9vF3Pcc8xQ54mpPDjLgjJfZb1yxzTDXjZ",
-                    "2nL4CBXZKiv4szqvq4cBTtnfUtk5ozRg9Kd45y4UTRNLuHBLHT",
-                    "2ZuyfDizeBfMgUHgsLgYd7nRMVbk253A1YZUSpjY6bq3med7LY",
-                    "2Sdvt2oBdYXJ2LSP4AYfJ98DE4mGsBpC2pSLWudYkL92utv9EU",
-                    "24VPQmcBaFCma9ypn6MMki8FxNQYwcyYnXhhCdAACX1dqFQB94",
-                    "trM5GjcVp6z4MWrTxyNJGzPQSR8mbNAnaPqLBLUw8vVaTEdNb",
-                    "AfsZ11V2sCcJnWjD68yrXq1D7gvcv36vByXUAGsuohp93yW7u",
-                    "eDdqMET8smfSpu93pd8iPsNnnEuhutvH9AqXyXdRRf5GVDK2w",
-                    "tbszcUiCBqq6ty33wHq52wZ6kdyTo591KyBDfY4FeWaDueKM7",
-                    "tXTMdL67gYMFiNyugNTBLP9dXMrd5hW4yYG7k4iwZtzhWsD8u",
-                    "YtQ1UxfuKrgCNYCzbjhDEUbGeRP52j2XizHuK785L7DhHJ1Xr",
-                    "ybCiSCUPGJBo9FAKE4zus4CG2sSsxFNmoc7qD2Xrn7TjG5TqN",
-                    "zLPd1vNoYuzHuy3kWg5hbfxKaxSAKk9JGYYd38QyMiVZ6K3BF",
-                    "2SAHtG3Jn4VHnbzo5bohbLqL7cx7MwQGUr8V6CRaLWsVQetBfu",
-                    "2N6Wa26nMkx6yuCPwSGm9Wd1EP7u2Ad67et1evuLj4osEWUTYJ",
-                    "2NVq8igEKnXZ1ysatU9xo66PVGZKx8MwQqRfHmRPg6vjeTy3pP",
-                    "W5vKLkAyVtG6BNjm4WHC3a7Dz53KDf8v8aKcDjYxRFTXmDd1q",
-                    "2q3KnZ4tPfEZStQw7LbGCwfehyPckSpWjQc3cuwCWpzSb7XxRr",
-                    "2akcCnYAFnG9RgVWxprsNgwAv5WDQ8Lm9TfTGb7nrsHn4iiDA2",
-                    "k3PNeH648id9knfLT2qPpv46AVpZUXaM8qSHgNDx7uw1ieCZL",
-                    "2YTQhFoBdBo8ofq4ZRJofCQAGgbrQR27CcvgDkdUKMU4H1Fv8t",
-                    "2XcCTND2GpDSmouGD7ev5JHJNYP5gisgpruMkC5G48d57rBQ5i",
-                    "4MEYgdhAUUgXLy9CgCMuZTfwTZPLhMbrNm5TFWhDk6EVAoScf",
-                    "exawL8H3A42zLr5UcCvjMY4TBBn5u84PMtBCrfyyZPWUhayZt",
-                    "LP8FabDMiAwNkqcDs4z163fsU4jEtRqK9j6sfeXPyNqLJye2L",
-                    "2gnfhUjLvbRjzu95iTcHSAwF8SenfsCwtLQP3HAEo5Y1NdTUqs",
-                    "44S9aCFRVd7zDeTBbbTnjHoqy7Up7EpzLVBmARnyfb6HiJENE",
-                    "uM6w8xGvBxjUYSFzn7DUUV3RUoj8V1iPGGka4ap2g6vCvCqoE",
-                    "2eejA5Y81RdvDbk2iVFayPvkFpZvm91dNPkq1r1TQMFoaxdwFA",
-                    "2o1oMCY867kndLRXQ2AhscxhoTE5Q9xDdZYwu2hKViZh1JV2oa",
-                    "gDSvWadXAy2dX9TQya5a5Rj7G7oZSJ3ztsrfKjJMYMFFWwyNA"
-                ],
-                "slot": {
-                    "period": 71152,
-                    "thread": 2
-                }
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "id": "B1pd4hCpPnHM8QMvKp9uGM5sdUZoq6s9wERwk7z9ANoo8FSTJ7j",
+            "is_final": false,
+            "is_stale": false,
+            "is_in_blockclique": true,
+            "slot": {
+                "period": 25795,
+                "thread": 17
             },
-            {
-                "creator": "A1f2cgeNKMWtauyAxLy1LMqiVt7ZShgffqc9DbfMSCLpv5xovkP",
-                "id": "UXCyVSHg18AraZP9BG6gWRszPyVpasQ6NMc5aBJezYyQibnL1",
-                "is_final": false,
-                "is_in_blockclique": true,
-                "is_stale": false,
-                "parents": [
-                    "2GcJHmGY1QEyWmr4Rh2QSWcxE5icu8szTLJMyZx6fSGZDFETBZ",
-                    "2A1PFNRpR1MtJYwnp9vF3Pcc8xQ54mpPDjLgjJfZb1yxzTDXjZ",
-                    "2nL4CBXZKiv4szqvq4cBTtnfUtk5ozRg9Kd45y4UTRNLuHBLHT",
-                    "2ZuyfDizeBfMgUHgsLgYd7nRMVbk253A1YZUSpjY6bq3med7LY",
-                    "2Sdvt2oBdYXJ2LSP4AYfJ98DE4mGsBpC2pSLWudYkL92utv9EU",
-                    "24VPQmcBaFCma9ypn6MMki8FxNQYwcyYnXhhCdAACX1dqFQB94",
-                    "trM5GjcVp6z4MWrTxyNJGzPQSR8mbNAnaPqLBLUw8vVaTEdNb",
-                    "AfsZ11V2sCcJnWjD68yrXq1D7gvcv36vByXUAGsuohp93yW7u",
-                    "eDdqMET8smfSpu93pd8iPsNnnEuhutvH9AqXyXdRRf5GVDK2w",
-                    "tbszcUiCBqq6ty33wHq52wZ6kdyTo591KyBDfY4FeWaDueKM7",
-                    "tXTMdL67gYMFiNyugNTBLP9dXMrd5hW4yYG7k4iwZtzhWsD8u",
-                    "YtQ1UxfuKrgCNYCzbjhDEUbGeRP52j2XizHuK785L7DhHJ1Xr",
-                    "ybCiSCUPGJBo9FAKE4zus4CG2sSsxFNmoc7qD2Xrn7TjG5TqN",
-                    "zLPd1vNoYuzHuy3kWg5hbfxKaxSAKk9JGYYd38QyMiVZ6K3BF",
-                    "2SAHtG3Jn4VHnbzo5bohbLqL7cx7MwQGUr8V6CRaLWsVQetBfu",
-                    "2N6Wa26nMkx6yuCPwSGm9Wd1EP7u2Ad67et1evuLj4osEWUTYJ",
-                    "2NVq8igEKnXZ1ysatU9xo66PVGZKx8MwQqRfHmRPg6vjeTy3pP",
-                    "W5vKLkAyVtG6BNjm4WHC3a7Dz53KDf8v8aKcDjYxRFTXmDd1q",
-                    "2q3KnZ4tPfEZStQw7LbGCwfehyPckSpWjQc3cuwCWpzSb7XxRr",
-                    "2akcCnYAFnG9RgVWxprsNgwAv5WDQ8Lm9TfTGb7nrsHn4iiDA2",
-                    "k3PNeH648id9knfLT2qPpv46AVpZUXaM8qSHgNDx7uw1ieCZL",
-                    "2YTQhFoBdBo8ofq4ZRJofCQAGgbrQR27CcvgDkdUKMU4H1Fv8t",
-                    "2XcCTND2GpDSmouGD7ev5JHJNYP5gisgpruMkC5G48d57rBQ5i",
-                    "4MEYgdhAUUgXLy9CgCMuZTfwTZPLhMbrNm5TFWhDk6EVAoScf",
-                    "exawL8H3A42zLr5UcCvjMY4TBBn5u84PMtBCrfyyZPWUhayZt",
-                    "LP8FabDMiAwNkqcDs4z163fsU4jEtRqK9j6sfeXPyNqLJye2L",
-                    "2gnfhUjLvbRjzu95iTcHSAwF8SenfsCwtLQP3HAEo5Y1NdTUqs",
-                    "44S9aCFRVd7zDeTBbbTnjHoqy7Up7EpzLVBmARnyfb6HiJENE",
-                    "uM6w8xGvBxjUYSFzn7DUUV3RUoj8V1iPGGka4ap2g6vCvCqoE",
-                    "2eejA5Y81RdvDbk2iVFayPvkFpZvm91dNPkq1r1TQMFoaxdwFA",
-                    "2o1oMCY867kndLRXQ2AhscxhoTE5Q9xDdZYwu2hKViZh1JV2oa",
-                    "gDSvWadXAy2dX9TQya5a5Rj7G7oZSJ3ztsrfKjJMYMFFWwyNA"
-                ],
-                "slot": {
-                    "period": 71152,
-                    "thread": 1
-                }
+            "creator": "AU12tr8pSnamJRQEdm4K9DaogpdANXF636XNV13iNHAL6bLpKxooR",
+            "parents": [
+                "B12echxHFVHsCsWaRxL5pxPmYtefjhuJDNtd7TX6iseF6jxdyZnS",
+                ...
+                "B12WQuyYopKPLkK9HF2eRaJDRbnE2cAhqT19XpGT2gMh9o4E2BrL"
+            ]
+        },
+        {
+            "id": "B12G3GVLNct669ZiAQQDsXW9Mbo5PHtmwrEKNAvnBVa11kqqps5n",
+            "is_final": false,
+            "is_stale": false,
+            "is_in_blockclique": true,
+            "slot": {
+                "period": 25795,
+                "thread": 16
             },
-            {
-                "creator": "A1zbiUJjfAjcKg5N2AfMRgHz9Fo4SxhBSNgSv5TrFaDp8t2SfCG",
-                "id": "cSuzktjQWxtijFMkBDCzuxnrWv6LgMqcZKoJxE3xhyMgDig6n",
-                "is_final": false,
-                "is_in_blockclique": true,
-                "is_stale": false,
-                "parents": [
-                    "2GcJHmGY1QEyWmr4Rh2QSWcxE5icu8szTLJMyZx6fSGZDFETBZ",
-                    "2A1PFNRpR1MtJYwnp9vF3Pcc8xQ54mpPDjLgjJfZb1yxzTDXjZ",
-                    "2nL4CBXZKiv4szqvq4cBTtnfUtk5ozRg9Kd45y4UTRNLuHBLHT",
-                    "2ZuyfDizeBfMgUHgsLgYd7nRMVbk253A1YZUSpjY6bq3med7LY",
-                    "2Sdvt2oBdYXJ2LSP4AYfJ98DE4mGsBpC2pSLWudYkL92utv9EU",
-                    "24VPQmcBaFCma9ypn6MMki8FxNQYwcyYnXhhCdAACX1dqFQB94",
-                    "trM5GjcVp6z4MWrTxyNJGzPQSR8mbNAnaPqLBLUw8vVaTEdNb",
-                    "AfsZ11V2sCcJnWjD68yrXq1D7gvcv36vByXUAGsuohp93yW7u",
-                    "eDdqMET8smfSpu93pd8iPsNnnEuhutvH9AqXyXdRRf5GVDK2w",
-                    "tbszcUiCBqq6ty33wHq52wZ6kdyTo591KyBDfY4FeWaDueKM7",
-                    "tXTMdL67gYMFiNyugNTBLP9dXMrd5hW4yYG7k4iwZtzhWsD8u",
-                    "YtQ1UxfuKrgCNYCzbjhDEUbGeRP52j2XizHuK785L7DhHJ1Xr",
-                    "ybCiSCUPGJBo9FAKE4zus4CG2sSsxFNmoc7qD2Xrn7TjG5TqN",
-                    "zLPd1vNoYuzHuy3kWg5hbfxKaxSAKk9JGYYd38QyMiVZ6K3BF",
-                    "2SAHtG3Jn4VHnbzo5bohbLqL7cx7MwQGUr8V6CRaLWsVQetBfu",
-                    "2N6Wa26nMkx6yuCPwSGm9Wd1EP7u2Ad67et1evuLj4osEWUTYJ",
-                    "2NVq8igEKnXZ1ysatU9xo66PVGZKx8MwQqRfHmRPg6vjeTy3pP",
-                    "W5vKLkAyVtG6BNjm4WHC3a7Dz53KDf8v8aKcDjYxRFTXmDd1q",
-                    "2q3KnZ4tPfEZStQw7LbGCwfehyPckSpWjQc3cuwCWpzSb7XxRr",
-                    "2akcCnYAFnG9RgVWxprsNgwAv5WDQ8Lm9TfTGb7nrsHn4iiDA2",
-                    "k3PNeH648id9knfLT2qPpv46AVpZUXaM8qSHgNDx7uw1ieCZL",
-                    "2YTQhFoBdBo8ofq4ZRJofCQAGgbrQR27CcvgDkdUKMU4H1Fv8t",
-                    "2XcCTND2GpDSmouGD7ev5JHJNYP5gisgpruMkC5G48d57rBQ5i",
-                    "4MEYgdhAUUgXLy9CgCMuZTfwTZPLhMbrNm5TFWhDk6EVAoScf",
-                    "exawL8H3A42zLr5UcCvjMY4TBBn5u84PMtBCrfyyZPWUhayZt",
-                    "LP8FabDMiAwNkqcDs4z163fsU4jEtRqK9j6sfeXPyNqLJye2L",
-                    "2gnfhUjLvbRjzu95iTcHSAwF8SenfsCwtLQP3HAEo5Y1NdTUqs",
-                    "44S9aCFRVd7zDeTBbbTnjHoqy7Up7EpzLVBmARnyfb6HiJENE",
-                    "uM6w8xGvBxjUYSFzn7DUUV3RUoj8V1iPGGka4ap2g6vCvCqoE",
-                    "2eejA5Y81RdvDbk2iVFayPvkFpZvm91dNPkq1r1TQMFoaxdwFA",
-                    "2o1oMCY867kndLRXQ2AhscxhoTE5Q9xDdZYwu2hKViZh1JV2oa",
-                    "gDSvWadXAy2dX9TQya5a5Rj7G7oZSJ3ztsrfKjJMYMFFWwyNA"
-                ],
-                "slot": {
-                    "period": 71152,
-                    "thread": 3
-                }
-            }
-        ],
-        "id": 1
+            "creator": "AU1LJYrJQiQZYqiktgrbb5MWgSnd1FuUQqhQsw48PPdrAB3uqLCS",
+            "parents": [
+                "B12echxHFVHsCsWaRxL5pxPmYtefjhuJDNtd7TX6iseF6jxdyZnS",
+                ...
+                "B12WQuyYopKPLkK9HF2eRaJDRbnE2cAhqT19XpGT2gMh9o4E2BrL"
+            ]
+        },
+        {
+            "id": "B12RYZz9S8PuqWvQUFStxmTDb4j3UqfVEkNqeBwYDvwCrnzBMJ8J",
+            "is_final": false,
+            "is_stale": false,
+            "is_in_blockclique": true,
+            "slot": {
+                "period": 25795,
+                "thread": 18
+            },
+            "creator": "AU1vWZXTD4YdfdbqWS3RRgnH5DBdJSfgwVi9vJztH2V3iNMakzKo",
+            "parents": [
+                "B12echxHFVHsCsWaRxL5pxPmYtefjhuJDNtd7TX6iseF6jxdyZnS",
+                ...
+                "B12WQuyYopKPLkK9HF2eRaJDRbnE2cAhqT19XpGT2gMh9o4E2BrL"
+            ]
+        }
+    ],
+    "id": 1
     }
 
 `get_blocks`
@@ -879,307 +634,83 @@ associated to a given hash(s). - Query:
         "jsonrpc": "2.0",
         "id": 1,
         "method": "get_blocks",
-        "params": [["D6kTS4Wh3B7FRDCw6ncqrCuY7NVPYBbGwdSg814Kd13fS7xQa"]]
+        "params": [["B122ByHzPVJ3QFwmuYcZ4vZYzq6rfkqx7BJSJdFNHWp9j2o5Fpxv"]]
     }'
 
 - Result:
 
 .. code-block:: javascript
-
+    
     {
-        "jsonrpc": "2.0",
-        "result": {
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "id": "B122ByHzPVJ3QFwmuYcZ4vZYzq6rfkqx7BJSJdFNHWp9j2o5Fpxv",
             "content": {
+                "is_final": true,
+                "is_in_blockclique": false,
+                "is_candidate": false,
+                "is_discarded": false,
                 "block": {
                     "header": {
                         "content": {
+                            "slot": {
+                                "period": 25787,
+                                "thread": 4
+                            },
+                            "parents": [
+                                "B12L3Cvj8EZiX6sCryti4fqZ3nZ4tbDiYjtyAxVoYfJUxfPuN2Lm",
+                                ...
+                                "B1xMgVk5hcp8qdFzvCeG3SqS3AA4i52fAXw7kZn4DzJWnXGgZDW"
+                            ],
+                            "operation_merkle_root": "8uJok77DvcHgdzqzMQ62yu6nV9tKqTU6JhsCtvWxBK6VsabSZ",
                             "endorsements": [
                                 {
                                     "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
+                                        "slot": {
+                                            "period": 25787,
+                                            "thread": 4
+                                        },
                                         "index": 0,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
+                                        "endorsed_block": "B1PF5E4D3LKa6soJ8BXv6nveHFHRPzBYtqysVWhLZT5fmnedc6T"
                                     },
-                                    "creator_address": "A12N9nUN9r1eUheMZ36AA3RTDYepLtEMpHZoBvzQmxw4hNcJV7tH",
-                                    "creator_public_key": "P12qBafeiXMypqiChy7KEjqgAaUzbWJHhJALjfxzzY5hEH5BwL2c",
-                                    "id": "2jtHfATDrho9Ttkxz3xp26WwjjREPVQV16fwMUCGyjnEQoyU8p",
-                                    "signature": "XLJd5dSZsaQ3UYuuSGBGCbVsEM3aGTxAGigT81bVto7CypivDDwoPb6kJWXKzhvRi14qh3ReFqa7zzf3r5hYf343nqceH"
+                                    "signature": "V21cLHbr5mUzpRrRHc66EkvsDh5KZHvWKfFhFo2B2ni9qVK9p8nhPuE14btaWXAN7ru4d7q7jm9TcW55McXd2smhd6NbP",
+                                    "content_creator_pub_key": "P1bi78ormwmdSYuvmk77ZbQsyz4VDqEZZGKnXVWyksJYitx6nwJ",
+                                    "content_creator_address": "AU12ta1W4CcLrQmBAYEc7BPCopj8zqyJzBmFncYcXQQw2N2M5SC6U",
+                                    "id": "E1KLYEDm4qBUxi1SDHo3tf3dCGJ5kDYL3w8N766KgnYZV6A7omy"
                                 },
+                                ...
                                 {
                                     "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 1,
                                         "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A1RMafAnGhMHoVzvtBBP1u6PTCoMRBpQSQxxJb4e6ySDS6BpHxE",
-                                    "creator_public_key": "P1GJCRP8UYmkt1ZUYScjuGcXXLmDzq1ijJmYtqKpkgKPBtazRGo",
-                                    "id": "qELXLSgYd7aRBqgASfm5u3k4QMBSYBuQK79oMmf9Yohtr71ZH",
-                                    "signature": "8kPzmEiku3FNbYgHVeY6cY14cQskDqBS2trH2z8NLyPaU8xauXa7dFMKKKpb88b1eEx1QsSLmTx7iHXrCKYgKm6vjz8EC"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 2,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A123ingVJVrQkHveBCoXCUePWnkYjJ5mJE1gHiEqu1zpqvXJuBSK",
-                                    "creator_public_key": "P1tNLmbgiqNjYfA7Xy6QNCVMEPkDtUqHuw9DuVcWf4FoYimJPwb",
-                                    "id": "2TbWNGBkPyXHGqVeTQMJrrt2E2858FtiCcBZoySQ5rXVToYDT",
-                                    "signature": "XYj5LByWXoi2EXsJh4MVEAzrGy9evcwHFywh4cYFc9S6xEUoyg4wnCqUcy2GA9K4SxK4H4AZyAoE5u4H6dgv1h5Gk8R3H"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 3,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A1bVpBkQo3nt8tKFcCojbB7Nt179finvmm9TJJ7JWqrX5a2cHZM",
-                                    "creator_public_key": "P1Jk6uzT4iryr1Q8ACqnKoQjPNKraQnwk972TpPkvpj4JTs5MGS",
-                                    "id": "G6bLTh1BWzywrF9tEyScJyVLDxuk3n3abePWxrpcbqh9QQ1ah",
-                                    "signature": "JScDT2tpLD8RULoPHCU2HMyxGxaxFExCVYjivbL4cbsyNy5J53pDWHne911eug1UMZFJr3s5y1t6NYy5Mf8zkRCg1JUjY"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 4,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A1HRFkU7Mhww3BckCuvaXizvGCVNWG6ZiERLfUhRytCQibwWBgV",
-                                    "creator_public_key": "P1dv7uM55mh39PUrmuYbE7uWi66EUuRGQCRyPh43DPgbgT5DSpJ",
-                                    "id": "Utxvrhw5X6rh5JPRE9LEExY1EMYWmoXYoPCApMb6ZTbd1rL73",
-                                    "signature": "Mg7ZP3SJgZ97eGEoeuMHxvhv3FGREYqjANHupbjRb1qcDaEfih9xnA5zB5SZfiCRVpFZYXAsbET4GKi7Ne8uNGeS9AHsq"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 5,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A1VRf7guK6CrNkCz8PLAwtG18zrjZTd8PEnWXfjS6RmLLXvNjtu",
-                                    "creator_public_key": "P1YudM7ga88ArqVmFipS6Qs36apViTde8MrdfUxmPcT8mEJ6vXh",
-                                    "id": "NrCTcEdKB6CWrJnkBarPaseYUNx7uisq73u5PvuDaU7MnyUY5",
-                                    "signature": "6CpqaEgzv59QakG8xf1QYwQgaSJxudk1GEGyRdBxFBpG5F3756hULFrZWFmdz66RcWtpT7TZ5CzPPACGLZxLCJow79L4W"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 6,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A12RHPuU7JFS2rxvxL6MnzVoBJAZr7ivFFJuiRPv4mi5wv8z8VYm",
-                                    "creator_public_key": "P1LUAvxdts32qQHnCPMqvf3F8WsScshVY1og7d16x8SDvWtCT2Z",
-                                    "id": "Rph1xFyRnarENnrm6ZzS8XvDfDPwVf7XVWm2CTZBDSfew3uaY",
-                                    "signature": "YyKkN79gvpiEo6zQFbSgZv84sB34EvQ5LXgNp2MVoZAAbSKstGTopJ6t6fzzeDRFNVjbyqc7ZnDbLPq8PZ9WDo1yoepqo"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 7,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A1u9fCMusV2rp3m7uoi2e5EuKNGpgfw9nFxcgH7MxPzrd9nB8Mj",
-                                    "creator_public_key": "P12ZVaa7sNWPuMyTC1ijJYHr1NuF2DvZotRxrjZCoHmHJnzk3cUp",
-                                    "id": "XxYECs1HHJMqwavdoXx9WDEMGWxgM1ainm2VxtT2Fvan8yEJC",
-                                    "signature": "Cg6Ajsp1QrSeLfeTFb8vyHZD63hWzMRyRQRT14MYDFthAfYcocjh4aWTqv8zQCyr2SXBHapiBeaYY6NXRJtzPqukULFQi"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 8,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A1jXja9XVuepgpq94XzfHM6t1GjGJusRVuqA65ADdkupGXkrfCR",
-                                    "creator_public_key": "P13wkLrigKC2R8LbUpafsBAA3H6GwnL9DbawDe8Q8uMGqdeeqgv",
-                                    "id": "2izC3L1eT9RzANsoowY4SDYbvRH14HFPGMRL3Y2sGP1EjiXR9H",
-                                    "signature": "73nbrBKBpyW1unPhioCRwyA6ebqT2MZCU6LJazxLMX4qiKzy9mciwHnZLAnjrMCN6AReqaYE8E4TFQLRSgiYZ2KpqmCUW"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 9,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A121RTpsgvPJtxj9FnSvVJUqMahintXyaATdBcfRdtva9xBhvLmR",
-                                    "creator_public_key": "P12qaehFSeCjQu5dqxeYDW8fuz3MieQXDPuCNmL1BpaswezhnDNp",
-                                    "id": "hESY57Jhd2JhJfwK4yfFNhMBoDPQp1uhNppCCjB9nbFeeSair",
-                                    "signature": "H1st549STBKmehRtqwFTnHVxNX3UrPzfPJU7fhNP3Q1JvpoCjzLEewKRzb7YV6u9oKXEEaPdWXmj5bDGXWJK1mLfAWp8w"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 10,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A12VJh2HhXBTxDHDr9cwayHQTbVbkbu3soQqsekckH3gXLWvxkZ2",
-                                    "creator_public_key": "P1ss4j58UtMbVjtP3pKK76Q7mfC3ArEsLr35e9UuCALHLjbsv58",
-                                    "id": "2SPHdLgWHYaGbZfV6ZUKJuJVLrWSGXauHHjRJS2tdaS382g4uQ",
-                                    "signature": "Kyvz5rJf5x8jVkHxqeqLzsdHgeYWqSYKwmgLXotX8readhkj2Hvbrzkyiwfu96atwRjnm2wsRQRzM6R6AwrrL5nh7y2qa"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 11,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A12fCAsSsLnm6BMkmtq57YJtuPpLPb35H7Q9LoJLBgRptxWsFwnm",
-                                    "creator_public_key": "P12DHUNJiWTYzU2hWV4CJH5KT99A4jrEQQte3gkKtnLNj9oWd78w",
-                                    "id": "2LXXatLWkH8M1adBeGKwfH4GM7xG7JGYXpxiJYo89Jy1SQ9Cg",
-                                    "signature": "QqCYp9oAUjuYppHmLVxyik7A1JqFvYdPpVNXpunzRqHc6QHD56Kundv2vcGaFViozQHGRmyAbjo1JLcp7npTiZmSmT6UY"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 12,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A129Eya4XLQ2nuDJjhFqrEsgdH27g89yVFedR1H2CiDy129Bxn8",
-                                    "creator_public_key": "P1xAszTFsXawBtUoJE4hvKrEFYG7DDpZvdkHjvtTH332EF2PwkT",
-                                    "id": "YoNAoDbYmFQE2X2G2TPxr2J3UTFrdTYLXEcYgVSLDtoi8iUBF",
-                                    "signature": "Ja4Bo1ymdbX7FfgAPxfLBhbGG6KVECvD7GoAxEYqXUsX5y4K4JerNvQS1jBFMdHxNQDYfgG4E8xdm354tegEWujFzuCnL"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 13,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A13CUpBmzTC53uud6XccjPuLLTWVn6A6isfuWrmG4JyUzJocdYY",
-                                    "creator_public_key": "P14kHa3rmmFzeH3CeaUaYxvyrE9NpDJXzGrNso42j6wNBRJ8RVL",
-                                    "id": "U8weB8dyRFKhFwqwyU2q1BqSkHhFedUB1gJxNS63svqMCah71",
-                                    "signature": "A8LDSGq7wJffHrqDaQhWePvPKRU1PGMhBFw9TeqfaK8PGxV7u9tSjWiiWbUjAaWHWWdwF5Cp7htx8MZ8ZKeziLkNizckZ"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                                        "index": 14,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
-                                    },
-                                    "creator_address": "A15dQSTXEj9heazPXuWrqb7YzvK6DkLbafE4iHziSybwyFEw2Pc",
-                                    "creator_public_key": "P1Hg9TwLttUaJXVMByr88G9YHsJ7yEtonpXgYBwxezzwhmKfSWk",
-                                    "id": "SpZHoVJUekZGAqtj2t5jEoKMHs5mi6oHVzYn1nm4GgoCd53cb",
-                                    "signature": "RfwXPp9cHvKpXGyN5M9BQPAgfLqUxE6EbaqQcve3xHWsTQ5b6GiVNYkQjEhEWdLEDB7Z8qQt4TRAK6Rp7aABoWFQ6PF5c"
-                                },
-                                {
-                                    "content": {
-                                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
+                                            "period": 25787,
+                                            "thread": 4
+                                        },
                                         "index": 15,
-                                        "slot": {
-                                            "period": 72180,
-                                            "thread": 31
-                                        }
+                                        "endorsed_block": "B1PF5E4D3LKa6soJ8BXv6nveHFHRPzBYtqysVWhLZT5fmnedc6T"
                                     },
-                                    "creator_address": "A12Em4NP9afTfCQkopdF8WsPkU8PazVGf9J4kzLwBgyc187q6L5d",
-                                    "creator_public_key": "P12683Xab7njz4K991Vvx39yBaMmpgJuB3A6d7U8uheYtYraw89X",
-                                    "id": "gCeNaZy2ihWV7XfLwnNNsQ8G1m5sMzhMBd8aP8q4JFHUCqV9S",
-                                    "signature": "D6A5HYT4FavULrTLWm4CibbWPNNBMtmXBi4XXWF3HDV8cMngs9DNy8PriPJasRodvTGpgEFyP1gowrXDaFU2PcRkB5mit"
+                                    "signature": "E3HGbZvJEPVZcRUYDUpnk4R8t9p941MKZTK3awTXTMpG1pufThBu9CpNd7YDW1mkEc4ZJB31Hcvp8cKVPe57MBUJutu1c",
+                                    "content_creator_pub_key": "P123qyM3ZzUw5Mi7uxj8mKYNHo7H7ybTQWZy53cR7BHhXbTxrT8z",
+                                    "content_creator_address": "AU1Xr8m6utu6DBXyRCFGrD2jPCa62tnwNwkkJSCnh4iWQG3M63za",
+                                    "id": "E12rQSKKLw1wXBXajvjGS9PB8NYEhuDf2TxKgQ7PfAccEff51QyM"
                                 }
-                            ],
-                            "operation_merkle_root": "27m2HEnhXU78gob1PUrXqpW8wek49enJGEf4SDo4f2RQ1j3fKD",
-                            "parents": [
-                                "voH6upJppWUeyZhcZMprzKhyVi5iHhXXpY3UasoUpAQaSi4xX",
-                                "PcbnbucTNdMcfUqjGWWwJG5eLMJwvjdx2XTVGDAqGnh9zkYPn",
-                                "FBKV2AU9iBnBLpsykQnqADVosCC417o1AdGZzbTCLPe6ENEZS",
-                                "v8FBFQ7wshibyME8bTkJbq3HQwqpDvkidB43go2fY1wCrxFGg",
-                                "2fc9VWfnH8f883Pf4wouDMuvtpxR7F2fzsf9cbq4A13UXNphdE",
-                                "6zvFwHh373wJAKZs3oMRYdw2KwEqsjDQNoqbDjN89UUUEMe5M",
-                                "Cpcjt6FcebQwwgS5RVdGKwpCbndVxZJrrFqhA82SFKCZRDEuB",
-                                "AcWddtC2cqu9d2pSzyCVea84TZY5bP2bs8CKU8YYjw8vnexzM",
-                                "2NehYFSDhAf3cZWb7fDXAWnYYD11uaYYZbuqUX13CBoVchAzGr",
-                                "euSAdXo5QudXdFzwqpU67eCUF9b6VM8i9Qy5UKJFFC6EiLiJ4",
-                                "DMh3dNWRNsVrV6P5SY9p5RCpvYpjaGdFWUu23HFL6TfKwy63n",
-                                "pNKpTb8vh8eZ7YtB11psDH6TX6w9SsLdAwAV5oG6XR4P1Mdmz",
-                                "2wenb1UzqRiHV5tixjMMqVkrwb8ywm7HT2UBP9dDZET7mnm3bi",
-                                "pwhBtRuLNWP19hKJ5kvKdQjLjnjsJkeMqwMHmHt6ZhdNcYjuf",
-                                "En16Wb744Rn2trfkeQREG3HSCju39xu9dK6EXiVhMaQ7QNTQc",
-                                "Pn2yvpsFq6YYfH26RqXye9S25hbXgy8gvPQPFnrdVxxcqrZPv",
-                                "2AamJsrQ68r3r9bhgsiAKkH7JGUSDLPCZUh91DxeHTBQWBRjQu",
-                                "2LSHyysq3PRDhfYF68haUWHUW7oAwZXhzqewLJhAmVRwH6JjVh",
-                                "jWvGUobun7mzuaJye5nYEFvSGrmyW4sjrmEZ3mvTAo7iQtmxQ",
-                                "JsfRiXaoZY4tDqJWyEEpJkjchrcrGpdi2im77KW9bcGjX8FrW",
-                                "FCzk7rYB8ZAqkkSchdxPeZQohjNU4Wwi2TdvNJe1Df14LnxW4",
-                                "2HrJiz9fBDVUjVTF6aA3y8bZQcHVpnJygRkt8EtnkCB3HT9dxM",
-                                "242ghWYwu8PKZSQoPoij2S8CE2u46zfcGdC42mNN12HFrj55aQ",
-                                "2UCUqS26mbdbsFZkL1rNrrQu2SMZQnUZdTJ7tjo7QVjVVFvfxR",
-                                "2Ch6hGDfEeUBamUrWojzrTPeswTuGVfwvjfDEKChNHU96A3PXo",
-                                "pyK7qz9ebZ9bModjmuvvUoVmvBrLHUsUy8uqWRKemTh2zLFyd",
-                                "2SJhPnDC8nV4SkaxTai4Gvxpzv14DeD164XHqKfSbV5byTjfqq",
-                                "jsZEsz4U3jazbpLfXvK6BVRKyE4F3Sh6bS26AN9i7vM274XQc",
-                                "2K75STq46JPJ2eUzZrepRNDPrfg6NgKC9cZFYFVXfKpJVBQAP8",
-                                "3QYdeQrNsbBXpEUbqBY1v1UPWiwnvgSjL2mcG1fzkRC4Mso5J",
-                                "V58LdmjJLvQLRVm4bqqiMn2ChGprgLDxwNm4gKJqz3UXFwonK",
-                                "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV"
-                            ],
-                            "slot": {
-                                "period": 72180,
-                                "thread": 31
-                            }
+                            ]
                         },
-                        "creator_address": "A12Lh4yCTdF5P9Unt3Aq4aimUFafTiuGoYYHfqU2P68RkY35tFmQ",
-                        "creator_public_key": "P12uRiEAgEGHPpNZ7fMFsh3XPYS6A9GB9PgDAQdwFbxCH4nxSQEF",
-                        "id": "Fb46NHJCFTVgddSEZMEcmYeYpokvQv8gCYjnDBpXbAQBKpVE3",
-                        "signature": "KMcsEkC6CEDE55tmvAfR47vhH1PvAd52SZWUyQ9kdobvkvEGMZS2TrDYHWP6jCod1QeQpaRY1BXM2FMSWn5EuCS5HcVti"
+                        "signature": "4vKvfytWkgv5YjTQQiVwADpBMpvAF6W79KBHzAs1iybLswUZ2VhWPh6dMTnifVeiBYXVJuvgcMkKkRH8VjL2izkRVTAxs",
+                        "content_creator_pub_key": "P1snABBASHQQuCDERNdUBzg2kJ37LLFK8L7sgBoBd32mRU38ev9",
+                        "content_creator_address": "AU1WqP6GTsR8w4eyRPHQkrQhujmRb3hmLaQt3HZfeTVHWVZade48",
+                        "id": "B122ByHzPVJ3QFwmuYcZ4vZYzq6rfkqx7BJSJdFNHWp9j2o5Fpxv"
                     },
                     "operations": [
-                        "177bzpUmukLarBiRGcTCDE63xqc5nkAKUja414HDmsNS2T3Gy",
-                        "1G9oj5pX7Ruj1w6cT9DXY2KMNKM9JgHVfA6JN5nhZchnHCm6s",
+                        "O116jye7zBAttWHfCufcMVQEQaa9JMTqv6To5mE2CzmzBs7cZ7W",
                         ...
-                        "2wX8fv5WaPpEXFYPbzmyeShVMRNdcqGCxnUCdfXKW2LrVvpkM1",
-                        "2wdwXBXxpBeQuPtT5kkEiV3AKsTqWkzN9QLHXskDsZgD8XpdTN"
+                        "O12we35pSQhP8i31B2i9wXRNgfkFMCN7CUGgF2HCoRj1XB3LXUNw"
                     ]
-                },
-                "is_candidate": true,
-                "is_discarded": false,
-                "is_final": false,
-                "is_in_blockclique": true
-            },
-            "id": "Fb46NHJCFTVgddSEZMEcmYeYpokvQv8gCYjnDBpXbAQBKpVE3"
-        },
-        "id": 1
+                }
+            }
+        }
+    ],
+    "id": 1
     }
 
 `get_operations`
@@ -1199,7 +730,7 @@ given operation(s) ID(s).
         "jsonrpc": "2.0",
         "id": 1,
         "method": "get_operations",
-        "params": [["177bzpUmukLarBiRGcTCDE63xqc5nkAKUja414HDmsNS2T3Gy"]]
+        "params": [["O1LMr9xyL9fVSbUvZao4jy6t2Pj5UPtLG8x1fxvS6SD7dPb5S52"]]
     }'
 
 - Result:
@@ -1207,34 +738,36 @@ given operation(s) ID(s).
 .. code-block:: javascript
 
     {
-        "jsonrpc": "2.0",
-        "result": [
-            {
-                "id": "177bzpUmukLarBiRGcTCDE63xqc5nkAKUja414HDmsNS2T3Gy",
-                "in_blocks": [
-                    "Fb46NHJCFTVgddSEZMEcmYeYpokvQv8gCYjnDBpXbAQBKpVE3"
-                ],
-                "in_pool": true,
-                "is_final": true,
-                "operation": {
-                    "content": {
-                        "expire_period": 72188,
-                        "fee": "0",
-                        "op": {
-                            "Transaction": {
-                                "amount": "0.00040048",
-                                "recipient_address": "A1Czd9sRp3mt2KU9QBEEZPsYxRq9TisMs1KnV4JYCe7Z4AAVinq"
-                            }
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "id": "O1LMr9xyL9fVSbUvZao4jy6t2Pj5UPtLG8x1fxvS6SD7dPb5S52",
+            "in_pool": true,
+            "in_blocks": [
+                "B1CM6E6CcSvFtXD1VHhVezt9CvpUGsB7TcSh3Z9k1HW6J3zLDyP"
+            ],
+            "is_operation_final": false,
+            "thread": 8,
+            "operation": {
+                "content": {
+                    "fee": "0",
+                    "expire_period": 25824,
+                    "op": {
+                        "Transaction": {
+                            "recipient_address": "AU12WQRoxQJKMjNG8hVjkyh4YgBwaYeUH4BsqJEEdTUJda37GhSx9",
+                            "amount": "0.000600754"
                         }
-                    },
-                    "creator_address": "A12teNrVETiAfCHHNrDwcxLFZ2WUhtKk1suym6nLPBFcaxjP188w",
-                    "creator_public_key": "P1cjQAvB8b2RxpqxVCn54KDjYDmC1wer6tJofohBCToKHWsgoVB",
-                    "id": "177bzpUmukLarBiRGcTCDE63xqc5nkAKUja414HDmsNS2T3Gy",
-                    "signature": "MnDMrajkMDzRJxiRyWgZCoyTP4k4yWM3raY4vo4SJ8o3CnBFrBnfc15C35xiemJ1zQqtYzYssWN5hWytGDVCsjuT2dt3p"
-                }
-            }
-        ],
-        "id": 1
+                    }
+                },
+                "signature": "D3JUUhPiQTDvdYKa4Gv38xUNSpfHbYUU9qsw3rLypwZdjbniVdmHn15VnaF1NDrmSqUPf6UFs5xpDmid3xzmMqoXBV83",
+                "content_creator_pub_key": "P1YSCrgzD8QXQCmMUEqrGvroBsu9UMCbWJUgCUnW3txDyFajBW5",
+                "content_creator_address": "AU1Y6Zhw2GWt2ETWxyym3GnJSv4ZW3rXRQVxcLUDprB3ybr5LKAq",
+                "id": "O1LMr9xyL9fVSbUvZao4jy6t2Pj5UPtLG8x1fxvS6SD7dPb5S52"
+            },
+            "op_exec_status": true
+        }
+    ],
+    "id": 1
     }
 
 `get_endorsements`
@@ -1253,7 +786,7 @@ Get information about `endorsement <https://docs.massa.net/en/latest/general-doc
         "jsonrpc": "2.0",
         "id": 1,
         "method": "get_endorsements",
-        "params": [["2jtHfATDrho9Ttkxz3xp26WwjjREPVQV16fwMUCGyjnEQoyU8p"]]
+        "params": [["E12kB72Jz4iMWkVkckS2e6cUBm4e5XEW77biDjSysAWmQkNrvuJr"]]
     }'
 
 - Result:
@@ -1261,30 +794,30 @@ Get information about `endorsement <https://docs.massa.net/en/latest/general-doc
 .. code-block:: javascript
 
     {
-        "jsonrpc": "2.0",
-        "result": [
-            {
-                "endorsement": {
-                    "content": {
-                        "endorsed_block": "AvvHCpxnX8U6uTQKmpze55vzhkhdbbst9rrhPwbykymjJyzoV",
-                        "index": 0,
-                        "slot": {
-                            "period": 72180,
-                            "thread": 31
-                        }
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "id": "E12kB72Jz4iMWkVkckS2e6cUBm4e5XEW77biDjSysAWmQkNrvuJr",
+            "in_pool": false,
+            "in_blocks": [
+                "B1CM6E6CcSvFtXD1VHhVezt9CvpUGsB7TcSh3Z9k1HW6J3zLDyP"
+            ],
+            "is_final": true,
+            "endorsement": {
+                "content": {
+                    "slot": {
+                        "period": 25817,
+                        "thread": 8
                     },
-                    "creator_address": "A12N9nUN9r1eUheMZ36AA3RTDYepLtEMpHZoBvzQmxw4hNcJV7tH",
-                    "creator_public_key": "P12qBafeiXMypqiChy7KEjqgAaUzbWJHhJALjfxzzY5hEH5BwL2c",
-                    "id": "2jtHfATDrho9Ttkxz3xp26WwjjREPVQV16fwMUCGyjnEQoyU8p",
-                    "signature": "XLJd5dSZsaQ3UYuuSGBGCbVsEM3aGTxAGigT81bVto7CypivDDwoPb6kJWXKzhvRi14qh3ReFqa7zzf3r5hYf343nqceH"
+                    "index": 6,
+                    "endorsed_block": "B17nShoffS6PVyB1qZQSgLmgWvczzPDinhkcHWUxWP2q9fg646A"
                 },
-                "id": "2jtHfATDrho9Ttkxz3xp26WwjjREPVQV16fwMUCGyjnEQoyU8p",
-                "in_blocks": [
-                    "Fb46NHJCFTVgddSEZMEcmYeYpokvQv8gCYjnDBpXbAQBKpVE3"
-                ],
-                "in_pool": true,
-                "is_final": false
+                "signature": "H6bsbwfUwkyMYdKU7vdWdft61bCacYPv77Gsxmp9rng7wTZSRYjuqXi6uy5eFwh8qM9iggRAabumbv4ZT9ChC42ZVYeuK",
+                "content_creator_pub_key": "P12KNCqp2tSrQtFBF8wUxDJ1aSdrvyqg6UPShhXUVSWA9udJFcfV",
+                "content_creator_address": "AU1AZf2B9Cn3V7zSvoCm7Egdi5ZUx5m35sADYHcPujHsb2fLPQXs",
+                "id": "E12kB72Jz4iMWkVkckS2e6cUBm4e5XEW77biDjSysAWmQkNrvuJr"
             }
-        ],
-        "id": 1
+        }
+    ],
+    "id": 1
     }
