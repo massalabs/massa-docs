@@ -1,0 +1,50 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download config files from Massa testnet branch
+        run: |
+          wget -N -P ./external/node/ -i ./external/node/config-files.txt &&
+          wget -N -P ./external/client/ -i ./external/client/config-files.txt
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+      - name: Install requirements
+        run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
+      - name: Run sphinx-lint
+        run: sphinx-lint --enable line-too-long --max-line-length 120
+  build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download config files from Massa testnet branch
+        run: |
+          wget -N -P ./external/node/ -i ./external/node/config-files.txt &&
+          wget -N -P ./external/client/ -i ./external/client/config-files.txt
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.7
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
+      - name: Install requirements
+        run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
+      - name: Run sphinx-build
+        run: make html SPHINXOPTS="-W --keep-going -n"
