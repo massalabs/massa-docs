@@ -7,17 +7,17 @@ Download the nightly version we use:
 
 .. code-block:: bash
 
-    rustup install nightly-2023-01-30
+    rustup install nightly-2023-02-27
 
 Use the right version:
 
 .. code-block:: bash
 
-    rustup default nightly-2023-01-30
+    rustup default nightly-2023-02-27
 
 Otherwise:
 
-Make sure you you have the right git repository (especially since the change from GitLab to GitHub):
+Make sure you you have the right git repository:
 
 .. code-block:: bash
 
