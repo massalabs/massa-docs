@@ -260,6 +260,7 @@ Postman brings support for WebSocket APIs, more information about it `here
               "id": 1
           }
 
+TEST.20.1
 .. note::
 
     Multiple subscriptions are supported

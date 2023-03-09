@@ -15,10 +15,10 @@ If you just wish to run a Massa node without compiling it yourself, you can simp
 go the the next step: :ref:`Running a node <testnet-running>`.
 
 - `Windows executable
-  <https://github.com/massalabs/massa/releases/download/TEST.20.0/massa_TEST.20.0_release_windows.zip>`_
-- `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.20.0/massa_TEST.20.0_release_linux.tar.gz>`_
+  <https://github.com/massalabs/massa/releases/download/TEST.20.1/massa_TEST.20.1_release_windows.zip>`_
+- `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.20.1/massa_TEST.20.1_release_linux.tar.gz>`_
   - only works with libc2.28 at least (for example Ubuntu 20.04 and higher)
-- `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.20.0/massa_TEST.20.0_release_macos.tar.gz>`_
+- `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.20.1/massa_TEST.20.1_release_macos.tar.gz>`_
 
 From source code (advanced installation)
 ----------------------------------------
@@ -36,8 +36,8 @@ On Ubuntu / MacOS
 - configure path: ``source $HOME/.cargo/env``
 - check rust version: ``rustc --version``
 - install `nigthly <https://doc.rust-lang.org/edition-guide/rust-2018/rustup-for-managing-rust-versions.html>`_:
-  ``rustup toolchain install nightly-2023-01-30``
-- set it as default: ``rustup default nightly-2023-01-30``
+  ``rustup toolchain install nightly-2023-02-27``
+- set it as default: ``rustup default nightly-2023-02-27``
 - check rust version: ``rustc --version``
 - clone this repo: ``git clone --branch testnet https://github.com/massalabs/massa.git``
 
@@ -69,4 +69,4 @@ On Windows
 - Open Windows Power Shell
 
   - Clone the latest distributed version: ``git clone --branch testnet https://github.com/massalabs/massa.git``
-  - Change default Rust to nightly: ``rustup default nightly-2023-01-30``
+  - Change default Rust to nightly: ``rustup default nightly-2023-02-27``
