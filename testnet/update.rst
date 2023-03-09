@@ -7,13 +7,13 @@ Download the nightly version we use:
 
 .. code-block:: bash
 
-    rustup install nightly-2023-01-30
+    rustup install nightly-2023-02-27
 
 Use the right version:
 
 .. code-block:: bash
 
-    rustup default nightly-2023-01-30
+    rustup default nightly-2023-02-27
 
 Otherwise:
 
