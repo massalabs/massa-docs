@@ -49,7 +49,7 @@ Massa RPC enpoints
 Here are the public RPC endpoints currently available.
 
 +----------+--------------------------------------+-------------------------+
-| **name** | **address**                          | **features**            |
+| **Name** | **Address**                          | **Features**            |
 +==========+======================================+=========================+
 || Massa   || https://test.massa.net/api/v2       || JsonRPC                |
 +----------+--------------------------------------+-------------------------+
