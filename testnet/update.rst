@@ -17,7 +17,7 @@ Use the right version:
 
 Otherwise:
 
-Make sure you you have the right git repository (especially since the change from GitLab to GitHub):
+Make sure you you have the right git repository:
 
 .. code-block:: bash
 
