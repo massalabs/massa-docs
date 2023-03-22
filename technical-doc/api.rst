@@ -260,7 +260,7 @@ Postman brings support for WebSocket APIs, more information about it `here
               "id": 1
           }
 
-TEST.20.1
+TEST.20.2
 .. note::
 
     Multiple subscriptions are supported
@@ -307,7 +307,7 @@ count.
     "result": {
         "node_id": "N1VRyXjUaHeJd4Rmr3waVmpZDFzzH5ARRi3f5ye5BYgxBmxHC7X",
         "node_ip": "141.94.218.103",
-        "version": "TEST.20.0",
+        "version": "TEST.20.2",
         "current_time": 1678095036319,
         "current_cycle": 201,
         "current_cycle_time": 1678094448000,
