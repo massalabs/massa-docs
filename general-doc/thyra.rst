@@ -26,7 +26,7 @@ The installation
 
 To install Thyra now, you just have to download the app based on your device.
 
-* Desktop 
+* Desktop
 
   * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
   * MacOS
@@ -38,9 +38,9 @@ To install Thyra now, you just have to download the app based on your device.
   
 * Mobile
 
-  * Soon! 
+  * Soon!
   
-The technical details 
+The technical details
 ------------------
 
 Thyra's architecture will be published soon.
