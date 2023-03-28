@@ -27,17 +27,18 @@ For that, there are 5 steps to follow:
 
 * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-server_linux_amd64>`_
 
-2. Start thyra using the icon tray.
-If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_ can help.
+2. Start thyra using the icon tray. If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_ can help.
+
 3. Configure your VPS (if not done already) and go to `thyra home page <https://my.massa/thyra/home/>`_
+
 4. Install the node-manager plugin
+
 5. Add your VPS details and click on "start"
 
 You're now a Massa node-runner!
 
 
-**_TROUBLESHOOTING:_** If you have trouble following this procedure,
-feel free to `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
+  TROUBLESHOOTING: If you have trouble following this procedure, feel free to `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
 
 
 From binaries (simple installation)
