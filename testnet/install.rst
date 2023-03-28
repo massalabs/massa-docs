@@ -18,7 +18,6 @@ a node using a simple graphical interface.
 For that, there are 5 steps to follow:
 
 1. Install thyra based on your OS
-
   * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
   * MacOS
 
