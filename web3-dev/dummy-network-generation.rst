@@ -3,8 +3,7 @@
 Local network generation
 ========================
 
-How to launch a local network with custom settings, initial coins and rolls distribution
-----------------------------------------------------------------------------------------
+Here, you will learn how to launch a local network with custom settings, initial coins and rolls distribution.
 
 Clone massa:
 
@@ -32,7 +31,7 @@ For the rest of the tutorial we will use theses abbreviations:
 - `ADDR`: The address corresponding to PUBK
 
 Setup your node to use the secret you just generated as its public key and staking key:
-    - modify or create the file `massa-node/config/node_privkey.key` :
+    - modify or create the file `massa-node/config/node_privkey.key`:
 
     .. code-block:: bash
 
@@ -50,7 +49,7 @@ Setup your node to use the secret you just generated as its public key and staki
             }
         }
 
-    - CLEAR and modify the file `massa-node/base_config/initial_rolls.json` :
+    - CLEAR and modify the file `massa-node/base_config/initial_rolls.json`:
 
     .. code-block:: javascript
 
@@ -58,13 +57,13 @@ Setup your node to use the secret you just generated as its public key and staki
             "ADDR": 100
         }
 
-    - CLEAR content of `massa-node/base_config/initial_vesting.json` :
+    - CLEAR content of `massa-node/base_config/initial_vesting.json`:
 
     .. code-block:: javascript
 
         {}
 
-You can now launch your node :
+You can now launch your node:
 
     .. code-block:: bash
 

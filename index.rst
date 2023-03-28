@@ -27,12 +27,6 @@ applications:
   applications, by allowing your smart contracts to `wake up by themselves and perform arbitrary operations
   <https://massa.net/autonomous-sc>`_.
 
-Testnet
--------
-
-As decentralization is our core value, we would like to help you start running a Massa node on our testnet. You’ll find
-a full tutorial on how to install and stake with your node on our testnet :ref:`here <testnet-install>`.
-
 Web3 developers
 ---------------
 
@@ -55,6 +49,12 @@ Technical resources
 -------------------
 
 :ref:`Here <technical-api>` you’ll find the documentation on the various JSON-RPC API endpoints exposed by a Massa node.
+
+Testnet
+-------
+
+As decentralization is our core value, we would like to help you start running a Massa node on our testnet. You’ll find
+a full tutorial on how to install and stake with your node on our testnet :ref:`here <testnet-install>`.
 
 Community
 ---------
@@ -79,6 +79,18 @@ Contents
 
 .. toctree::
     :maxdepth: 2
+    :caption: Web3 developers
+
+    web3-dev/smart-contracts.rst
+    web3-dev/decentralized-web.rst
+    web3-dev/massa-web3.rst
+    web3-dev/types.rst
+    web3-dev/dummy-network-generation.rst
+    web3-dev/useful-resources.rst
+    web3-dev/external-resources.rst
+
+.. toctree::
+    :maxdepth: 2
     :caption: Testnet documentation
 
     testnet/install.rst
@@ -91,18 +103,6 @@ Contents
     testnet/all-config.rst
     testnet/faq.rst
     testnet/community-resources.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: Web3 developers
-
-    web3-dev/smart-contracts.rst
-    web3-dev/decentralized-web.rst
-    web3-dev/massa-web3.rst
-    web3-dev/types.rst
-    web3-dev/dummy-network-generation.rst
-    web3-dev/useful-resources.rst
-    web3-dev/external-resources.rst
 
 .. toctree::
     :maxdepth: 2
