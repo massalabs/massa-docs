@@ -12,10 +12,10 @@ Installing a node
 From thyra (most simple installation)
 -------------------------------------
 
-If you wish to run a Massa node with a couple of clicks only, you can download thyra app 
-and activate the node-manager plugin. This will enable you to configure, install, start and even update 
+If you wish to run a Massa node with a couple of clicks only, you can download thyra app
+and activate the node-manager plugin. This will enable you to configure, install, start and even update
 a node using a simple graphical interface.
-For that, there are 5 steps to follow: 
+For that, there are 5 steps to follow:
 
 1. Install thyra based on your OS
 
@@ -35,7 +35,7 @@ If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTA
 You're now a Massa node-runner! 
 
 
-**_TROUBLESHOOTING:_** If you have trouble following this procedure, 
+**_TROUBLESHOOTING:_** If you have trouble following this procedure,
 feel free to `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
 
 
