@@ -6,7 +6,7 @@ Installing a node
 .. note::
 
     Right now 4 cores and 8 GB of RAM should be enough to run a node, but it might increase in the future. More info in
-    the:ref:`FAQ <testnet-faq>`.
+    the :ref:`FAQ <testnet-faq>`.
 
 
 From thyra (most simple installation)
