@@ -83,7 +83,6 @@ Contents
     web3-dev/smart-contracts.rst
     web3-dev/decentralized-web.rst
     web3-dev/massa-web3.rst
-    web3-dev/types.rst
     web3-dev/dummy-network-generation.rst
     web3-dev/useful-resources.rst
     web3-dev/external-resources.rst
