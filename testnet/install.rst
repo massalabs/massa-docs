@@ -18,12 +18,15 @@ a node using a simple graphical interface.
 For that, there are 5 steps to follow:
 
 1. Install thyra based on your OS
+
   * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
   * MacOS
 
     * `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64>`_
     * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64>`_
+
   * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-server_linux_amd64>`_
+
 2. Start thyra using the icon tray.
    If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_ can help.
 3. Configure your VPS (if not done already) and go to `thyra home page <https://my.massa/thyra/home/>`_
