@@ -32,18 +32,18 @@ To install Thyra now, you just have to download the app based on your device.
 The technical details 
 ------------------
 
-Add technical architecture 
+Thyra's architecture will be published soon.
+
+
 
 To go further
 --------------
 
-ADD links to 
-* web3 dev section about thyra
-* all thyra plugins
-* thyra repo
-* thyra contribute.md
-* MassaLabs repo 
-* Massa discord
+
+* [Thyra's GitHub](https://github.com/massalabs/thyra)
+* [Contributing to Thyra](https://github.com/massalabs/thyra/blob/main/CONTRIBUTING.md)
+* [MassaLabs GitHub] (https://github.com/massalabs/massa) 
+* [Massa discord - Join the community](discord.gg/massa)
   
 
 
