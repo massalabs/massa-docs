@@ -19,13 +19,13 @@ For that, there are 5 steps to follow:
 
 1. Install thyra based on your OS
 
-* `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
-* MacOS
+  * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
+  * MacOS
 
-  * `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64>`_
-  * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64>`_
+    * `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64>`_
+    * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64>`_
 
-* `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-server_linux_amd64>`_
+  * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-server_linux_amd64>`_
 
 2. Start thyra using the icon tray.
    If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_ can help.
@@ -38,8 +38,9 @@ For that, there are 5 steps to follow:
 
 You're now a Massa node-runner!
 
-  TROUBLESHOOTING: If you have trouble following this procedure,
-  feel free to `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
+.. warning::
+    If you have trouble following this procedure, feel free to
+    `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
 
 
 From binaries (simple installation)
