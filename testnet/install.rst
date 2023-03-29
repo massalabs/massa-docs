@@ -8,6 +8,38 @@ Installing a node
     Right now 4 cores and 8 GB of RAM should be enough to run a node, but it might increase in the future. More info in
     the :ref:`FAQ <testnet-faq>`.
 
+
+From thyra (most simple installation)
+-------------------------------------
+
+If you wish to run a Massa node with a couple of clicks only, you can download thyra app
+and activate the node-manager plugin. This will enable you to configure, install, start and even update
+a node using a simple graphical interface.
+For that, there are 5 steps to follow:
+
+1. Install thyra based on your OS
+
+  * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
+  * MacOS
+
+    * `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64>`_
+    * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64>`_
+
+  * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-server_linux_amd64>`_
+
+2. Start thyra using the icon tray.
+   If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_ can help.
+3. Configure your VPS (if not done already) and go to `thyra home page <https://my.massa/thyra/home/>`_
+4. Install the node-manager plugin
+5. Add your VPS details and click on "start"
+
+You're now a Massa node-runner!
+
+.. note::
+    If you have trouble following this procedure, feel free to
+    `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
+
+
 From binaries (simple installation)
 -----------------------------------
 
