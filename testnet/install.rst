@@ -22,8 +22,8 @@ For that, there are 5 steps to follow:
   * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
   * MacOS
 
-    * `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64.tar.gz>`_
-    * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64.tar.gz>`_
+    * For Apple Silicon (M1, M2...), use `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64.tar.gz>`_
+    * For Intel processors (i5, i7...), use `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64.tar.gz>`_
 
   * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_linux_amd64.tar.gz>`_
 
