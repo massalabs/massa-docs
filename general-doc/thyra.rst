@@ -3,10 +3,10 @@
 .. _general-thyra:
 
 Thyra
-=================
+=====
 
 The project
--------------
+-----------
 
 Thyra is a secured gate to Massa blockchain and pure decentralization.
 Developped by Massa Labs, this application provides a user-friendly way of accessing,
@@ -22,7 +22,7 @@ These functionalities are, technically speaking, plugins that can be developed b
 All details about how you can contribute will be added very soon.
 
 The installation
------------------
+----------------
 
 To install Thyra now, you just have to download the app based on your device.
 
@@ -41,14 +41,14 @@ To install Thyra now, you just have to download the app based on your device.
   * Soon!
 
 The technical details
-------------------
+---------------------
 
 Thyra's architecture will be published soon.
 
 
 
 To go further
---------------
+-------------
 
 
 * `Thyra's GitHub <https://github.com/massalabs/thyra>`_
