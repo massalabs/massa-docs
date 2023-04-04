@@ -109,6 +109,7 @@ Contents
     technical-doc/bootstrap.rst
     technical-doc/storage-costs.rst
     technical-doc/api.rst
+    technical-doc/grpc.rst
     technical-doc/glossary.rst
 
 .. toctree::
