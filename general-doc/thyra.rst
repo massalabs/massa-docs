@@ -45,7 +45,7 @@ The applications
 ----------------
 
 * Decentralized web
-Store your website on Massa blockchain in the right way, the way it should be.
+Store your website on Massa blockchain in the right way, the way it was meant be.
 
 * Node-manager
 Install a Massa node on a distant server and start staking in a couple of clicks.
