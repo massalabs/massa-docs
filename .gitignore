@@ -3,3 +3,9 @@ _build/
 .vscode/
 venv/
 .idea
+
+# downlaoded files
+!external/client/config-files.txt
+!external/node/config-files.txt
+external/node
+external/client
