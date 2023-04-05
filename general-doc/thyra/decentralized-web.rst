@@ -1,4 +1,7 @@
 
+.. _general-decentralized-web:
+
+
 Decentralized web
 =================
 
