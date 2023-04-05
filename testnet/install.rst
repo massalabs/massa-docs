@@ -29,7 +29,8 @@ For that, there are 5 steps to follow:
 
 2. Start thyra using the icon tray.
    If you need help, this `page <https://github.com/massalabs/thyra/blob/main/INSTALLATION.md>`_ can help.
-3. Configure your VPS (if not done already) and go to `thyra home page <https://my.massa/thyra/home/>`_
+3. Configure your VPS (if not done already) and
+go to `thyra home page <https://my.massa/thyra/home/>`_
 4. Install the node-manager plugin
 5. Add your VPS details and click on "start"
 
