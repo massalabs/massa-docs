@@ -33,10 +33,13 @@ to know to get started.
 ### Build doc locally
 
 #### Setup
+
+```shell
 wget -N -P ./external/node/ -i ./external/node/config-files.txt
 wget -N -P ./external/client/ -i ./external/client/config-files.txt
 python -m venv venv
 venv/bin/python -m pip install -r requirements.txt
+```
 
 #### Build
 
