@@ -43,8 +43,6 @@ For that, there are 5 steps to follow:
 
 You're now a Massa node-runner!
 
-
-
 .. note::
     If you have trouble following this procedure, feel free to
     `open a question <https://github.com/massalabs/thyra/issues/new>`_ describing your problem.
