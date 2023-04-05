@@ -59,7 +59,7 @@ Community
 ---------
 
 If you have any questions regarding the project or wish to discuss technical aspects in more depth, feel free to
-reachout to us in our community channels:
+reach out to us in our community channels:
 
 - `Telegram <https://t.me/massanetwork>`_
 - `Twitter <https://twitter.com/MassaLabs>`_
