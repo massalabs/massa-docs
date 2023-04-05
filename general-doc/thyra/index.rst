@@ -1,7 +1,3 @@
-.. index:: app; decentralized, thyra
-
-.. _general-thyra:
-
 Thyra
 =====
 
