@@ -40,6 +40,19 @@ To install Thyra now, you just have to download the app based on your device.
 
   * Soon!
 
+
+The applications
+----------------
+
+* Decentralized web
+Store your website on Massa blockchain in the right way, the way it should be.
+
+* Node-manager
+Install a Massa node on a distant server and start staking in a couple of clicks.
+
+* More to come ...
+
+
 The technical details
 ---------------------
 
