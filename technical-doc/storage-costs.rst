@@ -43,6 +43,14 @@ You want to store your birth date that is 30 bytes long in your datastore so you
 create a key in your datastore using a SC. This operation will cost you in storage costs at least 0.00025 * (10 + 30) =
 0.01 Massa.
 
+So when creating a fresh new wallet using `massa-client`, you can generate it with
+`wallet_generate_secret_key`, and check its address using `wallet_info`, however as long
+as you don't receive a transfer of at least `0.01 Massa`, this address won't appear anywhere
+in the ledgers of the blockchain.
+
+If you receive a transfer of `0.005 Massa` the operation will fail, and if you receive
+a transfer of `10 Massa`, you will see on your balance only `9.99 Massa` available.
+
 Now you want to delete this entry on your datastore you will be refunded of the storage costs (0.02 Massa).
 
 Notes
