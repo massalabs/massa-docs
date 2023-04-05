@@ -27,7 +27,7 @@ To install Thyra now, you just have to download the app based on your device.
   * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
   * MacOS
 
-    * `ARM <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64.tar.gz>`_
+    * `Mac M1/M2 <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64.tar.gz>`_
     * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64.tar.gz>`_
 
   * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_linux_amd64.tar.gz>`_
