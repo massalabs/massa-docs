@@ -32,10 +32,6 @@ To install Thyra now, you just have to download the app based on your device.
 
   * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_linux_amd64.tar.gz>`_
 
-* Mobile
-
-  * Soon!
-
 
 The applications
 ----------------
