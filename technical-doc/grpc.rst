@@ -28,3 +28,11 @@ Integrations
 **Postman**: is a tool for software developers to create, test and debug API requests. More details can be found in
 `Postman learning center <https://learning.postman.com/docs/getting-started/introduction/>`_.
 Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
+
+**Code generation**: See developer `documentation <https://github.com/massalabs/massa/blob/main/massa-grpc/README.md>`_.
+
+Error codes
+-----------
+
+When a call to Massa grpc API fails, it **MUST** return a valid gRPC `status
+<https://grpc.github.io/grpc/core/md_doc_statuscodes.html>`_ .
