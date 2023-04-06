@@ -1,55 +1,38 @@
-Thyra
-=====
+Decentralized Web
+=================
 
-The project
------------
+Rationale
+---------
+This section gives a general overview of Massa decentralized web solution.
 
-Thyra is a secured gate to Massa blockchain and pure decentralization.
-Developped by Massa Labs, this application provides a user-friendly way of accessing,
-using and building on the blockchain while preventing users from possible attack or hack.
-Indeed, because Thyra is installed on your own device there is absolutely nothing
-and no one between you and the blockchain. Security and decentralization are the app's pillars.
+The "*code is law*" rule is a cornerstone of DeFi. It states among other things that once successfully audited, a
+program can remain trusted. This implies that the program of a successfully audited smart contract may never be
+unexpectedly changed by an outsider (note that contracts that modify their own code during runtime cannot be trusted
+this way in the first place, but this is visible in the code audit). Popular ETH smart contracts essentially follow that
+rule.
 
-Concretely, Thyra enables every user to have a custom experience with the blockchain.
-Once the app installed, users will be able to activate specific functionalities in a plug-and-play mode
-that will provide them what they need. For instance, you will be able to run a distant node in a couple of clicks
-or if you prefer you will be able to create and publish a website on the blockchain.
-These functionalities are, technically speaking, plugins that can be developed by all developers that wish to.
-All details about how you can contribute will be added very soon.
+However, most DeFi web3 apps such as `app.uniswap.org <https://app.uniswap.org/>`_ are typically used through an
+otherwise normal website that talks to a browser plugin (typically `Metamask
+<https://github.com/MetaMask/metamask-extension>`_) allowing the webpage to interact with the user's wallet and the
+blockchain. The website that serves as an entry point to the dApp is neither decentralized nor immutable-once-audited.
+This breaks the very foundation of blockchain security.
 
-The installation
-----------------
+This attack vector has been well identified by exploiters and, as smart contracts become more robust exploiters are
+increasingly targeting front ends. For instance, in 2022, one of the major DeFi protocol, `curve.finance
+<https://curve.fi/>`_, was victim of a `DNS hijacking <https://rekt.news/curve-finance-rekt/>`_, with hackers being able
+to stole as much as 575$ from users. As long as decentralized applications rely on web2 infrastuctures, these attacks
+are bound to happen `regularly <https://twitter.com/LefterisJP/status/1540306236087877635>`_.
 
-To install Thyra now, you just have to download the app based on your device.
+The goal of Massa's decentralized web is to allow users to store websites without using any centralised party in between
+your client and the blockchain. Since the front-end is hosted on the blockchain, anyone can access it using a Massa
+node. For that Massa has developed a client that acts as a gateway to the blockchain preventing you from using any
+centralised servers effectively maximising your security with immutable and censorship resistant websites.
 
-* Desktop
+This client is called θύρα (thyra) which in ancient Greek means door, entrance.
 
-  * `Windows <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_windows_amd64.exe>`_
-  * MacOS
+Start your decentralised web3 journey now, and install `Thyra
+<https://docs.massa.net/en/latest/web3-dev/decentralized-web.html>`_. It will enable you to store your own website or to
+simply navigate Massa web3 content.
 
-    * `Mac M1/M2 <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_arm64.tar.gz>`_
-    * `AMD <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_darwin_amd64.tar.gz>`_
+That way, Massa allows deploying fully decentralized code-is-law apps, as it was meant to be!
 
-  * `Linux <https://github.com/massalabs/thyra/releases/latest/download/thyra-installer_linux_amd64.tar.gz>`_
-
-
-The applications
-----------------
-
-* Decentralized web :ref:`Decentralized Web<general-decentralized-web>`
-
-Store your website on Massa blockchain in the right way, the way it was meant be.
-
-* Node-manager
-
-Install a Massa node on a distant server and start staking in a couple of clicks.
-
-
-To go further
--------------
-
-
-* `Thyra's GitHub <https://github.com/massalabs/thyra>`_
-* `Contributing to Thyra <https://github.com/massalabs/thyra/blob/main/CONTRIBUTING.md>`_
-* `MassaLabs GitHub <https://github.com/massalabs/massa>`_
-* `Massa discord - Join the community <discord.gg/massa>`_
