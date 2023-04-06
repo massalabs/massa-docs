@@ -73,7 +73,7 @@ Contents
     :caption: General documentation
 
     general-doc/architecture.rst
-    general-doc/thyra.rst
+    general-doc/decentralized-web.rst
     general-doc/autonomous-sc.rst
 
 .. toctree::
