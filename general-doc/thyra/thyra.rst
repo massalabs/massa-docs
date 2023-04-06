@@ -48,12 +48,3 @@ Store your website on Massa blockchain in the right way, the way it was meant be
 Install a Massa node on a distant server and start staking in a couple of clicks.
 
 
-To go further
--------------
-
-
-* `Thyra's GitHub <https://github.com/massalabs/thyra>`_
-* `Contributing to Thyra <https://github.com/massalabs/thyra/blob/main/CONTRIBUTING.md>`_
-* `MassaLabs GitHub <https://github.com/massalabs/massa>`_
-* `Massa discord - Join the community <discord.gg/massa>`_
-
