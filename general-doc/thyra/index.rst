@@ -48,15 +48,6 @@ Store your website on Massa blockchain in the right way, the way it was meant be
 
 Install a Massa node on a distant server and start staking in a couple of clicks.
 
-* More to come ...
-
-
-The technical details
----------------------
-
-Thyra's architecture will be published soon.
-
-
 
 To go further
 -------------
