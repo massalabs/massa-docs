@@ -16,7 +16,7 @@ and no one between you and the blockchain. Security and decentralization are the
 Concretely, Thyra enables every user to have a custom experience with the blockchain.
 Once the app is installed, users are be able to activate specific functionalities in a plug-and-play mode
 through plugins. For instance,
-the plugin :ref: `Node-manager <testnet-install>` allows you to run a distant node in a couple of clicks.
+the plugin :ref:`Node-manager <testnet-install>`. allows you to run a distant node in a couple of clicks.
 These functionalities are, technically speaking, plugins that can be developed by anyone.
 Technical details on how to develop plugins will be added very soon.
 
