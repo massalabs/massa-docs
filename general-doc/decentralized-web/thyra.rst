@@ -9,7 +9,7 @@ The project
 
 Thyra is a secured gate to Massa blockchain and pure decentralization.
 Developped by Massa Labs, this application provides a user-friendly way of accessing,
-using and building on the blockchain while preventing users from possible attack or hack.
+using and building on the blockchain while preventing users from possible attacks or hacks.
 Indeed, because Thyra is installed on your own device there is absolutely nothing
 and no one between you and the blockchain. Security and decentralization are the app's pillars.
 
