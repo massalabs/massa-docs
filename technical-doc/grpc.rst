@@ -22,7 +22,7 @@ Find the complete Massa `gRPC <https://grpc.io/>`_ specification `here
 
     Massa gRPC support is experimental. This API is not yet stable and may change in the future.
 
-To enable WebSocket support in Massa node, edit file ``massa-node/config/config.toml`` (create it if absent) with the
+To enable gRPC support in Massa node, edit file ``massa-node/config/config.toml`` (create it if absent) with the
 following contents:
 
 .. code-block:: toml
