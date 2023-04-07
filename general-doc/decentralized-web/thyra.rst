@@ -17,7 +17,7 @@ Concretely, Thyra enables every user to have a custom experience with the blockc
 Once the app is installed, users are be able to activate specific functionalities in a plug-and-play mode
 through plugins. For instance, the plugin :ref: `Node-manager <testnet-install>` allows you to run a distant node in a couple of clicks.
 These functionalities are, technically speaking, plugins that can be developed by anyone.
-All details about how you can contribute will be added very soon.
+Technical details on how to develop plugins will be added very soon.
 
 The installation
 ----------------
