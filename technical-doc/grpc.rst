@@ -10,7 +10,7 @@ Through the API documentation, you can find out how to make calls and handle res
 - **gRPC API**: used for blockchain interactions. Default port: 33037 e.g. grpc://localhost:33037
 
 Find the complete Massa `gRPC <https://grpc.io/>`_ specification `here
-<https://github.com/massalabs/massa/blob/main/massa-proto/proto/massa/api/v1/api.proto>`_.
+<https://raw.githubusercontent.com/massalabs/massa/main/massa-proto/proto/massa/api/v1/api.proto>`_.
 
 .. note::
 
@@ -21,21 +21,6 @@ Find the complete Massa `gRPC <https://grpc.io/>`_ specification `here
 .. warning::
 
     Massa gRPC support is experimental. This API is not yet stable and may change in the future.
-
-To enable gRPC support in Massa node, edit file ``massa-node/config/config.toml`` (create it if absent) with the
-following contents:
-
-.. code-block:: toml
-
-    [api]
-       # whether to broadcast for blocks, endorsement and operations
-       enable_broadcast = true
-    [grpc]
-        # whether to enable gRPC
-        enabled = true
-
-The complete gRPC configuration is available in `node configuration
-<https://docs.massa.net/en/latest/testnet/all-config.html#node-configuration>`_ .
 
 Integrations
 ------------
