@@ -49,7 +49,7 @@ Code generation
 
 **Step 1: Download the `massa-proto` folder from GitHub**
 
-1. Go to the GitHub repository for `massa-proto <https://github.com/massalabs/massa-proto>`_.
+1. Go to the GitHub repository for `massa <https://github.com/massalabs/massa>`_.
 2. Click the green ``Code`` button and select ``Download ZIP`` to download the entire repository as a ZIP file.
 3. Extract the ZIP file to a folder on your computer.
 4. Navigate to the ``massa-proto`` folder, which contains the ``.proto`` files we'll be using to generate gRPC clients.
