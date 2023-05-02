@@ -127,9 +127,6 @@ When a call to Massa API fails, it **MUST** return a valid JSON-RPC `error objec
 || -32010  || Execution error       || Error from Execution  |
 ||         ||                       || module                |
 +----------+------------------------+------------------------+
-|| -32011  || Network error         || Error from Network    |
-||         ||                       || module                |
-+----------+------------------------+------------------------+
 || -32012  || Protocol error        || Error from Protocol   |
 ||         ||                       || module                |
 +----------+------------------------+------------------------+
