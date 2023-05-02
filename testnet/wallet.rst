@@ -5,7 +5,7 @@ Creating a Massa wallet
 
 A Massa wallet is a file that contains a list of your keypairs.
 
-Like other blockchains, Massa uses elliptic curve cryptography for the security of your coins (with `secp256k1`).
+Like other blockchains, Massa uses elliptic curve cryptography for the security of your coins (with `ed25519`).
 
 It means your secret key is your password allowing you to spend coins that were sent to your address (your address is
 the hash of your public key).
