@@ -38,7 +38,7 @@ How to make your node routable
 
   .. code-block:: toml
 
-      [network]
+      [protocol]
       routable_ip = "AAA.BBB.CCC.DDD"
 
   where AAA.BBB.CCC.DDD should be replaced with your public IP address (not the local one !). IPV6 is also supported.
