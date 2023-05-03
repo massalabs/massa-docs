@@ -63,9 +63,9 @@ Otherwise, if you wish to run a Massa node from source code, here are the steps 
 On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~
 
-- on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev
-  libclang-dev``
-- on MacOS: ``brew install llvm``
+- on Ubuntu, these tools and libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev
+  libclang-dev protobuf-compiler``
+- on MacOS: ``brew install llvm protobuf``
 - install `rustup <https://www.rust-lang.org/tools/install>`_: ``curl --proto '=https' --tlsv1.2 -sSf
   https://sh.rustup.rs | sh``
 - configure path: ``source $HOME/.cargo/env``
@@ -98,6 +98,7 @@ On Windows
 - Install `Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`_ and run: ``choco install llvm``
 - Install Rust, to be downloaded `here <https://www.rust-lang.org/tools/install>`__
 - Install Git for windows, to be downloaded `here <https://git-scm.com/download/win>`__
+- Install install protoc in your PATH, to be downloaded `here <https://github.com/protocolbuffers/protobuf/releases>`__
 
 **Clone the Massa Git Repository**
 
