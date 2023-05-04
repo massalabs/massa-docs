@@ -64,7 +64,7 @@ On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~
 
 - on Ubuntu, these tools and libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev
-  libclang-dev protobuf-compiler``
+  libclang-dev protobuf-compiler cmake``
 - on MacOS: ``brew install llvm protobuf``
 - install `rustup <https://www.rust-lang.org/tools/install>`_: ``curl --proto '=https' --tlsv1.2 -sSf
   https://sh.rustup.rs | sh``
