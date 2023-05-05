@@ -63,7 +63,7 @@ Otherwise, if you wish to run a Massa node from source code, here are the steps 
 On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~
 
-- on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev cmake 
+- on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev cmake
   libclang-dev cmake``
 - on MacOS: ``brew install llvm cmake``
 - install `rustup <https://www.rust-lang.org/tools/install>`_: ``curl --proto '=https' --tlsv1.2 -sSf
@@ -94,7 +94,8 @@ On Windows
     - Testing Tools Core Feature
 
   - Click install on the bottom right to download and install those packages
-- Install NASM : https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/ choose win32 or win64 folder depending on your architecture and download then launch the installer.
+- Install NASM : https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/ choose win32 or win64 folder depending
+on your architecture and download then launch the installer.
 - Install `Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`_ and run: ``choco install llvm cmake protoc``
 - Install Rust, to be downloaded `here <https://www.rust-lang.org/tools/install>`__
 - Install Git for windows, to be downloaded `here <https://git-scm.com/download/win>`__
