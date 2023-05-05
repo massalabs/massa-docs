@@ -63,7 +63,7 @@ Otherwise, if you wish to run a Massa node from source code, here are the steps 
 On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~
 
-- on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev cmake
+- on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev
   libclang-dev cmake``
 - on MacOS: ``brew install llvm cmake``
 - install `rustup <https://www.rust-lang.org/tools/install>`_: ``curl --proto '=https' --tlsv1.2 -sSf
