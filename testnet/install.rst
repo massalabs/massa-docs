@@ -95,7 +95,7 @@ On Windows
 
   - Click install on the bottom right to download and install those packages
 - Install NASM : https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/ choose win32 or win64 folder depending
-on your architecture and download then launch the installer.
+  on your architecture and download then launch the installer.
 - Install `Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`_ and run: ``choco install llvm cmake protoc``
 - Install Rust, to be downloaded `here <https://www.rust-lang.org/tools/install>`__
 - Install Git for windows, to be downloaded `here <https://git-scm.com/download/win>`__
