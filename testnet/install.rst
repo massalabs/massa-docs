@@ -64,8 +64,8 @@ On Ubuntu / MacOS
 ~~~~~~~~~~~~~~~~~
 
 - on Ubuntu, these libs must be installed: ``sudo apt install pkg-config curl git build-essential libssl-dev cmake 
-  libclang-dev``
-- on MacOS: ``brew install llvm``
+  libclang-dev cmake``
+- on MacOS: ``brew install llvm cmake``
 - install `rustup <https://www.rust-lang.org/tools/install>`_: ``curl --proto '=https' --tlsv1.2 -sSf
   https://sh.rustup.rs | sh``
 - configure path: ``source $HOME/.cargo/env``
@@ -95,9 +95,10 @@ On Windows
 
   - Click install on the bottom right to download and install those packages
 
-- Install `Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`_ and run: ``choco install llvm``
+- Install `Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`_ and run: ``choco install llvm cmake protoc``
 - Install Rust, to be downloaded `here <https://www.rust-lang.org/tools/install>`__
 - Install Git for windows, to be downloaded `here <https://git-scm.com/download/win>`__
+- Install install protoc in your PATH, to be downloaded `here <https://github.com/protocolbuffers/protobuf/releases>`__
 
 **Clone the Massa Git Repository**
 
