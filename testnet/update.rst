@@ -1,9 +1,10 @@
 Update a node
 =============
 
-If you use the binaries, simply download the latest binaries. Otherwise if you have built from source, follow the instructions below.
+If you use the binaries, simply download the latest binaries.
+Otherwise if you have built from source, follow the instructions below.
 
-Make sure you have all the packages installed on your system. Maybe new one could have been added since you 
+Make sure you have all the packages installed on your system. Maybe new one could have been added since you
 last release refer to
 `our documentation <https://docs.massa.net/en/latest/testnet/install.html#from-source-code-advanced-installation>`__
 for the updated list.
