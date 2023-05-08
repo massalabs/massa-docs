@@ -1,21 +1,12 @@
 Update a node
 =============
 
-If you use the binaries, simply download the latest binaries, and make sure you use the latest nightly version of rust.
+If you use the binaries, simply download the latest binaries. Otherwise if you have built from source, follow the instructions below.
 
-Download the nightly version we use:
-
-.. code-block:: bash
-
-    rustup install nightly-2023-02-27
-
-Use the right version:
-
-.. code-block:: bash
-
-    rustup default nightly-2023-02-27
-
-Otherwise:
+Make sure you have all the packages installed on your system. Maybe new one could have been added since you 
+last release refer to
+`our documentation <https://docs.massa.net/en/latest/testnet/install.html#from-source-code-advanced-installation>`__
+for the updated list.
 
 Make sure you you have the right git repository:
 
