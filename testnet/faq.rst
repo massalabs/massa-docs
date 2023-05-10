@@ -119,6 +119,8 @@ The most likely reason is that you did not produce some blocks when selected to 
 - The node does not have the right registered staking keys (type staking_addresses in the client to verify that they
   match the addresses in your wallet_info that have active rolls) 100% of the time during which you had active_rolls \>
   0
+- Double staking, for example, if you launch 2 nodes with the same keys \>
+  0
 - Some hosting providers have Half-duplex connection setting. Contact hosting support and ask to switch you to
   full-duplex.
 
