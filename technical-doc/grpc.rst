@@ -7,16 +7,17 @@ Massa GRPC API
 
 Through the API documentation, you can find out how to make calls and handle responses.
 
-- **gRPC API**: used for blockchain interactions. Default port: 33037 e.g. grpc://localhost:33037
+- **gRPC Public API**: used for blockchain interactions. Default port: 33037 e.g. grpc://localhost:33037
 
 Find the complete Massa `gRPC <https://grpc.io/>`_ specification `here
-<https://github.com/massalabs/massa/blob/main/massa-proto/proto/massa/api/v1/api.proto>`_.
+<https://github.com/massalabs/massa-proto/blob/main/proto/apis/massa/api/v1/api.proto>`_.
 
 .. note::
 
-   We provide the generated `API documentation
-   <https://htmlpreview.github.io/?https://github.com/massalabs/massa/blob/main/massa-proto/doc/index.html>`_
-   which documents every available methods in gRPC Massa service.
+   We provide the generated `API
+   <https://htmlpreview.github.io/?https://github.com/massalabs/massa-proto/blob/main/doc/api.html>`_ and
+   `Commons <https://htmlpreview.github.io/?https://github.com/massalabs/massa-proto/blob/main/doc/commons.html>`_ documentation
+   which documents every available message and method in gRPC Massa services.
 
 .. warning::
 
@@ -40,20 +41,22 @@ The complete gRPC configuration is available in `node configuration
 Integrations
 ------------
 
-**Postman**: is a tool for software developers to create, test and debug API requests. More details can be found in
-`Postman learning center <https://learning.postman.com/docs/getting-started/introduction/>`_.
-Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
+- **Postman**: is a tool for software developers to create, test and debug API requests.
+  More details can be found in
+  `Postman learning center <https://learning.postman.com/docs/getting-started/introduction/>`_.
+  Find all maintained Massa Postman collections in our official `workspace <https://www.postman.com/massalabs>`_.
+
+- **Massa proto rs**: is a Rust library which contains generated code from Massa protobuf files.
+  See `massa-proto-rs <https://github.com/massalabs/massa-proto-rs>`_.
 
 Code generation
 ---------------
 
-**Step 1: Download the `massa-proto` folder from GitHub**
+**Step 1: Clone `massa-proto` repository**
 
-1. Go to the GitHub repository for `massa <https://github.com/massalabs/massa>`_.
-2. Click the green ``Code`` button and select ``Download ZIP`` to download the entire repository as a ZIP file.
-3. Extract the ZIP file to a folder on your computer.
-4. Navigate to the ``massa-proto`` folder, which contains the ``.proto`` files we'll be using to generate gRPC clients.
+.. code-block:: shell
 
+    git clone https://github.com/massalabs/massa-proto.git
 
 **Step 2: Install Buf CLI**
 
@@ -63,20 +66,19 @@ Code generation
 
 **Step 3: Set up Buf**
 
-1. Create a new file called ``buf.work.yml``
-2. Add the following content:
+1. Add the following content to ``buf.work.yml``:
 
 .. code-block:: yaml
 
     version: v1
     directories:
-        - proto/massa/api/v1
-        - proto/third-party
+        - proto/apis
+        - proto/commons
+        - proto/third_party
 
 By specifying the directories in the configuration file, Buf knows which `.proto` files to include in the build process.
 
-1. Create another file called buf.gen.yml in the massa-proto folder.
-2. Add the following content to ``buf.gen.yml``:
+1. Create a file called ``buf.gen.yml`` and add the following content:
 
 .. code-block:: yaml
 
@@ -97,14 +99,13 @@ This tells Buf to use the official ``ts-proto`` plugin to generate gRPC client i
 
 **Step 4: Generate gRPC client in TypeScript**
 
-1. Open a command prompt or terminal window and navigate to the ``massa-proto`` folder.
-2. Run the following command to generate the gRPC clients:
+1. Run the following command to generate the gRPC clients:
 
 .. code-block:: yaml
 
     buf generate
 
-This will generate the gRPC client in a new ``gen/ts`` folder in the ``massa-proto`` folder.
+This will generate the gRPC client in a new ``gen/ts`` folder.
 
 .. note::
 
