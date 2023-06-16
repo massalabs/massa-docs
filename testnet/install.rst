@@ -50,10 +50,10 @@ If you just wish to run a Massa node without compiling it yourself, you can simp
 go the the next step: :ref:`Running a node <testnet-running>`.
 
 - `Windows executable
-  <https://github.com/massalabs/massa/releases/download/TEST.23.1/massa_TEST.23.1_release_windows.zip>`_
-- `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.23.1/massa_TEST.23.1_release_linux.tar.gz>`_
+  <https://github.com/massalabs/massa/releases/download/TEST.23.2/massa_TEST.23.2_release_windows.zip>`_
+- `Linux binary <https://github.com/massalabs/massa/releases/download/TEST.23.2/massa_TEST.23.2_release_linux.tar.gz>`_
   - only works with libc2.28 at least (for example Ubuntu 20.04 and higher)
-- `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.23.1/massa_TEST.23.1_release_macos.tar.gz>`_
+- `MacOS binary <https://github.com/massalabs/massa/releases/download/TEST.23.2/massa_TEST.23.2_release_macos.tar.gz>`_
 
 From source code (advanced installation)
 ----------------------------------------
