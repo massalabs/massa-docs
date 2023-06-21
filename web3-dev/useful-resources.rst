@@ -20,7 +20,7 @@ Here is a list of useful resources for developing decentralized applications:
 Here is a list of AssemblyScript libraries:
 
 - `massa-standards <https://github.com/massalabs/massa-standards/>`_ Including smart-contract standards for Massa's
-  fungible and non-fungible tokens, in addition to standards for common units of measurement on the Massa blockchain 
+  fungible and non-fungible tokens, in addition to standards for common units of measurement on the Massa blockchain
   (e.g. Massa coin, Gas, Rolls) and standards for wallet communication.
 - `as-types <https://as-types.docs.massa.net/>`_ AssemblyScript package for general purpose of smart-contract
   development.
