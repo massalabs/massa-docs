@@ -19,21 +19,20 @@ This breaks the very foundation of blockchain security.
 
 This attack vector has been well identified by exploiters and, as smart contracts become more robust, exploiters are
 increasingly targeting front ends. For instance, in 2022, one of the major DeFi protocols,
- `Curve Finance <https://curve.fi/>`_, fell victim to `DNS hijacking <https://rekt.news/curve-finance-rekt/>`_,
- with hackers managing to steal as much as $575k from users.
-As long as decentralized applications rely on Web 2.0 infrastructure,
-these attacks are bound to happen `regularly <https://twitter.com/LefterisJP/status/1540306236087877635>`_."
+`Curve Finance <https://curve.fi/>`_, fell victim to `DNS hijacking <https://rekt.news/curve-finance-rekt/>`_,
+with hackers managing to steal as much as $575k from users. 
+As long as decentralized applications rely on Web 2.0 infrastructure, these attacks are bound to happen
+`regularly <https://twitter.com/LefterisJP/status/1540306236087877635>`_.
 
-The goal of Massa's decentralized web is to allow users to store websites without using any centralised party in between
+The goal of Massa's decentralized web is to allow users to store websites without using any centralized party in between
 your client and the blockchain. Since the front-end is hosted on the blockchain, anyone can access it using a Massa
 node. For that Massa has developed a client that acts as a gateway to the blockchain preventing you from using any
-centralised servers effectively maximising your security with immutable and censorship resistant websites.
+centralized servers effectively maximizing your security with immutable and censorship-resistant websites.
 
 This client is called θύρα (thyra) which in ancient Greek means door, entrance.
 
-Start your decentralised web3 journey now, and install `Thyra
+Start your decentralized web3 journey now, and install `Thyra
 <https://docs.massa.net/en/latest/web3-dev/decentralized-web.html>`_. It will enable you to store your own website or to
 simply navigate Massa web3 content.
 
 That way, Massa allows deploying fully decentralized code-is-law apps, as it was meant to be!
-
