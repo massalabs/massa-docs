@@ -17,11 +17,11 @@ otherwise normal website that talks to a browser plugin (typically `Metamask
 blockchain. The website that serves as an entry point to the dApp is neither decentralized nor immutable-once-audited.
 This breaks the very foundation of blockchain security.
 
-This attack vector has been well identified by exploiters and, as smart contracts become more robust exploiters are
-increasingly targeting front ends. For instance, in 2022, one of the major DeFi protocol, `curve.finance
-<https://curve.fi/>`_, was victim of a `DNS hijacking <https://rekt.news/curve-finance-rekt/>`_, with hackers being able
-to stole as much as 575$ from users. As long as decentralized applications rely on web2 infrastuctures, these attacks
-are bound to happen `regularly <https://twitter.com/LefterisJP/status/1540306236087877635>`_.
+This attack vector has been well identified by exploiters and, as smart contracts become more robust, exploiters are 
+increasingly targeting front ends. For instance, in 2022, one of the major DeFi protocols, `Curve Finance
+<https://curve.fi/>`_, 
+fell victim to `DNS hijacking <https://rekt.news/curve-finance-rekt/>`_, with hackers managing to steal as much as $575k from users. 
+As long as decentralized applications rely on Web 2.0 infrastructure, these attacks are bound to happen `regularly <https://twitter.com/LefterisJP/status/1540306236087877635>`_."
 
 The goal of Massa's decentralized web is to allow users to store websites without using any centralised party in between
 your client and the blockchain. Since the front-end is hosted on the blockchain, anyone can access it using a Massa
