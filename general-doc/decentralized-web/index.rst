@@ -20,7 +20,7 @@ This breaks the very foundation of blockchain security.
 This attack vector has been well identified by exploiters and, as smart contracts become more robust, exploiters are
 increasingly targeting front ends. For instance, in 2022, one of the major DeFi protocols,
 `Curve Finance <https://curve.fi/>`_, fell victim to `DNS hijacking <https://rekt.news/curve-finance-rekt/>`_,
-with hackers managing to steal as much as $575k from users. 
+with hackers managing to steal as much as $575k from users.
 As long as decentralized applications rely on Web 2.0 infrastructure, these attacks are bound to happen
 `regularly <https://twitter.com/LefterisJP/status/1540306236087877635>`_.
 
