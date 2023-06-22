@@ -58,6 +58,9 @@ Code generation
 
     git clone https://github.com/massalabs/massa-proto.git
 
+.. note::
+    If you are using an older version of Massa node, please use the corresponding commit hash to your node version.
+
 **Step 2: Install Buf CLI**
 
 1. Download the latest version of Buf CLI from the `official website <https://docs.buf.build/installation>`_.
@@ -86,27 +89,27 @@ By specifying the directories in the configuration file, Buf knows which `.proto
     managed:
       enabled: true
     plugins:
-      - remote: buf.build/stephenh/plugins/ts-proto
+      - remote: buf.build/community/timostamm-protobuf-ts:v2.9.0
         out: gen/ts
-        opt:
-          - outputServices=...
-          - useExactTypes=...
 
-This tells Buf to use the official ``ts-proto`` plugin to generate gRPC client in TypeScript.
+The configuration above tells Buf to use the official
+`timostamm-protobuf-ts <https://buf.build/community/timostamm-protobuf-ts>`_
+plugin to generate gRPC client and classes in TypeScript.
 
 .. note::
     The complete list of official Buf `plugins <https://buf.build/plugins>`_.
+    For each language, there are multiple plugins available. Please refer to the documentation of each plugin if it's not supported.
 
-**Step 4: Generate gRPC client in TypeScript**
+**Step 4: Generate gRPC client/classes in TypeScript**
 
-1. Run the following command to generate the gRPC clients:
+1. Launch the code generation:
 
 .. code-block:: yaml
 
     buf generate
 
-This will generate the gRPC client in a new ``gen/ts`` folder.
+2. Install the required dependencies for the generated code to your project:
 
-.. note::
+.. code-block:: shell
 
-    More information about gRPC in developer `documentation <https://github.com/massalabs/massa/blob/main/massa-grpc/README.md>`_.
+    npm install @protobuf-ts/runtime@^2.9.0 @protobuf-ts/runtime-rpc@^2.9.0
