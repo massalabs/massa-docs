@@ -1,9 +1,6 @@
 Update a node
 =============
 
-**IF COME HERE TO UPDATE FROM TESTNET 22 TO TESTNET 23
-PLEASE DO NOT FOLLOW THIS AND START FROM A FRESH INSTALL**
-
 If you use the binaries, simply download the latest binaries.
 Otherwise if you have built from source, follow the instructions below.
 
